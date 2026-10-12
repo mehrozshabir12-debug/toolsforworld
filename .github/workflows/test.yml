@@ -1,0 +1,42 @@
+name: Test all tools
+
+# Opens every tool in a real Chromium browser with sample files and saves the results
+# to tests/report.json on the "test-results" branch.
+on:
+  push:
+    branches: [main]
+    paths-ignore: ["tests/report.json"]
+  workflow_dispatch: {}
+
+permissions:
+  contents: write
+
+concurrency:
+  group: tool-tests
+  cancel-in-progress: true
+
+jobs:
+  test:
+    runs-on: ubuntu-latest
+    timeout-minutes: 30
+    steps:
+      - uses: actions/checkout@v4
+      - name: Install test tools
+        run: |
+          python -m pip install -q playwright pillow pillow-heif fpdf2 python-docx
+          python -m playwright install --with-deps chromium > /dev/null
+          sudo apt-get install -y -qq ffmpeg > /dev/null
+      - name: Run browser tests
+        run: python tests/run_tests.py
+      - name: Save report to test-results branch
+        if: always()
+        run: |
+          [ -f tests/report.json ] || exit 0
+          cp tests/report.json /tmp/report.json
+          git config user.name "Tools for World tests"
+          git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
+          git checkout --orphan test-results
+          git rm -rq --cached . && find . -mindepth 1 -maxdepth 1 ! -name .git -exec rm -rf {} +
+          cp /tmp/report.json report.json
+          git add report.json && git commit -qm "Test report $(date -u +%F' '%H:%M)"
+          git push -qf origin test-results
