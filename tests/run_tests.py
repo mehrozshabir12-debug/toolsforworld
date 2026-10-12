@@ -67,7 +67,7 @@ FILE_TESTS = [  # slug, sample, timeout s, extra setup
     ("pdf-to-word", "doc.pdf", 90, None), ("word-to-pdf", "doc.docx", 120, None), ("image-to-text", "photo.png", 240, None),
     ("mp4-to-mp3", "video.mp4", 120, None), ("remove-background", "photo.jpg", 420, None),
     ("compress-pdf-to-500kb", "scan.pdf", 300, None), ("compress-image-to-1mb", "photo.png", 60, None),
-    ("us-passport-photo", "photo.jpg", 30, None), ("canada-passport-photo", "photo.jpg", 30, None),
+    ("us-passport-photo", "photo.jpg", 30, None), ("image-to-text-spanish", "photo.png", 240, None), ("resize-image-to-1080x1350", "photo.jpg", 30, None), ("canada-passport-photo", "photo.jpg", 30, None),
 ]
 
 
@@ -107,7 +107,7 @@ async def main():
                     r["ok"] = r["ok"] and 0 < r.get("download_bytes", 0) <= 500 * 1024
                 if slug == "compress-image-to-1mb":
                     r["ok"] = r["ok"] and 0 < r.get("download_bytes", 0) <= 1024 * 1024
-                if slug == "image-to-text":
+                if slug.startswith("image-to-text"):
                     txt = await pg.input_value("#ocrout"); r["ocr_text"] = txt[:120]; r["ok"] = r["ok"] and "Tools" in txt
             except Exception as e:
                 r["error"] = str(e)[:300]
@@ -129,6 +129,10 @@ async def main():
             txt = await pg.inner_text(sel); checks[slug] = {"text": txt.replace("\n", " ")[:120], "ok": bool(txt.strip())}
         await pg.goto(BASE + "percentage-calculator/"); await pg.wait_for_timeout(300)
         r1 = await pg.inner_text("#r1"); checks["percentage-calculator"] = {"r1": r1, "ok": r1 == "30"}
+        await pg.goto(BASE + "discount-calculator/"); await pg.wait_for_timeout(300)
+        r5 = await pg.inner_text("#r5"); checks["discount-calculator"] = {"r5": r5, "ok": r5 == "80"}
+        await pg.goto(BASE + "character-counter/"); await pg.wait_for_timeout(300)
+        t = await pg.inner_text("#out-kv"); checks["character-counter"] = {"text": t.replace("\n", " ")[:80], "ok": "Characters" in t}
         for k, v in checks.items():
             v["page_errors"] = errs[:3]; report[k] = v; print(k, "OK" if v["ok"] else "FAIL", v)
         await b.close()

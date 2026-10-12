@@ -76,11 +76,11 @@ def define(tool, F, N, SEL, RESULT, PDFLIB, PDFJS, MAMMOTH, H2PDF):
     tool(slug="image-to-text", group="pdf", icon="text", name="Image to Text (OCR)", ftool="ocr", libs=TESS,
          card="Copy text from a photo or screenshot.",
          title="Image to Text Converter (OCR) – Extract Text from Images Free | Tools for World",
-         desc="Extract text from images, photos and screenshots with free OCR. Supports English, Urdu, Arabic and Hindi. Runs in your browser.",
+         desc="Extract text from images, photos and screenshots with free OCR. Supports English, Spanish, French, German, Arabic, Hindi, Chinese and more. Runs in your browser.",
          h1="Image to text (OCR)", lead="Pull the text out of a photo, scan or screenshot so you can copy and edit it.",
          body='''<h2>How to extract text from an image</h2><ol><li>Choose a photo or screenshot.</li><li>Pick the language of the text.</li><li>Press <b>Extract text</b>, then copy it or download a .txt file.</li></ol>
 <h2>Tips for better results</h2><ul><li>Use a sharp, well-lit photo taken straight on.</li><li>Crop away everything except the text.</li><li>Printed text works much better than handwriting.</li></ul>''',
-         faq=[("Which languages are supported?", "English, Urdu, Arabic and Hindi, plus English and Urdu together."),
+         faq=[("Which languages are supported?", "English, Spanish, French, German, Portuguese, Italian, Russian, Turkish, Arabic, Urdu, Hindi, Bengali, Indonesian and Simplified Chinese."),
               ("Can it read handwriting?", "Clear handwriting sometimes works, but OCR is built for printed text.")])
 
     # ================= Image =================
@@ -227,27 +227,39 @@ LANDING = []
 
 def landing(define_tool):
     t = define_tool
-    for kb, use in ((20, "signature uploads and tiny form fields"), (50, "government and exam application forms"),
+    for kb, use in ((10, "signatures and thumbnail-size form fields"), (20, "signature uploads and tiny form fields"),
+                    (30, "exam forms that ask for a small photo"), (50, "government and exam application forms"),
                     (100, "job portals, visa forms and email"), (200, "website uploads and online profiles"),
-                    (500, "high-quality photos that still upload fast")):
-        t(slug=f"compress-image-to-{kb}kb", group="img", icon="img", name=f"Compress Image to {kb}KB", ftool="compress", libs="",
+                    (500, "high-quality photos that still upload fast"), (1024, "photos that must stay under 1 MB")):
+        lab = "1MB" if kb == 1024 else f"{kb}KB"; lab_s = "1 MB" if kb == 1024 else f"{kb} KB"
+        t(slug=f"compress-image-to-{lab.lower()}", group="img", icon="img", name=f"Compress Image to {lab}", ftool="compress", libs="",
           parent="compress-image", preset={"#tkb": kb},
-          card=f"Make any photo under {kb} KB automatically.",
-          title=f"Compress Image to {kb}KB Online Free – JPG Under {kb} KB | Tools for World",
-          desc=f"Compress JPG, PNG or WebP images to {kb}KB or less in one click. Free, no upload: the photo is resized in your browser until it is just under {kb} KB.",
-          h1=f"Compress image to {kb}KB", lead=f"Choose a photo and it is made just under {kb} KB automatically, keeping as much quality as possible. Ideal for {use}.",
-          body=f'''<h2>How to compress a photo to {kb}KB</h2><ol><li>Choose your photo (JPG, PNG or WebP).</li><li>The target is already set to <b>{kb} KB</b>. Change it if you need a different size.</li><li>Press <b>Compress</b> and download the photo.</li></ol>
-<h2>How it works</h2><p>The tool tries many quality levels and picks the highest one that stays under {kb} KB. If the photo is still too big at the lowest quality, it is scaled down a little at a time until it fits. Everything happens on your device, so your photo is never uploaded.</p>
-<h2>Tips</h2><ul><li>Crop away empty background first: less detail means better quality at {kb} KB.</li><li>Most forms want JPG. Keep the output on JPG unless WebP is allowed.</li></ul>''',
-          faq=[(f"Will my photo still look good at {kb}KB?", "For most photos, yes. The tool keeps the best quality that fits. Very large, detailed photos may be scaled down to fit."),
-               (f"Can I compress several photos to {kb}KB at once?", "Yes. Choose several files and each one is compressed to the target size.")])
+          card=f"Make any photo under {lab_s} automatically.",
+          title=f"Compress Image to {lab} Online Free – JPG Under {lab_s} | Tools for World",
+          desc=f"Compress JPG, PNG or WebP images to {lab} or less in one click. Free, no upload: the photo is resized in your browser until it is just under {lab_s}.",
+          h1=f"Compress image to {lab}", lead=f"Choose a photo and it is made just under {lab_s} automatically, keeping as much quality as possible. Ideal for {use}.",
+          body=f'''<h2>How to compress a photo to {lab}</h2><ol><li>Choose your photo (JPG, PNG or WebP).</li><li>The target is already set to <b>{lab_s}</b>. Change it if you need a different size.</li><li>Press <b>Compress</b> and download the photo.</li></ol>
+<h2>How it works</h2><p>The tool tries many quality levels and picks the highest one that stays under {lab_s}. If the photo is still too big at the lowest quality, it is scaled down a little at a time until it fits. Everything happens on your device, so your photo is never uploaded.</p>
+<h2>Tips</h2><ul><li>Crop away empty background first: less detail means better quality at {lab_s}.</li><li>Most forms want JPG. Keep the output on JPG unless WebP is allowed.</li></ul>''',
+          faq=[(f"Will my photo still look good at {lab}?", "For most photos, yes. The tool keeps the best quality that fits. Very large, detailed photos may be scaled down to fit."),
+               (f"Can I compress several photos to {lab} at once?", "Yes. Choose several files and each one is compressed to the target size.")])
 
     for w, h, label, use in ((1080, 1080, "Instagram post", "square Instagram and Facebook posts"),
                              (1080, 1920, "Instagram story / Reels", "Instagram stories, Reels, TikTok and WhatsApp status"),
                              (1200, 630, "Facebook & link preview", "Facebook posts, link previews and Open Graph images"),
                              (1280, 720, "YouTube thumbnail", "YouTube thumbnails and HD slides"),
                              (600, 600, "passport photo 2×2 inch", "online US passport and visa photo uploads (2×2 inch at 300 dpi)"),
-                             (400, 400, "profile picture", "profile pictures on LinkedIn, Discord, forums and apps")):
+                             (400, 400, "profile picture", "profile pictures on LinkedIn, Discord, forums and apps"),
+                             (1920, 1080, "Full HD", "Full HD wallpapers, presentations and video frames"),
+                             (1584, 396, "LinkedIn banner", "LinkedIn profile background banners"),
+                             (1500, 500, "X / Twitter header", "X (Twitter) profile header images"),
+                             (2560, 1440, "YouTube banner", "YouTube channel banners (keep text in the centre)"),
+                             (1080, 1350, "Instagram portrait", "portrait Instagram posts that fill more of the feed"),
+                             (851, 315, "Facebook cover", "Facebook page and profile cover photos"),
+                             (1000, 1500, "Pinterest pin", "Pinterest pins in the recommended 2:3 shape"),
+                             (500, 500, "WhatsApp DP", "WhatsApp, Telegram and Signal profile pictures"),
+                             (1024, 1024, "app icon", "app icons, logos and square AI-image inputs"),
+                             (3000, 3000, "album cover", "Spotify, Apple Music and podcast cover art")):
         t(slug=f"resize-image-to-{w}x{h}", group="img", icon="img", name=f"Resize to {w}×{h}", ftool="resize", libs="",
           parent="resize-image", preset={"#rm": "px", "#rw": w, "#rh": h, "#rk": False, "#rf": "crop"},
           card=f"{label}: exactly {w}×{h} px.",
@@ -260,7 +272,17 @@ def landing(define_tool):
 
     for code, lang, extra in (("urd", "Urdu", "Nastaliq printed text from books, newspapers and screenshots"),
                               ("ara", "Arabic", "printed Arabic text, documents and screenshots"),
-                              ("hin", "Hindi", "printed Devanagari text from documents and screenshots")):
+                              ("hin", "Hindi", "printed Devanagari text from documents and screenshots"),
+                              ("spa", "Spanish", "printed Spanish text from documents, books and screenshots"),
+                              ("fra", "French", "printed French text, including accents, from documents and screenshots"),
+                              ("deu", "German", "printed German text, including umlauts, from documents and screenshots"),
+                              ("por", "Portuguese", "printed Portuguese text from documents and screenshots"),
+                              ("ita", "Italian", "printed Italian text from documents and screenshots"),
+                              ("rus", "Russian", "printed Cyrillic text from documents and screenshots"),
+                              ("tur", "Turkish", "printed Turkish text from documents and screenshots"),
+                              ("ben", "Bengali", "printed Bangla text from documents and screenshots"),
+                              ("ind", "Indonesian", "printed Indonesian text from documents and screenshots"),
+                              ("chi_sim", "Chinese", "printed Simplified Chinese text from documents and screenshots")):
         t(slug=f"image-to-text-{lang.lower()}", group="pdf", icon="text", name=f"{lang} Image to Text", ftool="ocr", libs=TESS,
           parent="image-to-text", preset={"#ol": code},
           card=f"Copy {lang} text from a photo (OCR).",
@@ -290,3 +312,67 @@ def landing(define_tool):
       h1="WhatsApp QR code generator", lead="Make a QR code that opens a WhatsApp chat with you. Put your number (with country code) in the link.",
       ui=None, body='''<h2>How to make a WhatsApp QR code</h2><ol><li>In the box, replace <code>15551234567</code> with your number in international format, without + or spaces (for example 923001234567 for Pakistan or 61412345678 for Australia).</li><li>Change the text after <code>?text=</code> to the first message you want customers to send, or delete it.</li><li>Download the PNG and put it on your shop counter, menu, card or flyer.</li></ol>''',
       faq=[("Does the QR code expire?", "No. It's a normal wa.me link stored in the code, so it works forever.")])
+
+    # ---- Compress PDF to an exact size ----
+    PDFLIBS = ('<script src="https://cdnjs.cloudflare.com/ajax/libs/pdf-lib/1.17.1/pdf-lib.min.js"></script>'
+               '<script src="https://cdnjs.cloudflare.com/ajax/libs/pdf.js/3.11.174/pdf.min.js"></script>')
+    for kb, use in ((100, "online application forms and portals with a strict 100 KB limit"),
+                    (200, "job applications, university forms and government portals"),
+                    (300, "visa and admission forms that allow up to 300 KB"),
+                    (500, "email attachments and most upload forms"),
+                    (1024, "email, WhatsApp and portals with a 1 MB limit")):
+        lab = "1MB" if kb == 1024 else f"{kb}KB"; lab_s = "1 MB" if kb == 1024 else f"{kb} KB"
+        t(slug=f"compress-pdf-to-{lab.lower()}", group="pdf", icon="pdf", name=f"Compress PDF to {lab}", ftool="pdfcompress", libs=PDFLIBS,
+          parent="compress-pdf", preset={"#ptkb": kb},
+          card=f"Shrink a PDF to under {lab_s} automatically.",
+          title=f"Compress PDF to {lab} Online Free – PDF Under {lab_s} | Tools for World",
+          desc=f"Compress a PDF to {lab} or less for free. The best quality that fits under {lab_s} is picked for you. No upload: works in your browser.",
+          h1=f"Compress PDF to {lab}", lead=f"Choose a PDF and it is made just under {lab_s}, keeping as much quality as possible. Ideal for {use}.",
+          body=f'''<h2>How to compress a PDF to {lab}</h2><ol><li>Choose your PDF.</li><li>The target is already set to <b>{lab_s}</b>. Change it if your form allows a different size.</li><li>Press <b>Compress PDF</b> and download the smaller file.</li></ol>
+<h2>How it works</h2><p>Each page is re-saved as a compressed image. The tool tries several quality levels and keeps the sharpest one that still fits under {lab_s}. Your file never leaves your device.</p>
+<h2>Tips</h2><ul><li>Scanned documents and PDFs full of photos shrink the most.</li><li>Fewer pages means better quality at {lab_s}. Remove pages you don't need with <a href="../split-pdf/">Split PDF</a> first.</li><li>Text in the result can no longer be selected or searched, which is fine for forms and scans.</li></ul>''',
+          faq=[(f"What if my PDF can't get under {lab}?", "The tool shows the smallest size it could reach. Split the PDF into parts or remove pages, then try again."),
+               ("Is my PDF uploaded?", "No. Compression happens inside your browser, so the file stays on your device.")])
+
+    # ---- Passport and visa photos by country ----
+    for slug, country, ps, size_txt, bg in (
+            ("us-passport-photo", "US", "50.8x50.8", "2 × 2 inches (51 × 51 mm)", "plain white or off-white"),
+            ("uk-passport-photo", "UK", "35x45", "35 × 45 mm", "plain light grey or cream"),
+            ("canada-passport-photo", "Canada", "50x70", "50 × 70 mm", "plain white or light-coloured"),
+            ("australia-passport-photo", "Australia", "35x45", "35 × 45 mm", "plain light-coloured"),
+            ("india-passport-photo", "India", "35x45", "35 × 45 mm", "plain white"),
+            ("schengen-visa-photo", "Schengen visa", "35x45", "35 × 45 mm", "plain light-coloured"),
+            ("china-visa-photo", "China visa", "33x48", "33 × 48 mm", "plain white")):
+        t(slug=slug, group="img", icon="user", name=f"{country} Passport Photo" if "visa" not in country else f"{country} Photo",
+          ftool="passport", libs="", parent="passport-photo-maker", preset={"#ps": ps},
+          card=f"{size_txt}, plus a 4×6 print sheet.",
+          title=f"{country} {'Passport ' if 'visa' not in country else ''}Photo Maker – {size_txt.split(' (')[0]} Free | Tools for World",
+          desc=f"Make a {country} {'passport ' if 'visa' not in country else ''}photo online for free: crop to {size_txt} and get a ready-to-print 4×6 inch sheet. No upload, works on your phone.",
+          h1=f"{country} {'passport ' if 'visa' not in country else ''}photo maker",
+          lead=f"Crop your photo to the {country} size of {size_txt} and download a single photo plus a 4×6 inch sheet to print.",
+          body=f'''<h2>How to make a {country} {'passport ' if 'visa' not in country else ''}photo</h2><ol><li>Take a photo facing the camera against a {bg} background, with even light and no shadows.</li><li>Choose the photo. The size is already set to <b>{size_txt}</b>.</li><li>Use zoom and the sliders so the top of the head is near the upper guide line and the chin near the lower one.</li><li>Press <b>Make sheet</b>. Print the 4×6 sheet at 100% scale at home or at a photo shop, or use the single photo for online applications.</li></ol>
+<h2>Photo checklist</h2><ul><li>Size: {size_txt}.</li><li>Background: {bg}, with no patterns or objects.</li><li>Neutral expression, mouth closed, eyes open and visible.</li><li>No glasses glare, hats or filters.</li></ul>
+<div class="warnbox">Rules change from time to time. Always check the latest photo requirements on the official government website before you apply.</div>''',
+          faq=[(f"What size is a {country} {'passport ' if 'visa' not in country else ''}photo?", f"{size_txt}. This tool crops your photo to exactly that size at 300 dpi."),
+               ("Is my photo uploaded?", "No. Cropping and the print sheet are made in your browser, so the photo stays on your device.")])
+
+    # ---- Utility variants ----
+    t(slug="character-counter", group="util", icon="text", name="Character Counter", calc="words", libs="", parent="word-counter",
+      card="Count characters with and without spaces.",
+      title="Character Counter – Count Characters Online Free | Tools for World",
+      desc="Free character counter: count characters with and without spaces, plus words and sentences. Check limits for X posts, meta descriptions, SMS and bios.",
+      h1="Character counter", lead="Paste your text to count characters with and without spaces as you type. Handy for posts, bios, ads and SMS.",
+      ui=None, body='''<h2>Common character limits</h2><ul><li>X (Twitter) post: 280 characters.</li><li>SMS: 160 characters per message (70 with emoji or non-Latin letters).</li><li>Instagram bio: 150 characters.</li><li>Google meta description: about 155 characters before it gets cut off.</li><li>Google Ads headline: 30 characters; description: 90.</li></ul>
+<p>Emoji and many non-Latin letters count as one character here, the way people read them.</p>''',
+      faq=[("Do spaces count as characters?", "Usually yes. That's why both numbers are shown: with spaces and without spaces."),
+           ("Is my text saved?", "No. Counting happens in your browser and nothing is stored.")])
+
+    t(slug="discount-calculator", group="util", icon="calc", name="Discount Calculator", calc="pct", libs="", parent="percentage-calculator",
+      preset={"#p5a": 20, "#p5b": 100},
+      card="Sale price after a % discount.",
+      title="Discount Calculator – Price After % Off | Tools for World",
+      desc="Free discount calculator: find the sale price after a percentage off, how much you save, and the percent change between two prices.",
+      h1="Discount calculator", lead="Use “Take X% off” to see the sale price. The other rows show savings as a percent and the change between two prices.",
+      ui=None, body='''<h2>How to calculate a discount</h2><ol><li>In “Take X% off”, enter the discount (for example 20) and the original price.</li><li>The sale price appears instantly: 20% off 100 is 80.</li><li>To find the discount you got, enter the old and new price in the “From … to …” row.</li></ol>
+<p>Formula: sale price = price × (1 − discount ÷ 100). Stacked discounts multiply: 20% then 10% off is 28% off in total, not 30%.</p>''',
+      faq=[("How do I work out two discounts in a row?", "Apply them one after the other: 20% off 100 is 80, then 10% off 80 is 72. That's 28% off in total.")])

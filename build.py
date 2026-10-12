@@ -147,7 +147,9 @@ def build():
 <p>Convert PDF and Word files, compress and edit images, remove backgrounds, make QR codes and more. No sign-up, no watermark, no limits. Every tool runs in your browser, so your files never leave your device.</p></div>'''
     for g, label in GROUPS:
         home += f'<div class="sect" id="{g}">{label}</div>' + cards("", [t for t in T if t["group"] == g and not t.get("parent")])
-    home += chips("", [t for t in T if t.get("parent")], "Popular sizes &amp; presets")
+    home += '<div class="sect" id="presets">Popular sizes &amp; presets</div>'
+    for par in [p for p in T if any(x.get("parent") == p["slug"] for x in T)]:
+        home += chips("", [t for t in T if t.get("parent") == par["slug"]], par["name"])
     write("index.html", page("", "Tools for World – Free PDF, Image & Everyday Tools Online",
                              "Free online tools: PDF to Word, Word to PDF, compress PDF and images, background remover, HEIC to JPG, OCR, QR code generator, MP4 to MP3 and more. Private: files never leave your device.",
                              BASE, home, f'<script src="assets/calc.js"></script>',
