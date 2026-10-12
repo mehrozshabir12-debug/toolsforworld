@@ -66,8 +66,8 @@ function renderOpts(){
   const o=$('#opts');
   const fmt=(id,def)=>`<label>Format <select id="${id}"><option value="image/jpeg"${def==='jpg'?' selected':''}>JPG</option><option value="image/png"${def==='png'?' selected':''}>PNG</option><option value="image/webp"${def==='webp'?' selected':''}>WebP</option></select></label>`;
   o.innerHTML={
-   compress:`<div class="row"><label>Quality <input type="range" id="q" min="10" max="95" value="70"> <span id="qv" class="sz">70%</span></label><label>Max width <input type="number" id="mw" placeholder="Original" min="50"> px</label><label>Output <select id="cf"><option value="image/jpeg">JPG</option><option value="image/webp">WebP</option></select></label></div>`,
-   resize:`<div class="row"><label><select id="rm"><option value="px">Pixels</option><option value="pc">Percent</option></select></label><label>Width <input type="number" id="rw" min="1"></label><label>Height <input type="number" id="rh" min="1"></label><label><input type="checkbox" id="rk" checked> Keep ratio</label><label>Percent <input type="number" id="rp" value="50" min="1" max="500"> %</label></div><p class="note">With "Keep ratio", fill only width or height and the other is calculated for each image.</p>`,
+   compress:`<div class="row"><label>Quality <input type="range" id="q" min="10" max="95" value="70"> <span id="qv" class="sz">70%</span></label><label>Max width <input type="number" id="mw" placeholder="Original" min="50"> px</label><label>Output <select id="cf"><option value="image/jpeg">JPG</option><option value="image/webp">WebP</option></select></label></div><div class="row"><label>Target size <input type="number" id="tkb" placeholder="Any" min="5" step="1"> KB</label><span class="note">Set a target (like 100) and the photo is made just under that size. Quality is then chosen for you.</span></div>`,
+   resize:`<div class="row"><label><select id="rm"><option value="px">Pixels</option><option value="pc">Percent</option></select></label><label>Width <input type="number" id="rw" min="1"></label><label>Height <input type="number" id="rh" min="1"></label><label><input type="checkbox" id="rk" checked> Keep ratio</label><label>If the shape differs <select id="rf"><option value="crop">Crop to fill</option><option value="pad">Fit with white border</option><option value="stretch">Stretch</option></select></label><label>Percent <input type="number" id="rp" value="50" min="1" max="500"> %</label></div><p class="note">With "Keep ratio", fill only width or height and the other is calculated for each image.</p>`,
    convert:`<div class="row">${fmt('tf','png')}<label>Quality <input type="range" id="tq" min="10" max="100" value="92"></label></div>`,
    passport:`<div class="pp"><canvas id="ppc" width="350" height="450" aria-label="Passport photo preview"></canvas><div class="panel" style="margin:0">
      <label>Size <select id="ps"><option value="35x45">35 × 45 mm – Pakistan, Australia, UK, EU, India</option><option value="51x51">2 × 2 in – USA</option><option value="40x50">40 × 50 mm</option><option value="30x40">30 × 40 mm</option></select></label>
@@ -106,10 +106,21 @@ $('#go').onclick=async()=>{
 };
 const RUN={
  async compress(){
-  const q=$('#q').value/100,mw=+$('#mw').value||0,type=$('#cf').value;
+  const q=$('#q').value/100,mw=+$('#mw').value||0,type=$('#cf').value,target=(+$('#tkb').value||0)*1024;
   for(const f of files){const i=await loadImg(f);let w=i.naturalWidth,h=i.naturalHeight;if(mw&&w>mw){h=Math.round(h*mw/w);w=mw}
-   const b=await toBlob(draw(i,w,h,type),type,q);addOut(b,base(f.name)+'-compressed.'+ext[type]);
-   status(`${f.name}: ${kb(f.size)} → ${kb(b.size)}`)}
+   let b;
+   if(target){ // best quality (and size, if needed) that fits under the target
+     let best=null;
+     for(let pass=0;pass<12&&!best;pass++){
+       const c=draw(i,w,h,type);let lo=0.05,hi=0.95;
+       const low=await toBlob(c,type,lo);
+       if(low.size<=target){best=low;for(let k=0;k<7;k++){const mid=(lo+hi)/2,t=await toBlob(c,type,mid);if(t.size<=target){best=t;lo=mid}else hi=mid}}
+       else{w=Math.max(16,Math.round(w*0.82));h=Math.max(16,Math.round(h*0.82))}
+     }
+     b=best||await toBlob(draw(i,w,h,type),type,0.05);
+   } else b=await toBlob(draw(i,w,h,type),type,q);
+   addOut(b,base(f.name)+'-compressed.'+ext[type]);
+   status(`${f.name}: ${kb(f.size)} → ${kb(b.size)}${target?` (target ${Math.round(target/1024)} KB, ${w}×${h})`:''}`)}
  },
  async resize(){
   const m=$('#rm').value,W=+$('#rw').value,H=+$('#rh').value,k=$('#rk').checked,p=+$('#rp').value/100;
@@ -119,7 +130,13 @@ const RUN={
    else if(k){w=W||H*r;h=W?W/r:H}else{w=W||i.naturalWidth;h=H||i.naturalHeight}
    w=Math.max(1,Math.round(w));h=Math.max(1,Math.round(h));
    const type=f.type==='image/png'?'image/png':f.type==='image/webp'?'image/webp':'image/jpeg';
-   addOut(await toBlob(draw(i,w,h,type),type,.92),`${base(f.name)}-${w}x${h}.${ext[type]}`)}
+   let c;const fit=$('#rf').value;
+   if(m==='px'&&!k&&W&&H&&fit!=='stretch'){
+     c=document.createElement('canvas');c.width=w;c.height=h;const x=c.getContext('2d');x.fillStyle='#fff';x.fillRect(0,0,w,h);
+     const sc=fit==='crop'?Math.max(w/i.naturalWidth,h/i.naturalHeight):Math.min(w/i.naturalWidth,h/i.naturalHeight);
+     const dw=i.naturalWidth*sc,dh=i.naturalHeight*sc;x.drawImage(i,(w-dw)/2,(h-dh)/2,dw,dh);
+   } else c=draw(i,w,h,type);
+   addOut(await toBlob(c,type,.92),`${base(f.name)}-${w}x${h}.${ext[type]}`)}
  },
  async convert(){
   const type=$('#tf').value,q=$('#tq').value/100;
@@ -320,4 +337,5 @@ RUN.pdf2word=async function(){
 cur=document.body.dataset.tool;
 (function(){const t=TOOLS[cur];const fin=$('#fin');fin.accept=t.accept;fin.multiple=t.multi;
  $('#d-main').textContent=t.multi?'Choose files':'Choose a file';$('#d-sub').textContent='or drag and drop '+(t.multi?'them':'it')+' here';
- $('#go').textContent=t.go;renderOpts();render();})();
+ $('#go').textContent=t.go;renderOpts();render();
+ const P=window.PRESET||{};for(const [sel,v] of Object.entries(P)){const e=$(sel);if(!e)continue;if(e.type==='checkbox')e.checked=!!v;else e.value=v;e.dispatchEvent(new Event('input'));e.dispatchEvent(new Event('change'))}})();

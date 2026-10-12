@@ -59,7 +59,7 @@ def make_samples():
 
 
 FILE_TESTS = [  # slug, sample, timeout s, extra setup
-    ("compress-image", "photo.jpg", 30, None), ("resize-image", "photo.jpg", 30, ("#rw", "800")),
+    ("compress-image", "photo.jpg", 30, None), ("compress-image-to-50kb", "photo.jpg", 60, None), ("resize-image-to-1080x1080", "photo.jpg", 30, None), ("resize-image", "photo.jpg", 30, ("#rw", "800")),
     ("png-to-jpg", "photo.png", 30, None), ("jpg-to-png", "photo.jpg", 30, None), ("webp-to-jpg", "photo.webp", 30, None),
     ("heic-to-jpg", "photo.heic", 90, None), ("passport-photo-maker", "photo.jpg", 30, None),
     ("jpg-to-pdf", "photo.jpg", 30, None), ("merge-pdf", ["doc.pdf", "doc2.pdf"], 60, None),

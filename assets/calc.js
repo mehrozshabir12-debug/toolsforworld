@@ -120,4 +120,5 @@ CALC.qr = () => {
 };
 
 const which = document.body.dataset.calc;
+for (const [sel, v] of Object.entries(window.PRESET || {})) { const e = $(sel); if (e) e.value = v; }
 if (CALC[which]) CALC[which]();

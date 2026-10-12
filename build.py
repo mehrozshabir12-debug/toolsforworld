@@ -56,6 +56,8 @@ T = []
 def tool(**k): T.append(k)
 import tools_list
 tools_list.define(tool, F, N, SEL, RESULT, PDFLIB, PDFJS, MAMMOTH, H2PDF)
+tools_list.landing(tool)
+BY = {t['slug']: t for t in T}
 
 GROUPS = [("pdf", "PDF & document tools"), ("img", "Image tools"), ("util", "Text & everyday tools"), ("media", "Audio & video")]
 NAV = {"pdf": "PDF", "img": "Image", "util": "Utilities", "media": "Audio"}
@@ -72,7 +74,7 @@ def page(rel_root, title, desc, canon, body, scripts="", body_attr="", jsonld=No
 <title>{html.escape(title)}</title>
 <meta name="description" content="{html.escape(desc)}">
 <link rel="canonical" href="{canon}">
-<meta property="og:title" content="{html.escape(title)}"><meta property="og:description" content="{html.escape(desc)}"><meta property="og:url" content="{canon}"><meta property="og:type" content="website"><meta property="og:site_name" content="Tools for World">
+<meta property="og:title" content="{html.escape(title)}"><meta property="og:description" content="{html.escape(desc)}"><meta property="og:url" content="{canon}"><meta property="og:type" content="website"><meta property="og:site_name" content="Tools for World"><meta property="og:image" content="{BASE}og-image.png"><meta name="twitter:card" content="summary_large_image">
 <link rel="icon" href="{rel_root}favicon.svg" type="image/svg+xml">
 <link rel="preconnect" href="https://fonts.googleapis.com"><link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Bricolage+Grotesque:opsz,wght@12..96,600;12..96,800&family=Figtree:wght@400;500;600&family=JetBrains+Mono:wght@500&display=swap">
@@ -96,6 +98,10 @@ def cards(rel_root, items):
     return '<div class="grid">' + "".join(
         f'<a class="tool" href="{rel_root}{t["slug"]}/"><span class="ic">{ICON[t["icon"]]}</span><span><h2>{t["name"]}</h2><p>{t["card"]}</p></span></a>' for t in items) + "</div>"
 
+def chips(rel_root, items, label):
+    return f'<div class="chips"><span class="sect">{label}</span>' + "".join(
+        f'<a href="{rel_root}{t["slug"]}/">{t["name"]}</a>' for t in items) + "</div>"
+
 def write(rel_path, content):
     if PREVIEW and rel_path.endswith(".html"):
         content = re.sub(r'href="((?:\.\./)*(?:[a-z0-9-]+/)?)(#[a-z]*)?"', lambda m: f'href="{m.group(1)}index.html{m.group(2) or ""}"', content)
@@ -108,19 +114,26 @@ def build():
     for t in T:
         r = "../"
         faq = "".join(f"<details><summary>{q}</summary><p>{a}</p></details>" for q, a in t.get("faq", []))
-        related = [x for x in T if x["group"] == t["group"] and x["slug"] != t["slug"]][:4]
+        par = BY.get(t.get("parent"))
+        kids = [x for x in T if x.get("parent") == t["slug"]]
+        if par:
+            related = [par] + [x for x in T if x.get("parent") == par["slug"] and x["slug"] != t["slug"]][:3]
+        else:
+            related = [x for x in T if x["group"] == t["group"] and x["slug"] != t["slug"] and not x.get("parent")][:4]
+        preset = f'<script>window.PRESET={json.dumps(t["preset"])}</script>' if t.get("preset") else ""
         if "ftool" in t:
             ui = FILE_UI.replace("EXTRA", t.get("extra", ""))
-            scripts = t["libs"] + f'<script src="{r}assets/files.js"></script>'
+            scripts = preset + t["libs"] + f'<script src="{r}assets/files.js"></script>'
             attr = f' data-tool="{t["ftool"]}"'
         else:
-            ui = t["ui"]; scripts = t.get("libs", "") + f'<script src="{r}assets/calc.js"></script>'; attr = f' data-calc="{t["calc"]}"'
+            ui = t.get("ui") or par["ui"]; scripts = preset + t.get("libs", "") + f'<script src="{r}assets/calc.js"></script>'; attr = f' data-calc="{t["calc"]}"'
         group_name = dict(GROUPS)[t["group"]]
-        body = f'''<p class="crumbs"><a href="{r}">Home</a> › <a href="{r}#{t["group"]}">{group_name}</a></p>
+        body = f'''<p class="crumbs"><a href="{r}">Home</a> › <a href="{r}#{t["group"]}">{group_name}</a>{f' › <a href="{r}{par["slug"]}/">{par["name"]}</a>' if par else ""}</p>
 <section class="bench"><h1>{t["h1"]}</h1><p class="lead">{t["lead"]}</p>
+{chips(r, kids, "Popular presets") if kids else ""}
 {ui}
 <div class="how">{t["body"]}{f'<h2>Questions</h2><div class="faq">{faq}</div>' if faq else ""}</div>
-<div class="related"><div class="sect">More {group_name.lower()}</div>{cards(r, related)}</div></section>'''
+<div class="related"><div class="sect">{"Related tools" if par else "More " + group_name.lower()}</div>{cards(r, related)}</div></section>'''
         canon = BASE + t["slug"] + "/"
         ld = [{"@context": "https://schema.org", "@type": "WebApplication", "name": t["name"], "url": canon, "applicationCategory": "UtilitiesApplication",
                "operatingSystem": "Any", "offers": {"@type": "Offer", "price": "0", "priceCurrency": "USD"}, "description": t["desc"]}]
@@ -133,11 +146,14 @@ def build():
     home = '''<div class="hero"><p class="brand-big" aria-hidden="true">Tools <i>for</i> World</p><h1>Free online tools that keep your files private</h1>
 <p>Convert PDF and Word files, compress and edit images, remove backgrounds, make QR codes and more. No sign-up, no watermark, no limits. Every tool runs in your browser, so your files never leave your device.</p></div>'''
     for g, label in GROUPS:
-        home += f'<div class="sect" id="{g}">{label}</div>' + cards("", [t for t in T if t["group"] == g])
+        home += f'<div class="sect" id="{g}">{label}</div>' + cards("", [t for t in T if t["group"] == g and not t.get("parent")])
+    home += chips("", [t for t in T if t.get("parent")], "Popular sizes &amp; presets")
     write("index.html", page("", "Tools for World – Free PDF, Image & Everyday Tools Online",
                              "Free online tools: PDF to Word, Word to PDF, compress PDF and images, background remover, HEIC to JPG, OCR, QR code generator, MP4 to MP3 and more. Private: files never leave your device.",
                              BASE, home, f'<script src="assets/calc.js"></script>',
-                             jsonld=[{"@context": "https://schema.org", "@type": "WebSite", "name": "Tools for World", "url": BASE}]))
+                             jsonld=[{"@context": "https://schema.org", "@type": "WebSite", "name": "Tools for World", "alternateName": ["ToolsForWorld", "toolsforworld.com"], "url": BASE},
+                                     {"@context": "https://schema.org", "@type": "Organization", "name": "Tools for World", "url": BASE, "logo": BASE + "logo.png",
+                                      "email": "hello@toolsforworld.com"}]))
 
     info = {
         "about": ("About Tools for World", "Tools for World makes free, simple and private online tools for everyday tasks.",

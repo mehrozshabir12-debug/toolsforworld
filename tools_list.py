@@ -219,3 +219,74 @@ def define(tool, F, N, SEL, RESULT, PDFLIB, PDFJS, MAMMOTH, H2PDF):
          body='''<h2>How to convert MP4 to MP3</h2><ol><li>Choose a video (MP4, MOV, WebM).</li><li>Pick the quality: 192 kbps suits most music and speech.</li><li>Press <b>Convert to MP3</b>.</li></ol>
 <div class="warnbox">Only convert videos you own or have permission to use. Downloading from YouTube is not supported.</div>''',
          faq=[("Is there a size limit?", "No fixed limit, but very long videos need a lot of memory and can fail on phones. Use a computer for videos over about 200 MB.")])
+
+
+# ================= SEO landing pages (presets of the main tools) =================
+LANDING = []
+
+
+def landing(define_tool):
+    t = define_tool
+    for kb, use in ((20, "signature uploads and tiny form fields"), (50, "government and exam application forms"),
+                    (100, "job portals, visa forms and email"), (200, "website uploads and online profiles"),
+                    (500, "high-quality photos that still upload fast")):
+        t(slug=f"compress-image-to-{kb}kb", group="img", icon="img", name=f"Compress Image to {kb}KB", ftool="compress", libs="",
+          parent="compress-image", preset={"#tkb": kb},
+          card=f"Make any photo under {kb} KB automatically.",
+          title=f"Compress Image to {kb}KB Online Free – JPG Under {kb} KB | Tools for World",
+          desc=f"Compress JPG, PNG or WebP images to {kb}KB or less in one click. Free, no upload: the photo is resized in your browser until it is just under {kb} KB.",
+          h1=f"Compress image to {kb}KB", lead=f"Choose a photo and it is made just under {kb} KB automatically, keeping as much quality as possible. Ideal for {use}.",
+          body=f'''<h2>How to compress a photo to {kb}KB</h2><ol><li>Choose your photo (JPG, PNG or WebP).</li><li>The target is already set to <b>{kb} KB</b>. Change it if you need a different size.</li><li>Press <b>Compress</b> and download the photo.</li></ol>
+<h2>How it works</h2><p>The tool tries many quality levels and picks the highest one that stays under {kb} KB. If the photo is still too big at the lowest quality, it is scaled down a little at a time until it fits. Everything happens on your device, so your photo is never uploaded.</p>
+<h2>Tips</h2><ul><li>Crop away empty background first: less detail means better quality at {kb} KB.</li><li>Most forms want JPG. Keep the output on JPG unless WebP is allowed.</li></ul>''',
+          faq=[(f"Will my photo still look good at {kb}KB?", "For most photos, yes. The tool keeps the best quality that fits. Very large, detailed photos may be scaled down to fit."),
+               (f"Can I compress several photos to {kb}KB at once?", "Yes. Choose several files and each one is compressed to the target size.")])
+
+    for w, h, label, use in ((1080, 1080, "Instagram post", "square Instagram and Facebook posts"),
+                             (1080, 1920, "Instagram story / Reels", "Instagram stories, Reels, TikTok and WhatsApp status"),
+                             (1200, 630, "Facebook & link preview", "Facebook posts, link previews and Open Graph images"),
+                             (1280, 720, "YouTube thumbnail", "YouTube thumbnails and HD slides"),
+                             (600, 600, "passport photo 2×2 inch", "online US passport and visa photo uploads (2×2 inch at 300 dpi)"),
+                             (400, 400, "profile picture", "profile pictures on LinkedIn, Discord, forums and apps")):
+        t(slug=f"resize-image-to-{w}x{h}", group="img", icon="img", name=f"Resize to {w}×{h}", ftool="resize", libs="",
+          parent="resize-image", preset={"#rm": "px", "#rw": w, "#rh": h, "#rk": False, "#rf": "crop"},
+          card=f"{label}: exactly {w}×{h} px.",
+          title=f"Resize Image to {w}x{h} Pixels Online Free ({label}) | Tools for World",
+          desc=f"Resize any photo to exactly {w}×{h} pixels for {use}. Crop to fill or add a border. Free and private: works in your browser.",
+          h1=f"Resize image to {w}×{h} pixels", lead=f"Get a photo that is exactly {w} × {h} px for {use}. Choose crop to fill, or fit with a white border.",
+          body=f'''<h2>How to resize to {w}×{h}</h2><ol><li>Choose one or more images.</li><li>The size is already set to <b>{w} × {h}</b>.</li><li>Pick <b>Crop to fill</b> (no empty space) or <b>Fit with white border</b> (nothing cut off), then press <b>Resize</b>.</li></ol>
+<h2>Why exact size matters</h2><p>Platforms crop or blur images that are the wrong shape. Uploading at exactly {w} × {h} px keeps your photo sharp and framed the way you want.</p>''',
+          faq=[("Will my photo be stretched?", "No. Crop to fill keeps the proportions and trims the edges; Fit with white border keeps the whole photo and adds a border.")])
+
+    for code, lang, extra in (("urd", "Urdu", "Nastaliq printed text from books, newspapers and screenshots"),
+                              ("ara", "Arabic", "printed Arabic text, documents and screenshots"),
+                              ("hin", "Hindi", "printed Devanagari text from documents and screenshots")):
+        t(slug=f"image-to-text-{lang.lower()}", group="pdf", icon="text", name=f"{lang} Image to Text", ftool="ocr", libs=TESS,
+          parent="image-to-text", preset={"#ol": code},
+          card=f"Copy {lang} text from a photo (OCR).",
+          title=f"{lang} OCR – Image to Text in {lang} Online Free | Tools for World",
+          desc=f"Free {lang} OCR: extract {lang} text from images, photos and screenshots and copy it. Runs in your browser, no upload.",
+          h1=f"{lang} image to text (OCR)", lead=f"Extract {lang} text from a photo or screenshot so you can copy, edit and search it. Works for {extra}.",
+          body=f'''<h2>How to convert {lang} image to text</h2><ol><li>Choose a clear photo or screenshot.</li><li>The language is already set to <b>{lang}</b>.</li><li>Press <b>Extract text</b> and copy the result.</li></ol>
+<h2>Tips for accurate {lang} OCR</h2><ul><li>Use a sharp image with dark text on a light background.</li><li>Crop to the text only, and keep lines straight.</li><li>Printed text works much better than handwriting.</li></ul>''',
+          faq=[(f"Is {lang} OCR free?", "Yes, with no limits. The text recognition runs on your own device."),
+               ("Why are some words wrong?", "Blurry photos, unusual fonts and handwriting reduce accuracy. Try a clearer, cropped image.")])
+
+    t(slug="wifi-qr-code-generator", group="util", icon="qr", name="Wi-Fi QR Code", calc="qr", libs=QRLIB, parent="qr-code-generator",
+      preset={"#qt": "WIFI:T:WPA;S:MyNetwork;P:MyPassword;;"},
+      card="Guests scan to join your Wi-Fi.",
+      title="Wi-Fi QR Code Generator – Share Wi-Fi Without Typing the Password | Tools for World",
+      desc="Make a free Wi-Fi QR code: guests scan it with their phone camera to join your network. No sign-up, works offline once loaded.",
+      h1="Wi-Fi QR code generator", lead="Create a QR code that connects phones to your Wi-Fi in one scan. Replace the network name and password in the box.",
+      ui=None, body='''<h2>How to make a Wi-Fi QR code</h2><ol><li>In the box, replace <code>MyNetwork</code> with your Wi-Fi name and <code>MyPassword</code> with the password.</li><li>Keep <code>T:WPA</code> for most routers (use <code>T:WEP</code> for very old ones, or <code>T:nopass</code> for open networks).</li><li>Download the PNG and print it for guests.</li></ol>
+<p>iPhone and Android cameras both read Wi-Fi QR codes and offer to join the network.</p>''',
+      faq=[("Is my Wi-Fi password sent anywhere?", "No. The QR code is made in your browser and nothing is uploaded.")])
+
+    t(slug="whatsapp-qr-code-generator", group="util", icon="qr", name="WhatsApp QR Code", calc="qr", libs=QRLIB, parent="qr-code-generator",
+      preset={"#qt": "https://wa.me/15551234567?text=Hello"},
+      card="Customers scan to message you on WhatsApp.",
+      title="WhatsApp QR Code Generator – Free QR for Your WhatsApp Number | Tools for World",
+      desc="Create a WhatsApp QR code for your number with a ready message. Customers scan to start a chat. Free, no sign-up, never expires.",
+      h1="WhatsApp QR code generator", lead="Make a QR code that opens a WhatsApp chat with you. Put your number (with country code) in the link.",
+      ui=None, body='''<h2>How to make a WhatsApp QR code</h2><ol><li>In the box, replace <code>15551234567</code> with your number in international format, without + or spaces (for example 923001234567 for Pakistan or 61412345678 for Australia).</li><li>Change the text after <code>?text=</code> to the first message you want customers to send, or delete it.</li><li>Download the PNG and put it on your shop counter, menu, card or flyer.</li></ol>''',
+      faq=[("Does the QR code expire?", "No. It's a normal wa.me link stored in the code, so it works forever.")])
