@@ -37,6 +37,17 @@ def make_samples():
             pdf.multi_cell(0, 7, "This is a sample paragraph for testing the PDF tools. " * 12)
             pdf.image(f"{S}/photo.jpg", w=160)
         pdf.output(f"{S}/{name}")
+    # scan-like PDF (big noisy photos) for the compressor
+    import random
+    rnd = random.Random(1); big = Image.new("RGB", (2480, 3508), (245, 243, 238)); bd = ImageDraw.Draw(big)
+    for _ in range(9000):
+        x, y = rnd.randrange(2480), rnd.randrange(3508); c = rnd.randrange(60, 230)
+        bd.rectangle((x, y, x + rnd.randrange(3, 40), y + rnd.randrange(3, 12)), fill=(c, c, c))
+    big.save(f"{S}/scan.jpg", quality=95)
+    pdf = FPDF()
+    for _ in range(3):
+        pdf.add_page(); pdf.image(f"{S}/scan.jpg", x=0, y=0, w=210, h=297)
+    pdf.output(f"{S}/scan.pdf")
     import docx
     doc = docx.Document(); doc.add_heading("Sample Word document", 1)
     doc.add_paragraph("Hello from Tools for World. This paragraph tests Word to PDF conversion. " * 5)
@@ -52,7 +63,7 @@ FILE_TESTS = [  # slug, sample, timeout s, extra setup
     ("png-to-jpg", "photo.png", 30, None), ("jpg-to-png", "photo.jpg", 30, None), ("webp-to-jpg", "photo.webp", 30, None),
     ("heic-to-jpg", "photo.heic", 90, None), ("passport-photo-maker", "photo.jpg", 30, None),
     ("jpg-to-pdf", "photo.jpg", 30, None), ("merge-pdf", ["doc.pdf", "doc2.pdf"], 60, None),
-    ("split-pdf", "doc.pdf", 60, ("#sr", "1-2")), ("pdf-to-jpg", "doc.pdf", 90, None), ("compress-pdf", "doc.pdf", 120, None),
+    ("split-pdf", "doc.pdf", 60, ("#sr", "1-2")), ("pdf-to-jpg", "doc.pdf", 90, None), ("compress-pdf", "scan.pdf", 180, None),
     ("pdf-to-word", "doc.pdf", 90, None), ("word-to-pdf", "doc.docx", 120, None), ("image-to-text", "photo.png", 240, None),
     ("mp4-to-mp3", "video.mp4", 120, None), ("remove-background", "photo.jpg", 420, None),
 ]
@@ -69,6 +80,7 @@ async def main():
         for slug, sample, tmo, setup in FILE_TESTS:
             pg = await ctx.new_page(); errs = []
             pg.on("pageerror", lambda e, errs=errs: errs.append(str(e)))
+            pg.on("console", lambda m, errs=errs: errs.append("console: " + m.text[:200]) if m.type in ("warning", "error") else None)
             t0 = time.time(); r = {"ok": False}
             try:
                 await pg.goto(BASE + slug + "/", wait_until="networkidle", timeout=60000)

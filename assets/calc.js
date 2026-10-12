@@ -112,7 +112,7 @@ CALC.qr = () => {
     cv.width = cv.height = dim;
     const x = cv.getContext('2d'); x.fillStyle = $('#qbg').value; x.fillRect(0, 0, dim, dim); x.fillStyle = $('#qfg').value;
     for (let r = 0; r < n; r++) for (let c = 0; c < n; c++) if (q.isDark(r, c)) x.fillRect((c + quiet) * cell, (r + quiet) * cell, cell, cell);
-    $('#qinfo').textContent = `${dim} × ${dim} px · version ${q.typeNumber || ''}`;
+    $('#qinfo').textContent = `${dim} × ${dim} px`;
   };
   $('#qdl').onclick = () => cv.toBlob(b => { const a = document.createElement('a'); a.href = URL.createObjectURL(b); a.download = 'qr-code.png'; a.click(); setTimeout(() => URL.revokeObjectURL(a.href), 4000); }, 'image/png');
   $$('[data-qt]').forEach(b => b.onclick = () => { $('#qt').value = b.dataset.qt; run(); });
