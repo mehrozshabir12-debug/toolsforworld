@@ -157,7 +157,7 @@ def build():
 <p>Results such as conversions and calculations are provided for convenience. Check important documents and figures before you rely on them.</p>
 <p>You are responsible for the files you process. Do not use the tools for anything illegal.</p>'''),
         "contact": ("Contact – Tools for World", "Contact Tools for World with feedback or tool requests.",
-                    '''<h1>Contact</h1><p>Found a bug, or want a new tool? We would love to hear from you.</p><p>Email: <b>hello@toolsforworld.com</b> (active once the domain is set up).</p>'''),
+                    '''<h1>Contact</h1><p>Found a bug, or want a new tool? We would love to hear from you.</p><p>Email: <b>hello@toolsforworld.com</b>.</p>'''),
     }
     for slug, (title, desc, content) in info.items():
         write(f"{slug}/index.html", page("../", title, desc, BASE + slug + "/", f'<section class="bench how" style="max-width:70ch">{content}</section>'))
