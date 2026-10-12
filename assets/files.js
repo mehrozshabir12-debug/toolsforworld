@@ -268,8 +268,7 @@ RUN.bgremove=async function(){
   let mod,err;
   for(const v of ['1.7.0','1.5.8']){try{mod=await import(`https://cdn.jsdelivr.net/npm/@imgly/background-removal@${v}/+esm`);mod.__v=v;break}catch(e){err=e;console.warn('bg-removal',v,e)}}
   if(!mod)throw new Error('The background remover could not load ('+((err&&err.message)||'network')+'). Check your internet connection and try again.');
-  const cfg={publicPath:`https://staticimgly.com/@imgly/background-removal-data/${mod.__v}/dist/`,progress:(k,c,t)=>status((String(k).includes('fetch')?'Downloading AI model ':'Working ')+(t?Math.round(c/t*100)+'%':''))};
-  let blob;try{blob=await mod.removeBackground(files[0],cfg)}catch(e){console.warn(e);blob=await mod.removeBackground(files[0],{progress:cfg.progress})}
+  const blob=await mod.removeBackground(files[0],{progress:(k,c,t)=>status((String(k).includes('fetch')?'Downloading AI model ':'Working ')+(t?Math.round(c/t*100)+'%':''))});
   addOut(blob,base(files[0].name)+'-no-background.png');
 };
 
