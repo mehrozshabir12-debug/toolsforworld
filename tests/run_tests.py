@@ -66,6 +66,8 @@ FILE_TESTS = [  # slug, sample, timeout s, extra setup
     ("split-pdf", "doc.pdf", 60, ("#sr", "1-2")), ("pdf-to-jpg", "doc.pdf", 90, None), ("compress-pdf", "scan.pdf", 180, None),
     ("pdf-to-word", "doc.pdf", 90, None), ("word-to-pdf", "doc.docx", 120, None), ("image-to-text", "photo.png", 240, None),
     ("mp4-to-mp3", "video.mp4", 120, None), ("remove-background", "photo.jpg", 420, None),
+    ("compress-pdf-to-500kb", "scan.pdf", 300, None), ("compress-image-to-1mb", "photo.png", 60, None),
+    ("us-passport-photo", "photo.jpg", 30, None), ("canada-passport-photo", "photo.jpg", 30, None),
 ]
 
 
@@ -101,6 +103,10 @@ async def main():
                         with zipfile.ZipFile(path) as z:
                             xml = z.read("word/document.xml").decode(); r["docx_has_text"] = "sample paragraph" in xml
                             r["ok"] = r["ok"] and r["docx_has_text"]
+                if slug == "compress-pdf-to-500kb":
+                    r["ok"] = r["ok"] and 0 < r.get("download_bytes", 0) <= 500 * 1024
+                if slug == "compress-image-to-1mb":
+                    r["ok"] = r["ok"] and 0 < r.get("download_bytes", 0) <= 1024 * 1024
                 if slug == "image-to-text":
                     txt = await pg.input_value("#ocrout"); r["ocr_text"] = txt[:120]; r["ok"] = r["ok"] and "Tools" in txt
             except Exception as e:

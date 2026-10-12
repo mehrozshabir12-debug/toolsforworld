@@ -70,7 +70,7 @@ function renderOpts(){
    resize:`<div class="row"><label><select id="rm"><option value="px">Pixels</option><option value="pc">Percent</option></select></label><label>Width <input type="number" id="rw" min="1"></label><label>Height <input type="number" id="rh" min="1"></label><label><input type="checkbox" id="rk" checked> Keep ratio</label><label>If the shape differs <select id="rf"><option value="crop">Crop to fill</option><option value="pad">Fit with white border</option><option value="stretch">Stretch</option></select></label><label>Percent <input type="number" id="rp" value="50" min="1" max="500"> %</label></div><p class="note">With "Keep ratio", fill only width or height and the other is calculated for each image.</p>`,
    convert:`<div class="row">${fmt('tf','png')}<label>Quality <input type="range" id="tq" min="10" max="100" value="92"></label></div>`,
    passport:`<div class="pp"><canvas id="ppc" width="350" height="450" aria-label="Passport photo preview"></canvas><div class="panel" style="margin:0">
-     <label>Size <select id="ps"><option value="35x45">35 × 45 mm – Pakistan, Australia, UK, EU, India</option><option value="51x51">2 × 2 in – USA</option><option value="40x50">40 × 50 mm</option><option value="30x40">30 × 40 mm</option></select></label>
+     <label>Size <select id="ps"><option value="35x45">35 × 45 mm – Pakistan, Australia, UK, EU, India</option><option value="50.8x50.8">2 × 2 in – USA</option><option value="50x70">50 × 70 mm – Canada</option><option value="33x48">33 × 48 mm – China visa</option><option value="40x50">40 × 50 mm</option><option value="30x40">30 × 40 mm</option></select></label>
      <label>Zoom <input type="range" id="pz" min="100" max="400" value="100"></label>
      <label>Left / right <input type="range" id="px" min="-100" max="100" value="0"></label>
      <label>Up / down <input type="range" id="py" min="-100" max="100" value="0"></label>
@@ -143,11 +143,16 @@ const RUN={
   for(const f of files){const i=await loadImg(f);addOut(await toBlob(draw(i,i.naturalWidth,i.naturalHeight,type),type,q),base(f.name)+'.'+ext[type])}
  },
  async passport(){
-  const one=ppCanvas(600);const n=+$('#pn').value;
-  const S=document.createElement('canvas');S.width=1800;S.height=1200;const x=S.getContext('2d');x.fillStyle='#fff';x.fillRect(0,0,1800,1200);
-  const [mw,mh]=ppSize(),dpi=300,pw=Math.round(mw/25.4*dpi),ph=Math.round(mh/25.4*dpi);
-  const cols=n===4?2:n===6?3:4,rows=2,gx=(1800-cols*pw)/(cols+1),gy=(1200-rows*ph)/(rows+1);
+  const one=ppCanvas(600);const want=+$('#pn').value;
+  const [mw,mh]=ppSize(),dpi=300,pw=Math.round(mw/25.4*dpi),ph=Math.round(mh/25.4*dpi),gap=0;
+  // 4x6 inch sheet at 300 dpi: pick the orientation that fits the most photos
+  const fit=(W,H)=>{const c=Math.floor((W-gap)/(pw+gap)),r=Math.floor((H-gap)/(ph+gap));return{W,H,c,r,n:c*r}};
+  const L=fit(1800,1200),P=fit(1200,1800),o=P.n>L.n?P:L;
+  let cols=o.c,rows=o.r;while(cols*rows>want){if(cols>=rows&&cols>1)cols--;else if(rows>1)rows--;else break}
+  const S=document.createElement('canvas');S.width=o.W;S.height=o.H;const x=S.getContext('2d');x.fillStyle='#fff';x.fillRect(0,0,o.W,o.H);
+  const gx=(o.W-cols*pw)/(cols+1),gy=(o.H-rows*ph)/(rows+1);
   for(let r=0;r<rows;r++)for(let c=0;c<cols;c++){const X=gx+c*(gx+pw),Y=gy+r*(gy+ph);x.drawImage(one,X,Y,pw,ph);x.strokeStyle='#bbb';x.lineWidth=1;x.strokeRect(X,Y,pw,ph)}
+  if(cols*rows<want)setTimeout(()=>status(`Done. ${cols*rows} photos of this size fit on a 4×6 sheet.`),0);
   addOut(await toBlob(ppCanvas(Math.round(mw/25.4*dpi)),'image/jpeg',.95),'passport-photo.jpg');
   addOut(await toBlob(S,'image/jpeg',.95),'passport-sheet-4x6.jpg');
  },
@@ -233,7 +238,7 @@ const OPTX={
  jpg2png:'',
  webp2jpg:`<div class="row"><label>Quality <input type="range" id="tq" min="10" max="100" value="92"></label></div>`,
  heic2jpg:`<div class="row"><label>Quality <input type="range" id="tq" min="10" max="100" value="92"></label><span class="note">iPhone photos (.heic). Conversion can take a few seconds per photo.</span></div>`,
- pdfcompress:`<div class="row"><label>Level <select id="pc"><option value="150|0.75">Recommended (150 dpi)</option><option value="110|0.6" selected>Strong (110 dpi)</option><option value="200|0.85">Light (200 dpi)</option><option value="80|0.5">Extreme (80 dpi)</option></select></label></div><p class="note">Best for scanned PDFs and PDFs full of photos. Pages are re-saved as images, so text can no longer be selected or searched.</p>`,
+ pdfcompress:`<div class="row"><label>Level <select id="pc"><option value="150|0.75">Recommended (150 dpi)</option><option value="110|0.6" selected>Strong (110 dpi)</option><option value="200|0.85">Light (200 dpi)</option><option value="80|0.5">Extreme (80 dpi)</option></select></label><label>Target size <input type="number" id="ptkb" placeholder="Any" min="20" step="1"> KB</label></div><p class="note">Set a target (like 200) and the best level that fits under it is chosen for you. Best for scanned PDFs and PDFs full of photos. Pages are re-saved as images, so text can no longer be selected or searched.</p>`,
  ocr:`<div class="row"><label>Language <select id="ol"><option value="eng">English</option><option value="urd">Urdu</option><option value="eng+urd">English + Urdu</option><option value="ara">Arabic</option><option value="hin">Hindi</option></select></label></div><p class="note">The first run downloads the language data (about 10–20 MB). Clear, straight photos give the best results.</p><textarea id="ocrout" rows="10" style="width:100%;font:inherit;padding:10px;border-radius:10px;border:1px solid var(--line);background:var(--sunk);color:var(--fg)" placeholder="Text will appear here" hidden></textarea><p><button class="btn ghost" id="ocrcopy" type="button" hidden>Copy text</button></p>`,
  bgremove:`<p class="note">An AI model runs inside your browser. The first run downloads it (about 40–80 MB), then it is cached. Works best on people, products and animals.</p>`,
  mp4mp3:`<div class="row"><label>Quality <select id="mb"><option value="128">128 kbps (small)</option><option value="192" selected>192 kbps</option><option value="320">320 kbps (best)</option></select></label></div><p class="note">Works with MP4, MOV, WebM, M4A and most videos your browser can play. Very long videos may be slow on phones.</p>`,
@@ -255,16 +260,29 @@ RUN.heic2jpg=async function(){
 
 RUN.pdfcompress=async function(){
   pdfjsLib.GlobalWorkerOptions.workerSrc='https://cdnjs.cloudflare.com/ajax/libs/pdf.js/3.11.174/pdf.worker.min.js';
-  const f=files[0],[dpi,q]=$('#pc').value.split('|').map(Number);
+  const f=files[0],target=(+($('#ptkb')||{}).value||0)*1024;
   let pdf;try{pdf=await pdfjsLib.getDocument({data:await f.arrayBuffer()}).promise}catch(e){throw new Error('This PDF is password-protected or damaged.')}
-  const {PDFDocument}=PDFLib,doc=await PDFDocument.create();
-  for(let p=1;p<=pdf.numPages;p++){status(`Page ${p} of ${pdf.numPages}…`);
-    const pg=await pdf.getPage(p),v1=pg.getViewport({scale:1}),vp=pg.getViewport({scale:dpi/72});
-    const c=document.createElement('canvas');c.width=Math.ceil(vp.width);c.height=Math.ceil(vp.height);const x=c.getContext('2d');x.fillStyle='#fff';x.fillRect(0,0,c.width,c.height);
-    await pg.render({canvasContext:x,viewport:vp}).promise;
-    const jpg=await doc.embedJpg(await (await toBlob(c,'image/jpeg',q)).arrayBuffer());
-    doc.addPage([v1.width,v1.height]).drawImage(jpg,{x:0,y:0,width:v1.width,height:v1.height});c.width=c.height=0}
-  const out=new Blob([await doc.save()],{type:'application/pdf'});
+  const {PDFDocument}=PDFLib;
+  const build=async(dpi,q,label)=>{const doc=await PDFDocument.create();
+    for(let p=1;p<=pdf.numPages;p++){status(`${label}page ${p} of ${pdf.numPages}…`);
+      const pg=await pdf.getPage(p),v1=pg.getViewport({scale:1}),vp=pg.getViewport({scale:dpi/72});
+      const c=document.createElement('canvas');c.width=Math.ceil(vp.width);c.height=Math.ceil(vp.height);const x=c.getContext('2d');x.fillStyle='#fff';x.fillRect(0,0,c.width,c.height);
+      await pg.render({canvasContext:x,viewport:vp}).promise;
+      const jpg=await doc.embedJpg(await (await toBlob(c,'image/jpeg',q)).arrayBuffer());
+      doc.addPage([v1.width,v1.height]).drawImage(jpg,{x:0,y:0,width:v1.width,height:v1.height});c.width=c.height=0}
+    return new Blob([await doc.save()],{type:'application/pdf'})};
+  let out;
+  if(target){
+    if(f.size<=target){addOut(f,f.name);setTimeout(()=>status(`This PDF is already ${kb(f.size)}, under ${kb(target)}. No compression needed.`),0);return}
+    // quality ladder from best to smallest; binary search for the best level that fits
+    const L=[[200,.85],[170,.8],[150,.75],[130,.7],[110,.6],[96,.55],[84,.5],[72,.45],[60,.4],[50,.35],[42,.3],[36,.25]];
+    let lo=0,hi=L.length-1,best=null,smallest=null,tries=0;
+    while(lo<=hi){const m=(lo+hi)>>1;tries++;const b=await build(L[m][0],L[m][1],`Try ${tries}: `);
+      if(!smallest||b.size<smallest.size)smallest=b;
+      if(b.size<=target){best=b;hi=m-1}else lo=m+1}
+    if(!best){addOut(smallest,base(f.name)+'-compressed.pdf');throw new Error(`Could not get under ${kb(target)}. The smallest possible is ${kb(smallest.size)}. Try a higher target or split the PDF into parts.`)}
+    out=best;
+  }else{const [dpi,q]=$('#pc').value.split('|').map(Number);out=await build(dpi,q,'')}
   if(out.size>=f.size){addOut(f,f.name);throw new Error(`This PDF is already well compressed (new size ${kb(out.size)} would not be smaller). Try a stronger level.`)}
   addOut(out,base(f.name)+'-compressed.pdf');
   setTimeout(()=>status(`${kb(f.size)} → ${kb(out.size)} (${Math.round((1-out.size/f.size)*100)}% smaller)`),0);
