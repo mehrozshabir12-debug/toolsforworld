@@ -59,6 +59,9 @@ tools_list.define(tool, F, N, SEL, RESULT, PDFLIB, PDFJS, MAMMOTH, H2PDF)
 tools_list.landing(tool)
 BY = {t['slug']: t for t in T}
 
+# Google AdSense publisher ID, e.g. "ca-pub-1234567890123456". Empty = no ad code on the site.
+ADSENSE_CLIENT = ""
+
 GROUPS = [("pdf", "PDF & document tools"), ("img", "Image tools"), ("util", "Text & everyday tools"), ("media", "Audio & video")]
 NAV = {"pdf": "PDF", "img": "Image", "util": "Utilities", "media": "Audio"}
 
@@ -76,6 +79,7 @@ def page(rel_root, title, desc, canon, body, scripts="", body_attr="", jsonld=No
 <link rel="canonical" href="{canon}">
 <meta property="og:title" content="{html.escape(title)}"><meta property="og:description" content="{html.escape(desc)}"><meta property="og:url" content="{canon}"><meta property="og:type" content="website"><meta property="og:site_name" content="Tools for World"><meta property="og:image" content="{BASE}og-image.png"><meta name="twitter:card" content="summary_large_image">
 <link rel="icon" href="https://toolsforworld.com/favicon.ico" sizes="48x48"><link rel="icon" href="https://toolsforworld.com/favicon-96.png" type="image/png" sizes="96x96"><link rel="icon" href="https://toolsforworld.com/favicon-192.png" type="image/png" sizes="192x192"><link rel="icon" href="https://toolsforworld.com/favicon.svg" type="image/svg+xml"><link rel="apple-touch-icon" href="https://toolsforworld.com/apple-touch-icon.png"><link rel="manifest" href="https://toolsforworld.com/site.webmanifest"><meta name="theme-color" content="#0d7a55">
+{(f'<meta name="google-adsense-account" content="{ADSENSE_CLIENT}"><script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client={ADSENSE_CLIENT}" crossorigin="anonymous"></script>') if ADSENSE_CLIENT else ""}
 <link rel="preconnect" href="https://fonts.googleapis.com"><link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Bricolage+Grotesque:opsz,wght@12..96,600;12..96,800&family=Figtree:wght@400;500;600&family=JetBrains+Mono:wght@500&display=swap">
 <link rel="stylesheet" href="{rel_root}assets/style.css">
@@ -87,7 +91,7 @@ def page(rel_root, title, desc, canon, body, scripts="", body_attr="", jsonld=No
 {body}
 </main>
 <footer><div class="wrap"><span>© <span id="yr">{datetime.date.today().year}</span> Tools for World · Free tools that run in your browser.</span>
-<span><a href="{rel_root}about/">About</a> · <a href="{rel_root}privacy/">Privacy Policy</a> · <a href="{rel_root}terms/">Terms</a> · <a href="{rel_root}contact/">Contact</a></span></div></footer>
+<span><a href="{rel_root}about/">About</a> · <a href="{rel_root}privacy/">Privacy Policy</a> · <a href="{rel_root}terms/">Terms</a> · <a href="{rel_root}contact/">Contact</a> · <a href="{rel_root}credits/">Open-source credits</a></span></div></footer>
 {scripts}
 <!-- Cloudflare Web Analytics --><script defer src="https://static.cloudflareinsights.com/beacon.min.js" data-cf-beacon='{{"token": "58c7e905638641ae816794606d09687a"}}'></script><!-- End Cloudflare Web Analytics -->
 </body>
@@ -166,14 +170,32 @@ def build():
                     f'''<h1>Privacy Policy</h1><p>Last updated: {TODAY}</p>
 <h2>Your files and numbers</h2><p>Tools for World tools work entirely in your browser. Images, PDFs, Word documents and the numbers you type are processed on your device and are not sent to or stored on our servers.</p>
 <h2>Cookies and advertising</h2><p>We may show ads from Google AdSense. Google and its partners use cookies to show ads based on your visits to this and other websites. You can turn off personalised ads in <a href="https://adssettings.google.com">Google Ads Settings</a>. Learn more at <a href="https://policies.google.com/technologies/ads">How Google uses information from sites that use its services</a>.</p>
-<h2>Analytics</h2><p>We may use privacy-friendly analytics to count page visits. This does not include the content of your files.</p>
-<h2>Third-party code</h2><p>Some tools load open-source libraries (pdf-lib, PDF.js, Mammoth, html2pdf.js, Tesseract.js, heic2any, lamejs, JSZip, qrcode-generator, IMG.LY background removal) and fonts from public CDNs such as cdnjs, jsDelivr and Google Fonts. These services may see your IP address when your browser downloads them.</p>
+<h2>Analytics</h2><p>We use Cloudflare Web Analytics to count page visits and measure page speed. It does not use cookies and never sees the content of your files.</p>
+<h2>Third-party code</h2><p>Some tools load open-source libraries (pdf-lib, PDF.js, Mammoth, html2pdf.js, Tesseract.js, heic2any, lamejs, JSZip, qrcode-generator, IMG.LY background removal) and fonts. See <a href="../credits/">open-source credits</a> for their licences. These libraries and fonts load from public CDNs such as cdnjs, jsDelivr and Google Fonts. These services may see your IP address when your browser downloads them.</p>
 <h2>Children</h2><p>Tools for World is a general-audience site and does not knowingly collect personal information from children.</p>
 <h2>Contact</h2><p>Questions about this policy: see our <a href="../contact/">contact page</a>.</p>'''),
         "terms": ("Terms of Use – Tools for World", "Terms for using Tools for World tools.",
                   f'''<h1>Terms of Use</h1><p>Last updated: {TODAY}</p><p>Tools for World tools are free to use for personal and business purposes. They are provided “as is”, without any warranty.</p>
 <p>Results such as conversions and calculations are provided for convenience. Check important documents and figures before you rely on them.</p>
 <p>You are responsible for the files you process. Do not use the tools for anything illegal.</p>'''),
+        "credits": ("Open-Source Credits – Tools for World", "The open-source libraries and fonts that power Tools for World, with their licences.",
+                    '''<h1>Open-source credits</h1><p>Tools for World is built on excellent open-source software. Thank you to everyone who makes these projects. Each library is used unmodified and is loaded from a public CDN; follow the links for the source code and full licence text.</p>
+<div class="scroll"><table class="t"><thead><tr><th>Project</th><th>Used for</th><th>Licence</th></tr></thead><tbody>
+<tr><td><a href="https://github.com/mozilla/pdf.js">PDF.js</a> (Mozilla)</td><td>Reading PDFs: PDF to Word, PDF to JPG, compress PDF</td><td><a href="https://github.com/mozilla/pdf.js/blob/master/LICENSE">Apache-2.0</a></td></tr>
+<tr><td><a href="https://github.com/Hopding/pdf-lib">pdf-lib</a></td><td>Creating PDFs: merge, split, JPG to PDF, compress PDF</td><td><a href="https://github.com/Hopding/pdf-lib/blob/master/LICENSE.md">MIT</a></td></tr>
+<tr><td><a href="https://github.com/mwilliamson/mammoth.js">Mammoth.js</a></td><td>Reading Word (.docx) files</td><td><a href="https://github.com/mwilliamson/mammoth.js/blob/master/LICENSE">BSD-2-Clause</a></td></tr>
+<tr><td><a href="https://github.com/eKoopmans/html2pdf.js">html2pdf.js</a> (with jsPDF and html2canvas)</td><td>Word to PDF</td><td><a href="https://github.com/eKoopmans/html2pdf.js/blob/main/LICENSE">MIT</a></td></tr>
+<tr><td><a href="https://github.com/naptha/tesseract.js">Tesseract.js</a> and <a href="https://github.com/tesseract-ocr/tesseract">Tesseract OCR</a></td><td>Image to text (OCR) and language data</td><td><a href="https://github.com/naptha/tesseract.js/blob/master/LICENSE.md">Apache-2.0</a></td></tr>
+<tr><td><a href="https://github.com/imgly/background-removal-js">IMG.LY Background Removal</a></td><td>Background remover (AI model runs in your browser)</td><td><a href="https://github.com/imgly/background-removal-js/blob/main/LICENSE.md">AGPL-3.0</a> – used unmodified; source code at the link</td></tr>
+<tr><td><a href="https://github.com/microsoft/onnxruntime">ONNX Runtime Web</a></td><td>Runs the background-removal model</td><td><a href="https://github.com/microsoft/onnxruntime/blob/main/LICENSE">MIT</a></td></tr>
+<tr><td><a href="https://github.com/alexcorvi/heic2any">heic2any</a> (includes <a href="https://github.com/strukturag/libheif">libheif</a>)</td><td>HEIC to JPG</td><td><a href="https://github.com/alexcorvi/heic2any/blob/master/LICENSE">MIT</a>; libheif <a href="https://github.com/strukturag/libheif/blob/master/COPYING">LGPL-3.0</a></td></tr>
+<tr><td><a href="https://github.com/zhuker/lamejs">lamejs</a></td><td>MP4 to MP3 (MP3 encoding)</td><td><a href="https://github.com/zhuker/lamejs/blob/master/LICENSE">LGPL-3.0</a> – used unmodified; source code at the link</td></tr>
+<tr><td><a href="https://github.com/Stuk/jszip">JSZip</a></td><td>Building .docx files for PDF to Word</td><td><a href="https://github.com/Stuk/jszip/blob/main/LICENSE.markdown">MIT or GPL-3.0</a> (used under MIT)</td></tr>
+<tr><td><a href="https://github.com/kazuhikoarase/qrcode-generator">qrcode-generator</a></td><td>QR code generator</td><td><a href="https://github.com/kazuhikoarase/qrcode-generator/blob/master/LICENSE">MIT</a></td></tr>
+<tr><td><a href="https://fonts.google.com/specimen/Bricolage+Grotesque">Bricolage Grotesque</a>, <a href="https://fonts.google.com/specimen/Figtree">Figtree</a>, <a href="https://fonts.google.com/specimen/JetBrains+Mono">JetBrains Mono</a></td><td>Fonts</td><td><a href="https://openfontlicense.org/">SIL Open Font License 1.1</a></td></tr>
+</tbody></table></div>
+<p>Trademarks and product names mentioned on this site belong to their owners. Tools for World is an independent project and is not affiliated with any government office or with the projects above.</p>
+<p>Spotted a missing credit? Please tell us via the <a href="../contact/">contact page</a>.</p>'''),
         "contact": ("Contact – Tools for World", "Contact Tools for World with feedback or tool requests.",
                     '''<h1>Contact</h1><p>Found a bug, or want a new tool? We would love to hear from you.</p><p>Email: <b>hello@toolsforworld.com</b>.</p>'''),
     }
@@ -186,6 +208,8 @@ def build():
           "".join(f"  <url><loc>{u}</loc><lastmod>{TODAY}</lastmod></url>\n" for u in urls) + "</urlset>\n")
     write("robots.txt", f"User-agent: *\nAllow: /\nSitemap: {BASE}sitemap.xml\n")
     write("favicon.svg", '<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 64 64"><circle cx="32" cy="32" r="31" fill="#0d7a55"/><g fill="none" stroke="#fff" stroke-width="3.6"><circle cx="32" cy="32" r="19"/><ellipse cx="32" cy="32" rx="8.5" ry="19"/><path d="M13.6 26h36.8M13.6 38h36.8"/></g></svg>')
+    if ADSENSE_CLIENT:
+        write("ads.txt", f"google.com, {ADSENSE_CLIENT.replace('ca-', '')}, DIRECT, f08c47fec0942fa0\n")
     write(".nojekyll", "")
     print(f"built {len(urls)} pages")
 
