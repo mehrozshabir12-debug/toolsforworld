@@ -85,6 +85,7 @@ RELATED = {
     "percentage-calculator": ["discount-calculator", "age-calculator", "word-counter", "character-counter"],
     "mp4-to-mp3": ["compress-image", "heic-to-jpg", "pdf-to-word", "image-to-text"],
 }
+FMT = {'compress': 'Supported: JPG, PNG, WebP, GIF, BMP · several files at once', 'resize': 'Supported: JPG, PNG, WebP, GIF, BMP · several files at once', 'convert': 'Supported: JPG, PNG, WebP · several files at once', 'passport': 'Supported: JPG, PNG, WebP', 'img2pdf': 'Supported: JPG, PNG, WebP · several files at once', 'merge': 'Supported: PDF · several files at once', 'split': 'Supported: PDF', 'pdf2jpg': 'Supported: PDF', 'word2pdf': 'Supported: Word .docx', 'png2jpg': 'Supported: PNG · several files at once', 'jpg2png': 'Supported: JPG / JPEG · several files at once', 'webp2jpg': 'Supported: WebP · several files at once', 'heic2jpg': 'Supported: HEIC / HEIF (iPhone photos) · several files at once', 'pdfcompress': 'Supported: PDF', 'ocr': 'Supported: JPG, PNG, WebP, BMP', 'bgremove': 'Supported: JPG, PNG, WebP', 'mp4mp3': 'Supported: MP4, MOV, WebM, M4A', 'pdf2word': 'Supported: PDF'}  # what each file tool accepts (shown under the drop zone; kept in sync with TOOLS in files.js)
 POPULAR = ["pdf-to-word", "compress-image-to-100kb", "compress-pdf", "remove-background", "image-to-text", "passport-photo-maker", "jpg-to-pdf", "word-to-pdf"]
 
 # Google AdSense publisher ID, e.g. "ca-pub-1234567890123456". Empty = no ad code on the site.
@@ -198,7 +199,7 @@ def build():
                       [x for x in T if x["group"] == t["group"] and x["slug"] != t["slug"] and not x.get("parent")][:4]
         preset = f'<script>window.PRESET={json.dumps(t["preset"])}</script>' if t.get("preset") else ""
         if "ftool" in t:
-            ui = FILE_UI.replace("EXTRA", t.get("extra", ""))
+            ui = FILE_UI.replace("EXTRA", t.get("extra", "")).replace('<span class="fmt" id="d-fmt"></span>', f'<span class="fmt" id="d-fmt">{FMT.get(t["ftool"], "")}</span>')
             scripts = preset + f'<script src="{r}assets/files.js"></script>'
             attr = f' data-tool="{t["ftool"]}"'
         else:

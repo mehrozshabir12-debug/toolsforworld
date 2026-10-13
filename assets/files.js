@@ -384,7 +384,7 @@ RUN.pdfcompress=async function(){
 RUN.ocr=async function(){
   const lang=$('#ol').value,box=$('#ocrout');
   const img=await loadImg(files[0]);let w=img.naturalWidth,h=img.naturalHeight;const sc=Math.min(1,4000/Math.max(w,h));
-  const cv=draw(img,Math.round(w*sc),Math.round(h*sc),'image/png');
+  const cv=draw(img,Math.round(w*sc),Math.round(h*sc),'image/jpeg');   // white background: transparent PNGs would otherwise read as black
   const r=await Tesseract.recognize(cv,lang,{logger:m=>{if(m.status)status(m.status.replace(/^./,c=>c.toUpperCase())+(m.progress?' '+Math.round(m.progress*100)+'%':''))}});
   const t=(r.data.text||'').trim();
   box.hidden=false;box.value=t||'(No text found. Try a clearer photo.)';box.dir=/urd|ara/.test(lang)?'rtl':'ltr';
@@ -448,6 +448,6 @@ RUN.pdf2word=async function(){
 /* page init */
 cur=document.body.dataset.tool;
 (function(){const t=TOOLS[cur];const fin=$('#fin');fin.accept=t.accept;fin.multiple=t.multi;
- $('#d-main').textContent=t.multi?'Choose files':'Choose a file';$('#d-sub').textContent='or drag and drop '+(t.multi?'them':'it')+' here';const fm=$('#d-fmt');if(fm)fm.textContent='Supported: '+t.fmt+(t.multi?' · several files at once':'');
+ $('#d-main').textContent=t.multi?'Choose files':'Choose a file';$('#d-sub').textContent='or drag and drop '+(t.multi?'them':'it')+' here';const fm=$('#d-fmt');if(fm&&!fm.textContent)fm.textContent='Supported: '+t.fmt+(t.multi?' · several files at once':'');
  $('#go').textContent=t.go;renderOpts();render();
  const P=window.PRESET||{};for(const [sel,v] of Object.entries(P)){const e=$(sel);if(!e)continue;if(e.type==='checkbox')e.checked=!!v;else e.value=v;e.dispatchEvent(new Event('input'));e.dispatchEvent(new Event('change'))}})();

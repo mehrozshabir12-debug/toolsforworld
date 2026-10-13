@@ -24,6 +24,12 @@ try:
     rep["www_redirect"] = subprocess.run(["curl", "-sI", "https://www.toolsforworld.com/"], capture_output=True, text=True, timeout=30).stdout[:300]
 except Exception as e:
     rep["redirect_error"] = str(e)
+try:
+    rep["dns"] = {t: subprocess.run(["dig", "+short", t, "toolsforworld.com"], capture_output=True, text=True, timeout=20).stdout.strip().splitlines()
+                  for t in ("MX", "TXT", "DS", "CAA", "A")}
+    rep["dnssec_validated"] = "ad" in subprocess.run(["dig", "+dnssec", "toolsforworld.com", "A", "@1.1.1.1"], capture_output=True, text=True, timeout=20).stdout.split("flags:")[1].split(";")[0]
+except Exception as e:
+    rep["dns_error"] = str(e)[:200]
 with sync_playwright() as p:
     b = p.chromium.launch()
     for name, ctxargs in (("desktop", {}), ("mobile", p.devices["Pixel 7"])):
