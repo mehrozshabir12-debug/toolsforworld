@@ -12,22 +12,21 @@ mainly through long-tail keyword pages that really work.
   `test-results` branch (`git fetch origin test-results:refs/remotes/origin/test-results && git show origin/test-results:report.json`).
 - On push, GitHub Pages deploys and `Notify search engines (IndexNow)` pings Bing/Yandex.
 
-## Weekly routine
-1. **Check what's working** (only if a browser with Google Search Console is available):
-   Search Console → Performance (last 28 days) for queries/pages with impressions, and Pages for indexing problems.
-   Note the top queries in the log below. Build more pages around topics that get impressions.
-2. **Add 10–20 pages** from the backlog below (or new ideas from step 1). Rules:
-   - Each page must actually do what its title says. If a preset needs a new option or feature, add it to the tool.
-   - Unique title, description, H1, lead, how-to steps and 1–3 FAQs. No copy-paste filler, no keyword stuffing.
-   - Facts (sizes, limits, rules) must be correct. If unsure, leave it out and tell users to check the official source.
-   - Never make near-duplicate pages (e.g. "compress jpg to 100kb" next to "compress image to 100kb").
-3. `python3 build.py`, add tests for any new behaviour in `tests/run_tests.py` (and edge cases in `tests/audit.py`), then commit and push.
-4. Wait for `Test all tools` to pass. If anything fails, fix it before finishing.
-5. Mark done items `[x]` in the backlog, add a line to the log, commit and push.
-6. Report to the owner in Roman Urdu: pages added, test result, Search Console numbers if available, next week's plan.
+## Weekly routine (from 13 Oct 2026: traffic first, monetization second, new tools later)
+Owner's rules: NO new tools, NO new pages unless approved below, no redesign, no paid services, keep every URL,
+never change DNS/account settings, never open AdSense, never invent numbers (mark unavailable data).
 
-Never: touch `CNAME`, DNS or account settings; post on social media; pay for anything; delete pages that may be indexed
-(if a page must go, redirect it instead).
+1. **Measure** (read-only, only if a browser with Search Console is available): last 7 days vs previous 7 days —
+   clicks, impressions, CTR, average position, top queries/pages; Pages report (indexed count, reasons not indexed).
+   Cloudflare Web Analytics: visits and referrers. Write the numbers in the log below; unavailable = "n/a".
+2. **Improve existing pages** from that data only: max 5 title/description rewrites a week (pages with impressions
+   but CTR < 1%), and better examples/FAQs on pages ranking 8–30. No data yet → no wording changes.
+3. **Test before live:** `python3 build.py`, push to branch `audit`, wait for "Deep audit" (results on `audit-results`:
+   `report.json` and `audit_report.json` fully passing), then push the same commit to `main`; "Test all tools" must pass.
+4. Log the week below (numbers + what changed and why). Report to the owner in Roman Urdu.
+
+Approved page additions: compress image/PDF to 2 MB and 5 MB (done 13 Oct). Nothing else is approved.
+Sitemap `lastmod` comes from `lastmod.json` (content hash per page); IndexNow sends only changed URLs.
 
 ## Keyword backlog
 ### Resize presets (parent `resize-image`)
@@ -63,6 +62,7 @@ Never: touch `CNAME`, DNS or account settings; post on social media; pay for any
 - [ ] Medium guides linking to the matching pages (owner approves each before publishing)
 
 ## Log
+- 2026-10-13 (SEO): real sitemap dates, 404 noindex, IndexNow changed-only; wording from Google autocomplete (reduce image size in KB, resize photo to N KB, HEIC to JPEG, passport size & requirements); internal links; home exact-size row; +4 presets (image/PDF 2 MB, 5 MB) → 85 pages. Search Console/Cloudflare numbers: n/a (browser offline).
 - 2026-10-13 (audit): fixed Word-to-PDF long docs (1 page → full), passport mobile overflow, compressor growing files, input validation, OCR crash; lazy-loaded libraries; search, recent/popular, related tools, progress, ZIP; content for thin/duplicate pages. Live mobile Lighthouse 54–78 → 97–100. Deep audit: `tests/audit.py` (push to branch `audit`, results on `audit-results`).
 - 2026-10-13: 62 → 80 pages. Added 10 OCR languages, 6 resize sizes, character counter, discount calculator.
   Earlier the same day: compress-PDF-to-size pages, 7 passport/visa pages, more image sizes; sitemap resubmitted.
