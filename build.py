@@ -99,6 +99,15 @@ BRAND_NAMES = ["ToolsForWorld", "Tools 4 World", "Tools4World", "Tool for World"
 BRAND_KEYWORDS = "Tools for World, toolsforworld, tools for world, tools 4 world, tools4world, tool for world, tool 4 world, tools world, toolsforworld.com, free online tools, PDF tools, image tools"
 
 
+def _v(name):
+    """Short content hash for cache-busting: a changed file gets a new URL, so browsers never mix old CSS with new HTML."""
+    import hashlib
+    try:
+        return hashlib.sha256(open(os.path.join(ROOT, "assets", name), "rb").read()).hexdigest()[:8]
+    except OSError:
+        return "0"
+
+
 FONTS = "https://fonts.googleapis.com/css2?family=Bricolage+Grotesque:opsz,wght@12..96,600;12..96,800&family=Figtree:wght@400;500;600&family=JetBrains+Mono:wght@500&display=optional"
 
 
@@ -133,7 +142,7 @@ def page(rel_root, title, desc, canon, body, scripts="", body_attr="", jsonld=No
 {(f'<meta name="google-adsense-account" content="{ADSENSE_CLIENT}"><script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client={ADSENSE_CLIENT}" crossorigin="anonymous"></script>') if ADSENSE_CLIENT else ""}
 <link rel="preconnect" href="https://fonts.googleapis.com"><link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link rel="preload" as="style" href="{FONTS}"><link rel="stylesheet" href="{FONTS}" media="print" onload="this.media='all'"><noscript><link rel="stylesheet" href="{FONTS}"></noscript>
-<link rel="stylesheet" href="{rel_root}assets/style.css">
+<link rel="stylesheet" href="{rel_root}assets/style.css?v={_v("style.css")}">
 {ld}
 </head>
 <body{body_attr}>
@@ -144,7 +153,7 @@ def page(rel_root, title, desc, canon, body, scripts="", body_attr="", jsonld=No
 <footer><div class="wrap"><span>© <span id="yr">{datetime.date.today().year}</span> Tools for World · Free tools that run in your browser.</span>
 <span><a href="{rel_root}about/">About</a> · <a href="{rel_root}privacy/">Privacy Policy</a> · <a href="{rel_root}terms/">Terms</a> · <a href="{rel_root}contact/">Contact</a> · <a href="{rel_root}credits/">Open-source credits</a></span></div></footer>
 {scripts}
-<script src="{rel_root}assets/site.js" defer></script>
+<script src="{rel_root}assets/site.js?v={_v("site.js")}" defer></script>
 <!-- Cloudflare Web Analytics --><script defer src="https://static.cloudflareinsights.com/beacon.min.js" data-cf-beacon='{{"token": "58c7e905638641ae816794606d09687a"}}'></script><!-- End Cloudflare Web Analytics -->
 </body>
 </html>
@@ -193,7 +202,7 @@ def write(rel_path, content):
     if rel_path.endswith("index.html") and not PREVIEW:
         import hashlib
         url = page_url(rel_path)
-        h = hashlib.sha256(content.encode()).hexdigest()[:16]
+        h = hashlib.sha256(re.sub(r"\?v=[0-9a-f]{8}", "", content).encode()).hexdigest()[:16]  # asset versions don't count as a content change
         old = LASTMOD.get(url)
         date = old[1] if old and old[0] == h else TODAY
         LASTMOD[url] = [h, date]; PAGE_DATE[url] = date
@@ -221,10 +230,10 @@ def build():
         preset = f'<script>window.PRESET={json.dumps(t["preset"])}</script>' if t.get("preset") else ""
         if "ftool" in t:
             ui = FILE_UI.replace("EXTRA", t.get("extra", "")).replace('<span class="fmt" id="d-fmt"></span>', f'<span class="fmt" id="d-fmt">{FMT.get(t["ftool"], "")}</span>')
-            scripts = preset + f'<script src="{r}assets/files.js"></script>'
+            scripts = preset + f'<script src="{r}assets/files.js?v={_v("files.js")}"></script>'
             attr = f' data-tool="{t["ftool"]}"'
         else:
-            ui = t.get("ui") or par["ui"]; scripts = preset + t.get("libs", "") + f'<script src="{r}assets/calc.js"></script>'; attr = f' data-calc="{t["calc"]}"'
+            ui = t.get("ui") or par["ui"]; scripts = preset + t.get("libs", "") + f'<script src="{r}assets/calc.js?v={_v("calc.js")}"></script>'; attr = f' data-calc="{t["calc"]}"'
         group_name = dict(GROUPS)[t["group"]]
         body = f'''<p class="crumbs"><a href="{r}">Home</a> › <a href="{r}#{t["group"]}">{group_name}</a>{f' › <a href="{r}{par["slug"]}/">{par["name"]}</a>' if par else ""}</p>
 <section class="bench"><h1>{t["h1"]}</h1><p class="lead">{t["lead"]}</p>
@@ -310,7 +319,7 @@ def build():
             + '<p class="aka">Tools for World (also written ToolsForWorld or Tools 4 World) is at toolsforworld.com.</p>')
     write("index.html", page("", "Tools for World – Free PDF, Image & Everyday Tools Online",
                              "Free online tools: PDF to Word, Word to PDF, compress PDF and images, background remover, HEIC to JPG, OCR, QR code generator, MP4 to MP3 and more. Private: files never leave your device.",
-                             BASE, home, f'<script src="assets/calc.js"></script>', ' class="home"',
+                             BASE, home, f'<script src="assets/calc.js?v={_v("calc.js")}"></script>', ' class="home"',
                              jsonld=[{"@context": "https://schema.org", "@type": "WebSite", "name": "Tools for World", "alternateName": BRAND_NAMES, "url": BASE},
                                      {"@context": "https://schema.org", "@type": "Organization", "name": "Tools for World", "alternateName": BRAND_NAMES, "url": BASE, "logo": BASE + "logo.png",
                                       "email": "hello@toolsforworld.com"}], keywords=BRAND_KEYWORDS))
