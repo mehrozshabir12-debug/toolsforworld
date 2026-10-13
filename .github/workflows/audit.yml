@@ -25,6 +25,9 @@ jobs:
           python -m pip install -q playwright pillow pillow-heif fpdf2 python-docx pypdf
           python -m playwright install --with-deps chromium > /dev/null
           sudo apt-get install -y -qq ffmpeg qpdf poppler-utils > /dev/null
+      - name: Regression tests (same as main)
+        run: python tests/run_tests.py
+        continue-on-error: true
       - name: Deep audit
         run: python tests/audit.py
         continue-on-error: true
@@ -41,7 +44,7 @@ jobs:
       - name: Save results
         if: always()
         run: |
-          mkdir -p /tmp/res && cp tests/audit_report.json tests/lighthouse_report.json tests/live_report.json /tmp/res/ 2>/dev/null || true
+          mkdir -p /tmp/res && cp tests/report.json tests/audit_report.json tests/lighthouse_report.json tests/live_report.json /tmp/res/ 2>/dev/null || true
           git config user.name "Tools for World audit"
           git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
           SHA=$(git rev-parse --short HEAD)

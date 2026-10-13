@@ -3,3 +3,7 @@ __pycache__/
 tests/audit_out/
 tests/audit_samples/
 tests/samples/
+tests/audit_report.json
+tests/lighthouse_report.json
+tests/live_report.json
+tests/report.json
