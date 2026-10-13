@@ -35,10 +35,13 @@ jobs:
           python tests/lighthouse.py http://localhost:8001/ local
           python tests/lighthouse.py https://toolsforworld.com/ live
         continue-on-error: true
+      - name: Live site check (headers, ads.txt, AdSense serving)
+        run: python tests/live_check.py
+        continue-on-error: true
       - name: Save results
         if: always()
         run: |
-          mkdir -p /tmp/res && cp tests/audit_report.json tests/lighthouse_report.json /tmp/res/ 2>/dev/null || true
+          mkdir -p /tmp/res && cp tests/audit_report.json tests/lighthouse_report.json tests/live_report.json /tmp/res/ 2>/dev/null || true
           git config user.name "Tools for World audit"
           git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
           SHA=$(git rev-parse --short HEAD)

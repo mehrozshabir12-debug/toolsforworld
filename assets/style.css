@@ -142,4 +142,42 @@ header .wrap{padding-block:12px}
 .chips .sect{margin:0 6px 0 0;width:100%}
 .chips a{font:500 .88rem var(--body);padding:6px 12px;border-radius:999px;border:1px solid var(--line);background:var(--surface);color:var(--fg);text-decoration:none}
 .chips a:hover{border-color:var(--accent);color:var(--accent)}
-.hero .aka{font-size:.85rem;opacity:.7;margin-top:.4rem}
+.hero .aka{font-size:.85rem;color:var(--muted);margin-top:.4rem}
+
+/* ---- audit 2026-10: mobile fixes, search, progress, formats ---- */
+.pp .panel label{flex-wrap:wrap}
+select{max-width:100%}
+.panel,.pp,.pp>*{min-width:0}
+.drop .fmt{font:500 .78rem var(--mono);color:var(--muted)}
+.drop .priv{font-size:.8rem;color:var(--accent);font-weight:600}
+progress#prog{width:100%;height:8px;accent-color:var(--accent);border-radius:99px}
+progress#prog:not([value]){opacity:.7}
+.out #zipall{justify-self:start;margin-top:4px}
+.file .x,.file .mv{min-width:32px;min-height:32px}
+.save{padding:6px 2px}
+.bigsearch{margin:18px 0 6px;max-width:640px}
+.bigsearch input,.hsearch input{width:100%;font:inherit;color:var(--fg);background:var(--surface);border:1.5px solid var(--line);border-radius:12px;padding:12px 14px}
+.bigsearch input{font-size:1.05rem;box-shadow:0 1px 2px rgba(0,0,0,.04)}
+.bigsearch input:focus,.hsearch input:focus{outline:2px solid var(--accent);outline-offset:1px;border-color:var(--accent)}
+.hsearch{flex:0 1 210px}
+.hsearch input{padding:7px 12px;border-radius:10px;font-size:.9rem;background:var(--sunk)}
+header nav .navall{color:var(--accent);font-weight:600}
+#recent .chips{margin-top:0}
+@media (max-width:760px){.hsearch{display:none}}
+@media (max-width:560px){
+  header nav{flex-wrap:nowrap;overflow-x:auto;scrollbar-width:none;-webkit-overflow-scrolling:touch;padding-bottom:2px}
+  header nav::-webkit-scrollbar{display:none}
+  header nav a{padding:6px 2px;white-space:nowrap}
+  .panel{padding:12px}
+  .row{gap:10px 14px}
+  input[type=range]{width:150px}
+  .btn{padding:12px 18px}
+}
+@media (max-width:560px){.chips .pre{display:none}.chips a{padding:7px 12px}}
+.docrender{font:15px/1.5 Georgia,serif;color:#111;background:#fff}
+.docrender img{max-width:100%}
+.docrender table{border-collapse:collapse}
+.docrender td,.docrender th{border:1px solid #999;padding:4px 6px}
+.docrender p{margin:0 0 .8em}
+.pp .panel label{display:grid;grid-template-columns:minmax(0,1fr);gap:4px}
+.pp .panel select,.pp .panel input[type=range]{width:100%;min-width:0}

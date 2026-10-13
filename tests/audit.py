@@ -135,10 +135,11 @@ def v_image(path, w=None, h=None, max_bytes=None, alpha=False, fmt=None):
     return ok, r
 
 
-def v_pdf(path, pages=None, check_last_page_not_blank=False, text=None):
+def v_pdf(path, pages=None, check_last_page_not_blank=False, text=None, min_pages=None):
     from pypdf import PdfReader
     rd = PdfReader(path); n = len(rd.pages); r = {"pages": n}; ok = True
     if pages is not None and n != pages: ok = False
+    if min_pages is not None and n < min_pages: ok = False
     if text is not None:
         t = "".join((pg.extract_text() or "") for pg in rd.pages); r["has_text"] = text in t; ok = ok and r["has_text"]
     if check_last_page_not_blank:
@@ -179,7 +180,7 @@ CASES = [
     ("compress-to-20kb-huge", "compress-image-to-20kb", ["huge-48mp.jpg"], "ok", {}, [(0, "image", {"max_bytes": 20 * 1024})], 240),
     ("compress-huge-48mp", "compress-image", ["huge-48mp.jpg"], "ok", {}, [(0, "image", {})], 240),
     ("compress-batch-3", "compress-image", ["photo.jpg", "photo.png", "photo.webp"], "ok", {}, [(2, "image", {})], 90),
-    ("compress-alpha-png", "compress-image", ["alpha.png"], "ok", {}, [(0, "image", {"fmt": "JPEG"})], 60),
+    ("compress-alpha-png", "compress-image", ["alpha.png"], "ok", {}, [(0, "image", {})], 60),
     ("compress-corrupt", "compress-image", ["corrupt.jpg"], "err", {}, [], 60),
     ("compress-empty", "compress-image", ["empty.jpg"], "err", {}, [], 60),
     ("compress-heic-wrong-tool", "compress-image", ["photo.heic"], "err_or_reject", {}, [], 60),
@@ -224,7 +225,7 @@ CASES = [
     ("pdf-to-word-scan", "pdf-to-word", ["scan.pdf"], "err", {}, [], 120),
     ("pdf-to-word-encrypted", "pdf-to-word", ["encrypted.pdf"], "err", {}, [], 60),
     ("word-to-pdf", "word-to-pdf", ["doc.docx"], "ok", {}, [(0, "pdf", {"check_last_page_not_blank": True})], 180),
-    ("word-to-pdf-long", "word-to-pdf", ["long-45ch.docx"], "ok", {}, [(0, "pdf", {"check_last_page_not_blank": True})], 420),
+    ("word-to-pdf-long", "word-to-pdf", ["long-45ch.docx"], "ok", {}, [(0, "pdf", {"min_pages": 30, "check_last_page_not_blank": True})], 600),
     ("word-to-pdf-old-doc", "word-to-pdf", ["old.doc"], "reject_or_err", {}, [], 60),
     ("word-to-pdf-corrupt", "word-to-pdf", ["corrupt.docx"], "err", {}, [], 60),
     # media

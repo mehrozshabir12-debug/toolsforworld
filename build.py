@@ -46,9 +46,9 @@ def RESULT(kv=False, table=None, note=True):
     if table: h += f'<div class="scroll"><table class="t"><thead><tr><th>{table[0]}</th><th class="n">{table[1]}</th></tr></thead><tbody id="out-rows"></tbody></table></div>'
     return h + "</div>"
 
-FILE_UI = '''<label class="drop" id="drop" tabindex="0"><input type="file" id="fin"><strong id="d-main">Choose files</strong><span id="d-sub">or drag and drop them here</span></label>
+FILE_UI = '''<label class="drop" id="drop" tabindex="0"><input type="file" id="fin"><strong id="d-main">Choose files</strong><span id="d-sub">or drag and drop them here</span><span class="fmt" id="d-fmt"></span><span class="priv">🔒 Processed on your device. Nothing is uploaded.</span></label>
 <div class="panel" id="panel" hidden><div class="files" id="list"></div><div id="opts"></div>
-<div class="row"><button class="btn" id="go">Start</button><button class="btn ghost" id="clear">Clear</button><span class="note" id="status" role="status"></span></div>
+<div class="row"><button class="btn" id="go">Start</button><button class="btn ghost" id="clear">Clear</button><span class="note" id="status" role="status" aria-live="polite"></span></div><progress id="prog" max="100" hidden aria-label="Progress"></progress>
 <div class="out" id="out"></div>EXTRA</div>'''
 
 # ------------------------------------------------------------------ tools
@@ -57,7 +57,35 @@ def tool(**k): T.append(k)
 import tools_list
 tools_list.define(tool, F, N, SEL, RESULT, PDFLIB, PDFJS, MAMMOTH, H2PDF)
 tools_list.landing(tool)
+tools_list.enrich(T)
 BY = {t['slug']: t for t in T}
+
+# Hand-picked "related tools" for each main tool (what people usually need next)
+RELATED = {
+    "pdf-to-word": ["word-to-pdf", "image-to-text", "compress-pdf", "pdf-to-jpg"],
+    "word-to-pdf": ["pdf-to-word", "compress-pdf", "merge-pdf", "jpg-to-pdf"],
+    "compress-pdf": ["compress-pdf-to-200kb", "split-pdf", "merge-pdf", "compress-image"],
+    "merge-pdf": ["split-pdf", "compress-pdf", "jpg-to-pdf", "word-to-pdf"],
+    "split-pdf": ["merge-pdf", "compress-pdf", "pdf-to-jpg", "pdf-to-word"],
+    "jpg-to-pdf": ["compress-image", "merge-pdf", "compress-pdf", "heic-to-jpg"],
+    "pdf-to-jpg": ["compress-image", "image-to-text", "split-pdf", "jpg-to-pdf"],
+    "image-to-text": ["pdf-to-word", "pdf-to-jpg", "word-counter", "image-to-text-urdu"],
+    "compress-image": ["resize-image", "compress-image-to-100kb", "jpg-to-pdf", "heic-to-jpg"],
+    "resize-image": ["compress-image", "passport-photo-maker", "remove-background", "resize-image-to-1080x1080"],
+    "remove-background": ["passport-photo-maker", "resize-image", "compress-image", "png-to-jpg"],
+    "png-to-jpg": ["jpg-to-png", "webp-to-jpg", "compress-image", "heic-to-jpg"],
+    "jpg-to-png": ["png-to-jpg", "remove-background", "compress-image", "webp-to-jpg"],
+    "webp-to-jpg": ["png-to-jpg", "heic-to-jpg", "compress-image", "resize-image"],
+    "heic-to-jpg": ["compress-image", "jpg-to-pdf", "webp-to-jpg", "resize-image"],
+    "passport-photo-maker": ["remove-background", "compress-image-to-50kb", "resize-image", "us-passport-photo"],
+    "qr-code-generator": ["wifi-qr-code-generator", "whatsapp-qr-code-generator", "password-generator", "word-counter"],
+    "word-counter": ["character-counter", "image-to-text", "password-generator", "percentage-calculator"],
+    "password-generator": ["qr-code-generator", "word-counter", "character-counter", "age-calculator"],
+    "age-calculator": ["percentage-calculator", "discount-calculator", "word-counter", "password-generator"],
+    "percentage-calculator": ["discount-calculator", "age-calculator", "word-counter", "character-counter"],
+    "mp4-to-mp3": ["compress-image", "heic-to-jpg", "pdf-to-word", "image-to-text"],
+}
+POPULAR = ["pdf-to-word", "compress-image-to-100kb", "compress-pdf", "remove-background", "image-to-text", "passport-photo-maker", "jpg-to-pdf", "word-to-pdf"]
 
 # Google AdSense publisher ID, e.g. "ca-pub-1234567890123456". Empty = no ad code on the site.
 ADSENSE_CLIENT = "ca-pub-3864792630233896"
@@ -70,7 +98,23 @@ BRAND_NAMES = ["ToolsForWorld", "Tools 4 World", "Tools4World", "Tool for World"
 BRAND_KEYWORDS = "Tools for World, toolsforworld, tools for world, tools 4 world, tools4world, tool for world, tool 4 world, tools world, toolsforworld.com, free online tools, PDF tools, image tools"
 
 
+FONTS = "https://fonts.googleapis.com/css2?family=Bricolage+Grotesque:opsz,wght@12..96,600;12..96,800&family=Figtree:wght@400;500;600&family=JetBrains+Mono:wght@500&display=optional"
+
+
+def fit_title(t):
+    """Keep titles short enough for search results: drop the brand suffix when the title is long."""
+    return t.replace(" | Tools for World", "") if len(t) > 62 and t.endswith(" | Tools for World") else t
+
+
+def fit_desc(d):
+    """Search results show about 155-160 characters: end at a full sentence before that."""
+    if len(d) <= 160: return d
+    cut = d[:160]; end = max(cut.rfind(". "), cut.rfind("! "))
+    return cut[:end + 1] if end > 80 else cut[:cut.rfind(" ")].rstrip(",;:") + "…"
+
+
 def page(rel_root, title, desc, canon, body, scripts="", body_attr="", jsonld=None, active="", keywords=""):
+    title, desc = fit_title(title), fit_desc(desc)
     nav = "".join(f'<a href="{rel_root}#{g}"{" aria-current=true" if active == g else ""}>{NAV[g]}</a>' for g, l in GROUPS)
     ld = "".join(f'<script type="application/ld+json">{json.dumps(j, ensure_ascii=False)}</script>' for j in (jsonld or []))
     return f'''<!doctype html>
@@ -87,30 +131,49 @@ def page(rel_root, title, desc, canon, body, scripts="", body_attr="", jsonld=No
 <link rel="icon" href="https://toolsforworld.com/favicon.ico" sizes="48x48"><link rel="icon" href="https://toolsforworld.com/favicon-96.png" type="image/png" sizes="96x96"><link rel="icon" href="https://toolsforworld.com/favicon-192.png" type="image/png" sizes="192x192"><link rel="icon" href="https://toolsforworld.com/favicon.svg" type="image/svg+xml"><link rel="apple-touch-icon" href="https://toolsforworld.com/apple-touch-icon.png"><link rel="manifest" href="https://toolsforworld.com/site.webmanifest"><meta name="theme-color" content="#0d7a55">
 {(f'<meta name="google-adsense-account" content="{ADSENSE_CLIENT}"><script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client={ADSENSE_CLIENT}" crossorigin="anonymous"></script>') if ADSENSE_CLIENT else ""}
 <link rel="preconnect" href="https://fonts.googleapis.com"><link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Bricolage+Grotesque:opsz,wght@12..96,600;12..96,800&family=Figtree:wght@400;500;600&family=JetBrains+Mono:wght@500&display=swap">
+<link rel="preload" as="style" href="{FONTS}"><link rel="stylesheet" href="{FONTS}" media="print" onload="this.media='all'"><noscript><link rel="stylesheet" href="{FONTS}"></noscript>
 <link rel="stylesheet" href="{rel_root}assets/style.css">
 {ld}
 </head>
 <body{body_attr}>
-<header><div class="wrap"><a class="logo" href="{rel_root}" aria-label="Tools for World home"><svg viewBox="0 0 32 32" width="40" height="40" aria-hidden="true"><circle cx="16" cy="16" r="15" fill="var(--accent)"/><g fill="none" stroke="var(--accent-ink)" stroke-width="1.8"><circle cx="16" cy="16" r="9.5"/><ellipse cx="16" cy="16" rx="4.2" ry="9.5"/><path d="M6.8 13h18.4M6.8 19h18.4"/></g></svg><span>Tools <i>for</i> World</span></a><nav aria-label="Main">{nav}</nav></div></header>
+<header><div class="wrap"><a class="logo" href="{rel_root}" aria-label="Tools for World home"><svg viewBox="0 0 32 32" width="40" height="40" aria-hidden="true"><circle cx="16" cy="16" r="15" fill="var(--accent)"/><g fill="none" stroke="var(--accent-ink)" stroke-width="1.8"><circle cx="16" cy="16" r="9.5"/><ellipse cx="16" cy="16" rx="4.2" ry="9.5"/><path d="M6.8 13h18.4M6.8 19h18.4"/></g></svg><span>Tools <i>for</i> World</span></a><nav aria-label="Main">{nav}<a href="{rel_root}#all" class="navall">All tools</a></nav><form class="hsearch" role="search" action="{rel_root}" method="get"><input type="search" name="q" placeholder="Search tools…" aria-label="Search tools" autocomplete="off"></form></div></header>
 <main class="wrap">
 {body}
 </main>
 <footer><div class="wrap"><span>© <span id="yr">{datetime.date.today().year}</span> Tools for World · Free tools that run in your browser.</span>
 <span><a href="{rel_root}about/">About</a> · <a href="{rel_root}privacy/">Privacy Policy</a> · <a href="{rel_root}terms/">Terms</a> · <a href="{rel_root}contact/">Contact</a> · <a href="{rel_root}credits/">Open-source credits</a></span></div></footer>
 {scripts}
+<script src="{rel_root}assets/site.js" defer></script>
 <!-- Cloudflare Web Analytics --><script defer src="https://static.cloudflareinsights.com/beacon.min.js" data-cf-beacon='{{"token": "58c7e905638641ae816794606d09687a"}}'></script><!-- End Cloudflare Web Analytics -->
 </body>
 </html>
 '''
 
+KW = {  # extra search words (synonyms people type)
+    "pdf-to-word": "docx doc editable convert", "word-to-pdf": "docx doc cv resume", "compress-pdf": "reduce shrink size kb mb smaller",
+    "merge-pdf": "combine join", "split-pdf": "extract pages separate cut", "jpg-to-pdf": "image photo png pictures scan",
+    "pdf-to-jpg": "image png pictures pages", "image-to-text": "ocr scan read copy extract text photo screenshot",
+    "compress-image": "reduce shrink kb size photo jpg png smaller", "resize-image": "dimensions pixels width height scale crop",
+    "remove-background": "transparent cutout bg erase png", "heic-to-jpg": "iphone apple heif photo", "passport-photo-maker": "visa id photo 2x2 35x45",
+    "qr-code-generator": "qrcode barcode link", "word-counter": "count words characters essay", "password-generator": "secure random strong",
+    "age-calculator": "birthday date of birth years", "percentage-calculator": "percent discount increase decrease", "mp4-to-mp3": "audio video extract sound music",
+    "png-to-jpg": "convert image", "jpg-to-png": "convert image transparent", "webp-to-jpg": "convert image",
+}
+
+
 def cards(rel_root, items):
     return '<div class="grid">' + "".join(
-        f'<a class="tool" href="{rel_root}{t["slug"]}/"><span class="ic">{ICON[t["icon"]]}</span><span><h2>{t["name"]}</h2><p>{t["card"]}</p></span></a>' for t in items) + "</div>"
+        f'<a class="tool" href="{rel_root}{t["slug"]}/" data-k="{KW.get(t["slug"], "")}"><span class="ic">{ICON[t["icon"]]}</span><span><h2>{t["name"]}</h2><p>{t["card"]}</p></span></a>' for t in items) + "</div>"
 
 def chips(rel_root, items, label):
+    """Preset links. The words every chip shares (e.g. "Compress Image to ") are hidden on small screens."""
+    names = [t["name"] for t in items]
+    pre = os.path.commonprefix(names) if len(names) > 1 else ""
+    pre = pre[:pre.rfind(" ") + 1] if " " in pre else ""
+    def lab(n):
+        return f'<span class="pre">{n[:len(pre)]}</span>{n[len(pre):]}' if pre else n
     return f'<div class="chips"><span class="sect">{label}</span>' + "".join(
-        f'<a href="{rel_root}{t["slug"]}/">{t["name"]}</a>' for t in items) + "</div>"
+        f'<a href="{rel_root}{t["slug"]}/">{lab(t["name"])}</a>' for t in items) + "</div>"
 
 def write(rel_path, content):
     if PREVIEW and rel_path.endswith(".html"):
@@ -127,13 +190,16 @@ def build():
         par = BY.get(t.get("parent"))
         kids = [x for x in T if x.get("parent") == t["slug"]]
         if par:
-            related = [par] + [x for x in T if x.get("parent") == par["slug"] and x["slug"] != t["slug"]][:3]
+            sibs = [x for x in T if x.get("parent") == par["slug"] and x["slug"] != t["slug"]]
+            start = next((i for i, x in enumerate(sibs) if x["slug"] > t["slug"]), 0)
+            related = [par] + (sibs[start:] + sibs[:start])[:3] + [BY[x] for x in RELATED.get(par["slug"], [])[:2] if x in BY]
         else:
-            related = [x for x in T if x["group"] == t["group"] and x["slug"] != t["slug"] and not x.get("parent")][:4]
+            related = [BY[x] for x in RELATED.get(t["slug"], []) if x in BY] or \
+                      [x for x in T if x["group"] == t["group"] and x["slug"] != t["slug"] and not x.get("parent")][:4]
         preset = f'<script>window.PRESET={json.dumps(t["preset"])}</script>' if t.get("preset") else ""
         if "ftool" in t:
             ui = FILE_UI.replace("EXTRA", t.get("extra", ""))
-            scripts = preset + t["libs"] + f'<script src="{r}assets/files.js"></script>'
+            scripts = preset + f'<script src="{r}assets/files.js"></script>'
             attr = f' data-tool="{t["ftool"]}"'
         else:
             ui = t.get("ui") or par["ui"]; scripts = preset + t.get("libs", "") + f'<script src="{r}assets/calc.js"></script>'; attr = f' data-calc="{t["calc"]}"'
@@ -155,12 +221,18 @@ def build():
 
     home = '''<div class="hero"><p class="brand-big" aria-hidden="true">Tools <i>for</i> World</p><h1>Free online tools that keep your files private</h1>
 <p>Convert PDF and Word files, compress and edit images, remove backgrounds, make QR codes and more. No sign-up, no watermark, no limits. Every tool runs in your browser, so your files never leave your device.</p>
-<p class="aka">Tools for World (also written ToolsForWorld or Tools 4 World) is at toolsforworld.com.</p></div>'''
+<div class="bigsearch" role="search"><input type="search" id="q" placeholder="Search tools: compress pdf, passport, heic…" aria-label="Search tools" autocomplete="off"></div>
+<p class="aka">Tools for World (also written ToolsForWorld or Tools 4 World) is at toolsforworld.com.</p></div>
+<div id="results" hidden><div class="sect">Search results</div><div class="grid" id="rgrid"></div><p class="note" id="rnone" hidden>No tool matches that yet. <a href="contact/">Ask us for it</a>.</p></div>
+<div id="browse"><div id="recent" hidden><div class="sect">Recently used</div><div class="chips" id="rchips"></div></div>'''
+    home += '<div class="sect">Popular tools</div>' + cards("", [BY[x] for x in POPULAR if x in BY])
+    home += '<div id="all"></div>'
     for g, label in GROUPS:
         home += f'<div class="sect" id="{g}">{label}</div>' + cards("", [t for t in T if t["group"] == g and not t.get("parent")])
     home += '<div class="sect" id="presets">Popular sizes &amp; presets</div>'
     for par in [p for p in T if any(x.get("parent") == p["slug"] for x in T)]:
         home += chips("", [t for t in T if t.get("parent") == par["slug"]], par["name"])
+    home += "</div>"
     write("index.html", page("", "Tools for World – Free PDF, Image & Everyday Tools Online",
                              "Free online tools: PDF to Word, Word to PDF, compress PDF and images, background remover, HEIC to JPG, OCR, QR code generator, MP4 to MP3 and more. Private: files never leave your device.",
                              BASE, home, f'<script src="assets/calc.js"></script>',
@@ -174,18 +246,22 @@ def build():
 <p>All tools run inside your browser. Files you open are processed on your own device and are never uploaded to our servers.</p>
 <p>We keep the tools simple, fast and free, with no sign-up and no watermarks.</p>
 <p>You may also see us written as ToolsForWorld, Tools4World or Tools 4 World. It's the same site: <a href="https://toolsforworld.com/">toolsforworld.com</a>.</p>'''),
-        "privacy": ("Privacy Policy – Tools for World", "How Tools for World handles your data.",
+        "privacy": ("Privacy Policy – Tools for World", "How Tools for World handles your data: files are processed on your device, plus how ads, cookies and analytics work.",
                     f'''<h1>Privacy Policy</h1><p>Last updated: {TODAY}</p>
 <h2>Your files and numbers</h2><p>Tools for World tools work entirely in your browser. Images, PDFs, Word documents and the numbers you type are processed on your device and are not sent to or stored on our servers.</p>
 <h2>Cookies and advertising</h2><p>We may show ads from Google AdSense. Google and its partners use cookies to show ads based on your visits to this and other websites. You can turn off personalised ads in <a href="https://adssettings.google.com">Google Ads Settings</a>. Learn more at <a href="https://policies.google.com/technologies/ads">How Google uses information from sites that use its services</a>.</p>
+<h2>Your consent choices</h2><p>Visitors in the European Economic Area, the UK and Switzerland are asked for consent before personalised ads, using Google's certified consent message. You can choose not to consent, and you can change your choice later from the same message or by clearing this site's cookies.</p>
 <h2>Analytics</h2><p>We use Cloudflare Web Analytics to count page visits and measure page speed. It does not use cookies and never sees the content of your files.</p>
-<h2>Third-party code</h2><p>Some tools load open-source libraries (pdf-lib, PDF.js, Mammoth, html2pdf.js, Tesseract.js, heic2any, lamejs, JSZip, qrcode-generator, IMG.LY background removal) and fonts. See <a href="../credits/">open-source credits</a> for their licences. These libraries and fonts load from public CDNs such as cdnjs, jsDelivr and Google Fonts. These services may see your IP address when your browser downloads them.</p>
+<h2>Stored in your browser</h2><p>The home page shows the tools you opened recently. That list is kept only in your browser's local storage, is never sent to us, and disappears when you clear this site's data.</p>
+<h2>Third-party code</h2><p>Some tools load open-source libraries (pdf-lib, PDF.js, Mammoth, html2pdf.js, Tesseract.js, heic2any, lamejs, JSZip, qrcode-generator, IMG.LY background removal) and fonts. See <a href="../credits/">open-source credits</a> for their licences. These libraries and fonts load from public CDNs such as cdnjs, jsDelivr and Google Fonts, and the OCR language data and background-removal AI model are downloaded from their publishers' servers. These services may see your IP address when your browser downloads them, but they never receive your files: the files are processed on your device after the code has been downloaded.</p>
 <h2>Children</h2><p>Tools for World is a general-audience site and does not knowingly collect personal information from children.</p>
 <h2>Contact</h2><p>Questions about this policy: see our <a href="../contact/">contact page</a>.</p>'''),
-        "terms": ("Terms of Use – Tools for World", "Terms for using Tools for World tools.",
-                  f'''<h1>Terms of Use</h1><p>Last updated: {TODAY}</p><p>Tools for World tools are free to use for personal and business purposes. They are provided “as is”, without any warranty.</p>
+        "terms": ("Terms of Use – Tools for World", "The terms for using Tools for World's free online PDF, image and text tools, including limits of liability.",
+                  f'''<h1>Terms of Use</h1><p>Last updated: {TODAY}</p><p>Tools for World tools are free to use for personal and business purposes. They are provided “as is”, without any warranty, and we are not liable for any loss arising from their use.</p>
 <p>Results such as conversions and calculations are provided for convenience. Check important documents and figures before you rely on them.</p>
-<p>You are responsible for the files you process. Do not use the tools for anything illegal.</p>'''),
+<p>You are responsible for the files you process. Only convert files you own or have permission to use, and do not use the tools for anything illegal.</p>
+<p>Official photo sizes and other rules shown on this site are a guide. Always check the latest requirements with the official authority before you submit an application.</p>
+<p>We may change or remove tools and these terms at any time. Questions: see our <a href="../contact/">contact page</a>.</p>'''),
         "credits": ("Open-Source Credits – Tools for World", "The open-source libraries and fonts that power Tools for World, with their licences.",
                     '''<h1>Open-source credits</h1><p>Tools for World is built on excellent open-source software. Thank you to everyone who makes these projects. Each library is used unmodified and is loaded from a public CDN; follow the links for the source code and full licence text.</p>
 <div class="scroll"><table class="t"><thead><tr><th>Project</th><th>Used for</th><th>Licence</th></tr></thead><tbody>
@@ -204,8 +280,9 @@ def build():
 </tbody></table></div>
 <p>Trademarks and product names mentioned on this site belong to their owners. Tools for World is an independent project and is not affiliated with any government office or with the projects above.</p>
 <p>Spotted a missing credit? Please tell us via the <a href="../contact/">contact page</a>.</p>'''),
-        "contact": ("Contact – Tools for World", "Contact Tools for World with feedback or tool requests.",
-                    '''<h1>Contact</h1><p>Found a bug, or want a new tool? We would love to hear from you.</p><p>Email: <b>hello@toolsforworld.com</b>.</p>'''),
+        "contact": ("Contact – Tools for World", "Contact Tools for World to report a bug, suggest a new free tool or ask a question about privacy.",
+                    '''<h1>Contact</h1><p>Found a bug, or want a new tool? We would love to hear from you.</p><p>Email: <b>hello@toolsforworld.com</b>.</p>
+<p>When reporting a problem, tell us which tool you used, your device and browser (for example “iPhone, Safari” or “Windows, Chrome”), and what happened. Please don't send us private documents: our tools never need your files, because everything runs in your browser.</p>'''),
     }
     for slug, (title, desc, content) in info.items():
         write(f"{slug}/index.html", page("../", title, desc, BASE + slug + "/", f'<section class="bench how" style="max-width:70ch">{content}</section>'))

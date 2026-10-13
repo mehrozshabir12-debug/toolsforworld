@@ -1,39 +1,81 @@
 /* Tools for World file tools: everything runs in the browser, files never leave the device. */
 const $=s=>document.querySelector(s);
 const I={pdf:'<svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M14 3H6a2 2 0 0 0-2 2v14a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V9z"/><path d="M14 3v6h6"/></svg>'};
-const TOOLS={
- compress:{accept:'image/*',multi:true,go:'Compress'},
- resize:{accept:'image/*',multi:true,go:'Resize'},
- convert:{accept:'image/*',multi:true,go:'Convert'},
- passport:{accept:'image/*',multi:false,go:'Make sheet'},
- img2pdf:{accept:'image/jpeg,image/png,image/webp',multi:true,go:'Create PDF'},
- merge:{accept:'application/pdf',multi:true,go:'Merge PDFs'},
- split:{accept:'application/pdf',multi:false,go:'Split PDF'},
- pdf2jpg:{accept:'application/pdf',multi:false,go:'Convert to JPG'},
- word2pdf:{accept:'application/vnd.openxmlformats-officedocument.wordprocessingml.document,.docx',multi:false,go:'Convert to PDF'},
- png2jpg:{accept:'image/png',multi:true,go:'Convert to JPG',fmt:'image/jpeg'},
- jpg2png:{accept:'image/jpeg',multi:true,go:'Convert to PNG',fmt:'image/png'},
- webp2jpg:{accept:'image/webp',multi:true,go:'Convert to JPG',fmt:'image/jpeg'},
- heic2jpg:{accept:'image/heic,image/heif,.heic,.heif',multi:true,go:'Convert to JPG'},
- pdfcompress:{accept:'application/pdf',multi:false,go:'Compress PDF'},
- ocr:{accept:'image/*',multi:false,go:'Extract text'},
- bgremove:{accept:'image/*',multi:false,go:'Remove background'},
- mp4mp3:{accept:'video/*,audio/*,.mp4,.m4a,.mov,.webm,.mkv',multi:false,go:'Convert to MP3'},
- pdf2word:{accept:'application/pdf',multi:false,go:'Convert to Word'}
+/* Libraries load only when a tool needs them (pinned versions + Subresource Integrity). */
+const LIB={
+ pdflib:['https://cdnjs.cloudflare.com/ajax/libs/pdf-lib/1.17.1/pdf-lib.min.js','sha384-weMABwrltA6jWR8DDe9Jp5blk+tZQh7ugpCsF3JwSA53WZM9/14PjS5LAJNHNjAI'],
+ pdfjs:['https://cdnjs.cloudflare.com/ajax/libs/pdf.js/3.11.174/pdf.min.js','sha384-/1qUCSGwTur9vjf/z9lmu/eCUYbpOTgSjmpbMQZ1/CtX2v/WcAIKqRv+U1DUCG6e'],
+ mammoth:['https://cdn.jsdelivr.net/npm/mammoth@1.8.0/mammoth.browser.min.js','sha384-/cXAMbzovUIKbBERjPmR3SnPTh8siWr5lsvFYj1Uq4XP0yaJUZJmsh0YXyGv5P0y'],
+ h2pdf:['https://cdnjs.cloudflare.com/ajax/libs/html2pdf.js/0.10.1/html2pdf.bundle.min.js','sha384-Yv5O+t3uE3hunW8uyrbpPW3iw6/5/Y7HitWJBLgqfMoA36NogMmy+8wWZMpn3HWc'],
+ tess:['https://cdn.jsdelivr.net/npm/tesseract.js@5.1.0/dist/tesseract.min.js','sha384-1zP4ZOtlk2FXAOiUArpMuWf7INJJKe/ROfYFAVSeUa11DEfXdKWGiPI3dVma2Gt0'],
+ heic:['https://cdn.jsdelivr.net/npm/heic2any@0.0.4/dist/heic2any.min.js','sha384-OTofQ0MEeiSgh62havBcemCIK0gqj809wX6UA0uPISNMRnR6NZyCdGzX3SbLrgwL'],
+ lame:['https://cdn.jsdelivr.net/npm/lamejs@1.2.1/lame.min.js','sha384-xuasJXVcyv3hZq0eYpelEkBC8l4yufatZXDsKuyCU2rqfhDCb+ftuE/mSfZAteiK'],
+ jszip:['https://cdnjs.cloudflare.com/ajax/libs/jszip/3.10.1/jszip.min.js','sha384-+mbV2IY1Zk/X1p/nWllGySJSUN8uMs+gUAN10Or95UBH0fpj6GfKgPmgC5EXieXG']
 };
-let cur=null, files=[], outs=[];
+const PDFWORKER='https://cdnjs.cloudflare.com/ajax/libs/pdf.js/3.11.174/pdf.worker.min.js';
+const NET_ERR='A part of this tool could not load. Check your internet connection and try again.';
+const libP={};
+function need(...names){return Promise.all(names.map(n=>libP[n]||(libP[n]=new Promise((res,rej)=>{
+  const sc=document.createElement('script');sc.src=LIB[n][0];sc.integrity=LIB[n][1];sc.crossOrigin='anonymous';
+  sc.onload=res;sc.onerror=()=>{delete libP[n];sc.remove();rej(new Error(NET_ERR))};document.head.appendChild(sc)}))))}
+
+const IMG_EXT=['jpg','jpeg','jfif','png','webp','gif','bmp','avif'];
+const TOOLS={
+ compress:{accept:'image/*',exts:IMG_EXT,multi:true,go:'Compress',fmt:'JPG, PNG, WebP, GIF, BMP',warn:40},
+ resize:{accept:'image/*',exts:IMG_EXT,multi:true,go:'Resize',fmt:'JPG, PNG, WebP, GIF, BMP',warn:40},
+ convert:{accept:'image/*',exts:IMG_EXT,multi:true,go:'Convert',fmt:'JPG, PNG, WebP',warn:40},
+ passport:{accept:'image/*',exts:IMG_EXT,multi:false,go:'Make sheet',fmt:'JPG, PNG, WebP',warn:40},
+ img2pdf:{accept:'image/jpeg,image/png,image/webp',exts:['jpg','jpeg','jfif','png','webp'],multi:true,go:'Create PDF',libs:['pdflib'],fmt:'JPG, PNG, WebP',warn:40},
+ merge:{accept:'application/pdf',exts:['pdf'],multi:true,go:'Merge PDFs',libs:['pdflib'],fmt:'PDF',warn:200},
+ split:{accept:'application/pdf',exts:['pdf'],multi:false,go:'Split PDF',libs:['pdflib'],fmt:'PDF',warn:200},
+ pdf2jpg:{accept:'application/pdf',exts:['pdf'],multi:false,go:'Convert to JPG',libs:['pdfjs'],fmt:'PDF',warn:150},
+ word2pdf:{accept:'application/vnd.openxmlformats-officedocument.wordprocessingml.document,.docx',exts:['docx'],multi:false,go:'Convert to PDF',libs:['mammoth','h2pdf'],fmt:'Word .docx',warn:40},
+ png2jpg:{accept:'image/png',exts:['png'],multi:true,go:'Convert to JPG',fmt:'PNG',warn:40},
+ jpg2png:{accept:'image/jpeg',exts:['jpg','jpeg','jfif'],multi:true,go:'Convert to PNG',fmt:'JPG / JPEG',warn:40},
+ webp2jpg:{accept:'image/webp',exts:['webp'],multi:true,go:'Convert to JPG',fmt:'WebP',warn:40},
+ heic2jpg:{accept:'image/heic,image/heif,.heic,.heif',exts:['heic','heif'],multi:true,go:'Convert to JPG',libs:['heic'],fmt:'HEIC / HEIF (iPhone photos)',warn:40},
+ pdfcompress:{accept:'application/pdf',exts:['pdf'],multi:false,go:'Compress PDF',libs:['pdflib','pdfjs'],fmt:'PDF',warn:150},
+ ocr:{accept:'image/*',exts:IMG_EXT,multi:false,go:'Extract text',libs:['tess'],fmt:'JPG, PNG, WebP, BMP',warn:30},
+ bgremove:{accept:'image/*',exts:IMG_EXT,multi:false,go:'Remove background',fmt:'JPG, PNG, WebP',warn:30},
+ mp4mp3:{accept:'video/*,audio/*,.mp4,.m4a,.mov,.webm,.mkv',exts:['mp4','m4a','mov','webm','mkv','m4v','3gp','mp3','wav','ogg','aac'],multi:false,go:'Convert to MP3',libs:['lame'],fmt:'MP4, MOV, WebM, M4A',warn:300},
+ pdf2word:{accept:'application/pdf',exts:['pdf'],multi:false,go:'Convert to Word',libs:['pdfjs','jszip'],fmt:'PDF',warn:150}
+};
+let cur=null, files=[], outs=[], results=[], thumbs=[];
 const kb=n=>n<1048576?(n/1024).toFixed(0)+' KB':(n/1048576).toFixed(2)+' MB';
-const esc=s=>s.replace(/[&<>"]/g,c=>({'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;'}[c]));
+const esc=s=>String(s).replace(/[&<>"]/g,c=>({'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;'}[c]));
 const base=n=>n.replace(/\.[^.]+$/,'');
-function status(t,err){const s=$('#status');s.textContent=t||'';s.className='note'+(err?' err':'')}
+const extOf=n=>(n.match(/\.([^.]+)$/)||['',''])[1].toLowerCase();
+function status(t,err,html){const s=$('#status');if(html)s.innerHTML=t;else s.textContent=t||'';s.className='note'+(err?' err':'');prog(t)}
+/* progress bar: follows "45%" or "page 3 of 10" in status messages */
+function prog(t){const p=$('#prog');if(!p||p.hidden)return;const m=/(\d+)%/.exec(t||'')||null,n=/(\d+) of (\d+)/.exec(t||'');
+  if(m)p.value=Math.min(100,+m[1]);else if(n)p.value=Math.round(+n[1]/+n[2]*100);else p.removeAttribute('value')}
+/* raw browser errors become a plain-language message */
+function friendly(e){const m=(e&&e.message)||'';
+  if(/allocation failed|out of memory|Array buffer allocation|Invalid array length|Maximum call stack|Invalid string length/i.test(m))return 'This file is too large for this device to process. Try a smaller file, or use a computer.';
+  if(!m||/undefined|null|Cannot read|is not a function|is not defined|Failed to execute|Overload|TypeError|RangeError|\[object/i.test(m))return 'Something went wrong with this file. It may be damaged or in an unusual format. Try another file.';
+  return m}
 
-
+/* canvas limits: iPhone/iPad Safari fails above ~16.7 million pixels; others above ~268M (we stay well below) */
+const IOS=/iP(hone|ad|od)/.test(navigator.userAgent)||(navigator.platform==='MacIntel'&&navigator.maxTouchPoints>1);
+const MAXPX=IOS?16.7e6:(navigator.maxTouchPoints>0?60e6:120e6),MAXSIDE=IOS?8192:32000;
+let shrunk='';
+function fitLimit(w,h){let s=Math.min(1,Math.sqrt(MAXPX/(w*h)),MAXSIDE/w,MAXSIDE/h);if(s<1){const W=Math.max(1,Math.floor(w*s)),H=Math.max(1,Math.floor(h*s));shrunk=` Reduced to ${W}×${H} px, the largest size this device can process.`;return[W,H]}return[w,h]}
 
 function addFiles(list){
-  const t=TOOLS[cur];let added=[...list].filter(f=>t.accept.split(',').some(a=>a.startsWith('.')?f.name.toLowerCase().endsWith(a):a.endsWith('/*')?f.type.startsWith(a.slice(0,-1)):f.type===a));
-  if(!added.length){status('That file type is not supported here.',true);return}
+  const t=TOOLS[cur];list=[...list];
+  const heic=f=>/^image\/hei[cf]/.test(f.type)||/^hei[cf]$/.test(extOf(f.name));
+  if(cur!=='heic2jpg'&&list.some(heic)){
+    status(`iPhone HEIC photos can't be opened here directly. Convert them with <a href="../heic-to-jpg/">HEIC to JPG</a> first, then come back.`,true,true);
+    list=list.filter(f=>!heic(f));if(!list.length)return}
+  const ok=f=>t.accept.split(',').some(a=>a.startsWith('.')?f.name.toLowerCase().endsWith(a):a.endsWith('/*')?f.type.startsWith(a.slice(0,-1)):f.type===a)||(!f.type||f.type==='application/octet-stream')&&(t.exts||[]).includes(extOf(f.name));
+  const added=list.filter(ok);
+  if(!added.length){status(`That file type is not supported here. Supported: ${t.fmt}.`,true);return}
   files=t.multi?files.concat(added):[added[0]];
-  status('');render();if(cur==='passport')ppLoad();
+  const big=files.filter(f=>f.size>t.warn*1048576);
+  status(added.length<list.length?`Some files were skipped (not ${t.fmt}).`:big.length?`Large file (${kb(big[0].size)}): this may be slow on phones. A computer works best.`:'');
+  render();
+  if(cur==='passport')ppLoad().catch(e=>{files=[];ppImg=null;render();status((e.message||'Could not read this photo.')+' Choose a JPG or PNG photo.',true)});
+  if(t.libs)need(...t.libs).catch(()=>{});            // start downloading the converter early
 }
 $('#fin').addEventListener('change',e=>{addFiles(e.target.files);e.target.value=''});
 const drop=$('#drop');
@@ -41,21 +83,24 @@ const drop=$('#drop');
 ['dragleave','drop'].forEach(ev=>drop.addEventListener(ev,e=>{e.preventDefault();drop.classList.remove('over')}));
 drop.addEventListener('drop',e=>addFiles(e.dataTransfer.files));
 drop.addEventListener('keydown',e=>{if(e.key==='Enter'||e.key===' '){e.preventDefault();$('#fin').click()}});
-$('#clear').onclick=()=>{files=[];$('#out').innerHTML='';status('');render()};
+function clearOut(){outs.forEach(u=>URL.revokeObjectURL(u));outs=[];results=[];$('#out').innerHTML=''}
+$('#clear').onclick=()=>{files=[];ppImg=null;clearOut();status('');render()};
 
 function render(){
   $('#panel').hidden=!files.length;
+  thumbs.forEach(u=>URL.revokeObjectURL(u));thumbs=[];
   const L=$('#list');L.innerHTML='';
   const reorder=['img2pdf','merge'].includes(cur);
   files.forEach((f,i)=>{
     const d=document.createElement('div');d.className='file';
-    const th=f.type.startsWith('image/')?`<img alt="" src="${URL.createObjectURL(f)}">`:`<span class="ic" style="color:var(--accent)">${I.pdf}</span>`;
+    let th=`<span class="ic" style="color:var(--accent)">${I.pdf}</span>`;
+    if(f.type.startsWith('image/')&&f.size<25e6){const u=URL.createObjectURL(f);thumbs.push(u);th=`<img alt="" src="${u}">`}
     d.innerHTML=`${th}<span class="nm">${esc(f.name)}</span><span class="sz">${kb(f.size)}</span>`+
       (reorder?`<button class="mv" aria-label="Move up" data-u="${i}">▲</button><button class="mv" aria-label="Move down" data-d="${i}">▼</button>`:'')+
-      `<button class="x" aria-label="Remove" data-x="${i}">×</button>`;
+      `<button class="x" aria-label="Remove ${esc(f.name)}" data-x="${i}">×</button>`;
     L.appendChild(d);
   });
-  L.querySelectorAll('[data-x]').forEach(b=>b.onclick=()=>{files.splice(+b.dataset.x,1);render()});
+  L.querySelectorAll('[data-x]').forEach(b=>b.onclick=()=>{files.splice(+b.dataset.x,1);if(cur==='passport')ppImg=null;render()});
   L.querySelectorAll('[data-u]').forEach(b=>b.onclick=()=>{const i=+b.dataset.u;if(i>0){[files[i-1],files[i]]=[files[i],files[i-1]];render()}});
   L.querySelectorAll('[data-d]').forEach(b=>b.onclick=()=>{const i=+b.dataset.d;if(i<files.length-1){[files[i+1],files[i]]=[files[i],files[i+1]];render()}});
   $('#go').disabled=!files.length||(cur==='merge'&&files.length<2);
@@ -67,10 +112,10 @@ function renderOpts(){
   const fmt=(id,def)=>`<label>Format <select id="${id}"><option value="image/jpeg"${def==='jpg'?' selected':''}>JPG</option><option value="image/png"${def==='png'?' selected':''}>PNG</option><option value="image/webp"${def==='webp'?' selected':''}>WebP</option></select></label>`;
   o.innerHTML={
    compress:`<div class="row"><label>Quality <input type="range" id="q" min="10" max="95" value="70"> <span id="qv" class="sz">70%</span></label><label>Max width <input type="number" id="mw" placeholder="Original" min="50"> px</label><label>Output <select id="cf"><option value="image/jpeg">JPG</option><option value="image/webp">WebP</option></select></label></div><div class="row"><label>Target size <input type="number" id="tkb" placeholder="Any" min="5" step="1"> KB</label><span class="note">Set a target (like 100) and the photo is made just under that size. Quality is then chosen for you.</span></div>`,
-   resize:`<div class="row"><label><select id="rm"><option value="px">Pixels</option><option value="pc">Percent</option></select></label><label>Width <input type="number" id="rw" min="1"></label><label>Height <input type="number" id="rh" min="1"></label><label><input type="checkbox" id="rk" checked> Keep ratio</label><label>If the shape differs <select id="rf"><option value="crop">Crop to fill</option><option value="pad">Fit with white border</option><option value="stretch">Stretch</option></select></label><label>Percent <input type="number" id="rp" value="50" min="1" max="500"> %</label></div><p class="note">With "Keep ratio", fill only width or height and the other is calculated for each image.</p>`,
+   resize:`<div class="row"><label><select id="rm" aria-label="Resize by"><option value="px">Pixels</option><option value="pc">Percent</option></select></label><label>Width <input type="number" id="rw" min="1" max="20000"></label><label>Height <input type="number" id="rh" min="1" max="20000"></label><label><input type="checkbox" id="rk" checked> Keep ratio</label><label>If the shape differs <select id="rf"><option value="crop">Crop to fill</option><option value="pad">Fit with white border</option><option value="stretch">Stretch</option></select></label><label>Percent <input type="number" id="rp" value="50" min="1" max="1000"> %</label></div><p class="note">With "Keep ratio", fill only width or height and the other is calculated for each image.</p>`,
    convert:`<div class="row">${fmt('tf','png')}<label>Quality <input type="range" id="tq" min="10" max="100" value="92"></label></div>`,
    passport:`<div class="pp"><canvas id="ppc" width="350" height="450" aria-label="Passport photo preview"></canvas><div class="panel" style="margin:0">
-     <label>Size <select id="ps"><option value="35x45">35 × 45 mm – Pakistan, Australia, UK, EU, India</option><option value="50.8x50.8">2 × 2 in – USA</option><option value="50x70">50 × 70 mm – Canada</option><option value="33x48">33 × 48 mm – China visa</option><option value="40x50">40 × 50 mm</option><option value="30x40">30 × 40 mm</option></select></label>
+     <label>Size <select id="ps"><option value="35x45">35 × 45 mm (UK, EU, Australia, India, Pakistan)</option><option value="50.8x50.8">2 × 2 in (USA)</option><option value="50x70">50 × 70 mm (Canada)</option><option value="33x48">33 × 48 mm (China visa)</option><option value="40x50">40 × 50 mm</option><option value="30x40">30 × 40 mm</option></select></label>
      <label>Zoom <input type="range" id="pz" min="100" max="400" value="100"></label>
      <label>Left / right <input type="range" id="px" min="-100" max="100" value="0"></label>
      <label>Up / down <input type="range" id="py" min="-100" max="100" value="0"></label>
@@ -87,22 +132,36 @@ function renderOpts(){
 }
 
 function addOut(blob,name){
-  const u=URL.createObjectURL(blob);outs.push(u);
+  if(!blob||!blob.size)throw new Error('This file is too large for this device to process. Try a smaller size or file.');
+  const u=URL.createObjectURL(blob);outs.push(u);results.push({blob,name});
   const d=document.createElement('div');d.className='file';
   const th=blob.type.startsWith('image/')?`<img alt="" src="${u}">`:`<span class="ic" style="color:var(--accent)">${I.pdf}</span>`;
   d.innerHTML=`${th}<span class="nm">${esc(name)}</span><span class="sz">${kb(blob.size)}</span><a class="save" href="${u}" download="${esc(name)}">Download</a>`;
   $('#out').appendChild(d);
 }
-const loadImg=f=>new Promise((res,rej)=>{const i=new Image();i.onload=()=>res(i);i.onerror=()=>rej(new Error('Could not read '+f.name));i.src=URL.createObjectURL(f)});
-const toBlob=(c,type,q)=>new Promise(r=>c.toBlob(r,type,q));
-function draw(img,w,h,type){const c=document.createElement('canvas');c.width=w;c.height=h;const x=c.getContext('2d');if(type==='image/jpeg'){x.fillStyle='#fff';x.fillRect(0,0,w,h)}x.drawImage(img,0,0,w,h);return c}
+const loadImg=f=>new Promise((res,rej)=>{const i=new Image(),u=URL.createObjectURL(f);i.onload=()=>{URL.revokeObjectURL(u);res(i)};i.onerror=()=>{URL.revokeObjectURL(u);rej(new Error(`Could not read ${f.name}. The image may be damaged or in an unsupported format.`))};i.src=u});
+const toBlob=(c,type,q)=>new Promise((res,rej)=>c.toBlob(b=>b?res(b):rej(new Error('This image is too large for this device to process. Try a smaller size.')),type,q));
+function draw(img,w,h,type){[w,h]=fitLimit(w,h);const c=document.createElement('canvas');c.width=w;c.height=h;const x=c.getContext('2d');if(!x)throw new Error('This image is too large for this device to process.');if(type==='image/jpeg'){x.fillStyle='#fff';x.fillRect(0,0,w,h)}x.drawImage(img,0,0,w,h);return c}
 const ext={'image/jpeg':'jpg','image/png':'png','image/webp':'webp'};
 
+/* "Download all" as one ZIP when a tool makes several files */
+async function zipAll(){const b=$('#zipall');b.disabled=true;b.textContent='Zipping…';
+  try{await need('jszip');const z=new JSZip(),seen={};for(const r of results){let n=r.name;if(seen[n]){n=base(n)+'-'+(++seen[n])+'.'+extOf(n)}else seen[n]=1;z.file(n,r.blob)}
+    const blob=await z.generateAsync({type:'blob'}),a=document.createElement('a');a.href=URL.createObjectURL(blob);a.download=(files[0]?base(files[0].name):'files')+'-all.zip';document.body.appendChild(a);a.click();a.remove();setTimeout(()=>URL.revokeObjectURL(a.href),60000)}
+  catch(e){status(friendly(e),true)}b.disabled=false;b.textContent=`Download all (${results.length} files, .zip)`}
+
 $('#go').onclick=async()=>{
-  $('#go').disabled=true;$('#out').innerHTML='';status('Working…');
-  try{await RUN[cur]();status('Done. Your files are ready below.')}
-  catch(e){console.error(e);status(e.message||'Something went wrong. Try another file.',true)}
-  $('#go').disabled=false;
+  const go=$('#go'),label=go.textContent,p=$('#prog');go.disabled=true;go.textContent='Working…';clearOut();shrunk='';
+  if(p){p.hidden=false;p.removeAttribute('value')}const t0=Date.now();status('Working…');
+  try{const t=TOOLS[cur];if(t.libs){status('Loading the converter…');await need(...t.libs)}
+    await RUN[cur]();
+    const st=$('#status').textContent,keep=/→|smaller|already|fit on|under/.test(st);
+    status((keep?(/^Done/.test(st)?st:'Done. '+st):'Done. Your files are ready below.')+shrunk);
+    if(results.length>1){const b=document.createElement('button');b.className='btn ghost';b.id='zipall';b.type='button';b.textContent=`Download all (${results.length} files, .zip)`;b.onclick=zipAll;$('#out').appendChild(b)}
+    try{if(window.TFW)TFW.used()}catch(e){}
+  }catch(e){console.error(e);status(friendly(e),true)}
+  if(p)p.hidden=true;go.textContent=label;go.disabled=false;
+  if(results.length&&Date.now()-t0>1500)$('#out').scrollIntoView({behavior:'smooth',block:'nearest'});
 };
 const RUN={
  async compress(){
@@ -119,16 +178,21 @@ const RUN={
      }
      b=best||await toBlob(draw(i,w,h,type),type,0.05);
    } else b=await toBlob(draw(i,w,h,type),type,q);
+   if(b.size>=f.size&&(!mw||i.naturalWidth<=mw)&&(!target||f.size<=target)){   // never hand back a bigger "compressed" file
+     addOut(f,f.name);status(`${f.name} is already ${kb(f.size)}: compressing would make it bigger, so the original is kept.`);continue}
    addOut(b,base(f.name)+'-compressed.'+ext[type]);
    status(`${f.name}: ${kb(f.size)} → ${kb(b.size)}${target?` (target ${Math.round(target/1024)} KB, ${w}×${h})`:''}`)}
  },
  async resize(){
   const m=$('#rm').value,W=+$('#rw').value,H=+$('#rh').value,k=$('#rk').checked,p=+$('#rp').value/100;
   if(m==='px'&&!W&&!H)throw new Error('Enter a width or a height.');
+  if(m==='px'&&[W,H].some(v=>v&&(v<1||v>20000||!Number.isFinite(v))))throw new Error('Width and height must be between 1 and 20,000 pixels.');
+  if(m==='pc'&&!(p>=0.01&&p<=10))throw new Error('Percent must be between 1 and 1000.');
   for(const f of files){const i=await loadImg(f),r=i.naturalWidth/i.naturalHeight;let w,h;
    if(m==='pc'){w=i.naturalWidth*p;h=i.naturalHeight*p}
    else if(k){w=W||H*r;h=W?W/r:H}else{w=W||i.naturalWidth;h=H||i.naturalHeight}
    w=Math.max(1,Math.round(w));h=Math.max(1,Math.round(h));
+   if(w*h>MAXPX||w>MAXSIDE||h>MAXSIDE)throw new Error(`${w}×${h} px is too large for this device to create. Choose a smaller size.`);
    const type=f.type==='image/png'?'image/png':f.type==='image/webp'?'image/webp':'image/jpeg';
    let c;const fit=$('#rf').value;
    if(m==='px'&&!k&&W&&H&&fit!=='stretch'){
@@ -143,6 +207,7 @@ const RUN={
   for(const f of files){const i=await loadImg(f);addOut(await toBlob(draw(i,i.naturalWidth,i.naturalHeight,type),type,q),base(f.name)+'.'+ext[type])}
  },
  async passport(){
+  if(!ppImg)throw new Error('The photo could not be read. Choose a JPG or PNG photo.');
   const one=ppCanvas(600);const want=+$('#pn').value;
   const [mw,mh]=ppSize(),dpi=300,pw=Math.round(mw/25.4*dpi),ph=Math.round(mh/25.4*dpi),gap=0;
   // 4x6 inch sheet at 300 dpi: pick the orientation that fits the most photos
@@ -189,7 +254,7 @@ const RUN={
   await make(idx,`${base(f.name)}-pages.pdf`);
  },
  async pdf2jpg(){
-  pdfjsLib.GlobalWorkerOptions.workerSrc='https://cdnjs.cloudflare.com/ajax/libs/pdf.js/3.11.174/pdf.worker.min.js';
+  pdfjsLib.GlobalWorkerOptions.workerSrc=PDFWORKER;
   const f=files[0],sc=+$('#dq').value;let pdf;
   try{pdf=await pdfjsLib.getDocument({data:await f.arrayBuffer()}).promise}catch(e){throw new Error('This PDF is password-protected or damaged.')}
   for(let p=1;p<=pdf.numPages;p++){status(`Page ${p} of ${pdf.numPages}…`);const pg=await pdf.getPage(p),vp=pg.getViewport({scale:sc});
@@ -201,7 +266,7 @@ const RUN={
 /* passport */
 let ppImg=null;
 const ppSize=()=>$('#ps').value.split('x').map(Number);
-async function ppLoad(){ppImg=await loadImg(files[0]);ppDraw()}
+async function ppLoad(){ppImg=null;$('#go').disabled=true;ppImg=await loadImg(files[0]);$('#go').disabled=false;ppDraw()}
 function ppCanvas(w){
   const [mw,mh]=ppSize(),h=Math.round(w*mh/mw),c=document.createElement('canvas');c.width=w;c.height=h;const x=c.getContext('2d');
   x.fillStyle='#fff';x.fillRect(0,0,w,h);if(!ppImg)return c;
@@ -218,16 +283,45 @@ function ppDraw(){
 }
 
 
+/* keep only safe markup from a document (no scripts, event handlers or javascript: links) */
+function clean(html){const d=new DOMParser().parseFromString(html,'text/html');
+  d.querySelectorAll('script,iframe,object,embed,style,link,meta,form,base').forEach(e=>e.remove());
+  d.querySelectorAll('*').forEach(e=>[...e.attributes].forEach(a=>{const n=a.name.toLowerCase(),v=a.value.trim().toLowerCase();
+    if(n.startsWith('on')||((n==='href'||n==='src'||n==='xlink:href')&&/^(javascript|vbscript|data:(?!image\/))/.test(v)))e.removeAttribute(a.name)}));
+  return d.body.innerHTML}
+
 /* Word (.docx) to PDF: mammoth turns the document into HTML, html2pdf draws it on A4 pages. */
 RUN.word2pdf=async function(){
   const f=files[0];
   if(!/\.docx$/i.test(f.name))throw new Error('Please choose a .docx file (older .doc files: open in Word and "Save as" .docx first).');
   let res;
   try{res=await mammoth.convertToHtml({arrayBuffer:await f.arrayBuffer()})}catch(e){throw new Error('Could not read this Word file. It may be damaged or password-protected.')}
-  const pv=$('#doc-preview');pv.hidden=false;pv.innerHTML=res.value||'<p>(empty document)</p>';
-  status('Making PDF…');
-  const blob=await html2pdf().set({margin:[12,12,14,12],image:{type:'jpeg',quality:.95},html2canvas:{scale:2,useCORS:true,backgroundColor:'#ffffff'},
-    jsPDF:{unit:'mm',format:$('#wp').value,orientation:$('#wo').value},pagebreak:{mode:['css','legacy']}}).from(pv).outputPdf('blob');
+  const html=clean(res.value)||'<p>(empty document)</p>';
+  const pv=$('#doc-preview');pv.hidden=false;pv.innerHTML=html;
+  // page geometry (mm) -> content width in CSS px, so we can measure where pages fall
+  const fmt=$('#wp').value,land=$('#wo').value==='landscape',M=[12,12,14,12];
+  let [W,H]={a4:[210,297],letter:[215.9,279.4],legal:[215.9,355.6]}[fmt];if(land)[W,H]=[H,W];
+  const iw=W-M[1]-M[3],ih=H-M[0]-M[2],wpx=Math.round(iw*96/25.4),P=wpx*ih/iw;
+  const box=document.createElement('div');box.className='docrender';box.style.cssText=`position:absolute;left:-99999px;top:0;width:${wpx}px`;box.innerHTML=html;document.body.appendChild(box);
+  await Promise.all([...box.querySelectorAll('img')].map(im=>im.complete?0:new Promise(r=>{im.onload=im.onerror=r})));
+  // split the document into chunks of about 4 pages, ending each chunk where its last page is nearly full.
+  // (one huge canvas fails on long documents: browsers cap canvas height)
+  const kids=[...box.children],tops=kids.map(k=>k.offsetTop),ends=kids.map(k=>k.offsetTop+k.offsetHeight),groups=[];
+  let start=0;
+  while(start<kids.length){
+    const t0=tops[start];let best=start,bestFill=-1,last=start;
+    for(let k=start;k<kids.length;k++){const h=ends[k]-t0;if(h>5*P&&k>start)break;last=k;
+      const fill=(h%P)/P;if(h>=2.5*P&&fill>bestFill){bestFill=fill;best=k}}
+    if(bestFill<0)best=last;                       // short tail, or the next block is very tall
+    groups.push(kids.slice(start,best+1));start=best+1}
+  box.remove();
+  const chunks=groups.map(g=>{const d=document.createElement('div');d.className='docrender';g.forEach(n=>d.appendChild(n));return d});
+  const scale=IOS?1.6:2;
+  const opt={margin:M,image:{type:'jpeg',quality:.92},html2canvas:{scale,useCORS:true,backgroundColor:'#ffffff'},jsPDF:{unit:'mm',format:fmt,orientation:land?'landscape':'portrait'},pagebreak:{mode:['css','legacy']}};
+  status(`Making PDF… part 1 of ${chunks.length}`);
+  let w=html2pdf().set(opt).from(chunks[0]).toPdf();
+  chunks.slice(1).forEach((c,i)=>{w=w.get('pdf').then(pdf=>{status(`Making PDF… part ${i+2} of ${chunks.length}`);pdf.addPage()}).from(c).toContainer().toCanvas().toPdf()});
+  const blob=await w.outputPdf('blob');
   addOut(blob,base(f.name)+'.pdf');
   $('#printbtn').hidden=false;
 };
@@ -251,7 +345,6 @@ const conv=type=>async function(){
 RUN.png2jpg=conv('image/jpeg');RUN.jpg2png=conv('image/png');RUN.webp2jpg=conv('image/jpeg');
 
 RUN.heic2jpg=async function(){
-  if(typeof heic2any!=='function')throw new Error('The HEIC converter could not load. Check your internet connection and try again.');
   const q=$('#tq').value/100;
   for(const f of files){status('Converting '+f.name+'…');
     let out;try{out=await heic2any({blob:f,toType:'image/jpeg',quality:q})}catch(e){throw new Error(f.name+' could not be read as a HEIC photo.')}
@@ -259,7 +352,7 @@ RUN.heic2jpg=async function(){
 };
 
 RUN.pdfcompress=async function(){
-  pdfjsLib.GlobalWorkerOptions.workerSrc='https://cdnjs.cloudflare.com/ajax/libs/pdf.js/3.11.174/pdf.worker.min.js';
+  pdfjsLib.GlobalWorkerOptions.workerSrc=PDFWORKER;
   const f=files[0],target=(+($('#ptkb')||{}).value||0)*1024;
   let pdf;try{pdf=await pdfjsLib.getDocument({data:await f.arrayBuffer()}).promise}catch(e){throw new Error('This PDF is password-protected or damaged.')}
   const {PDFDocument}=PDFLib;
@@ -289,9 +382,10 @@ RUN.pdfcompress=async function(){
 };
 
 RUN.ocr=async function(){
-  if(typeof Tesseract==='undefined')throw new Error('The text reader could not load. Check your internet connection and try again.');
   const lang=$('#ol').value,box=$('#ocrout');
-  const r=await Tesseract.recognize(files[0],lang,{logger:m=>{if(m.status)status(m.status.replace(/^./,c=>c.toUpperCase())+(m.progress?' '+Math.round(m.progress*100)+'%':''))}});
+  const img=await loadImg(files[0]);let w=img.naturalWidth,h=img.naturalHeight;const sc=Math.min(1,4000/Math.max(w,h));
+  const cv=draw(img,Math.round(w*sc),Math.round(h*sc),'image/png');
+  const r=await Tesseract.recognize(cv,lang,{logger:m=>{if(m.status)status(m.status.replace(/^./,c=>c.toUpperCase())+(m.progress?' '+Math.round(m.progress*100)+'%':''))}});
   const t=(r.data.text||'').trim();
   box.hidden=false;box.value=t||'(No text found. Try a clearer photo.)';box.dir=/urd|ara/.test(lang)?'rtl':'ltr';
   $('#ocrcopy').hidden=false;$('#ocrcopy').onclick=()=>{navigator.clipboard.writeText(box.value).then(()=>status('Copied.'),()=>{box.select();status('Press Ctrl+C to copy.')})};
@@ -309,10 +403,11 @@ RUN.bgremove=async function(){
 
 function floatTo16(f){const o=new Int16Array(f.length);for(let i=0;i<f.length;i++){const s=Math.max(-1,Math.min(1,f[i]));o[i]=s<0?s*0x8000:s*0x7FFF}return o}
 RUN.mp4mp3=async function(){
-  if(typeof lamejs==='undefined')throw new Error('The MP3 encoder could not load. Check your internet connection and try again.');
   const f=files[0];status('Reading audio…');
-  const AC=window.AudioContext||window.webkitAudioContext,ac=new AC();
+  const AC=window.AudioContext||window.webkitAudioContext;let ac;try{ac=new AC({sampleRate:44100})}catch(e){ac=new AC()}
+  if(f.size>300*1048576)status('Reading a large file. This can take a while and needs a lot of memory…');
   let buf;try{buf=await ac.decodeAudioData(await f.arrayBuffer())}catch(e){throw new Error('This file has no audio track your browser can read. Try another video.')}
+  if(![8000,11025,12000,16000,22050,24000,32000,44100,48000].includes(buf.sampleRate))throw new Error('This audio sample rate is not supported by MP3. Try another file or browser.');
   const ch=Math.min(2,buf.numberOfChannels),sr=buf.sampleRate,enc=new lamejs.Mp3Encoder(ch,sr,+$('#mb').value),parts=[],L=floatTo16(buf.getChannelData(0)),R=ch>1?floatTo16(buf.getChannelData(1)):null,step=1152;
   for(let i=0;i<L.length;i+=step){const d=ch>1?enc.encodeBuffer(L.subarray(i,i+step),R.subarray(i,i+step)):enc.encodeBuffer(L.subarray(i,i+step));if(d.length)parts.push(new Uint8Array(d));
     if(i%(step*400)===0){status('Encoding '+Math.round(i/L.length*100)+'%');await new Promise(r=>setTimeout(r))}}
@@ -322,8 +417,7 @@ RUN.mp4mp3=async function(){
 
 const xesc=s=>s.replace(/[&<>]/g,c=>({'&':'&amp;','<':'&lt;','>':'&gt;'}[c])).replace(/[\u0000-\u0008\u000B\u000C\u000E-\u001F]/g,'');
 RUN.pdf2word=async function(){
-  if(typeof JSZip==='undefined')throw new Error('The Word writer could not load. Check your internet connection and try again.');
-  pdfjsLib.GlobalWorkerOptions.workerSrc='https://cdnjs.cloudflare.com/ajax/libs/pdf.js/3.11.174/pdf.worker.min.js';
+  pdfjsLib.GlobalWorkerOptions.workerSrc=PDFWORKER;
   const f=files[0];let pdf;try{pdf=await pdfjsLib.getDocument({data:await f.arrayBuffer()}).promise}catch(e){throw new Error('This PDF is password-protected or damaged.')}
   let body='',chars=0;
   for(let p=1;p<=pdf.numPages;p++){status(`Reading page ${p} of ${pdf.numPages}…`);
@@ -354,6 +448,6 @@ RUN.pdf2word=async function(){
 /* page init */
 cur=document.body.dataset.tool;
 (function(){const t=TOOLS[cur];const fin=$('#fin');fin.accept=t.accept;fin.multiple=t.multi;
- $('#d-main').textContent=t.multi?'Choose files':'Choose a file';$('#d-sub').textContent='or drag and drop '+(t.multi?'them':'it')+' here';
+ $('#d-main').textContent=t.multi?'Choose files':'Choose a file';$('#d-sub').textContent='or drag and drop '+(t.multi?'them':'it')+' here';const fm=$('#d-fmt');if(fm)fm.textContent='Supported: '+t.fmt+(t.multi?' · several files at once':'');
  $('#go').textContent=t.go;renderOpts();render();
  const P=window.PRESET||{};for(const [sel,v] of Object.entries(P)){const e=$(sel);if(!e)continue;if(e.type==='checkbox')e.checked=!!v;else e.value=v;e.dispatchEvent(new Event('input'));e.dispatchEvent(new Event('change'))}})();

@@ -263,7 +263,7 @@ def landing(define_tool):
         t(slug=f"resize-image-to-{w}x{h}", group="img", icon="img", name=f"Resize to {w}×{h}", ftool="resize", libs="",
           parent="resize-image", preset={"#rm": "px", "#rw": w, "#rh": h, "#rk": False, "#rf": "crop"},
           card=f"{label}: exactly {w}×{h} px.",
-          title=f"Resize Image to {w}x{h} Pixels Online Free ({label}) | Tools for World",
+          title=f"Resize Image to {w}x{h} Pixels Free ({label})" if len(label) > 16 else f"Resize Image to {w}x{h} Pixels Online Free ({label})",
           desc=f"Resize any photo to exactly {w}×{h} pixels for {use}. Crop to fill or add a border. Free and private: works in your browser.",
           h1=f"Resize image to {w}×{h} pixels", lead=f"Get a photo that is exactly {w} × {h} px for {use}. Choose crop to fill, or fit with a white border.",
           body=f'''<h2>How to resize to {w}×{h}</h2><ol><li>Choose one or more images.</li><li>The size is already set to <b>{w} × {h}</b>.</li><li>Pick <b>Crop to fill</b> (no empty space) or <b>Fit with white border</b> (nothing cut off), then press <b>Resize</b>.</li></ol>
@@ -376,3 +376,128 @@ def landing(define_tool):
       ui=None, body='''<h2>How to calculate a discount</h2><ol><li>In “Take X% off”, enter the discount (for example 20) and the original price.</li><li>The sale price appears instantly: 20% off 100 is 80.</li><li>To find the discount you got, enter the old and new price in the “From … to …” row.</li></ol>
 <p>Formula: sale price = price × (1 − discount ÷ 100). Stacked discounts multiply: 20% then 10% off is 28% off in total, not 30%.</p>''',
       faq=[("How do I work out two discounts in a row?", "Apply them one after the other: 20% off 100 is 80, then 10% off 80 is 72. That's 28% off in total.")])
+
+
+# ================= Extra, page-specific content (makes each page genuinely different and more useful) =================
+def _add(T, slug, body="", faq=()):
+    for t in T:
+        if t["slug"] == slug:
+            t["body"] = t["body"] + body
+            t["faq"] = list(t.get("faq", [])) + list(faq)
+            return
+
+
+OCR_NOTES = {
+    "urd": ("Urdu is written right to left in Nastaliq, a sloping, stacked script that is one of the hardest for OCR. Large, clear printed text (book pages, headlines, screenshots) gives the best results; small newspaper columns are harder. The result box switches to right-to-left automatically. For pages that mix Urdu and English, choose “English + Urdu” in the language menu.",
+            ("Why is Urdu OCR less accurate than English?", "Nastaliq letters join and overlap diagonally, which makes them hard to separate. Use a sharp, large image and crop to one column of text.")),
+    "ara": ("Arabic is read right to left and its letters join, so a clean, high-contrast image matters. Short vowel marks (harakat) are often dropped from the result, and decorative calligraphy fonts are not recognised well. The result box switches to right-to-left automatically.",
+            ("Does it keep Arabic diacritics?", "Often not. The base letters are recognised; harakat and tashkeel marks may be missing, so check religious or teaching texts carefully.")),
+    "hin": ("Hindi is written in Devanagari, with letters hanging from a top line (shirorekha). Printed text from books, forms and screenshots works well; joined conjunct letters are the most common source of mistakes. Marathi and Nepali also use Devanagari but have their own language models, so expect a few errors with them here.",
+            ("Can it read Marathi or Nepali?", "It can read the Devanagari letters, but it uses the Hindi dictionary, so some words may be wrong. Check the result before using it.")),
+    "spa": ("The Spanish model recognises accented letters (á é í ó ú), ñ and the opening ¿ and ¡ marks. Accents are small, so a sharp image matters: if accents go missing, use a larger or clearer photo.",
+            ("Does it work for Latin American Spanish?", "Yes. The written language is the same, so any printed Spanish text works.")),
+    "fra": ("The French model reads accents (é è ê à ç), the œ ligature and guillemets (« »). Accents are the first thing to suffer in a blurry photo, so check them in the result.",
+            ("Why are some accents wrong?", "Accents are tiny marks. Take the photo closer, in good light, and crop to the text to keep them.")),
+    "deu": ("The German model reads umlauts (ä ö ü) and ß. It is built for modern printed fonts: old blackletter (Fraktur) books from before about 1940 are not recognised well.",
+            ("Can it read old Fraktur (blackletter) text?", "Not reliably. This model is trained on modern fonts.")),
+    "por": ("The Portuguese model reads ã, õ, ç and the other accented vowels, for both Brazilian and European Portuguese printed text.",
+            ("Does it work for Brazilian Portuguese?", "Yes. Both Brazilian and European spelling are printed with the same letters.")),
+    "ita": ("The Italian model reads accented vowels (à è é ì ò ù) and apostrophes in words like l'acqua. A sharp, straight photo keeps accents and apostrophes accurate.",
+            ("Does it keep apostrophes?", "Usually yes. Blurry photos can turn them into spaces, so check words like dell' and un'.")),
+    "rus": ("The Russian model reads the Cyrillic alphabet, including ё. Ukrainian, Belarusian and Bulgarian also use Cyrillic but have letters Russian does not (such as і, ї, є, ў), so those may be misread.",
+            ("Can it read Ukrainian?", "Partly. Shared Cyrillic letters are read, but Ukrainian-only letters like ї and є may come out wrong.")),
+    "tur": ("The Turkish model reads ç, ğ, ş, ö, ü and both the dotted İ/i and dotless I/ı. Check i and ı in the result: they are easy to confuse in small or blurry text.",
+            ("Why does it mix up i and ı?", "The only difference is a tiny dot. A sharper, closer photo fixes most of these.")),
+    "ben": ("Bengali (Bangla) text has many joined conjunct letters (juktakkhor). Printed text at a normal reading size works well; very small print loses detail. Assamese uses a very similar script but has letters of its own.",
+            ("Can it read Assamese?", "Many letters are shared, but Assamese has its own letters and words, so expect some mistakes.")),
+    "ind": ("Indonesian uses the Latin alphabet without accents, so OCR is usually very accurate on clear printed text. Malay is written very similarly and often comes out well too.",
+            ("Does it work for Malay?", "Usually yes, because Malay and Indonesian share most spelling. Check names and less common words.")),
+    "chi_sim": ("This model reads Simplified Chinese (mainland China, Singapore). Traditional characters used in Taiwan and Hong Kong are less accurate. Horizontal text works best; text printed in vertical columns may come out in the wrong order.",
+            ("Can it read Traditional Chinese?", "Some characters are shared, but accuracy is lower. This page uses the Simplified Chinese model.")),
+}
+
+PASSPORT_NOTES = {
+    "us-passport-photo": ("""<h2>US passport and visa photo rules at a glance</h2><ul><li>Size 2 × 2 inches (51 × 51 mm); head 1 to 1⅜ inches (25–35 mm) from chin to top of hair.</li><li>Plain white or off-white background, taken in the last 6 months.</li><li>No glasses: the US has not accepted glasses in passport photos since November 2016.</li><li>US visa (DS-160) digital photo: a square JPEG between 600 × 600 and 1200 × 1200 pixels and no larger than 240 KB. The single photo from this tool is 600 × 600 px.</li></ul><p>Official rules: <a href="https://travel.state.gov/content/travel/en/passports/how-apply/photos.html" rel="nofollow">travel.state.gov passport photos</a>.</p>""",
+                          ("Can I use this photo for a US visa (DS-160)?", "Yes, the single photo is a 600 × 600 px JPEG, usually well under 240 KB. Check it in the State Department's photo tool before submitting.")),
+    "uk-passport-photo": ("""<h2>UK passport photo rules at a glance</h2><ul><li>Printed photos: 35 × 45 mm, head 29–34 mm from chin to crown.</li><li>Plain cream or light grey background, no shadows, taken in the last month.</li><li>Glasses are allowed only if you can't take them off and there is no glare; it's simplest to remove them.</li><li>Online applications use a digital photo that is at least 600 pixels wide and 750 pixels tall. The single photo from this tool is 413 × 531 px at 300 dpi, so for an online application take a new photo at full size instead of using the print crop.</li></ul><p>Official rules: <a href="https://www.gov.uk/photos-for-passports" rel="nofollow">GOV.UK photos for passports</a>.</p>""",
+                          ("Can I use this for the online UK passport application?", "The online service wants a larger digital photo (at least 600 × 750 px). Use this tool for printed photos, and upload your original phone photo online.")),
+    "canada-passport-photo": ("""<h2>Canada passport photo rules at a glance</h2><ul><li>Size 50 × 70 mm; face 31–36 mm from chin to crown.</li><li>Plain white or light-coloured background, taken in the last 6 months.</li></ul><div class="warnbox">Canadian passport photos must be taken by a commercial photographer, who stamps the studio name, address and the date on the back. A home-made print is usually not accepted for a Canadian passport. Use this tool to practise framing, or for documents that accept self-made photos.</div><p>Official rules: <a href="https://www.canada.ca/en/immigration-refugees-citizenship/services/canadian-passports/photos.html" rel="nofollow">canada.ca passport photos</a>.</p>""",
+                              ("Can I print my own Canadian passport photo?", "Usually not: Canada requires photos from a commercial photographer with details stamped on the back. Check the official page before you apply.")),
+    "australia-passport-photo": ("""<h2>Australian passport photo rules at a glance</h2><ul><li>Size 35–40 mm wide and 45–50 mm high; face 32–36 mm from chin to crown. This tool uses 35 × 45 mm.</li><li>Plain white or light grey background, even lighting, no shadows.</li><li>Neutral expression, mouth closed, eyes open and clearly visible.</li></ul><p>Official rules: <a href="https://www.passports.gov.au/getting-passport-how-it-works/photo-guidelines" rel="nofollow">passports.gov.au photo guidelines</a>.</p>""",
+                                 ("Is 35 × 45 mm accepted in Australia?", "Yes. Australia accepts photos from 35–40 mm wide and 45–50 mm high.")),
+    "india-passport-photo": ("""<h2>Indian passport photo rules at a glance</h2><ul><li>Size 35 × 45 mm (3.5 × 4.5 cm), plain white background.</li><li>Face clearly visible and centred, covering most of the photo, eyes open, no shadows.</li><li>The Indian e-Visa for foreign nationals is different: it uses a square photo, so choose the 2 × 2 in size in the <a href="../passport-photo-maker/">passport photo maker</a>.</li></ul><p>Official information: <a href="https://www.passportindia.gov.in/" rel="nofollow">Passport Seva</a>.</p>""",
+                             ("Is the Indian visa photo the same size?", "No. The Indian e-Visa uses a square photo. This page is for the 35 × 45 mm Indian passport photo.")),
+    "schengen-visa-photo": ("""<h2>Schengen visa photo rules at a glance</h2><ul><li>Size 35 × 45 mm; the face takes up 70–80% of the photo (about 32–36 mm from chin to crown).</li><li>Light, plain background (white or light grey in most countries), taken in the last 6 months.</li><li>The same 35 × 45 mm size is used by every Schengen country, from France and Germany to Spain and Italy.</li></ul><p>Each embassy or visa centre publishes its own checklist; check the one for the country you are applying to.</p>""",
+                            ("Is the photo the same for every Schengen country?", "The size (35 × 45 mm) is the same. Background colour and how recent the photo must be can differ slightly by embassy.")),
+    "china-visa-photo": ("""<h2>China visa photo rules at a glance</h2><ul><li>Size 33 × 48 mm; head 28–33 mm tall and 15–22 mm wide.</li><li>Plain white background, taken in the last 6 months, no hats or glasses glare.</li><li>The online visa form sets its own pixel and file-size limits. If your photo is too large, use <a href="../resize-image/">Resize Image</a> and <a href="../compress-image/">Compress Image</a> on the single photo.</li></ul>""",
+                         ("Why is the China visa photo a different size?", "China uses 33 × 48 mm, taller and narrower than the common 35 × 45 mm, so photos for other visas usually aren't accepted.")),
+}
+
+KB_NOTES = {
+    10: ("about 150 × 200 pixels", "Signatures: sign with a dark pen on plain white paper, photograph it in good light and crop tightly around the signature. At 10 KB, a tightly cropped signature stays sharp."),
+    20: ("about 250 × 300 pixels", "Signature uploads often ask for 10–20 KB. Crop away the empty paper first so the signature itself keeps more detail."),
+    30: ("about 300 × 400 pixels", "Many exam forms ask for a photo between 20 and 50 KB. If there is a minimum, set the target to the maximum allowed so you don't go under it."),
+    50: ("about 400 × 500 pixels", "Government and exam portals often give both a size in cm (like 3.5 × 4.5 cm) and a KB range. Crop to the right shape first with Resize Image, then compress."),
+    100: ("about 600 × 800 pixels", "100 KB is enough for a clear face photo or a readable document scan for most job and visa portals."),
+    200: ("about 900 × 1200 pixels", "At 200 KB most photos look sharp on any phone or laptop screen, which makes it a good size for profiles and website uploads."),
+    500: ("about 1400 × 1900 pixels", "500 KB keeps photos detailed enough to zoom in, while still uploading quickly on mobile data."),
+    1024: ("about 2000 × 2700 pixels", "A 1 MB photo is close to print quality for small prints, and it still fits email and most forms with a 1 MB limit."),
+}
+
+
+def enrich(T):
+    for code, (note, fq) in OCR_NOTES.items():
+        lang = {"chi_sim": "chinese"}.get(code)
+        for t in T:
+            if t.get("parent") == "image-to-text" and t.get("preset", {}).get("#ol") == code:
+                t["body"] += f"<h2>About {t['name'].replace(' Image to Text', '')} text recognition</h2><p>{note}</p>"
+                t["faq"] = list(t["faq"]) + [fq]
+    for slug, (html_, fq) in PASSPORT_NOTES.items():
+        for t in T:
+            if t["slug"] == slug:
+                t["body"] = t["body"].replace('<div class="warnbox">Rules change', html_ + '<div class="warnbox">Rules change')
+                t["faq"] = list(t["faq"]) + [fq]
+    for t in T:
+        if t.get("parent") == "compress-image" and t.get("preset", {}).get("#tkb") in KB_NOTES:
+            k = t["preset"]["#tkb"]; px, tip = KB_NOTES[k]; lab = "1 MB" if k == 1024 else f"{k} KB"
+            t["body"] += (f"<h2>How big is a {lab} photo?</h2><p>For a typical phone photo saved as JPG, {lab} fits roughly {px} at good quality. "
+                          f"Simple images (a signature, a face on a plain wall) fit more pixels; busy scenes with lots of detail fit fewer.</p><p>{tip}</p>")
+
+    _add(T, "png-to-jpg", '''<h2>How to convert PNG to JPG</h2><ol><li>Choose one or more PNG files.</li><li>Set the quality: 85–92% looks the same as the original for photos.</li><li>Press <b>Convert to JPG</b>, then download each file or all of them as one ZIP.</li></ol>
+<h2>PNG or JPG: which should you use?</h2><ul><li><b>JPG</b> is best for photos. Files are much smaller, but there is no transparency.</li><li><b>PNG</b> is best for screenshots, logos, text and graphics with sharp edges or transparent parts. It is lossless, so files are larger.</li></ul><p>A photo saved as PNG is often 3–10 times larger than the same photo as JPG, so converting is the quickest way to get under an upload limit. To shrink it even more, use the <a href="../compress-image/">Image Compressor</a>.</p>''',
+         [("What happens to transparent areas?", "They become white, because JPG can't store transparency. Keep the PNG if you need a see-through background."),
+          ("Will I lose quality?", "JPG is lossy, but at 90% quality the difference is invisible in photos. Screenshots with small text may look slightly softer; keep those as PNG.")])
+    _add(T, "jpg-to-png", '''<h2>How to convert JPG to PNG</h2><ol><li>Choose one or more JPG photos.</li><li>Press <b>Convert to PNG</b>.</li><li>Download each PNG, or all of them as one ZIP.</li></ol>
+<h2>Good reasons to convert</h2><ul><li>An app, printer or website only accepts PNG.</li><li>You will edit and save the image many times: PNG doesn't lose quality each time it is saved.</li><li>You plan to add transparency or layers in an editor.</li></ul><p>For a transparent background, use the <a href="../remove-background/">Background Remover</a>, which outputs a transparent PNG.</p>''',
+         [("Does JPG to PNG make the background transparent?", "No. The image stays exactly as it is. Use the Background Remover to get a transparent PNG."),
+          ("Why is the PNG so much bigger?", "PNG is lossless, so it stores every pixel exactly. Photos are usually 2–5 times larger as PNG than as JPG.")])
+    _add(T, "webp-to-jpg", '''<h2>How to convert WebP to JPG</h2><ol><li>Choose one or more .webp images.</li><li>Pick the quality (92% is a good default).</li><li>Press <b>Convert to JPG</b> and download.</li></ol>
+<h2>Where WebP files come from</h2><p>Many websites serve images as WebP because the files are 25–35% smaller than JPG at similar quality. When you save an image from a website, you often get a .webp file that older apps, photo editors and upload forms won't open. JPG works everywhere.</p>''',
+         [("Is WebP better than JPG?", "For websites, often yes: WebP files are smaller. For sharing and uploading, JPG is safer because every app and form accepts it."),
+          ("Do animated WebP images work?", "Only the first frame is converted, because JPG can't store animation.")])
+    _add(T, "pdf-to-jpg", '''<h2>Which quality should I pick?</h2><ul><li><b>Normal</b> (about 108 dpi): small files, fine for sharing on phones.</li><li><b>High</b> (about 144 dpi): sharp on any screen. The best default.</li><li><b>Very high</b> (about 216 dpi): for printing, zooming in, or running the image through OCR.</li></ul>
+<p>Every page becomes its own JPG. Download the pages you need one by one, or all of them at once as a ZIP. To convert only a few pages, take them out first with <a href="../split-pdf/">Split PDF</a>.</p>''',
+         [("Can I convert only some pages?", "Yes. Extract them with Split PDF first, then convert the smaller PDF."),
+          ("Does it work with password-protected PDFs?", "No. Open the PDF with its password and save an unprotected copy first."),
+          ("Is my PDF uploaded?", "No. Pages are drawn in your browser, so the file stays on your device.")])
+    _add(T, "split-pdf", '''<h2>Examples</h2><ul><li><code>1-3</code>: pages 1, 2 and 3 in one new PDF.</li><li><code>1, 4, 7</code>: just those three pages.</li><li><code>2-10, 12</code>: drop page 1 and page 11.</li><li><b>Every page as a separate PDF</b>: one file per page, which you can download together as a ZIP.</li></ul>
+<p>Pages are copied exactly, so text stays selectable and quality doesn't change.</p>''',
+         [("How do I delete pages from a PDF?", "Type the pages you want to keep. For example, to remove page 5 from a 10-page PDF, type 1-4, 6-10."),
+          ("Can I split a password-protected PDF?", "Remove the password first in a PDF reader, then split the unprotected copy.")])
+    _add(T, "merge-pdf", '''<h2>Tips</h2><ul><li>Have photos or scans? Turn them into a PDF with <a href="../jpg-to-pdf/">JPG to PDF</a>, then merge.</li><li>Word documents: convert each one with <a href="../word-to-pdf/">Word to PDF</a> first.</li><li>Is the merged file too big for email? Shrink it with <a href="../compress-pdf/">Compress PDF</a>.</li></ul>''',
+         [("Can I merge Word files?", "Convert each Word file to PDF first with Word to PDF, then merge the PDFs here."),
+          ("Is my PDF uploaded?", "No. Merging happens in your browser.")])
+    _add(T, "jpg-to-pdf", '''<h2>Page size options</h2><ul><li><b>A4</b>: the standard paper size in most countries.</li><li><b>Letter</b>: the standard in the US and Canada.</li><li><b>Same as image</b>: each page is exactly the size of its photo, with no white space.</li></ul>
+<h2>Tips for scanning with your phone</h2><ul><li>Lay the page flat in daylight and hold the phone straight above it.</li><li>Crop away the table around the page before adding the photo.</li><li>Need the PDF under a size limit? Run it through <a href="../compress-pdf-to-200kb/">Compress PDF to 200KB</a>.</li></ul>''',
+         [("How do I make the PDF smaller?", "Use Compress PDF on the result, or compress the photos first with the Image Compressor."),
+          ("Can I add iPhone HEIC photos?", "Convert them with HEIC to JPG first, then add the JPGs here.")])
+    _add(T, "heic-to-jpg", '''<h2>Why iPhones save HEIC photos</h2><p>Since iOS 11, iPhones save photos as HEIC (High Efficiency Image Container) by default. HEIC files are about half the size of JPG at similar quality, but many Windows PCs, Android phones, websites and upload forms can't open them. Converting to JPG makes them work everywhere.</p>
+<p>Converting many photos? Choose them all at once and download the results together as a ZIP.</p>''',
+         [("Will I lose quality?", "At 92% quality the JPG looks the same as the HEIC. The JPG file is usually bigger."),
+          ("Does it work on Windows and Android?", "Yes, in any modern browser such as Chrome, Edge or Firefox.")])
+    _add(T, "age-calculator", '''<h2>Common uses</h2><ul><li><b>Exam and job forms</b>: many notices give an age limit “as on” a cutoff date. Put that date in “Age on this date”.</li><li><b>School admission</b>: check a child's age on the admission date.</li><li><b>Retirement and pensions</b>: see exactly when an age is reached.</li></ul>''',
+         [("How is age calculated for someone born on 29 February?", "In years without 29 February, the birthday is counted on 1 March."),
+          ("Can I find my age on an exam's cutoff date?", "Yes. Set “Age on this date” to the cutoff date given in the notice.")])
+    _add(T, "mp4-to-mp3", '''<h2>Which quality should I pick?</h2><ul><li><b>128 kbps</b>: speech, lectures and podcasts. About 1 MB per minute.</li><li><b>192 kbps</b>: music and general use. About 1.4 MB per minute.</li><li><b>320 kbps</b>: the best MP3 quality. About 2.4 MB per minute.</li></ul>
+<h2>Supported files</h2><p>MP4, MOV, M4A and WebM work in most browsers. MKV and other formats work when your browser can play their audio. While converting, each minute of audio needs roughly 30–40 MB of memory, so recordings longer than about an hour can fail on phones; use a computer for those.</p>''',
+         [("Can I convert a YouTube link?", "No. This tool converts files that are already on your device. Only convert videos you own or have permission to use.")])
