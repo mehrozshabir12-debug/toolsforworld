@@ -1,0 +1,50 @@
+name: Deep audit
+
+# Runs the deep audit (edge cases, privacy network capture, mobile layout, Lighthouse)
+# on pushes to audit branches. Results go to the "audit-results" branch.
+on:
+  push:
+    branches: ["audit", "audit/**"]
+  workflow_dispatch: {}
+
+permissions:
+  contents: write
+
+concurrency:
+  group: deep-audit
+  cancel-in-progress: true
+
+jobs:
+  audit:
+    runs-on: ubuntu-latest
+    timeout-minutes: 75
+    steps:
+      - uses: actions/checkout@v4
+      - name: Install tools
+        run: |
+          python -m pip install -q playwright pillow pillow-heif fpdf2 python-docx pypdf
+          python -m playwright install --with-deps chromium > /dev/null
+          sudo apt-get install -y -qq ffmpeg qpdf poppler-utils > /dev/null
+      - name: Deep audit
+        run: python tests/audit.py
+        continue-on-error: true
+      - name: Lighthouse (local build and live site)
+        run: |
+          python -m http.server 8001 > /dev/null 2>&1 &
+          sleep 2
+          python tests/lighthouse.py http://localhost:8001/ local
+          python tests/lighthouse.py https://toolsforworld.com/ live
+        continue-on-error: true
+      - name: Save results
+        if: always()
+        run: |
+          mkdir -p /tmp/res && cp tests/audit_report.json tests/lighthouse_report.json /tmp/res/ 2>/dev/null || true
+          git config user.name "Tools for World audit"
+          git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
+          SHA=$(git rev-parse --short HEAD)
+          git checkout --orphan audit-results
+          git rm -rq --cached . && find . -mindepth 1 -maxdepth 1 ! -name .git -exec rm -rf {} +
+          cp /tmp/res/* . 2>/dev/null || true
+          echo "$SHA" > commit.txt
+          git add -A && git commit -qm "Audit results for $SHA $(date -u +%F' '%H:%M)"
+          git push -qf origin audit-results

@@ -1,2 +1,5 @@
-__pycache__/
 *.pyc
+__pycache__/
+tests/audit_out/
+tests/audit_samples/
+tests/samples/
