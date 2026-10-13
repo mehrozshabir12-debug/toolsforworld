@@ -7,7 +7,7 @@ ROOT = os.environ.get("TK_OUT") or os.path.dirname(os.path.abspath(__file__))
 PREVIEW = bool(os.environ.get("TK_PREVIEW"))
 import re
 BASE = os.environ.get("TK_BASE", "https://toolsforworld.com/")
-TODAY = datetime.date.today().isoformat()
+TODAY = os.environ.get("TK_TODAY") or datetime.date.today().isoformat()
 PDFLIB = '<script src="https://cdnjs.cloudflare.com/ajax/libs/pdf-lib/1.17.1/pdf-lib.min.js" integrity="sha384-weMABwrltA6jWR8DDe9Jp5blk+tZQh7ugpCsF3JwSA53WZM9/14PjS5LAJNHNjAI" crossorigin="anonymous"></script>'
 PDFJS = '<script src="https://cdnjs.cloudflare.com/ajax/libs/pdf.js/3.11.174/pdf.min.js" integrity="sha384-/1qUCSGwTur9vjf/z9lmu/eCUYbpOTgSjmpbMQZ1/CtX2v/WcAIKqRv+U1DUCG6e" crossorigin="anonymous"></script>'
 MAMMOTH = '<script src="https://cdn.jsdelivr.net/npm/mammoth@1.8.0/mammoth.browser.min.js" integrity="sha384-/cXAMbzovUIKbBERjPmR3SnPTh8siWr5lsvFYj1Uq4XP0yaJUZJmsh0YXyGv5P0y" crossorigin="anonymous"></script>'
@@ -127,8 +127,8 @@ def page(rel_root, title, desc, canon, body, scripts="", body_attr="", jsonld=No
 <meta name="referrer" content="strict-origin-when-cross-origin">
 <title>{html.escape(title)}</title>
 <meta name="description" content="{html.escape(desc)}">{f'<meta name="keywords" content="{html.escape(keywords)}">' if keywords else ""}
-<link rel="canonical" href="{canon}">
-<meta property="og:title" content="{html.escape(title)}"><meta property="og:description" content="{html.escape(desc)}"><meta property="og:url" content="{canon}"><meta property="og:type" content="website"><meta property="og:site_name" content="Tools for World"><meta property="og:image" content="{BASE}og-image.png"><meta name="twitter:card" content="summary_large_image">
+{f'<link rel="canonical" href="{canon}">' if canon else '<meta name="robots" content="noindex">'}
+<meta property="og:title" content="{html.escape(title)}"><meta property="og:description" content="{html.escape(desc)}">{f'<meta property="og:url" content="{canon}">' if canon else ""}<meta property="og:type" content="website"><meta property="og:site_name" content="Tools for World"><meta property="og:image" content="{BASE}og-image.png"><meta name="twitter:card" content="summary_large_image">
 <link rel="icon" href="https://toolsforworld.com/favicon.ico" sizes="48x48"><link rel="icon" href="https://toolsforworld.com/favicon-96.png" type="image/png" sizes="96x96"><link rel="icon" href="https://toolsforworld.com/favicon-192.png" type="image/png" sizes="192x192"><link rel="icon" href="https://toolsforworld.com/favicon.svg" type="image/svg+xml"><link rel="apple-touch-icon" href="https://toolsforworld.com/apple-touch-icon.png"><link rel="manifest" href="https://toolsforworld.com/site.webmanifest"><meta name="theme-color" content="#0d7a55">
 {(f'<meta name="google-adsense-account" content="{ADSENSE_CLIENT}"><script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client={ADSENSE_CLIENT}" crossorigin="anonymous"></script>') if ADSENSE_CLIENT else ""}
 <link rel="preconnect" href="https://fonts.googleapis.com"><link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
@@ -176,7 +176,28 @@ def chips(rel_root, items, label):
     return f'<div class="chips"><span class="sect">{label}</span>' + "".join(
         f'<a href="{rel_root}{t["slug"]}/">{lab(t["name"])}</a>' for t in items) + "</div>"
 
+# Real "last changed" dates: a page's date moves only when its content changes (kept in lastmod.json).
+LASTMOD_FILE = os.path.join(ROOT, "lastmod.json")
+try:
+    LASTMOD = json.load(open(LASTMOD_FILE))
+except Exception:
+    LASTMOD = {}
+PAGE_DATE = {}
+
+
+def page_url(rel_path):
+    return BASE + ("" if rel_path == "index.html" else rel_path[: -len("index.html")])
+
+
 def write(rel_path, content):
+    if rel_path.endswith("index.html") and not PREVIEW:
+        import hashlib
+        url = page_url(rel_path)
+        h = hashlib.sha256(content.encode()).hexdigest()[:16]
+        old = LASTMOD.get(url)
+        date = old[1] if old and old[0] == h else TODAY
+        LASTMOD[url] = [h, date]; PAGE_DATE[url] = date
+        content = content.replace("__LASTMOD__", date)
     if PREVIEW and rel_path.endswith(".html"):
         content = re.sub(r'href="((?:\.\./)*(?:[a-z0-9-]+/)?)(#[a-z]*)?"', lambda m: f'href="{m.group(1)}index.html{m.group(2) or ""}"', content)
     p = os.path.join(ROOT, rel_path)
@@ -226,6 +247,11 @@ def build():
 <p class="aka">Tools for World (also written ToolsForWorld or Tools 4 World) is at toolsforworld.com.</p></div>
 <div id="results" hidden><div class="sect">Search results</div><div class="grid" id="rgrid"></div><p class="note" id="rnone" hidden>No tool matches that yet. <a href="contact/">Ask us for it</a>.</p></div>
 <div id="browse"><div id="recent" hidden><div class="sect">Recently used</div><div class="chips" id="rchips"></div></div>'''
+    exact = [("Photo to", ["compress-image-to-20kb", "compress-image-to-50kb", "compress-image-to-100kb", "compress-image-to-200kb", "compress-image-to-1mb"]),
+             ("PDF to", ["compress-pdf-to-100kb", "compress-pdf-to-200kb", "compress-pdf-to-500kb", "compress-pdf-to-1mb", "compress-pdf-to-2mb"])]
+    home += '<div class="sect">Compress to an exact size</div><div class="exact">' + "".join(
+        f'<div class="chips"><span class="lbl">{lbl}</span>' + "".join(f'<a href="{x}/">{BY[x]["name"].split(" to ")[-1]}</a>' for x in xs if x in BY) + "</div>"
+        for lbl, xs in exact) + "</div>"
     home += '<div class="sect">Popular tools</div>' + cards("", [BY[x] for x in POPULAR if x in BY])
     home += '<div id="all"></div>'
     for g, label in GROUPS:
@@ -248,7 +274,7 @@ def build():
 <p>We keep the tools simple, fast and free, with no sign-up and no watermarks.</p>
 <p>You may also see us written as ToolsForWorld, Tools4World or Tools 4 World. It's the same site: <a href="https://toolsforworld.com/">toolsforworld.com</a>.</p>'''),
         "privacy": ("Privacy Policy – Tools for World", "How Tools for World handles your data: files are processed on your device, plus how ads, cookies and analytics work.",
-                    f'''<h1>Privacy Policy</h1><p>Last updated: {TODAY}</p>
+                    f'''<h1>Privacy Policy</h1><p>Last updated: __LASTMOD__</p>
 <h2>Your files and numbers</h2><p>Tools for World tools work entirely in your browser. Images, PDFs, Word documents and the numbers you type are processed on your device and are not sent to or stored on our servers.</p>
 <h2>Cookies and advertising</h2><p>We may show ads from Google AdSense. Google and its partners use cookies to show ads based on your visits to this and other websites. You can turn off personalised ads in <a href="https://adssettings.google.com">Google Ads Settings</a>. Learn more at <a href="https://policies.google.com/technologies/ads">How Google uses information from sites that use its services</a>.</p>
 <h2>Your consent choices</h2><p>Visitors in the European Economic Area, the UK and Switzerland are asked for consent before personalised ads, using Google's certified consent message. You can choose not to consent, and you can change your choice later from the same message or by clearing this site's cookies.</p>
@@ -258,7 +284,7 @@ def build():
 <h2>Children</h2><p>Tools for World is a general-audience site and does not knowingly collect personal information from children.</p>
 <h2>Contact</h2><p>Questions about this policy: see our <a href="../contact/">contact page</a>.</p>'''),
         "terms": ("Terms of Use – Tools for World", "The terms for using Tools for World's free online PDF, image and text tools, including limits of liability.",
-                  f'''<h1>Terms of Use</h1><p>Last updated: {TODAY}</p><p>Tools for World tools are free to use for personal and business purposes. They are provided “as is”, without any warranty, and we are not liable for any loss arising from their use.</p>
+                  f'''<h1>Terms of Use</h1><p>Last updated: __LASTMOD__</p><p>Tools for World tools are free to use for personal and business purposes. They are provided “as is”, without any warranty, and we are not liable for any loss arising from their use.</p>
 <p>Results such as conversions and calculations are provided for convenience. Check important documents and figures before you rely on them.</p>
 <p>You are responsible for the files you process. Only convert files you own or have permission to use, and do not use the tools for anything illegal.</p>
 <p>Official photo sizes and other rules shown on this site are a guide. Always check the latest requirements with the official authority before you submit an application.</p>
@@ -289,9 +315,12 @@ def build():
         write(f"{slug}/index.html", page("../", title, desc, BASE + slug + "/", f'<section class="bench how" style="max-width:70ch">{content}</section>'))
         urls.append(BASE + slug + "/")
 
-    write("404.html", page(BASE, "Page not found – Tools for World", "Page not found.", BASE, f'<section class="bench"><h1>Page not found</h1><p class="lead">This page does not exist. <a href="{BASE}">See all tools</a>.</p></section>'))
+    write("404.html", page(BASE, "Page not found – Tools for World", "Page not found.", None, f'<section class="bench"><h1>Page not found</h1><p class="lead">This page does not exist. <a href="{BASE}">See all tools</a>.</p></section>'))
     write("sitemap.xml", '<?xml version="1.0" encoding="UTF-8"?>\n<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">\n' +
-          "".join(f"  <url><loc>{u}</loc><lastmod>{TODAY}</lastmod></url>\n" for u in urls) + "</urlset>\n")
+          "".join(f"  <url><loc>{u}</loc><lastmod>{PAGE_DATE.get(u, TODAY)}</lastmod></url>\n" for u in urls) + "</urlset>\n")
+    if not PREVIEW:
+        live = set(urls)
+        json.dump({u: v for u, v in sorted(LASTMOD.items()) if u in live}, open(LASTMOD_FILE, "w"), indent=0)
     write("robots.txt", f"User-agent: *\nAllow: /\nSitemap: {BASE}sitemap.xml\n")
     write("favicon.svg", '<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 64 64"><circle cx="32" cy="32" r="31" fill="#0d7a55"/><g fill="none" stroke="#fff" stroke-width="3.6"><circle cx="32" cy="32" r="19"/><ellipse cx="32" cy="32" rx="8.5" ry="19"/><path d="M13.6 26h36.8M13.6 38h36.8"/></g></svg>')
     if ADSENSE_CLIENT:

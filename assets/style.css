@@ -181,3 +181,6 @@ header nav .navall{color:var(--accent);font-weight:600}
 .docrender p{margin:0 0 .8em}
 .pp .panel label{display:grid;grid-template-columns:minmax(0,1fr);gap:4px}
 .pp .panel select,.pp .panel input[type=range]{width:100%;min-width:0}
+.exact{display:grid;gap:4px}
+.exact .chips{margin:6px 0}
+.exact .lbl{font-weight:600;font-size:.92rem;margin-right:4px;min-width:64px}

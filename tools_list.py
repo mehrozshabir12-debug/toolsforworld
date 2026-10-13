@@ -86,10 +86,11 @@ def define(tool, F, N, SEL, RESULT, PDFLIB, PDFJS, MAMMOTH, H2PDF):
     # ================= Image =================
     tool(slug="compress-image", group="img", icon="img", name="Image Compressor", ftool="compress", libs="",
          card="Make JPG, PNG or WebP photos smaller in KB.",
-         title="Image Compressor – Compress JPG & PNG to 100KB Free | Tools for World",
-         desc="Compress JPG, PNG and WebP images online for free. Reduce photo size in KB for forms, email and websites. No upload.",
-         h1="Image compressor", lead="Reduce photo file size for online forms, email and websites. Lower quality gives a smaller file.",
-         body='''<h2>How to compress an image</h2><ol><li>Choose one or more photos.</li><li>Set the quality (70% keeps photos sharp for most uses).</li><li>Press <b>Compress</b> and save each smaller file.</li></ol><p>Need a photo under 100 KB or 50 KB for an application form? Lower the quality and set a maximum width such as 1200 px.</p>''',
+         title="Reduce Image Size in KB – Free Image Compressor (JPG, PNG)",
+         desc="Reduce image size in KB online for free: compress JPG, PNG and WebP photos for forms, email and websites, or set an exact target like 100 KB. No upload.",
+         h1="Image compressor: reduce image size in KB", lead="Reduce photo file size for online forms, email and websites. Lower quality gives a smaller file.",
+         body='''<h2>How to compress an image</h2><ol><li>Choose one or more photos.</li><li>Set the quality (70% keeps photos sharp for most uses).</li><li>Press <b>Compress</b> and save each smaller file.</li></ol><p>Need a photo under a fixed size for an application form? Type it in <b>Target size</b>, or open a ready preset: <a href="../compress-image-to-20kb/">20 KB</a>, <a href="../compress-image-to-50kb/">50 KB</a>, <a href="../compress-image-to-100kb/">100 KB</a>, <a href="../compress-image-to-200kb/">200 KB</a>, <a href="../compress-image-to-1mb/">1 MB</a>.</p>
+<p>Need exact pixel dimensions instead (like 1080 × 1080)? Use the <a href="../resize-image/">Image Resizer</a>.</p>''',
          faq=[("Are my photos uploaded?", "No. Compression happens inside your browser.")])
 
     tool(slug="resize-image", group="img", icon="img", name="Image Resizer", ftool="resize", libs="",
@@ -97,7 +98,10 @@ def define(tool, F, N, SEL, RESULT, PDFLIB, PDFJS, MAMMOTH, H2PDF):
          title="Image Resizer – Resize Photos in Pixels Free | Tools for World",
          desc="Resize images to any width and height in pixels or by percent while keeping the aspect ratio. Free and private.",
          h1="Image resizer", lead="Set an exact size in pixels or scale by percent. Keep the ratio so photos do not stretch.",
-         body='''<h2>How to resize an image</h2><ol><li>Choose one or more images.</li><li>Enter a width or height, or a percentage.</li><li>Press <b>Resize</b>.</li></ol><p>Common sizes: 1080 × 1080 for Instagram posts, 1200 × 630 for link previews, 1920 × 1080 for HD.</p>''', faq=[])
+         body='''<h2>How to resize an image</h2><ol><li>Choose one or more images.</li><li>Enter a width or height, or a percentage.</li><li>Press <b>Resize</b>.</li></ol><p>Common sizes: 1080 × 1080 for Instagram posts, 1200 × 630 for link previews, 1920 × 1080 for HD.</p>
+<h2>Need a size in KB, not pixels?</h2><p>Forms that say “resize image to 20 KB” mean the file size. That's a job for the compressor: <a href="../compress-image-to-20kb/">20 KB</a>, <a href="../compress-image-to-50kb/">50 KB</a>, <a href="../compress-image-to-100kb/">100 KB</a> or <a href="../compress-image/">any size you type</a>.</p>''',
+         faq=[("How do I resize an image to 20 KB or 100 KB?", "KB is file size, not width and height. Use Compress Image to 20 KB or 100 KB: it lowers the file size and only shrinks the pixels if it has to."),
+              ("Will resizing make my photo blurry?", "Making a photo smaller keeps it sharp. Making it much larger than the original can look soft, because no new detail is added.")])
 
     tool(slug="remove-background", group="img", icon="img", name="Background Remover", ftool="bgremove", libs="",
          card="Cut out the background of a photo.",
@@ -132,11 +136,13 @@ def define(tool, F, N, SEL, RESULT, PDFLIB, PDFJS, MAMMOTH, H2PDF):
 
     tool(slug="heic-to-jpg", group="img", icon="img", name="HEIC to JPG", ftool="heic2jpg", libs=HEIC,
          card="Convert iPhone HEIC photos to JPG.",
-         title="HEIC to JPG Converter – iPhone Photos to JPG Free | Tools for World",
-         desc="Convert iPhone HEIC and HEIF photos to JPG for free. Batch convert in your browser with no upload.",
+         title="HEIC to JPG Converter Free – iPhone HEIC to JPEG",
+         desc="Convert iPhone HEIC and HEIF photos to JPG (JPEG) for free. Batch convert in your browser with no upload, then download one by one or as a ZIP.",
          h1="HEIC to JPG converter", lead="Convert iPhone photos (.heic / .heif) to JPG so they open on Windows, Android and any website.",
-         body='''<h2>How to convert HEIC to JPG</h2><ol><li>Choose one or more .heic photos.</li><li>Set the quality.</li><li>Press <b>Convert to JPG</b>.</li></ol><p>Tip: on iPhone, Settings → Camera → Formats → “Most Compatible” saves new photos as JPG.</p>''',
-         faq=[("Why can't I open HEIC files?", "HEIC is Apple's photo format. Many Windows PCs, Android phones and websites don't support it.")])
+         body='''<h2>How to convert HEIC to JPG</h2><ol><li>Choose one or more .heic photos.</li><li>Set the quality.</li><li>Press <b>Convert to JPG</b>.</li></ol><p>Tip: on iPhone, Settings → Camera → Formats → “Most Compatible” saves new photos as JPG.</p>
+<h2>HEIC to PDF</h2><p>Convert the photos to JPG here first, then put them into one PDF with <a href="../jpg-to-pdf/">JPG to PDF</a>. Need the photos smaller for an upload? Run them through the <a href="../compress-image/">Image Compressor</a>.</p>''',
+         faq=[("Why can't I open HEIC files?", "HEIC is Apple's photo format. Many Windows PCs, Android phones and websites don't support it."),
+              ("Is JPEG the same as JPG?", "Yes. JPG and JPEG are two spellings of the same format; the files are identical.")])
 
     tool(slug="passport-photo-maker", group="img", icon="user", name="Passport Photo Maker", ftool="passport", libs="",
          card="Passport photos and a 4×6 print sheet.",
@@ -230,18 +236,20 @@ def landing(define_tool):
     for kb, use in ((10, "signatures and thumbnail-size form fields"), (20, "signature uploads and tiny form fields"),
                     (30, "exam forms that ask for a small photo"), (50, "government and exam application forms"),
                     (100, "job portals, visa forms and email"), (200, "website uploads and online profiles"),
-                    (500, "high-quality photos that still upload fast"), (1024, "photos that must stay under 1 MB")):
-        lab = "1MB" if kb == 1024 else f"{kb}KB"; lab_s = "1 MB" if kb == 1024 else f"{kb} KB"
+                    (500, "high-quality photos that still upload fast"), (1024, "photos that must stay under 1 MB"),
+                    (2048, "email attachments and portals with a 2 MB limit"), (5120, "upload forms that cap files at 5 MB")):
+        lab = f"{kb // 1024}MB" if kb >= 1024 else f"{kb}KB"; lab_s = f"{kb // 1024} MB" if kb >= 1024 else f"{kb} KB"
         t(slug=f"compress-image-to-{lab.lower()}", group="img", icon="img", name=f"Compress Image to {lab}", ftool="compress", libs="",
           parent="compress-image", preset={"#tkb": kb},
           card=f"Make any photo under {lab_s} automatically.",
-          title=f"Compress Image to {lab} Online Free – JPG Under {lab_s} | Tools for World",
+          title=f"Compress Image to {lab} – Resize Photo to {lab_s} Free",
           desc=f"Compress JPG, PNG or WebP images to {lab} or less in one click. Free, no upload: the photo is resized in your browser until it is just under {lab_s}.",
           h1=f"Compress image to {lab}", lead=f"Choose a photo and it is made just under {lab_s} automatically, keeping as much quality as possible. Ideal for {use}.",
           body=f'''<h2>How to compress a photo to {lab}</h2><ol><li>Choose your photo (JPG, PNG or WebP).</li><li>The target is already set to <b>{lab_s}</b>. Change it if you need a different size.</li><li>Press <b>Compress</b> and download the photo.</li></ol>
 <h2>How it works</h2><p>The tool tries many quality levels and picks the highest one that stays under {lab_s}. If the photo is still too big at the lowest quality, it is scaled down a little at a time until it fits. Everything happens on your device, so your photo is never uploaded.</p>
 <h2>Tips</h2><ul><li>Crop away empty background first: less detail means better quality at {lab_s}.</li><li>Most forms want JPG. Keep the output on JPG unless WebP is allowed.</li></ul>''',
-          faq=[(f"Will my photo still look good at {lab}?", "For most photos, yes. The tool keeps the best quality that fits. Very large, detailed photos may be scaled down to fit."),
+          faq=[(f"Is this the same as “resize image to {lab_s}”?", f"Yes. When a form asks you to resize a photo to {lab_s}, it means the file size. This tool lowers the file size to {lab_s} and only reduces the width and height if it has to."),
+               (f"Will my photo still look good at {lab}?", "For most photos, yes. The tool keeps the best quality that fits. Very large, detailed photos may be scaled down to fit."),
                (f"Can I compress several photos to {lab} at once?", "Yes. Choose several files and each one is compressed to the target size.")])
 
     for w, h, label, use in ((1080, 1080, "Instagram post", "square Instagram and Facebook posts"),
@@ -320,8 +328,10 @@ def landing(define_tool):
                     (200, "job applications, university forms and government portals"),
                     (300, "visa and admission forms that allow up to 300 KB"),
                     (500, "email attachments and most upload forms"),
-                    (1024, "email, WhatsApp and portals with a 1 MB limit")):
-        lab = "1MB" if kb == 1024 else f"{kb}KB"; lab_s = "1 MB" if kb == 1024 else f"{kb} KB"
+                    (1024, "email, WhatsApp and portals with a 1 MB limit"),
+                    (2048, "job and university portals with a 2 MB upload limit"),
+                    (5120, "email attachments and portals that allow up to 5 MB")):
+        lab = f"{kb // 1024}MB" if kb >= 1024 else f"{kb}KB"; lab_s = f"{kb // 1024} MB" if kb >= 1024 else f"{kb} KB"
         t(slug=f"compress-pdf-to-{lab.lower()}", group="pdf", icon="pdf", name=f"Compress PDF to {lab}", ftool="pdfcompress", libs=PDFLIBS,
           parent="compress-pdf", preset={"#ptkb": kb},
           card=f"Shrink a PDF to under {lab_s} automatically.",
@@ -346,12 +356,13 @@ def landing(define_tool):
         t(slug=slug, group="img", icon="user", name=f"{country} Passport Photo" if "visa" not in country else f"{country} Photo",
           ftool="passport", libs="", parent="passport-photo-maker", preset={"#ps": ps},
           card=f"{size_txt}, plus a 4×6 print sheet.",
-          title=f"{country} {'Passport ' if 'visa' not in country else ''}Photo Maker – {size_txt.split(' (')[0]} Free | Tools for World",
+          title=f"{country.replace(' visa', ' Visa')} {'Passport ' if 'visa' not in country else ''}Photo Maker – {size_txt.split(' (')[0]}, Size & Requirements",
           desc=f"Make a {country} {'passport ' if 'visa' not in country else ''}photo online for free: crop to {size_txt} and get a ready-to-print 4×6 inch sheet. No upload, works on your phone.",
           h1=f"{country} {'passport ' if 'visa' not in country else ''}photo maker",
           lead=f"Crop your photo to the {country} size of {size_txt} and download a single photo plus a 4×6 inch sheet to print.",
           body=f'''<h2>How to make a {country} {'passport ' if 'visa' not in country else ''}photo</h2><ol><li>Take a photo facing the camera against a {bg} background, with even light and no shadows.</li><li>Choose the photo. The size is already set to <b>{size_txt}</b>.</li><li>Use zoom and the sliders so the top of the head is near the upper guide line and the chin near the lower one.</li><li>Press <b>Make sheet</b>. Print the 4×6 sheet at 100% scale at home or at a photo shop, or use the single photo for online applications.</li></ol>
 <h2>Photo checklist</h2><ul><li>Size: {size_txt}.</li><li>Background: {bg}, with no patterns or objects.</li><li>Neutral expression, mouth closed, eyes open and visible.</li><li>No glasses glare, hats or filters.</li></ul>
+<p>Applying online? Many portals set a file-size limit: <a href="../compress-image-to-50kb/">compress the photo to 50 KB</a>, <a href="../compress-image-to-100kb/">100 KB</a> or <a href="../compress-image-to-200kb/">200 KB</a> after making it here.</p>
 <div class="warnbox">Rules change from time to time. Always check the latest photo requirements on the official government website before you apply.</div>''',
           faq=[(f"What size is a {country} {'passport ' if 'visa' not in country else ''}photo?", f"{size_txt}. This tool crops your photo to exactly that size at 300 dpi."),
                ("Is my photo uploaded?", "No. Cropping and the print sheet are made in your browser, so the photo stays on your device.")])
@@ -438,6 +449,8 @@ KB_NOTES = {
     20: ("about 250 × 300 pixels", "Signature uploads often ask for 10–20 KB. Crop away the empty paper first so the signature itself keeps more detail."),
     30: ("about 300 × 400 pixels", "Many exam forms ask for a photo between 20 and 50 KB. If there is a minimum, set the target to the maximum allowed so you don't go under it."),
     50: ("about 400 × 500 pixels", "Government and exam portals often give both a size in cm (like 3.5 × 4.5 cm) and a KB range. Crop to the right shape first with Resize Image, then compress."),
+    2048: ("about 2500 × 3300 pixels", "2 MB keeps nearly all the detail of a phone photo, and still fits most job portals and email limits."),
+    5120: ("about 4000 × 3000 pixels, the full size of a 12-megapixel phone photo", "Many phone photos are already under 5 MB; if yours is, the tool keeps the original untouched."),
     100: ("about 600 × 800 pixels", "100 KB is enough for a clear face photo or a readable document scan for most job and visa portals."),
     200: ("about 900 × 1200 pixels", "At 200 KB most photos look sharp on any phone or laptop screen, which makes it a good size for profiles and website uploads."),
     500: ("about 1400 × 1900 pixels", "500 KB keeps photos detailed enough to zoom in, while still uploading quickly on mobile data."),
@@ -459,7 +472,7 @@ def enrich(T):
                 t["faq"] = list(t["faq"]) + [fq]
     for t in T:
         if t.get("parent") == "compress-image" and t.get("preset", {}).get("#tkb") in KB_NOTES:
-            k = t["preset"]["#tkb"]; px, tip = KB_NOTES[k]; lab = "1 MB" if k == 1024 else f"{k} KB"
+            k = t["preset"]["#tkb"]; px, tip = KB_NOTES[k]; lab = f"{k // 1024} MB" if k >= 1024 else f"{k} KB"
             t["body"] += (f"<h2>How big is a {lab} photo?</h2><p>For a typical phone photo saved as JPG, {lab} fits roughly {px} at good quality. "
                           f"Simple images (a signature, a face on a plain wall) fit more pixels; busy scenes with lots of detail fit fewer.</p><p>{tip}</p>")
 

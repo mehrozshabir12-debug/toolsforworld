@@ -1,7 +1,9 @@
 name: Notify search engines (IndexNow)
 
 # After each push, waits for GitHub Pages to deploy, then tells Bing, Yandex, Seznam, Naver
-# (and everyone using IndexNow) which pages exist, so new pages are crawled within hours.
+# (and everyone using IndexNow) which pages are new or changed. Only URLs whose sitemap line
+# changed in this push are sent; unchanged pages are not re-submitted.
+# This helps discovery; it does not guarantee indexing.
 on:
   push:
     branches: [main]
@@ -12,12 +14,24 @@ jobs:
     runs-on: ubuntu-latest
     steps:
       - uses: actions/checkout@v4
+        with:
+          fetch-depth: 0
       - name: Wait for Pages deploy
         run: sleep 120
-      - name: Submit sitemap URLs to IndexNow
+      - name: Submit new or changed URLs to IndexNow
+        env:
+          BEFORE: ${{ github.event.before }}
         run: |
           KEY=$(cat .indexnow_key)
-          URLS=$(python3 -c "import re;print(','.join('\"'+u+'\"' for u in re.findall(r'<loc>(.*?)</loc>', open('sitemap.xml').read())))")
+          if [ -n "$BEFORE" ] && [ "$BEFORE" != "0000000000000000000000000000000000000000" ] && git cat-file -e "$BEFORE" 2>/dev/null; then
+            git diff "$BEFORE" HEAD -- sitemap.xml | grep '^+  <url>' | sed -E 's/.*<loc>([^<]+)<\/loc>.*/\1/' > /tmp/urls.txt || true
+          else
+            grep -o '<loc>[^<]*</loc>' sitemap.xml | sed -E 's/<\/?loc>//g' > /tmp/urls.txt
+          fi
+          N=$(grep -c . /tmp/urls.txt || true)
+          echo "Changed URLs: $N"; cat /tmp/urls.txt
+          [ "$N" -gt 0 ] || { echo "Nothing new to submit"; exit 0; }
+          URLS=$(python3 -c "import json;print(json.dumps([l.strip() for l in open('/tmp/urls.txt') if l.strip()]))")
           curl -s -o /dev/null -w "IndexNow HTTP %{http_code}\n" -X POST https://api.indexnow.org/indexnow \
             -H "Content-Type: application/json; charset=utf-8" \
-            -d "{\"host\":\"toolsforworld.com\",\"key\":\"$KEY\",\"keyLocation\":\"https://toolsforworld.com/$KEY.txt\",\"urlList\":[$URLS]}"
+            -d "{\"host\":\"toolsforworld.com\",\"key\":\"$KEY\",\"keyLocation\":\"https://toolsforworld.com/$KEY.txt\",\"urlList\":$URLS}"
