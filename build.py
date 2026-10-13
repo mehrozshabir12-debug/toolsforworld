@@ -241,28 +241,52 @@ def build():
         write(f'{t["slug"]}/index.html', page(r, t["title"], t["desc"], canon, body, scripts, attr, ld, t["group"]))
         urls.append(canon)
 
-    home = '''<div class="hero"><p class="brand-big" aria-hidden="true">Tools <i>for</i> World</p><h1>Free online tools that keep your files private</h1>
-<p>Convert PDF and Word files, compress and edit images, remove backgrounds, make QR codes and more. No sign-up, no watermark, no limits. Every tool runs in your browser, so your files never leave your device.</p>
-<div class="bigsearch" role="search"><input type="search" id="q" placeholder="Search tools: compress pdf, passport, heic…" aria-label="Search tools" autocomplete="off"></div>
-<p class="aka">Tools for World (also written ToolsForWorld or Tools 4 World) is at toolsforworld.com.</p></div>
-<div id="results" hidden><div class="sect">Search results</div><div class="grid" id="rgrid"></div><p class="note" id="rnone" hidden>No tool matches that yet. <a href="contact/">Ask us for it</a>.</p></div>
-<div id="browse"><div id="recent" hidden><div class="sect">Recently used</div><div class="chips" id="rchips"></div></div>'''
-    exact = [("Photo to", ["compress-image-to-20kb", "compress-image-to-50kb", "compress-image-to-100kb", "compress-image-to-200kb", "compress-image-to-1mb"]),
-             ("PDF to", ["compress-pdf-to-100kb", "compress-pdf-to-200kb", "compress-pdf-to-500kb", "compress-pdf-to-1mb", "compress-pdf-to-2mb"])]
-    home += '<div class="sect">Compress to an exact size</div><div class="exact">' + "".join(
-        f'<div class="chips"><span class="lbl">{lbl}</span>' + "".join(f'<a href="{x}/">{BY[x]["name"].split(" to ")[-1]}</a>' for x in xs if x in BY) + "</div>"
-        for lbl, xs in exact) + "</div>"
-    home += '<div class="sect">Popular tools</div>' + cards("", [BY[x] for x in POPULAR if x in BY])
-    home += '<div id="all"></div>'
-    for g, label in GROUPS:
-        home += f'<div class="sect" id="{g}">{label}</div>' + cards("", [t for t in T if t["group"] == g and not t.get("parent")])
-    home += '<div class="sect" id="presets">Popular sizes &amp; presets</div>'
-    for par in [p for p in T if any(x.get("parent") == p["slug"] for x in T)]:
-        home += chips("", [t for t in T if t.get("parent") == par["slug"]], par["name"])
-    home += "</div>"
+    # ---- home: task-first layout (search + most used up top, one category open at a time below) ----
+    def short_names(kids):
+        names = [k["name"] for k in kids]
+        if len(names) < 2:
+            return names
+        pre = os.path.commonprefix(names); pre = pre[:pre.rfind(" ") + 1] if " " in pre else ""
+        rev = os.path.commonprefix([n[::-1] for n in names])[::-1]; suf = rev[rev.find(" "):] if " " in rev else ""
+        out = [n[len(pre):len(n) - len(suf)] if suf else n[len(pre):] for n in names]
+        return [o.strip() or n for o, n in zip(out, names)]
+    SIZE_LABEL = {"compress-image": "Target size", "compress-pdf": "Target size", "resize-image": "Exact size",
+                  "image-to-text": "Languages", "passport-photo-maker": "Countries", "qr-code-generator": "Ready-made"}
+    GROUP_TAB = {"pdf": "PDF & documents", "img": "Images & photos", "util": "Text & everyday", "media": "Audio & video"}
+    MOST_USED = ["pdf-to-word", "compress-image-to-100kb", "compress-pdf", "remove-background", "passport-photo-maker", "image-to-text"]
+    TICK = '<svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" aria-hidden="true"><path d="M5 12.5l4.5 4.5L19 7.5"/></svg>'
+
+    def tool_row(t):
+        kids = [x for x in T if x.get("parent") == t["slug"]]
+        row = (f'<li class="titem"><a class="tlink" href="{t["slug"]}/" data-k="{KW.get(t["slug"], "")}"><span class="ic">{ICON[t["icon"]]}</span>'
+               f'<span class="tt"><span class="tn">{t["name"]}</span><span class="td">{t["card"]}</span></span></a>')
+        if kids:
+            links = [f'<a href="{k["slug"]}/" title="{html.escape(k["name"])}">{n}</a>' for k, n in zip(kids, short_names(kids))]
+            first, rest = links[:7], links[7:]
+            more = f'<details class="more"><summary>{len(rest)} more</summary>{"".join(rest)}</details>' if rest else ""
+            row += f'<div class="sizes"><span class="sl">{SIZE_LABEL.get(t["slug"], "Also")}</span>{"".join(first)}{more}</div>'
+        return row + "</li>"
+
+    home = f'''<div class="hero2">
+<h1>Free tools for PDFs, photos and documents</h1>
+<p class="sub">Convert, compress and edit files right in your browser. Nothing is uploaded, so your files stay on your device.</p>
+<div class="bigsearch" role="search"><input type="search" id="q" placeholder="What do you need? Try “compress pdf” or “passport photo”" aria-label="Search tools" autocomplete="off"></div>
+<div class="quick"><span class="ql">Most used</span>{"".join(f'<a href="{x}/">{BY[x]["name"]}</a>' for x in MOST_USED if x in BY)}</div>
+<ul class="trust"><li>{TICK}Files stay on your device</li><li>{TICK}No sign-up, no watermark</li><li>{TICK}Works on any phone</li></ul>
+</div>
+<div id="results" hidden><h2 class="h2">Search results</h2><div class="grid" id="rgrid"></div><p class="note" id="rnone" hidden>No tool matches that yet. <a href="contact/">Ask us for it</a>.</p></div>
+<div id="browse"><div id="recent" hidden><h2 class="h2">Pick up where you left off</h2><div class="chips" id="rchips"></div></div>
+<section class="tasks" id="all" aria-label="All tools"><h2 class="h2">Browse by task</h2>
+<div class="tabs" role="tablist">''' + "".join(
+        f'<button type="button" role="tab" class="tab" data-tab="{g}" aria-controls="p-{g}">{GROUP_TAB[g]} <span class="cnt">{sum(1 for t in T if t["group"] == g and not t.get("parent"))}</span></button>'
+        for g, _ in GROUPS) + "</div>" + "".join(
+        f'<div class="panel2" role="tabpanel" id="p-{g}"><h3 class="ph" id="{g}">{GROUP_TAB[g]}</h3><ul class="tlist">'
+        + "".join(tool_row(t) for t in T if t["group"] == g and not t.get("parent")) + "</ul></div>"
+        for g, _ in GROUPS) + '''</section></div>
+<p class="aka">Tools for World (also written ToolsForWorld or Tools 4 World) is at toolsforworld.com.</p>'''
     write("index.html", page("", "Tools for World – Free PDF, Image & Everyday Tools Online",
                              "Free online tools: PDF to Word, Word to PDF, compress PDF and images, background remover, HEIC to JPG, OCR, QR code generator, MP4 to MP3 and more. Private: files never leave your device.",
-                             BASE, home, f'<script src="assets/calc.js"></script>',
+                             BASE, home, f'<script src="assets/calc.js"></script>', ' class="home"',
                              jsonld=[{"@context": "https://schema.org", "@type": "WebSite", "name": "Tools for World", "alternateName": BRAND_NAMES, "url": BASE},
                                      {"@context": "https://schema.org", "@type": "Organization", "name": "Tools for World", "alternateName": BRAND_NAMES, "url": BASE, "logo": BASE + "logo.png",
                                       "email": "hello@toolsforworld.com"}], keywords=BRAND_KEYWORDS))

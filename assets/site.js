@@ -19,10 +19,11 @@
   }
   // search index from the tool cards and preset chips already on the page
   var seen = {}, idx = [];
-  document.querySelectorAll('#browse a.tool, #browse .chips a').forEach(function (a) {
+  document.querySelectorAll('#browse a.tlink, #browse .sizes a').forEach(function (a) {
     var href = a.getAttribute('href'); if (seen[href] || a.closest('#recent')) return; seen[href] = 1;
-    var name = (a.querySelector('h2') || a).textContent.trim(), p = a.querySelector('p');
-    idx.push({ href: href, name: name, desc: p ? p.textContent.trim() : '', k: (name + ' ' + (p ? p.textContent : '') + ' ' + (a.dataset.k || '') + ' ' + href.replace(/[-\/]/g, ' ')).toLowerCase(), el: a });
+    var n = a.querySelector('.tn'), p = a.querySelector('.td');
+    var name = n ? n.textContent.trim() : (a.getAttribute('title') || a.textContent).trim();
+    idx.push({ href: href, name: name, desc: p ? p.textContent.trim() : '', k: (name + ' ' + (p ? p.textContent : '') + ' ' + (a.dataset.k || '') + ' ' + href.replace(/[-\/]/g, ' ')).toLowerCase(), main: !!n });
   });
   var res = document.getElementById('results'), grid = document.getElementById('rgrid'), none = document.getElementById('rnone'), browse = document.getElementById('browse');
   function norm(s) { return s.toLowerCase().replace(/[×x]/g, 'x').replace(/\s+/g, ' ').trim(); }
@@ -33,7 +34,7 @@
     var hits = idx.map(function (t) {
       var k = t.k.replace(/×/g, 'x'), sc = 0;
       for (var i = 0; i < words.length; i++) { if (k.indexOf(words[i]) < 0) return null; sc += t.name.toLowerCase().indexOf(words[i]) >= 0 ? 2 : 1; }
-      return { t: t, sc: sc + (t.el.classList.contains('tool') ? 1 : 0) };
+      return { t: t, sc: sc + (t.main ? 1 : 0) };
     }).filter(Boolean).sort(function (a, b) { return b.sc - a.sc; }).slice(0, 24);
     grid.innerHTML = '';
     hits.forEach(function (h) {
@@ -46,6 +47,32 @@
   q.addEventListener('input', run);
   q.addEventListener('keydown', function (e) { if (e.key === 'Enter') { var f = grid.querySelector('a'); if (f) location.href = f.href; } });
   document.addEventListener('keydown', function (e) { if (e.key === '/' && document.activeElement !== q && !/INPUT|TEXTAREA|SELECT/.test(document.activeElement.tagName)) { e.preventDefault(); q.focus(); } });
+  // category tabs: one task group open at a time (all groups stay in the page for search engines)
+  var box = document.querySelector('.tasks');
+  if (box) {
+    var tabs = [].slice.call(box.querySelectorAll('.tab')), K2 = 'tfw_tab';
+    function show(g, focus) {
+      tabs.forEach(function (b) { var on = b.dataset.tab === g; b.setAttribute('aria-selected', on); b.tabIndex = on ? 0 : -1; if (on && focus) b.focus(); });
+      box.querySelectorAll('.panel2').forEach(function (p) { p.hidden = p.id !== 'p-' + g; });
+      try { sessionStorage.setItem(K2, g); } catch (e) {}
+    }
+    box.classList.add('js-tabs');
+    tabs.forEach(function (b, i) {
+      b.addEventListener('click', function () { show(b.dataset.tab); });
+      b.addEventListener('keydown', function (e) {
+        var j = e.key === 'ArrowRight' ? i + 1 : e.key === 'ArrowLeft' ? i - 1 : -1;
+        if (j >= 0) { e.preventDefault(); show(tabs[(j + tabs.length) % tabs.length].dataset.tab, true); }
+      });
+    });
+    function fromHash() {
+      var h = location.hash.replace('#', '').replace(/^p-/, '');
+      if (tabs.some(function (b) { return b.dataset.tab === h; })) { show(h); box.scrollIntoView(); return true; }
+      return false;
+    }
+    var start = 'pdf'; try { start = sessionStorage.getItem(K2) || 'pdf'; } catch (e) {}
+    if (!fromHash()) show(start);
+    window.addEventListener('hashchange', fromHash);
+  }
   var m = /[?&]q=([^&]*)/.exec(location.search);
   if (m) { try { q.value = decodeURIComponent(m[1].replace(/\+/g, ' ')); } catch (e) {} run(); }
 })();

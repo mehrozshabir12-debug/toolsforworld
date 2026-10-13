@@ -31,14 +31,20 @@ jobs:
       - name: Deep audit
         run: python tests/audit.py
         continue-on-error: true
-      - name: Lighthouse (local build and live site)
+      - name: Lighthouse (local build)
         run: |
           python -m http.server 8001 > /dev/null 2>&1 &
           sleep 2
           python tests/lighthouse.py http://localhost:8001/ local
-          python tests/lighthouse.py https://toolsforworld.com/ live
+        continue-on-error: true
+      # The live checks open the real site, which shows up as visits in analytics.
+      # They only run when the commit message contains [live].
+      - name: Lighthouse (live site)
+        if: contains(github.event.head_commit.message, '[live]')
+        run: python tests/lighthouse.py https://toolsforworld.com/ live
         continue-on-error: true
       - name: Live site check (headers, ads.txt, AdSense serving)
+        if: contains(github.event.head_commit.message, '[live]')
         run: python tests/live_check.py
         continue-on-error: true
       - name: Save results
