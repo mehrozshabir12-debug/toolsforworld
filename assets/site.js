@@ -19,11 +19,13 @@
   }
   // search index from the tool cards and preset chips already on the page
   var seen = {}, idx = [];
-  document.querySelectorAll('#browse a.tlink, #browse .sizes a').forEach(function (a) {
+  document.querySelectorAll('#browse a.tile, #browse .xall a').forEach(function (a) {
     var href = a.getAttribute('href'); if (seen[href] || a.closest('#recent')) return; seen[href] = 1;
-    var n = a.querySelector('.tn'), p = a.querySelector('.td');
+    var n = a.querySelector('.tn'), p = a.querySelector('.td'), row = a.closest('.xrow');
+    var parent = row ? document.querySelector('#tgrid a.tile[href="' + row.querySelector('.xp').getAttribute('href') + '"]') : null;
     var name = n ? n.textContent.trim() : (a.getAttribute('title') || a.textContent).trim();
-    idx.push({ href: href, name: name, desc: p ? p.textContent.trim() : '', k: (name + ' ' + (p ? p.textContent : '') + ' ' + (a.dataset.k || '') + ' ' + href.replace(/[-\/]/g, ' ')).toLowerCase(), main: !!n });
+    idx.push({ href: href, name: name, desc: p ? p.textContent.trim() : '', k: (name + ' ' + (p ? p.textContent : '') + ' ' + (a.dataset.k || '') + ' ' + href.replace(/[-\/]/g, ' ')).toLowerCase(),
+      main: !!n, tileEl: n ? a : null, parent: parent });
   });
   var res = document.getElementById('results'), grid = document.getElementById('rgrid'), none = document.getElementById('rnone'), browse = document.getElementById('browse');
   function norm(s) { return s.toLowerCase().replace(/[×x]/g, 'x').replace(/\s+/g, ' ').trim(); }
@@ -38,41 +40,35 @@
     }).filter(Boolean).sort(function (a, b) { return b.sc - a.sc; }).slice(0, 24);
     grid.innerHTML = '';
     hits.forEach(function (h) {
-      var a = document.createElement('a'); a.className = 'tool'; a.href = h.t.href;
-      var s = document.createElement('span'), n = document.createElement('h2'), d = document.createElement('p');
-      n.textContent = h.t.name; d.textContent = h.t.desc || 'Free, private, works in your browser.'; s.appendChild(n); s.appendChild(d); a.appendChild(s); grid.appendChild(a);
+      var a;
+      if (h.t.tileEl) { a = h.t.tileEl.cloneNode(true); a.hidden = false; }
+      else {
+        a = document.createElement('a'); a.className = 'tile'; a.href = h.t.href;
+        var ic = h.t.parent ? h.t.parent.querySelector('.tic').cloneNode(true) : document.createElement('span');
+        var n = document.createElement('span'), d = document.createElement('span');
+        n.className = 'tn'; d.className = 'td'; n.textContent = h.t.name;
+        d.textContent = h.t.parent ? h.t.parent.querySelector('.tn').textContent + ' preset' : 'Free, private, works in your browser.';
+        a.appendChild(ic); a.appendChild(n); a.appendChild(d);
+      }
+      grid.appendChild(a);
     });
     none.hidden = hits.length > 0; res.hidden = false; browse.hidden = true;
   }
   q.addEventListener('input', run);
   q.addEventListener('keydown', function (e) { if (e.key === 'Enter') { var f = grid.querySelector('a'); if (f) location.href = f.href; } });
   document.addEventListener('keydown', function (e) { if (e.key === '/' && document.activeElement !== q && !/INPUT|TEXTAREA|SELECT/.test(document.activeElement.tagName)) { e.preventDefault(); q.focus(); } });
-  // category tabs: one task group open at a time (all groups stay in the page for search engines)
-  var box = document.querySelector('.tasks');
-  if (box) {
-    var tabs = [].slice.call(box.querySelectorAll('.tab')), K2 = 'tfw_tab';
-    function show(g, focus) {
-      tabs.forEach(function (b) { var on = b.dataset.tab === g; b.setAttribute('aria-selected', on); b.tabIndex = on ? 0 : -1; if (on && focus) b.focus(); });
-      box.querySelectorAll('.panel2').forEach(function (p) { p.hidden = p.id !== 'p-' + g; });
-      try { sessionStorage.setItem(K2, g); } catch (e) {}
-    }
-    box.classList.add('js-tabs');
-    tabs.forEach(function (b, i) {
-      b.addEventListener('click', function () { show(b.dataset.tab); });
-      b.addEventListener('keydown', function (e) {
-        var j = e.key === 'ArrowRight' ? i + 1 : e.key === 'ArrowLeft' ? i - 1 : -1;
-        if (j >= 0) { e.preventDefault(); show(tabs[(j + tabs.length) % tabs.length].dataset.tab, true); }
-      });
-    });
-    function fromHash() {
-      var h = location.hash.replace('#', '').replace(/^p-/, '');
-      if (tabs.some(function (b) { return b.dataset.tab === h; })) { show(h); box.scrollIntoView(); return true; }
-      return false;
-    }
-    var start = 'pdf'; try { start = sessionStorage.getItem(K2) || 'pdf'; } catch (e) {}
-    if (!fromHash()) show(start);
-    window.addEventListener('hashchange', fromHash);
+  // category filter: show one group of tools or all
+  var fl = [].slice.call(document.querySelectorAll('.flt')), tiles = [].slice.call(document.querySelectorAll('#tgrid .tile'));
+  function filt(f) {
+    fl.forEach(function (b) { b.setAttribute('aria-pressed', b.dataset.f === f); });
+    tiles.forEach(function (t) { t.hidden = f !== 'all' && t.dataset.g !== f; });
   }
+  fl.forEach(function (b) { b.addEventListener('click', function () { filt(b.dataset.f); }); });
+  function fromHash() {
+    var h = location.hash.replace('#', '');
+    if (fl.some(function (b) { return b.dataset.f === h; })) { filt(h); document.getElementById('all').scrollIntoView(); }
+  }
+  fromHash(); window.addEventListener('hashchange', fromHash);
   var m = /[?&]q=([^&]*)/.exec(location.search);
   if (m) { try { q.value = decodeURIComponent(m[1].replace(/\+/g, ' ')); } catch (e) {} run(); }
 })();

@@ -241,7 +241,7 @@ def build():
         write(f'{t["slug"]}/index.html', page(r, t["title"], t["desc"], canon, body, scripts, attr, ld, t["group"]))
         urls.append(canon)
 
-    # ---- home: task-first layout (search + most used up top, one category open at a time below) ----
+    # ---- home: tool grid with category filter (each tool has its own colour and icon) ----
     def short_names(kids):
         names = [k["name"] for k in kids]
         if len(names) < 2:
@@ -250,40 +250,64 @@ def build():
         rev = os.path.commonprefix([n[::-1] for n in names])[::-1]; suf = rev[rev.find(" "):] if " " in rev else ""
         out = [n[len(pre):len(n) - len(suf)] if suf else n[len(pre):] for n in names]
         return [o.strip() or n for o, n in zip(out, names)]
-    SIZE_LABEL = {"compress-image": "Target size", "compress-pdf": "Target size", "resize-image": "Exact size",
-                  "image-to-text": "Languages", "passport-photo-maker": "Countries", "qr-code-generator": "Ready-made"}
-    GROUP_TAB = {"pdf": "PDF & documents", "img": "Images & photos", "util": "Text & everyday", "media": "Audio & video"}
-    MOST_USED = ["pdf-to-word", "compress-image-to-100kb", "compress-pdf", "remove-background", "passport-photo-maker", "image-to-text"]
+
+    def sv(d):
+        return ('<svg width="26" height="26" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" '
+                'stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">' + d + '</svg>')
+    DOC = '<path d="M14 3H7a2 2 0 0 0-2 2v14a2 2 0 0 0 2 2h10a2 2 0 0 0 2-2V8z"/><path d="M14 3v5h5"/>'
+    TILE = {  # slug: (colour, icon)
+        "pdf-to-word": ("#2563eb", sv(DOC + '<path d="M8.5 12.5l1.2 4 1.3-3 1.3 3 1.2-4"/>')),
+        "word-to-pdf": ("#0e7490", sv(DOC + '<path d="M9 17v-4h1.5a1.25 1.25 0 0 1 0 2.5H9"/>')),
+        "compress-pdf": ("#dc2626", sv(DOC + '<path d="M12 10v3m0 0l-2-2m2 2l2-2M12 18v-3m0 0l-2 2m2-2l2 2"/>')),
+        "merge-pdf": ("#ea580c", sv('<rect x="3" y="4" width="8" height="11" rx="1.5"/><rect x="13" y="9" width="8" height="11" rx="1.5"/><path d="M9 18h3"/>')),
+        "split-pdf": ("#b45309", sv('<circle cx="6" cy="6" r="2.5"/><circle cx="6" cy="18" r="2.5"/><path d="M8 7.5L20 18M8 16.5L20 6"/>')),
+        "jpg-to-pdf": ("#e11d48", sv('<rect x="3" y="5" width="11" height="9" rx="1.5"/><circle cx="7" cy="8.5" r="1.2"/><path d="M3 12l3-2 4 3"/><path d="M15 10h4a2 2 0 0 1 2 2v7a2 2 0 0 1-2 2h-8a2 2 0 0 1-2-2v-2"/>')),
+        "pdf-to-jpg": ("#d97706", sv(DOC + '<circle cx="10" cy="13" r="1.3"/><path d="M7 18l3-3 2 2 2-2 3 3"/>')),
+        "image-to-text": ("#7c3aed", sv('<path d="M4 8V5a1 1 0 0 1 1-1h3M16 4h3a1 1 0 0 1 1 1v3M20 16v3a1 1 0 0 1-1 1h-3M8 20H5a1 1 0 0 1-1-1v-3"/><path d="M8 9h8M8 12h8M8 15h5"/>')),
+        "compress-image": ("#16a34a", sv('<rect x="3" y="3" width="18" height="18" rx="3"/><path d="M9 9L6 6M9 9H6.5M9 9V6.5M15 15l3 3M15 15h2.5M15 15v2.5"/>')),
+        "resize-image": ("#0d9488", sv('<rect x="3" y="9" width="12" height="12" rx="2"/><path d="M13 3h8v8M21 3l-8 8"/>')),
+        "remove-background": ("#c026d3", sv('<path d="M5 19L15 9"/><path d="M14 4l1 2 2 1-2 1-1 2-1-2-2-1 2-1zM19 11l.7 1.3L21 13l-1.3.7L19 15l-.7-1.3L17 13l1.3-.7z"/>')),
+        "png-to-jpg": ("#0284c7", sv('<rect x="3" y="4" width="18" height="16" rx="2"/><circle cx="8.5" cy="9.5" r="1.5"/><path d="M21 16l-5-5-9 9"/>')),
+        "jpg-to-png": ("#4f46e5", sv('<rect x="3" y="4" width="18" height="16" rx="2"/><path d="M3 9h18M9 4v16"/>')),
+        "webp-to-jpg": ("#0891b2", sv('<circle cx="12" cy="12" r="9"/><path d="M3 12h18M12 3a14 14 0 0 1 0 18M12 3a14 14 0 0 0 0 18"/>')),
+        "heic-to-jpg": ("#475569", sv('<rect x="6" y="2.5" width="12" height="19" rx="2.5"/><path d="M11 18.5h2"/><circle cx="12" cy="9" r="2.5"/>')),
+        "passport-photo-maker": ("#059669", sv('<rect x="5" y="3" width="14" height="18" rx="2"/><circle cx="12" cy="10" r="2.6"/><path d="M8.5 17c.8-1.8 2-2.6 3.5-2.6s2.7.8 3.5 2.6"/>')),
+        "qr-code-generator": ("#1f2937", sv('<rect x="3" y="3" width="7" height="7"/><rect x="14" y="3" width="7" height="7"/><rect x="3" y="14" width="7" height="7"/><path d="M14 14h3v3h-3zM20 14v.01M14 20h.01M17 20h4v-3"/>')),
+        "word-counter": ("#9333ea", sv('<path d="M4 6h16M4 12h16M4 18h9"/><path d="M17 16v4M15 18h4"/>')),
+        "password-generator": ("#b91c1c", sv('<rect x="4" y="11" width="16" height="10" rx="2"/><path d="M8 11V7a4 4 0 0 1 8 0v4"/><path d="M12 15v2"/>')),
+        "age-calculator": ("#db2777", sv('<rect x="3" y="5" width="18" height="16" rx="2"/><path d="M3 10h18M8 3v4M16 3v4"/><path d="M8 14h2M14 14h2M8 17h2"/>')),
+        "percentage-calculator": ("#65a30d", sv('<path d="M19 5L5 19"/><circle cx="7" cy="7" r="2.5"/><circle cx="17" cy="17" r="2.5"/>')),
+        "mp4-to-mp3": ("#f97316", sv('<path d="M9 18V5l12-2v13"/><circle cx="6" cy="18" r="3"/><circle cx="18" cy="16" r="3"/>')),
+    }
+    FILTERS = [("all", "All tools"), ("pdf", "PDF & Word"), ("img", "Images"), ("util", "Text & everyday"), ("media", "Audio")]
+    order = ["pdf-to-word", "compress-pdf", "compress-image", "remove-background", "word-to-pdf", "jpg-to-pdf", "image-to-text", "passport-photo-maker",
+             "merge-pdf", "split-pdf", "pdf-to-jpg", "resize-image", "heic-to-jpg", "png-to-jpg", "jpg-to-png", "webp-to-jpg",
+             "qr-code-generator", "word-counter", "password-generator", "age-calculator", "percentage-calculator", "mp4-to-mp3"]
+    mains = sorted([t for t in T if not t.get("parent")], key=lambda t: order.index(t["slug"]) if t["slug"] in order else 99)
     TICK = '<svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" aria-hidden="true"><path d="M5 12.5l4.5 4.5L19 7.5"/></svg>'
 
-    def tool_row(t):
-        kids = [x for x in T if x.get("parent") == t["slug"]]
-        row = (f'<li class="titem"><a class="tlink" href="{t["slug"]}/" data-k="{KW.get(t["slug"], "")}"><span class="ic">{ICON[t["icon"]]}</span>'
-               f'<span class="tt"><span class="tn">{t["name"]}</span><span class="td">{t["card"]}</span></span></a>')
-        if kids:
-            links = [f'<a href="{k["slug"]}/" title="{html.escape(k["name"])}">{n}</a>' for k, n in zip(kids, short_names(kids))]
-            first, rest = links[:7], links[7:]
-            more = f'<details class="more"><summary>{len(rest)} more</summary>{"".join(rest)}</details>' if rest else ""
-            row += f'<div class="sizes"><span class="sl">{SIZE_LABEL.get(t["slug"], "Also")}</span>{"".join(first)}{more}</div>'
-        return row + "</li>"
+    def tile(t):
+        col, ic = TILE.get(t["slug"], ("#0d7a55", ICON[t["icon"]]))
+        return (f'<a class="tile" href="{t["slug"]}/" data-g="{t["group"]}" data-k="{KW.get(t["slug"], "")}">'
+                f'<span class="tic" style="--c:{col}">{ic}</span><span class="tn">{t["name"]}</span><span class="td">{t["card"]}</span></a>')
 
-    home = f'''<div class="hero2">
-<h1>Free tools for PDFs, photos and documents</h1>
-<p class="sub">Convert, compress and edit files right in your browser. Nothing is uploaded, so your files stay on your device.</p>
-<div class="bigsearch" role="search"><input type="search" id="q" placeholder="What do you need? Try “compress pdf” or “passport photo”" aria-label="Search tools" autocomplete="off"></div>
-<div class="quick"><span class="ql">Most used</span>{"".join(f'<a href="{x}/">{BY[x]["name"]}</a>' for x in MOST_USED if x in BY)}</div>
-<ul class="trust"><li>{TICK}Files stay on your device</li><li>{TICK}No sign-up, no watermark</li><li>{TICK}Works on any phone</li></ul>
-</div>
-<div id="results" hidden><h2 class="h2">Search results</h2><div class="grid" id="rgrid"></div><p class="note" id="rnone" hidden>No tool matches that yet. <a href="contact/">Ask us for it</a>.</p></div>
-<div id="browse"><div id="recent" hidden><h2 class="h2">Pick up where you left off</h2><div class="chips" id="rchips"></div></div>
-<section class="tasks" id="all" aria-label="All tools"><h2 class="h2">Browse by task</h2>
-<div class="tabs" role="tablist">''' + "".join(
-        f'<button type="button" role="tab" class="tab" data-tab="{g}" aria-controls="p-{g}">{GROUP_TAB[g]} <span class="cnt">{sum(1 for t in T if t["group"] == g and not t.get("parent"))}</span></button>'
-        for g, _ in GROUPS) + "</div>" + "".join(
-        f'<div class="panel2" role="tabpanel" id="p-{g}"><h3 class="ph" id="{g}">{GROUP_TAB[g]}</h3><ul class="tlist">'
-        + "".join(tool_row(t) for t in T if t["group"] == g and not t.get("parent")) + "</ul></div>"
-        for g, _ in GROUPS) + '''</section></div>
-<p class="aka">Tools for World (also written ToolsForWorld or Tools 4 World) is at toolsforworld.com.</p>'''
+    extra = ""
+    for par in [m for m in mains if any(x.get("parent") == m["slug"] for x in T)]:
+        kids = [x for x in T if x.get("parent") == par["slug"]]
+        extra += (f'<div class="xrow"><a class="xp" href="{par["slug"]}/">{par["name"]}</a>'
+                  + "".join(f'<a href="{k["slug"]}/" title="{html.escape(k["name"])}">{n}</a>' for k, n in zip(kids, short_names(kids))) + "</div>")
+
+    home = ('<div class="hero3"><h1>Free tools for every PDF, photo and document</h1>'
+            '<p class="sub">All tools run in your browser. Your files never leave your device.</p>'
+            '<div class="bigsearch" role="search"><input type="search" id="q" placeholder="Search tools, e.g. compress pdf" aria-label="Search tools" autocomplete="off"></div></div>'
+            '<div id="results" hidden><div class="tgrid" id="rgrid"></div><p class="note" id="rnone" hidden>No tool matches that yet. <a href="contact/">Ask us for it</a>.</p></div>'
+            '<div id="browse"><div id="recent" hidden><h2 class="h2">Recently used</h2><div class="chips" id="rchips"></div></div>'
+            '<div class="filters" role="group" aria-label="Filter tools" id="all">'
+            + "".join(f'<button type="button" class="flt" data-f="{k}" aria-pressed="{"true" if k == "all" else "false"}">{lbl}</button>' for k, lbl in FILTERS)
+            + '</div><div class="tgrid" id="tgrid">' + "".join(tile(t) for t in mains) + '</div>'
+            + f'<ul class="trust"><li>{TICK}Files stay on your device</li><li>{TICK}No sign-up, no watermark, no limits</li><li>{TICK}Works on any phone or computer</li></ul>'
+            + f'<details class="xall"><summary>All sizes, countries and languages</summary>{extra}</details></div>'
+            + '<p class="aka">Tools for World (also written ToolsForWorld or Tools 4 World) is at toolsforworld.com.</p>')
     write("index.html", page("", "Tools for World – Free PDF, Image & Everyday Tools Online",
                              "Free online tools: PDF to Word, Word to PDF, compress PDF and images, background remover, HEIC to JPG, OCR, QR code generator, MP4 to MP3 and more. Private: files never leave your device.",
                              BASE, home, f'<script src="assets/calc.js"></script>', ' class="home"',
