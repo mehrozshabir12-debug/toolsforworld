@@ -66,7 +66,11 @@ GROUPS = [("pdf", "PDF & document tools"), ("img", "Image tools"), ("util", "Tex
 NAV = {"pdf": "PDF", "img": "Image", "util": "Utilities", "media": "Audio"}
 
 # ------------------------------------------------------------------ layout
-def page(rel_root, title, desc, canon, body, scripts="", body_attr="", jsonld=None, active=""):
+BRAND_NAMES = ["ToolsForWorld", "Tools 4 World", "Tools4World", "Tool for World", "Tools for the World", "Tool4World", "toolsforworld.com"]
+BRAND_KEYWORDS = "Tools for World, toolsforworld, tools for world, tools 4 world, tools4world, tool for world, tool 4 world, tools world, toolsforworld.com, free online tools, PDF tools, image tools"
+
+
+def page(rel_root, title, desc, canon, body, scripts="", body_attr="", jsonld=None, active="", keywords=""):
     nav = "".join(f'<a href="{rel_root}#{g}"{" aria-current=true" if active == g else ""}>{NAV[g]}</a>' for g, l in GROUPS)
     ld = "".join(f'<script type="application/ld+json">{json.dumps(j, ensure_ascii=False)}</script>' for j in (jsonld or []))
     return f'''<!doctype html>
@@ -77,7 +81,7 @@ def page(rel_root, title, desc, canon, body, scripts="", body_attr="", jsonld=No
 <meta http-equiv="Content-Security-Policy" content="object-src 'none'; base-uri 'self'; form-action 'self'; upgrade-insecure-requests">
 <meta name="referrer" content="strict-origin-when-cross-origin">
 <title>{html.escape(title)}</title>
-<meta name="description" content="{html.escape(desc)}">
+<meta name="description" content="{html.escape(desc)}">{f'<meta name="keywords" content="{html.escape(keywords)}">' if keywords else ""}
 <link rel="canonical" href="{canon}">
 <meta property="og:title" content="{html.escape(title)}"><meta property="og:description" content="{html.escape(desc)}"><meta property="og:url" content="{canon}"><meta property="og:type" content="website"><meta property="og:site_name" content="Tools for World"><meta property="og:image" content="{BASE}og-image.png"><meta name="twitter:card" content="summary_large_image">
 <link rel="icon" href="https://toolsforworld.com/favicon.ico" sizes="48x48"><link rel="icon" href="https://toolsforworld.com/favicon-96.png" type="image/png" sizes="96x96"><link rel="icon" href="https://toolsforworld.com/favicon-192.png" type="image/png" sizes="192x192"><link rel="icon" href="https://toolsforworld.com/favicon.svg" type="image/svg+xml"><link rel="apple-touch-icon" href="https://toolsforworld.com/apple-touch-icon.png"><link rel="manifest" href="https://toolsforworld.com/site.webmanifest"><meta name="theme-color" content="#0d7a55">
@@ -150,7 +154,8 @@ def build():
         urls.append(canon)
 
     home = '''<div class="hero"><p class="brand-big" aria-hidden="true">Tools <i>for</i> World</p><h1>Free online tools that keep your files private</h1>
-<p>Convert PDF and Word files, compress and edit images, remove backgrounds, make QR codes and more. No sign-up, no watermark, no limits. Every tool runs in your browser, so your files never leave your device.</p></div>'''
+<p>Convert PDF and Word files, compress and edit images, remove backgrounds, make QR codes and more. No sign-up, no watermark, no limits. Every tool runs in your browser, so your files never leave your device.</p>
+<p class="aka">Tools for World (also written ToolsForWorld or Tools 4 World) is at toolsforworld.com.</p></div>'''
     for g, label in GROUPS:
         home += f'<div class="sect" id="{g}">{label}</div>' + cards("", [t for t in T if t["group"] == g and not t.get("parent")])
     home += '<div class="sect" id="presets">Popular sizes &amp; presets</div>'
@@ -159,15 +164,16 @@ def build():
     write("index.html", page("", "Tools for World – Free PDF, Image & Everyday Tools Online",
                              "Free online tools: PDF to Word, Word to PDF, compress PDF and images, background remover, HEIC to JPG, OCR, QR code generator, MP4 to MP3 and more. Private: files never leave your device.",
                              BASE, home, f'<script src="assets/calc.js"></script>',
-                             jsonld=[{"@context": "https://schema.org", "@type": "WebSite", "name": "Tools for World", "alternateName": ["ToolsForWorld", "toolsforworld.com"], "url": BASE},
-                                     {"@context": "https://schema.org", "@type": "Organization", "name": "Tools for World", "url": BASE, "logo": BASE + "logo.png",
-                                      "email": "hello@toolsforworld.com"}]))
+                             jsonld=[{"@context": "https://schema.org", "@type": "WebSite", "name": "Tools for World", "alternateName": BRAND_NAMES, "url": BASE},
+                                     {"@context": "https://schema.org", "@type": "Organization", "name": "Tools for World", "alternateName": BRAND_NAMES, "url": BASE, "logo": BASE + "logo.png",
+                                      "email": "hello@toolsforworld.com"}], keywords=BRAND_KEYWORDS))
 
     info = {
         "about": ("About Tools for World", "Tools for World makes free, simple and private online tools for everyday tasks.",
                   '''<h1>About Tools for World</h1><p>Tools for World is a free collection of everyday online tools: PDF and Word converters, image compressors and converters, a background remover, OCR, a QR code generator, a password generator and more.</p>
 <p>All tools run inside your browser. Files you open are processed on your own device and are never uploaded to our servers.</p>
-<p>We keep the tools simple, fast and free, with no sign-up and no watermarks.</p>'''),
+<p>We keep the tools simple, fast and free, with no sign-up and no watermarks.</p>
+<p>You may also see us written as ToolsForWorld, Tools4World or Tools 4 World. It's the same site: <a href="https://toolsforworld.com/">toolsforworld.com</a>.</p>'''),
         "privacy": ("Privacy Policy – Tools for World", "How Tools for World handles your data.",
                     f'''<h1>Privacy Policy</h1><p>Last updated: {TODAY}</p>
 <h2>Your files and numbers</h2><p>Tools for World tools work entirely in your browser. Images, PDFs, Word documents and the numbers you type are processed on your device and are not sent to or stored on our servers.</p>

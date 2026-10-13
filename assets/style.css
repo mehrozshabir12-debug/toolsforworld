@@ -142,3 +142,4 @@ header .wrap{padding-block:12px}
 .chips .sect{margin:0 6px 0 0;width:100%}
 .chips a{font:500 .88rem var(--body);padding:6px 12px;border-radius:999px;border:1px solid var(--line);background:var(--surface);color:var(--fg);text-decoration:none}
 .chips a:hover{border-color:var(--accent);color:var(--accent)}
+.hero .aka{font-size:.85rem;opacity:.7;margin-top:.4rem}
