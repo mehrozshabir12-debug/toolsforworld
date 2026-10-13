@@ -60,7 +60,7 @@ tools_list.landing(tool)
 BY = {t['slug']: t for t in T}
 
 # Google AdSense publisher ID, e.g. "ca-pub-1234567890123456". Empty = no ad code on the site.
-ADSENSE_CLIENT = ""
+ADSENSE_CLIENT = "ca-pub-3864792630233896"
 
 GROUPS = [("pdf", "PDF & document tools"), ("img", "Image tools"), ("util", "Text & everyday tools"), ("media", "Audio & video")]
 NAV = {"pdf": "PDF", "img": "Image", "util": "Utilities", "media": "Audio"}
