@@ -153,7 +153,7 @@ def page(rel_root, title, desc, canon, body, scripts="", body_attr="", jsonld=No
 {body}
 </main>
 <footer><div class="wrap"><span>© <span id="yr">{datetime.date.today().year}</span> Tools for World · Free tools that run in your browser.</span>
-<span><a href="{rel_root}about/">About</a> · <a href="{rel_root}privacy/">Privacy Policy</a> · <a href="{rel_root}terms/">Terms</a> · <a href="{rel_root}contact/">Contact</a> · <a href="{rel_root}credits/">Open-source credits</a></span></div></footer>
+<span><a href="{rel_root}guides/">Guides</a> · <a href="{rel_root}about/">About</a> · <a href="{rel_root}privacy/">Privacy Policy</a> · <a href="{rel_root}terms/">Terms</a> · <a href="{rel_root}contact/">Contact</a> · <a href="{rel_root}credits/">Open-source credits</a></span></div></footer>
 {scripts}
 <script src="{rel_root}assets/site.js?v={_v("site.js")}" defer></script>
 <!-- Cloudflare Web Analytics --><script defer src="https://static.cloudflareinsights.com/beacon.min.js" data-cf-beacon='{{"token": "58c7e905638641ae816794606d09687a"}}'></script><!-- End Cloudflare Web Analytics -->
@@ -379,6 +379,27 @@ def build():
     for slug, (title, desc, content) in info.items():
         write(f"{slug}/index.html", page("../", title, desc, BASE + slug + "/", f'<section class="bench how" style="max-width:70ch">{content}</section>'))
         urls.append(BASE + slug + "/")
+
+    import guides as G
+    gl = []
+    for g in G.GUIDES:
+        r = "../../"; canon = BASE + "guides/" + g["slug"] + "/"
+        faq = "".join(f"<details><summary>{q}</summary><p>{a}</p></details>" for q, a in g["faq"])
+        nice = datetime.date.fromisoformat(g["date"]).strftime("%-d %B %Y")
+        body = (f'<section class="bench how" style="max-width:75ch"><p class="note"><a href="{r}guides/">Guides</a></p><h1>{g["h1"]}</h1>'
+                f'<p class="note">By {G.AUTHOR} · Updated {nice}</p><p class="lead">{g["lead"]}</p>'
+                + g["body"].replace("{R}", r) + f'<h2>Questions</h2>{faq}</section>')
+        ld = [{"@context": "https://schema.org", "@type": "Article", "headline": g["h1"], "description": g["desc"],
+               "author": {"@type": "Person", "name": G.AUTHOR}, "publisher": {"@type": "Organization", "name": "Tools for World", "logo": {"@type": "ImageObject", "url": BASE + "logo.png"}},
+               "datePublished": g["date"], "dateModified": g["date"], "mainEntityOfPage": canon, "image": BASE + "og-image.png"},
+              {"@context": "https://schema.org", "@type": "FAQPage", "mainEntity": [{"@type": "Question", "name": q, "acceptedAnswer": {"@type": "Answer", "text": a}} for q, a in g["faq"]]}]
+        write(f"guides/{g['slug']}/index.html", page(r, g["title"], g["desc"], canon, body, jsonld=ld))
+        urls.append(canon)
+        gl.append(f'<li><a href="{g["slug"]}/"><b>{g["h1"]}</b></a><br>{g["desc"]}</li>')
+    write("guides/index.html", page("../", "Guides – Photo, PDF and Image Size Help | Tools for World",
+          "Practical guides to passport photo sizes, compressing photos and PDFs for online forms, and social media image sizes.",
+          BASE + "guides/", f'<section class="bench how" style="max-width:75ch"><h1>Guides</h1><p class="lead">Practical, step-by-step help for the jobs our tools do: photo sizes for applications, file-size limits on forms and image sizes for social media.</p><ul>{"".join(gl)}</ul></section>'))
+    urls.append(BASE + "guides/")
 
     write("404.html", page(BASE, "Page not found – Tools for World", "Page not found.", None, f'<section class="bench"><h1>Page not found</h1><p class="lead">This page does not exist. <a href="{BASE}">See all tools</a>.</p></section>'))
     write("sitemap.xml", '<?xml version="1.0" encoding="UTF-8"?>\n<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">\n' +
