@@ -235,7 +235,7 @@ CASES = [
     ("mp4-no-audio", "mp4-to-mp3", ["noaudio.mp4"], "err", {}, [], 120),
 ]
 VALIDATORS = {"image": v_image, "pdf": v_pdf, "docx": v_docx, "mp3": v_mp3, "text": v_text}
-ANALYTICS = ("cloudflareinsights.com", "googlesyndication.com", "doubleclick.net", "google.com", "googleadservices.com",
+ANALYTICS = ("cloudflareinsights.com", "googletagmanager.com", "google-analytics.com", "googlesyndication.com", "doubleclick.net", "google.com", "googleadservices.com",
              "gstatic.com", "googleapis.com", "fundingchoicesmessages.google.com", "adtrafficquality.google")
 
 

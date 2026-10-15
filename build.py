@@ -92,6 +92,7 @@ POPULAR = ["pdf-to-word", "compress-image-to-100kb", "compress-pdf", "remove-bac
 
 # Google AdSense publisher ID, e.g. "ca-pub-1234567890123456". Empty = no ad code on the site.
 ADSENSE_CLIENT = "ca-pub-3864792630233896"
+GA_ID = "G-VCVTPZQZKP"  # Google Analytics 4
 
 GROUPS = [("pdf", "PDF & document tools"), ("img", "Image tools"), ("util", "Text & everyday tools"), ("media", "Audio & video")]
 NAV = {"pdf": "PDF", "img": "Image", "util": "Utilities", "media": "Audio"}
@@ -133,6 +134,7 @@ def page(rel_root, title, desc, canon, body, scripts="", body_attr="", jsonld=No
 <html lang="en">
 <head>
 <meta charset="utf-8">
+<!-- Google tag (gtag.js) --><script async src="https://www.googletagmanager.com/gtag/js?id={GA_ID}"></script><script>window.dataLayer=window.dataLayer||[];function gtag(){{dataLayer.push(arguments);}}gtag('js',new Date());gtag('config','{GA_ID}');</script>
 <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
 <meta http-equiv="Content-Security-Policy" content="object-src 'none'; base-uri 'self'; form-action 'self'; upgrade-insecure-requests">
 <meta name="referrer" content="strict-origin-when-cross-origin">
@@ -340,8 +342,8 @@ def build():
                     f'''<h1>Privacy Policy</h1><p>Last updated: __LASTMOD__</p>
 <h2>Your files and numbers</h2><p>Tools for World tools work entirely in your browser. Images, PDFs, Word documents and the numbers you type are processed on your device and are not sent to or stored on our servers.</p>
 <h2>Cookies and advertising</h2><p>We may show ads from Google AdSense. Google and its partners use cookies to show ads based on your visits to this and other websites. You can turn off personalised ads in <a href="https://adssettings.google.com">Google Ads Settings</a>. Learn more at <a href="https://policies.google.com/technologies/ads">How Google uses information from sites that use its services</a>.</p>
-<h2>Your consent choices</h2><p>Visitors in the European Economic Area, the UK and Switzerland are asked for consent before personalised ads, using Google's certified consent message. You can choose not to consent, and you can change your choice later from the same message or by clearing this site's cookies.</p>
-<h2>Analytics</h2><p>We use Cloudflare Web Analytics to count page visits and measure page speed. It does not use cookies and never sees the content of your files.</p>
+<h2>Your consent choices</h2><p>Visitors in the European Economic Area, the UK and Switzerland are asked for consent before personalised ads and analytics cookies are used, using Google's certified consent message. You can choose not to consent, and you can change your choice later from the same message or by clearing this site's cookies.</p>
+<h2>Analytics</h2><p>We use Google Analytics to understand how visitors use the site, such as which pages and tools are opened, which country visitors come from and what kind of device they use. Google Analytics uses cookies and similar technologies, and the data is processed by Google. It never receives the content of your files. You can learn how Google uses this data at <a href="https://policies.google.com/technologies/partner-sites">How Google uses information from sites that use its services</a>, and opt out with the <a href="https://tools.google.com/dlpage/gaoptout">Google Analytics opt-out browser add-on</a>.</p><p>We also use Cloudflare Web Analytics to count page visits and measure page speed. It does not use cookies.</p>
 <h2>Stored in your browser</h2><p>The home page shows the tools you opened recently. That list is kept only in your browser's local storage, is never sent to us, and disappears when you clear this site's data.</p>
 <h2>Third-party code</h2><p>Some tools load open-source libraries (pdf-lib, PDF.js, Mammoth, html2pdf.js, Tesseract.js, heic2any, lamejs, JSZip, qrcode-generator, IMG.LY background removal) and fonts. See <a href="../credits/">open-source credits</a> for their licences. These libraries and fonts load from public CDNs such as cdnjs, jsDelivr and Google Fonts, and the OCR language data and background-removal AI model are downloaded from their publishers' servers. These services may see your IP address when your browser downloads them, but they never receive your files: the files are processed on your device after the code has been downloaded.</p>
 <h2>Children</h2><p>Tools for World is a general-audience site and does not knowingly collect personal information from children.</p>
