@@ -58,6 +58,8 @@ import tools_list
 tools_list.define(tool, F, N, SEL, RESULT, PDFLIB, PDFJS, MAMMOTH, H2PDF)
 tools_list.landing(tool)
 tools_list.enrich(T)
+import landing_notes
+landing_notes.enrich(T)
 BY = {t['slug']: t for t in T}
 
 # Hand-picked "related tools" for each main tool (what people usually need next)
@@ -326,9 +328,12 @@ def build():
 
     info = {
         "about": ("About Tools for World", "Tools for World makes free, simple and private online tools for everyday tasks.",
-                  '''<h1>About Tools for World</h1><p>Tools for World is a free collection of everyday online tools: PDF and Word converters, image compressors and converters, a background remover, OCR, a QR code generator, a password generator and more.</p>
-<p>All tools run inside your browser. Files you open are processed on your own device and are never uploaded to our servers.</p>
-<p>We keep the tools simple, fast and free, with no sign-up and no watermarks.</p>
+                  '''<h1>About Tools for World</h1><p>Tools for World is a free collection of everyday online tools: PDF and Word converters, image compressors and converters, a background remover, OCR in many languages, passport photo makers, a QR code generator, a password generator and simple calculators.</p>
+<h2>Why we built it</h2><p>Most people meet these tasks at awkward moments: a job portal wants a photo under 50 KB, a visa form wants a PDF under 300 KB, or a scanned letter needs to become editable text. Many sites that do this ask you to sign up, add watermarks, or upload private documents to unknown servers. Tools for World was built to do these jobs quickly, for free, without any of that.</p>
+<h2>How the tools work</h2><p>All tools run inside your browser. Files you open are processed on your own device and are never uploaded to our servers. Where a tool needs extra code, such as the OCR language data or the background-removal model, your browser downloads that code, and then the work happens locally. This is why the tools keep working on slow connections once a page has loaded, and why your documents stay private.</p>
+<h2>What we promise</h2><ul><li><b>Free:</b> no sign-up, no limits on use and no watermarks.</li><li><b>Private:</b> your files stay on your device. See our <a href="../privacy/">privacy policy</a>.</li><li><b>Accurate guidance:</b> pages about official sizes, such as passport photos, link to the rules and remind you to check the latest requirements with the official authority.</li><li><b>Tested:</b> every tool is checked automatically in a real browser whenever the site is updated.</li></ul>
+<h2>How the site is funded</h2><p>The site is kept free by advertising. Ads never change how a tool works, and they never have access to your files.</p>
+<h2>Get in touch</h2><p>Found a bug or want a new tool? Write to us via the <a href="../contact/">contact page</a>. Many of our tools were added because someone asked for them.</p>
 <p>You may also see us written as ToolsForWorld, Tools4World or Tools 4 World. It's the same site: <a href="https://toolsforworld.com/">toolsforworld.com</a>.</p>'''),
         "privacy": ("Privacy Policy – Tools for World", "How Tools for World handles your data: files are processed on your device, plus how ads, cookies and analytics work.",
                     f'''<h1>Privacy Policy</h1><p>Last updated: __LASTMOD__</p>
@@ -365,8 +370,10 @@ def build():
 <p>Trademarks and product names mentioned on this site belong to their owners. Tools for World is an independent project and is not affiliated with any government office or with the projects above.</p>
 <p>Spotted a missing credit? Please tell us via the <a href="../contact/">contact page</a>.</p>'''),
         "contact": ("Contact – Tools for World", "Contact Tools for World to report a bug, suggest a new free tool or ask a question about privacy.",
-                    '''<h1>Contact</h1><p>Found a bug, or want a new tool? We would love to hear from you.</p><p>Email: <b>hello@toolsforworld.com</b>.</p>
-<p>When reporting a problem, tell us which tool you used, your device and browser (for example “iPhone, Safari” or “Windows, Chrome”), and what happened. Please don't send us private documents: our tools never need your files, because everything runs in your browser.</p>'''),
+                    '''<h1>Contact</h1><p>Found a bug, or want a new tool? We would love to hear from you.</p><p>Email: <b>hello@toolsforworld.com</b>. We read every message and usually reply within a few working days.</p>
+<h2>Reporting a problem</h2><p>Tell us which tool you used, your device and browser (for example “iPhone, Safari” or “Windows, Chrome”), and what happened. A screenshot of any error message helps a lot. Please don't send us private documents: our tools never need your files, because everything runs in your browser.</p>
+<h2>Suggesting a tool</h2><p>Describe the job you are trying to do, for example “I need to turn a photo into a 35 × 45 mm print with a blue background”. If a form or website asks for a specific size or format, include its exact wording.</p>
+<h2>Before you write</h2><ul><li>Questions about how your data is handled are answered in our <a href="../privacy/">privacy policy</a>.</li><li>Rules for using the site are in our <a href="../terms/">terms of use</a>.</li><li>The open-source software we use is listed on the <a href="../credits/">credits page</a>.</li></ul>'''),
     }
     for slug, (title, desc, content) in info.items():
         write(f"{slug}/index.html", page("../", title, desc, BASE + slug + "/", f'<section class="bench how" style="max-width:70ch">{content}</section>'))
