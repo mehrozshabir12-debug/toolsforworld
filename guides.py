@@ -18,10 +18,11 @@ GUIDES = [
 <tr><td>United Kingdom passport</td><td>35 × 45 mm</td><td>29–34 mm</td><td>Plain, light-coloured</td><td><a href="{R}uk-passport-photo/">UK photo maker</a></td></tr>
 <tr><td>Canada passport</td><td>50 × 70 mm</td><td>31–36 mm</td><td>White or light-coloured</td><td><a href="{R}canada-passport-photo/">Canada photo maker</a></td></tr>
 <tr><td>Australia passport</td><td>35–40 × 45–50 mm</td><td>32–36 mm</td><td>Plain white or light grey</td><td><a href="{R}australia-passport-photo/">Australia photo maker</a></td></tr>
-<tr><td>India passport</td><td>35 × 45 mm</td><td>Face covers most of the photo</td><td>Plain white</td><td><a href="{R}india-passport-photo/">India photo maker</a></td></tr>
-<tr><td>Schengen visa</td><td>35 × 45 mm</td><td>About 32–36 mm (70–80% of the photo)</td><td>Light, plain</td><td><a href="{R}schengen-visa-photo/">Schengen photo maker</a></td></tr>
+<tr><td>India passport (applying in India)</td><td>35 × 45 mm (3.5 × 4.5 cm)</td><td>Head centred, both ears visible</td><td>Plain white</td><td><a href="{R}india-passport-photo/">India photo maker</a></td></tr>
+<tr><td>Schengen visa</td><td>35 × 45 mm</td><td>32–36 mm, chin to hairline (German missions)</td><td>Plain, one light colour</td><td><a href="{R}schengen-visa-photo/">Schengen photo maker</a></td></tr>
 <tr><td>China visa</td><td>33 × 48 mm</td><td>28–33 mm</td><td>Plain white</td><td><a href="{R}china-visa-photo/">China photo maker</a></td></tr>
 </tbody></table></div>
+<p>Each row was checked against the official source listed at the end of this guide in October 2026.</p>
 <p>The most common size in the world is <b>35 × 45 mm</b>, used by the UK, India, Australia, the Schengen countries and many others. The United States is the big exception with its square 2 × 2 inch photo, and Canada and China use their own sizes.</p>
 
 <h2>Rules almost every country shares</h2>
@@ -46,7 +47,7 @@ GUIDES = [
 <li><b>Other portals</b> often give a size in pixels and a limit in KB. Make the photo first, then use <a href="{R}compress-image-to-100kb/">Compress Image to 100 KB</a> or the size you need.</li></ul>
 
 <h2>Countries where you can't print your own</h2>
-<p>Canada requires passport photos taken by a commercial photographer, who stamps the studio's name, address and date on the back. Home prints are usually refused. Our Canada tool is still useful to check your framing before you go, or for documents that accept self-made photos.</p>
+<p>Canada requires passport photos taken by a commercial photographer or photo studio and professionally printed. Photos printed at home are not accepted, and this also applies to the digital photo for online renewals. Our Canada tool is still useful to check your framing before you go, or for documents that accept self-made photos.</p>
 
 <h2>Why photos get rejected</h2>
 <ul><li>Head too big or too small for the frame.</li>
@@ -55,7 +56,18 @@ GUIDES = [
 <li>Background in the wrong colour, or with patterns or objects.</li>
 <li>Glare on glasses, or hair covering the eyes.</li></ul>
 
-<div class="warnbox">Rules change from time to time. Always check the latest requirements on the official site before you apply: <a href="https://travel.state.gov/content/travel/en/passports/how-apply/photos.html" rel="nofollow">US</a>, <a href="https://www.gov.uk/photos-for-passports" rel="nofollow">UK</a>, <a href="https://www.canada.ca/en/immigration-refugees-citizenship/services/canadian-passports/photos.html" rel="nofollow">Canada</a>, <a href="https://www.passports.gov.au/getting-passport-how-it-works/photo-guidelines" rel="nofollow">Australia</a>, <a href="https://www.passportindia.gov.in/" rel="nofollow">India</a>. For visas, follow the checklist of the embassy or visa centre you are applying to.</div>''',
+<h2>Indian passports: when you need a photo</h2>
+<p>If you apply at a Passport Seva Kendra or Post Office Passport Seva Kendra in India, your photo is taken there and you don't need to bring one. A printed 4.5 × 3.5 cm photo is needed when you apply through a District Passport Cell, Speed Post Centre or Citizen Service Centre. Indian embassies and consulates abroad set their own photo size, often a square photo, so check the website of the mission you apply to.</p>
+
+<h2>Official sources</h2>
+<ul><li>United States: <a href="https://travel.state.gov/content/travel/en/passports/how-apply/photos.html" rel="nofollow">travel.state.gov – Passport photos</a></li>
+<li>United Kingdom: <a href="https://www.gov.uk/photos-for-passports/photo-requirements" rel="nofollow">GOV.UK – Photo requirements</a></li>
+<li>Canada: <a href="https://www.canada.ca/en/immigration-refugees-citizenship/services/canadian-passports/photos.html" rel="nofollow">canada.ca – Passport photos</a></li>
+<li>Australia: <a href="https://www.passports.gov.au/getting-passport-how-it-works/photo-guidelines" rel="nofollow">passports.gov.au – Photo guidelines</a></li>
+<li>India: <a href="https://www.passportindia.gov.in/AppOnlineProject/pdf/ApplicationformInstructionBooklet-V3.0.pdf" rel="nofollow">Passport Seva – Application instruction booklet (PDF)</a></li>
+<li>Schengen visa: <a href="https://hongkong.diplo.de/resource/blob/2572988/11fbf86d05a1668f0488a650e7d50aa6/biometric-passport-photos-d-e-data.pdf" rel="nofollow">German Missions – Biometric photo requirements (PDF)</a>. Other Schengen countries follow the same international (ICAO) standard; check your embassy's checklist.</li>
+<li>China visa: <a href="https://visaforchina.cn/SGP2_EN/generalinformation/news/282849.shtml" rel="nofollow">Chinese Visa Application Service Center – Photo requirements</a></li></ul>
+<div class="warnbox">Rules change from time to time. Always check the latest requirements on the official site before you apply.</div>''',
         faq=[("What is the most common passport photo size?", "35 × 45 mm. It is used by the UK, India, Australia, the Schengen countries and many others. The US uses 2 × 2 inches instead."),
              ("Can I take my passport photo with my phone?", "Yes, for most countries, as long as someone else takes it in good light against a plain background. Canada is an exception: it needs a commercial photographer."),
              ("How many photos do I need?", "Usually two printed photos. A 4 × 6 inch sheet from our photo makers gives you several, so you have spares.")],
