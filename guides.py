@@ -8,10 +8,10 @@ GUIDES = [
     dict(
         slug="passport-photo-size-by-country",
         date="2026-10-15",
-        title="Passport Photo Size by Country: US, UK, Canada, Australia, India, Schengen & China",
-        desc="Passport and visa photo sizes for 7 countries in one table, with head size, background colour and the mistakes that get photos rejected.",
+        title="Passport Photo Size by Country: US, UK, Canada, Australia, India, Pakistan, Schengen & China",
+        desc="Passport and visa photo sizes for 8 countries in one table, with head size, background colour and the mistakes that get photos rejected.",
         h1="Passport photo size by country",
-        lead="Every country sets its own photo size, head size and background. Here are the rules for seven of the most common applications in one place, and how to get a photo that passes first time.",
+        lead="Every country sets its own photo size, head size and background. Here are the rules for eight of the most common applications in one place, and how to get a photo that passes first time.",
         body='''<h2>Quick comparison</h2>
 <div class="scroll"><table class="t"><thead><tr><th>Country / document</th><th>Photo size</th><th>Head size (chin to crown)</th><th>Background</th><th>Make it</th></tr></thead><tbody>
 <tr><td>United States passport</td><td>2 × 2 in (51 × 51 mm)</td><td>25–35 mm</td><td>White or off-white</td><td><a href="{R}us-passport-photo/">US photo maker</a></td></tr>
@@ -19,6 +19,7 @@ GUIDES = [
 <tr><td>Canada passport</td><td>50 × 70 mm</td><td>31–36 mm</td><td>White or light-coloured</td><td><a href="{R}canada-passport-photo/">Canada photo maker</a></td></tr>
 <tr><td>Australia passport</td><td>35–40 × 45–50 mm</td><td>32–36 mm</td><td>Plain white or light grey</td><td><a href="{R}australia-passport-photo/">Australia photo maker</a></td></tr>
 <tr><td>India passport (applying in India)</td><td>35 × 45 mm (3.5 × 4.5 cm)</td><td>Head centred, both ears visible</td><td>Plain white</td><td><a href="{R}india-passport-photo/">India photo maker</a></td></tr>
+<tr><td>Pakistan passport (online application)</td><td>Digital: 350 × 467 px, JPG, max 3 MB</td><td>Not specified by DGIP</td><td>White</td><td><a href="{R}resize-image/">Resize to 350 × 467</a></td></tr>
 <tr><td>Schengen visa</td><td>35 × 45 mm</td><td>32–36 mm, chin to hairline (German missions)</td><td>Plain, one light colour</td><td><a href="{R}schengen-visa-photo/">Schengen photo maker</a></td></tr>
 <tr><td>China visa</td><td>33 × 48 mm</td><td>28–33 mm</td><td>Plain white</td><td><a href="{R}china-visa-photo/">China photo maker</a></td></tr>
 </tbody></table></div>
@@ -59,11 +60,19 @@ GUIDES = [
 <h2>Indian passports: when you need a photo</h2>
 <p>If you apply at a Passport Seva Kendra or Post Office Passport Seva Kendra in India, your photo is taken there and you don't need to bring one. A printed 4.5 × 3.5 cm photo is needed when you apply through a District Passport Cell, Speed Post Centre or Citizen Service Centre. Indian embassies and consulates abroad set their own photo size, often a square photo, so check the website of the mission you apply to.</p>
 
+<h2>Pakistani passports: online applications</h2>
+<p>For online passport applications, Pakistan's Directorate General of Immigration &amp; Passports (DGI&amp;P) asks for a colour photo with a white background, 350 × 467 pixels, in JPG or JPEG format and no larger than 3 MB. DGI&amp;P does not publish a head size for this upload, so follow the general rules above: face the camera, neutral expression, even light and no shadows.</p>
+<ol><li>Take the photo against a plain white wall in daylight.</li>
+<li>Open <a href="{R}resize-image/">Resize Image</a>, choose <b>Pixels</b>, type 350 × 467 and pick <b>Crop to fill</b>, keeping your face in the centre.</li>
+<li>Download the JPG. At 350 × 467 px it will be far below the 3 MB limit.</li></ol>
+<p>If you apply in person at a passport office, your photo is taken there.</p>
+
 <h2>Official sources</h2>
 <ul><li>United States: <a href="https://travel.state.gov/content/travel/en/passports/how-apply/photos.html" rel="nofollow">travel.state.gov – Passport photos</a></li>
 <li>United Kingdom: <a href="https://www.gov.uk/photos-for-passports/photo-requirements" rel="nofollow">GOV.UK – Photo requirements</a></li>
 <li>Canada: <a href="https://www.canada.ca/en/immigration-refugees-citizenship/services/canadian-passports/photos.html" rel="nofollow">canada.ca – Passport photos</a></li>
 <li>Australia: <a href="https://www.passports.gov.au/getting-passport-how-it-works/photo-guidelines" rel="nofollow">passports.gov.au – Photo guidelines</a></li>
+<li>Pakistan: <a href="https://dgip.gov.pk/eServices/online-passport.php" rel="nofollow">DGI&amp;P – Online passport (document requirements)</a></li>
 <li>India: <a href="https://www.passportindia.gov.in/AppOnlineProject/pdf/ApplicationformInstructionBooklet-V3.0.pdf" rel="nofollow">Passport Seva – Application instruction booklet (PDF)</a></li>
 <li>Schengen visa: <a href="https://hongkong.diplo.de/resource/blob/2572988/11fbf86d05a1668f0488a650e7d50aa6/biometric-passport-photos-d-e-data.pdf" rel="nofollow">German Missions – Biometric photo requirements (PDF)</a>. Other Schengen countries follow the same international (ICAO) standard; check your embassy's checklist.</li>
 <li>China visa: <a href="https://visaforchina.cn/SGP2_EN/generalinformation/news/282849.shtml" rel="nofollow">Chinese Visa Application Service Center – Photo requirements</a></li></ul>
