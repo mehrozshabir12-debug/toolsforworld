@@ -136,7 +136,7 @@ def page(rel_root, title, desc, canon, body, scripts="", body_attr="", jsonld=No
 <html lang="en">
 <head>
 <meta charset="utf-8">
-<!-- Google tag (gtag.js) --><script async src="https://www.googletagmanager.com/gtag/js?id={GA_ID}"></script><script>window.dataLayer=window.dataLayer||[];function gtag(){{dataLayer.push(arguments);}}gtag('js',new Date());gtag('config','{GA_ID}');</script>
+<!-- Google tag (gtag.js): only real visitors on the live site, never test browsers or local copies --><script>window.dataLayer=window.dataLayer||[];function gtag(){{dataLayer.push(arguments);}}if(location.hostname==='toolsforworld.com'&&!navigator.webdriver){{var g=document.createElement('script');g.async=true;g.src='https://www.googletagmanager.com/gtag/js?id={GA_ID}';document.head.appendChild(g);gtag('js',new Date());gtag('config','{GA_ID}');}}</script>
 <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
 <meta http-equiv="Content-Security-Policy" content="object-src 'none'; base-uri 'self'; form-action 'self'; upgrade-insecure-requests">
 <meta name="referrer" content="strict-origin-when-cross-origin">
