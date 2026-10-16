@@ -111,6 +111,7 @@ table.t{width:100%;border-collapse:collapse;font-size:.9rem;font-variant-numeric
 .t td.n,.t th.n{text-align:right}
 .scroll{overflow-x:auto}
 .warnbox{border-left:3px solid var(--warn);background:var(--surface);padding:10px 14px;border-radius:0 10px 10px 0;font-size:.88rem;color:var(--muted)}
+.quick{border-left:3px solid var(--accent,#2563eb);background:var(--surface);padding:10px 14px;border-radius:0 10px 10px 0}
 .apps{display:grid;gap:8px}
 .app{display:grid;grid-template-columns:minmax(0,1fr) 70px 80px 32px;gap:8px;align-items:center}
 .app input,.app select{width:100%}

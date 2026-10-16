@@ -212,4 +212,48 @@ GUIDES = [
              ("What size is a YouTube thumbnail?", "1280 × 720 pixels (16:9), at least 640 px wide, saved as JPG, PNG or GIF under YouTube's upload limit."),
              ("Why does my image look blurry after uploading?", "Usually because it was smaller than the size the platform shows it at, so it was stretched. Start from a larger image and resize it down.")],
     ),
+    dict(
+        slug="image-resolution-sizes-explained",
+        date="2026-10-16",
+        title="Image Resolutions Explained: 720p, 1080p, 1440p, 4K & Square Sizes in Pixels",
+        desc="What 1280×720, 1920×1080, 2560×1440, 1080×1920 and 3000×3000 mean, which shape each one is, how pixels relate to print size, and how to resize to any of them.",
+        h1="Image resolutions explained: 720p, 1080p, 1440p, 4K and square sizes",
+        lead="Forms, platforms and screens ask for sizes like 1920×1080 or 3000×3000. Here is what those numbers mean, which shape each one is, and how to get your photo to exactly the right size.",
+        body='''<h2>Reading a size like 1920 × 1080</h2>
+<p>The first number is the <b>width</b> in pixels, the second is the <b>height</b>. So 1920 × 1080 is a wide landscape image and 1080 × 1920 is the same image turned upright. Multiply the two numbers to get the total pixels: 1920 × 1080 = 2,073,600 pixels, about 2.1 megapixels.</p>
+
+<h2>Common widescreen sizes (16:9)</h2>
+<div class="scroll"><table class="t"><thead><tr><th>Name</th><th>Pixels</th><th>Megapixels</th><th>Used for</th><th>Resize</th></tr></thead><tbody>
+<tr><td>720p (HD)</td><td>1280 × 720</td><td>0.9</td><td>YouTube thumbnails, HD slides</td><td><a href="{R}resize-image-to-1280x720/">Resize</a></td></tr>
+<tr><td>1080p (Full HD)</td><td>1920 × 1080</td><td>2.1</td><td>Wallpapers, presentations, video frames</td><td><a href="{R}resize-image-to-1920x1080/">Resize</a></td></tr>
+<tr><td>1440p (QHD, “2K”)</td><td>2560 × 1440</td><td>3.7</td><td>YouTube banners, QHD monitors</td><td><a href="{R}resize-image-to-2560x1440/">Resize</a></td></tr>
+<tr><td>4K (UHD)</td><td>3840 × 2160</td><td>8.3</td><td>4K TVs and monitors</td><td><a href="{R}resize-image/">Custom size</a></td></tr>
+</tbody></table></div>
+<p>All of these share the 16:9 shape, so a picture resized from one to another is never stretched. Each step up simply has more pixels and more detail.</p>
+
+<h2>Vertical and square sizes</h2>
+<div class="scroll"><table class="t"><thead><tr><th>Pixels</th><th>Shape</th><th>Used for</th><th>Resize</th></tr></thead><tbody>
+<tr><td>1080 × 1920</td><td>9:16 vertical</td><td>Stories, Reels, TikTok, Shorts, WhatsApp status</td><td><a href="{R}resize-image-to-1080x1920/">Resize</a></td></tr>
+<tr><td>1080 × 1350</td><td>4:5 portrait</td><td>Instagram portrait posts</td><td><a href="{R}resize-image-to-1080x1350/">Resize</a></td></tr>
+<tr><td>400 × 400</td><td>1:1 square</td><td>Profile pictures</td><td><a href="{R}resize-image-to-400x400/">Resize</a></td></tr>
+<tr><td>600 × 600</td><td>1:1 square</td><td>Digital passport and visa uploads (2 × 2 in at 300 dpi)</td><td><a href="{R}resize-image-to-600x600/">Resize</a></td></tr>
+<tr><td>1080 × 1080</td><td>1:1 square</td><td>Instagram and Facebook posts</td><td><a href="{R}resize-image-to-1080x1080/">Resize</a></td></tr>
+<tr><td>3000 × 3000</td><td>1:1 square</td><td>Album and podcast cover art (9 megapixels)</td><td><a href="{R}resize-image-to-3000x3000/">Resize</a></td></tr>
+</tbody></table></div>
+
+<h2>Pixels and print size</h2>
+<p>A printed size depends on the <b>dpi</b> (dots per inch). Divide the pixels by the dpi to get inches: 600 px at 300 dpi prints at 2 inches, and 3000 px at 300 dpi prints at 10 inches. Online forms only care about the pixels; printers care about the dpi too.</p>
+
+<h2>Pixels are not KB</h2>
+<p>Width and height in pixels is the <b>dimension</b>. KB or MB is the <b>file size</b>, which also depends on how much detail the photo has and how strongly it is compressed. Two 1080 × 1080 photos can be 150 KB and 900 KB. If a form says “under 100 KB”, use <a href="{R}compress-image-to-100kb/">Compress Image to 100 KB</a> instead of resizing.</p>
+
+<h2>Changing the shape: crop or border</h2>
+<p>When your photo is a different shape from the size you need, something has to give. <b>Crop to fill</b> trims the edges so the frame is full; <b>Fit with white border</b> keeps the whole photo and adds space. Our <a href="{R}resize-image/">image resizer</a> lets you choose, and works on phones without uploading your photo.</p>
+
+<div class="warnbox">Enlarging a small photo to a big size such as 3000 × 3000 gives the right dimensions, but it can't add detail that was never there. Start from the largest original you have.</div>''',
+        faq=[("What is the difference between 1080p and 1080x1920?", "1080p usually means 1920 × 1080 landscape. 1080 × 1920 is the same number of pixels in a vertical 9:16 shape, used for phone-screen content like Stories and Reels."),
+             ("Is 2560x1440 2K or 1440p?", "Both names are used. 2560 × 1440 is officially QHD (Quad HD), commonly called 1440p, and many monitors sell it as 2K."),
+             ("How many megapixels is 3000x3000?", "9 megapixels: 3000 × 3000 = 9,000,000 pixels."),
+             ("How do I resize a photo to an exact pixel size for free?", "Open the matching resize page, choose your photo, pick crop or border, and press Resize. It runs in your browser, so nothing is uploaded.")],
+    ),
 ]

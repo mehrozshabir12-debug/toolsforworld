@@ -60,6 +60,8 @@ tools_list.landing(tool)
 tools_list.enrich(T)
 import landing_notes
 landing_notes.enrich(T)
+import query_boost
+query_boost.enrich(T)
 BY = {t['slug']: t for t in T}
 
 # Hand-picked "related tools" for each main tool (what people usually need next)
