@@ -68,19 +68,19 @@ BY = {t['slug']: t for t in T}
 RELATED = {
     "pdf-to-word": ["word-to-pdf", "image-to-text", "compress-pdf", "pdf-to-jpg"],
     "word-to-pdf": ["pdf-to-word", "compress-pdf", "merge-pdf", "jpg-to-pdf"],
-    "compress-pdf": ["compress-pdf-to-200kb", "split-pdf", "merge-pdf", "compress-image"],
+    "compress-pdf": ["compress-pdf-to-200kb", "split-pdf", "merge-pdf", "compress-image", "word-to-pdf"],
     "merge-pdf": ["split-pdf", "compress-pdf", "jpg-to-pdf", "word-to-pdf"],
     "split-pdf": ["merge-pdf", "compress-pdf", "pdf-to-jpg", "pdf-to-word"],
-    "jpg-to-pdf": ["compress-image", "merge-pdf", "compress-pdf", "heic-to-jpg"],
+    "jpg-to-pdf": ["compress-image", "merge-pdf", "compress-pdf", "heic-to-jpg", "word-to-pdf"],
     "pdf-to-jpg": ["compress-image", "image-to-text", "split-pdf", "jpg-to-pdf"],
     "image-to-text": ["pdf-to-word", "pdf-to-jpg", "word-counter", "image-to-text-urdu"],
     "compress-image": ["resize-image", "compress-image-to-100kb", "jpg-to-pdf", "heic-to-jpg"],
     "resize-image": ["compress-image", "passport-photo-maker", "remove-background", "resize-image-to-1080x1080"],
-    "remove-background": ["passport-photo-maker", "resize-image", "compress-image", "png-to-jpg"],
+    "remove-background": ["passport-photo-maker", "resize-image", "compress-image", "png-to-jpg", "jpg-to-png"],
     "png-to-jpg": ["jpg-to-png", "webp-to-jpg", "compress-image", "heic-to-jpg"],
     "jpg-to-png": ["png-to-jpg", "remove-background", "compress-image", "webp-to-jpg"],
-    "webp-to-jpg": ["png-to-jpg", "heic-to-jpg", "compress-image", "resize-image"],
-    "heic-to-jpg": ["compress-image", "jpg-to-pdf", "webp-to-jpg", "resize-image"],
+    "webp-to-jpg": ["png-to-jpg", "heic-to-jpg", "compress-image", "resize-image", "mp4-to-mp3"],
+    "heic-to-jpg": ["compress-image", "jpg-to-pdf", "webp-to-jpg", "resize-image", "mp4-to-mp3"],
     "passport-photo-maker": ["remove-background", "compress-image-to-50kb", "resize-image", "us-passport-photo"],
     "qr-code-generator": ["wifi-qr-code-generator", "whatsapp-qr-code-generator", "password-generator", "word-counter"],
     "word-counter": ["character-counter", "image-to-text", "password-generator", "percentage-calculator"],
@@ -219,6 +219,29 @@ def write(rel_path, content):
     os.makedirs(os.path.dirname(p), exist_ok=True)
     open(p, "w", encoding="utf-8").write(content)
 
+GUIDE_FOR = {  # tool family (main slug) -> guides that explain it
+    "passport-photo-maker": ["passport-photo-size-by-country"],
+    "compress-image": ["how-to-compress-photo-to-50kb"],
+    "compress-pdf": ["reduce-scanned-pdf-size"],
+    "jpg-to-pdf": ["reduce-scanned-pdf-size"],
+    "resize-image": ["social-media-image-sizes", "image-resolution-sizes-explained"],
+}
+EXTRA_GUIDE = {"resize-image-to-600x600": "passport-photo-size-by-country", "us-passport-photo": "passport-photo-size-by-country"}
+
+
+def guide_links(r, t, par):
+    import guides as G
+    by = {g["slug"]: g for g in G.GUIDES}
+    fam = par["slug"] if par else t["slug"]
+    slugs = list(GUIDE_FOR.get(fam, []))
+    if t["slug"] in EXTRA_GUIDE and EXTRA_GUIDE[t["slug"]] not in slugs:
+        slugs.append(EXTRA_GUIDE[t["slug"]])
+    if "ftool" in t:
+        slugs.append("check-files-never-uploaded")
+    items = "".join(f'<li><a href="{r}guides/{g}/">{html.escape(by[g]["h1"])}</a></li>' for g in slugs if g in by)
+    return f'<h2>Helpful guides</h2><ul class="guidelinks">{items}</ul>' if items else ""
+
+
 def build():
     urls = [BASE]
     for t in T:
@@ -227,9 +250,10 @@ def build():
         par = BY.get(t.get("parent"))
         kids = [x for x in T if x.get("parent") == t["slug"]]
         if par:
-            sibs = [x for x in T if x.get("parent") == par["slug"] and x["slug"] != t["slug"]]
-            start = next((i for i, x in enumerate(sibs) if x["slug"] > t["slug"]), 0)
-            related = [par] + (sibs[start:] + sibs[:start])[:3] + [BY[x] for x in RELATED.get(par["slug"], [])[:2] if x in BY]
+            fam = [x for x in T if x.get("parent") == par["slug"]]
+            i = fam.index(t)
+            sibs = fam[i + 1:] + fam[:i]   # the next pages in the family, wrapping round, so every page gets links
+            related = [par] + sibs[:5] + [BY[x] for x in RELATED.get(par["slug"], [])[:2] if x in BY]
         else:
             related = [BY[x] for x in RELATED.get(t["slug"], []) if x in BY] or \
                       [x for x in T if x["group"] == t["group"] and x["slug"] != t["slug"] and not x.get("parent")][:4]
@@ -245,7 +269,7 @@ def build():
 <section class="bench"><h1>{t["h1"]}</h1><p class="lead">{t["lead"]}</p>
 {chips(r, kids, "Popular presets") if kids else ""}
 {ui}
-<div class="how">{t["body"]}{f'<h2>Questions</h2><div class="faq">{faq}</div>' if faq else ""}</div>
+<div class="how">{t["body"]}{guide_links(r, t, par)}{f'<h2>Questions</h2><div class="faq">{faq}</div>' if faq else ""}</div>
 <div class="related"><div class="sect">{"Related tools" if par else "More " + group_name.lower()}</div>{cards(r, related)}</div></section>'''
         canon = BASE + t["slug"] + "/"
         ld = [{"@context": "https://schema.org", "@type": "WebApplication", "name": t["name"], "url": canon, "applicationCategory": "UtilitiesApplication",
