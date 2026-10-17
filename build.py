@@ -242,6 +242,12 @@ def guide_links(r, t, par):
     return f'<h2>Helpful guides</h2><ul class="guidelinks">{items}</ul>' if items else ""
 
 
+def breadcrumb(trail):
+    """BreadcrumbList structured data: [(name, url), ...] from Home to the current page."""
+    return {"@context": "https://schema.org", "@type": "BreadcrumbList", "itemListElement": [
+        {"@type": "ListItem", "position": i + 1, "name": n, "item": u} for i, (n, u) in enumerate(trail)]}
+
+
 def build():
     urls = [BASE]
     for t in T:
@@ -274,6 +280,8 @@ def build():
         canon = BASE + t["slug"] + "/"
         ld = [{"@context": "https://schema.org", "@type": "WebApplication", "name": t["name"], "url": canon, "applicationCategory": "UtilitiesApplication",
                "operatingSystem": "Any", "offers": {"@type": "Offer", "price": "0", "priceCurrency": "USD"}, "description": t["desc"]}]
+        trail = [("Home", BASE)] + ([(par["name"], BASE + par["slug"] + "/")] if par else []) + [(t["name"], canon)]
+        ld.append(breadcrumb(trail))
         if t.get("faq"):
             ld.append({"@context": "https://schema.org", "@type": "FAQPage", "mainEntity": [
                 {"@type": "Question", "name": q, "acceptedAnswer": {"@type": "Answer", "text": a}} for q, a in t["faq"]]})
@@ -434,7 +442,8 @@ def build():
         ld = [{"@context": "https://schema.org", "@type": "Article", "headline": g["h1"], "description": g["desc"],
                "author": {"@type": "Person", "name": G.AUTHOR}, "publisher": {"@type": "Organization", "name": "Tools for World", "logo": {"@type": "ImageObject", "url": BASE + "logo.png"}},
                "datePublished": g["date"], "dateModified": g["date"], "mainEntityOfPage": canon, "image": BASE + "og-image.png"},
-              {"@context": "https://schema.org", "@type": "FAQPage", "mainEntity": [{"@type": "Question", "name": q, "acceptedAnswer": {"@type": "Answer", "text": a}} for q, a in g["faq"]]}]
+              {"@context": "https://schema.org", "@type": "FAQPage", "mainEntity": [{"@type": "Question", "name": q, "acceptedAnswer": {"@type": "Answer", "text": a}} for q, a in g["faq"]]},
+              breadcrumb([("Home", BASE), ("Guides", BASE + "guides/"), (g["h1"], canon)])]
         write(f"guides/{g['slug']}/index.html", page(r, g["title"], g["desc"], canon, body, jsonld=ld))
         urls.append(canon)
         gl.append(f'<li><a href="{g["slug"]}/"><b>{g["h1"]}</b></a><br>{g["desc"]}</li>')
