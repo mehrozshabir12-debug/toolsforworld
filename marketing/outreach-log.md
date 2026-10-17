@@ -22,10 +22,10 @@ Focus (owner, 17 Oct 2026): from now on approach only university teaching staff 
 
 | Date | Site | Contact | Page / reason | Channel | Status |
 |---|---|---|---|---|---|
-| 2026-10-17 | SoftwareTestingHelp | info@softwaretestinghelp.com | Best image resizer tools list (invites suggestions) | email | sent |
+| 2026-10-17 | SoftwareTestingHelp | info@softwaretestinghelp.com | Best image resizer tools list (invites suggestions) | email | replied 17 Oct: paid placements only, not pursuing |
 | 2026-10-17 | UAL CSM Digital Learning | csmdigitallearning@arts.ac.uk | Compressing files for assignments | email | sent |
 | 2026-10-17 | Insider Guides | content@insiderguides.com.au | Passport photo guide for international students | email | sent |
-| 2026-10-17 | Free Technology for Teachers | press@freetech4teachers.com | No-login tools for teachers | email | sent |
+| 2026-10-17 | Free Technology for Teachers | press@freetech4teachers.com | No-login tools for teachers | email | bounced (address no longer exists) |
 | 2026-10-17 | Control Alt Achieve (Eric Curts) | ericcurts@gmail.com | Free web tools for teachers | email | sent |
 | 2026-10-17 | nologin.tools | submit form | Directory of no-login tools | form | submitted, pending review |
 | 2026-10-17 | FilterGrade | support@filtergrade.com | Free passport photo makers guide | email | sent |
@@ -42,4 +42,5 @@ Focus (owner, 17 Oct 2026): from now on approach only university teaching staff 
 | detectiondrama.com | promotes AI-detection "humanizer" tools |
 | sellwithboost.com | free listing needs a reciprocal badge; listing link is nofollow |
 | dcreport.org | advertorial (paid) content |
+| softwaretestinghelp.com | listings are paid (PPC/PPL) only |
 | ailovekit, pdfsnap, mochitools, convertkr, getpdfnest, aservus, raptorpdf, qwikpdf, passlens, passportninja, photopass, passportprints | competing tool vendors |
