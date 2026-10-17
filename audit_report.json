@@ -1,0 +1,2503 @@
+{
+ "time": "2026-10-17 10:20 UTC",
+ "cases": {
+  "compress-basic": {
+   "slug": "compress-image",
+   "files": [
+    "photo.jpg"
+   ],
+   "expect": "ok",
+   "mobile": false,
+   "status": "Done. photo.jpg: 128 KB \u2192 71 KB",
+   "outcome": "ok",
+   "outputs": 1,
+   "out_text": "photo-compressed.jpg | 71 KB | Download",
+   "saved": [
+    "compress-basic-0-photo-compressed.jpg (73032 B)"
+   ],
+   "validation": [
+    {
+     "ok": true,
+     "w": 1600,
+     "h": 1000,
+     "fmt": "JPEG",
+     "mode": "RGB"
+    }
+   ],
+   "heap_mb": 11.4,
+   "heap_growth_mb": 1.5,
+   "seconds": 2.1,
+   "page_errors": [],
+   "hosts": [
+    "cloudflareinsights.com",
+    "ep1.adtrafficquality.google",
+    "ep2.adtrafficquality.google",
+    "fonts.googleapis.com",
+    "fonts.gstatic.com",
+    "googleads.g.doubleclick.net",
+    "pagead2.googlesyndication.com",
+    "static.cloudflareinsights.com",
+    "www.google.com"
+   ],
+   "uploads_over_4kb": [],
+   "non_get_requests": [],
+   "pass": true
+  },
+  "compress-to-50kb": {
+   "slug": "compress-image-to-50kb",
+   "files": [
+    "photo.jpg"
+   ],
+   "expect": "ok",
+   "mobile": false,
+   "status": "Done. photo.jpg: 128 KB \u2192 49 KB (target 50 KB, 1600\u00d71000)",
+   "outcome": "ok",
+   "outputs": 1,
+   "out_text": "photo-compressed.jpg | 49 KB | Download",
+   "saved": [
+    "compress-to-50kb-0-photo-compressed.jpg (50615 B)"
+   ],
+   "validation": [
+    {
+     "ok": true,
+     "w": 1600,
+     "h": 1000,
+     "fmt": "JPEG",
+     "mode": "RGB"
+    }
+   ],
+   "heap_mb": 11.6,
+   "heap_growth_mb": 2.0,
+   "seconds": 2.1,
+   "page_errors": [],
+   "hosts": [
+    "cloudflareinsights.com",
+    "ep1.adtrafficquality.google",
+    "ep2.adtrafficquality.google",
+    "fonts.googleapis.com",
+    "fonts.gstatic.com",
+    "googleads.g.doubleclick.net",
+    "pagead2.googlesyndication.com",
+    "static.cloudflareinsights.com",
+    "www.google.com"
+   ],
+   "uploads_over_4kb": [],
+   "non_get_requests": [],
+   "pass": true
+  },
+  "compress-to-20kb-huge": {
+   "slug": "compress-image-to-20kb",
+   "files": [
+    "huge-48mp.jpg"
+   ],
+   "expect": "ok",
+   "mobile": false,
+   "status": "Done. huge-48mp.jpg: 2.05 MB \u2192 20 KB (target 20 KB, 1100\u00d7826)",
+   "outcome": "ok",
+   "outputs": 1,
+   "out_text": "huge-48mp-compressed.jpg | 20 KB | Download",
+   "saved": [
+    "compress-to-20kb-huge-0-huge-48mp-compressed.jpg (20040 B)"
+   ],
+   "validation": [
+    {
+     "ok": true,
+     "w": 1100,
+     "h": 826,
+     "fmt": "JPEG",
+     "mode": "RGB"
+    }
+   ],
+   "heap_mb": 7.6,
+   "heap_growth_mb": -2.3,
+   "seconds": 3.0,
+   "page_errors": [],
+   "hosts": [
+    "cloudflareinsights.com",
+    "ep1.adtrafficquality.google",
+    "ep2.adtrafficquality.google",
+    "fonts.googleapis.com",
+    "fonts.gstatic.com",
+    "googleads.g.doubleclick.net",
+    "pagead2.googlesyndication.com",
+    "static.cloudflareinsights.com",
+    "www.google.com"
+   ],
+   "uploads_over_4kb": [],
+   "non_get_requests": [],
+   "pass": true
+  },
+  "compress-huge-48mp": {
+   "slug": "compress-image",
+   "files": [
+    "huge-48mp.jpg"
+   ],
+   "expect": "ok",
+   "mobile": false,
+   "status": "Done. huge-48mp.jpg: 2.05 MB \u2192 1.10 MB",
+   "outcome": "ok",
+   "outputs": 1,
+   "out_text": "huge-48mp-compressed.jpg | 1.10 MB | Download",
+   "saved": [
+    "compress-huge-48mp-0-huge-48mp-compressed.jpg (1149729 B)"
+   ],
+   "validation": [
+    {
+     "ok": true,
+     "w": 8000,
+     "h": 6000,
+     "fmt": "JPEG",
+     "mode": "RGB"
+    }
+   ],
+   "heap_mb": 7.6,
+   "heap_growth_mb": -2.4,
+   "seconds": 2.4,
+   "page_errors": [],
+   "hosts": [
+    "cloudflareinsights.com",
+    "ep1.adtrafficquality.google",
+    "ep2.adtrafficquality.google",
+    "fonts.googleapis.com",
+    "fonts.gstatic.com",
+    "googleads.g.doubleclick.net",
+    "pagead2.googlesyndication.com",
+    "static.cloudflareinsights.com",
+    "www.google.com"
+   ],
+   "uploads_over_4kb": [],
+   "non_get_requests": [],
+   "pass": true
+  },
+  "compress-batch-3": {
+   "slug": "compress-image",
+   "files": [
+    "photo.jpg",
+    "photo.png",
+    "photo.webp"
+   ],
+   "expect": "ok",
+   "mobile": false,
+   "status": "Done. photo.webp is already 19 KB: compressing would make it bigger, so the original is kept.",
+   "outcome": "ok",
+   "outputs": 3,
+   "out_text": "photo-compressed.jpg | 71 KB | Download | photo.png | 24 KB | Download | photo.webp | 19 KB | Download | Download all (3 files, .zip)",
+   "saved": [
+    "compress-batch-3-0-photo-compressed.jpg (73032 B)",
+    "compress-batch-3-1-photo.png (24483 B)",
+    "compress-batch-3-2-photo.webp (19146 B)"
+   ],
+   "validation": [
+    {
+     "ok": true,
+     "w": 1600,
+     "h": 1000,
+     "fmt": "WEBP",
+     "mode": "RGB"
+    }
+   ],
+   "heap_mb": 11.7,
+   "heap_growth_mb": 2.1,
+   "seconds": 2.1,
+   "page_errors": [],
+   "hosts": [
+    "cloudflareinsights.com",
+    "ep1.adtrafficquality.google",
+    "ep2.adtrafficquality.google",
+    "fonts.googleapis.com",
+    "fonts.gstatic.com",
+    "googleads.g.doubleclick.net",
+    "pagead2.googlesyndication.com",
+    "static.cloudflareinsights.com",
+    "www.google.com"
+   ],
+   "uploads_over_4kb": [],
+   "non_get_requests": [],
+   "pass": true
+  },
+  "compress-alpha-png": {
+   "slug": "compress-image",
+   "files": [
+    "alpha.png"
+   ],
+   "expect": "ok",
+   "mobile": false,
+   "status": "Done. alpha.png is already 4 KB: compressing would make it bigger, so the original is kept.",
+   "outcome": "ok",
+   "outputs": 1,
+   "out_text": "alpha.png | 4 KB | Download",
+   "saved": [
+    "compress-alpha-png-0-alpha.png (4529 B)"
+   ],
+   "validation": [
+    {
+     "ok": true,
+     "w": 800,
+     "h": 600,
+     "fmt": "PNG",
+     "mode": "RGBA"
+    }
+   ],
+   "heap_mb": 11.4,
+   "heap_growth_mb": 1.6,
+   "seconds": 2.0,
+   "page_errors": [],
+   "hosts": [
+    "cloudflareinsights.com",
+    "ep1.adtrafficquality.google",
+    "ep2.adtrafficquality.google",
+    "fonts.googleapis.com",
+    "fonts.gstatic.com",
+    "googleads.g.doubleclick.net",
+    "pagead2.googlesyndication.com",
+    "static.cloudflareinsights.com",
+    "www.google.com"
+   ],
+   "uploads_over_4kb": [],
+   "non_get_requests": [],
+   "pass": true
+  },
+  "compress-corrupt": {
+   "slug": "compress-image",
+   "files": [
+    "corrupt.jpg"
+   ],
+   "expect": "err",
+   "mobile": false,
+   "status": "Could not read corrupt.jpg. The image may be damaged or in an unsupported format.",
+   "outcome": "err",
+   "outputs": 0,
+   "out_text": "",
+   "saved": [],
+   "heap_mb": 11.4,
+   "heap_growth_mb": 1.3,
+   "seconds": 1.9,
+   "page_errors": [
+    "console: Error: Could not read corrupt.jpg. The image may be damaged or in an unsupported format.\n    at i.onerror (http://localhost:8001/assets/files.js?v=bc3edd1c:142:"
+   ],
+   "hosts": [
+    "cloudflareinsights.com",
+    "ep1.adtrafficquality.google",
+    "ep2.adtrafficquality.google",
+    "fonts.googleapis.com",
+    "fonts.gstatic.com",
+    "googleads.g.doubleclick.net",
+    "pagead2.googlesyndication.com",
+    "static.cloudflareinsights.com",
+    "www.google.com"
+   ],
+   "uploads_over_4kb": [],
+   "non_get_requests": [],
+   "pass": true
+  },
+  "compress-empty": {
+   "slug": "compress-image",
+   "files": [
+    "empty.jpg"
+   ],
+   "expect": "err",
+   "mobile": false,
+   "status": "Could not read empty.jpg. The image may be damaged or in an unsupported format.",
+   "outcome": "err",
+   "outputs": 0,
+   "out_text": "",
+   "saved": [],
+   "heap_mb": 11.6,
+   "heap_growth_mb": 1.9,
+   "seconds": 1.9,
+   "page_errors": [
+    "console: Error: Could not read empty.jpg. The image may be damaged or in an unsupported format.\n    at i.onerror (http://localhost:8001/assets/files.js?v=bc3edd1c:142:17"
+   ],
+   "hosts": [
+    "cloudflareinsights.com",
+    "ep1.adtrafficquality.google",
+    "ep2.adtrafficquality.google",
+    "fonts.googleapis.com",
+    "fonts.gstatic.com",
+    "googleads.g.doubleclick.net",
+    "pagead2.googlesyndication.com",
+    "static.cloudflareinsights.com",
+    "www.google.com"
+   ],
+   "uploads_over_4kb": [],
+   "non_get_requests": [],
+   "pass": true
+  },
+  "compress-heic-wrong-tool": {
+   "slug": "compress-image",
+   "files": [
+    "photo.heic"
+   ],
+   "expect": "err_or_reject",
+   "mobile": false,
+   "outcome": "reject",
+   "status": "iPhone HEIC photos can't be opened here directly. Convert them with HEIC to JPG first, then come back.",
+   "heap_mb": 10.6,
+   "heap_growth_mb": 0.7,
+   "seconds": 1.5,
+   "page_errors": [],
+   "hosts": [
+    "cloudflareinsights.com",
+    "ep1.adtrafficquality.google",
+    "ep2.adtrafficquality.google",
+    "fonts.googleapis.com",
+    "fonts.gstatic.com",
+    "googleads.g.doubleclick.net",
+    "pagead2.googlesyndication.com",
+    "static.cloudflareinsights.com",
+    "www.google.com"
+   ],
+   "uploads_over_4kb": [],
+   "non_get_requests": [],
+   "pass": true
+  },
+  "compress-pdf-wrong-type": {
+   "slug": "compress-image",
+   "files": [
+    "doc.pdf"
+   ],
+   "expect": "reject",
+   "mobile": false,
+   "outcome": "reject",
+   "status": "That file type is not supported here. Supported: JPG, PNG, WebP, GIF, BMP.",
+   "heap_mb": 10.7,
+   "heap_growth_mb": 0.6,
+   "seconds": 1.5,
+   "page_errors": [],
+   "hosts": [
+    "cloudflareinsights.com",
+    "ep1.adtrafficquality.google",
+    "ep2.adtrafficquality.google",
+    "fonts.googleapis.com",
+    "fonts.gstatic.com",
+    "googleads.g.doubleclick.net",
+    "pagead2.googlesyndication.com",
+    "static.cloudflareinsights.com",
+    "www.google.com"
+   ],
+   "uploads_over_4kb": [],
+   "non_get_requests": [],
+   "pass": true
+  },
+  "resize-exact-1080": {
+   "slug": "resize-image-to-1080x1080",
+   "files": [
+    "photo.jpg"
+   ],
+   "expect": "ok",
+   "mobile": false,
+   "status": "Done. Your files are ready below.",
+   "outcome": "ok",
+   "outputs": 1,
+   "out_text": "photo-1080x1080.jpg | 88 KB | Download",
+   "saved": [
+    "resize-exact-1080-0-photo-1080x1080.jpg (90315 B)"
+   ],
+   "validation": [
+    {
+     "ok": true,
+     "w": 1080,
+     "h": 1080,
+     "fmt": "JPEG",
+     "mode": "RGB"
+    }
+   ],
+   "heap_mb": 11.4,
+   "heap_growth_mb": 1.7,
+   "seconds": 2.0,
+   "page_errors": [],
+   "hosts": [
+    "cloudflareinsights.com",
+    "ep1.adtrafficquality.google",
+    "ep2.adtrafficquality.google",
+    "fonts.googleapis.com",
+    "fonts.gstatic.com",
+    "googleads.g.doubleclick.net",
+    "pagead2.googlesyndication.com",
+    "static.cloudflareinsights.com",
+    "www.google.com"
+   ],
+   "uploads_over_4kb": [],
+   "non_get_requests": [],
+   "pass": true
+  },
+  "resize-exact-pad": {
+   "slug": "resize-image-to-1920x1080",
+   "files": [
+    "portrait.jpg"
+   ],
+   "expect": "ok",
+   "mobile": false,
+   "status": "Done. Your files are ready below.",
+   "outcome": "ok",
+   "outputs": 1,
+   "out_text": "portrait-1920x1080.jpg | 22 KB | Download",
+   "saved": [
+    "resize-exact-pad-0-portrait-1920x1080.jpg (22228 B)"
+   ],
+   "validation": [
+    {
+     "ok": true,
+     "w": 1920,
+     "h": 1080,
+     "fmt": "JPEG",
+     "mode": "RGB"
+    }
+   ],
+   "heap_mb": 11.5,
+   "heap_growth_mb": 1.8,
+   "seconds": 2.0,
+   "page_errors": [],
+   "hosts": [
+    "cloudflareinsights.com",
+    "ep1.adtrafficquality.google",
+    "ep2.adtrafficquality.google",
+    "fonts.googleapis.com",
+    "fonts.gstatic.com",
+    "googleads.g.doubleclick.net",
+    "pagead2.googlesyndication.com",
+    "static.cloudflareinsights.com",
+    "www.google.com"
+   ],
+   "uploads_over_4kb": [],
+   "non_get_requests": [],
+   "pass": true
+  },
+  "resize-width-only": {
+   "slug": "resize-image",
+   "files": [
+    "photo.jpg"
+   ],
+   "expect": "ok",
+   "mobile": false,
+   "status": "Done. Your files are ready below.",
+   "outcome": "ok",
+   "outputs": 1,
+   "out_text": "photo-800x500.jpg | 49 KB | Download",
+   "saved": [
+    "resize-width-only-0-photo-800x500.jpg (50021 B)"
+   ],
+   "validation": [
+    {
+     "ok": true,
+     "w": 800,
+     "h": 500,
+     "fmt": "JPEG",
+     "mode": "RGB"
+    }
+   ],
+   "heap_mb": 11.5,
+   "heap_growth_mb": 1.7,
+   "seconds": 2.0,
+   "page_errors": [],
+   "hosts": [
+    "cloudflareinsights.com",
+    "ep1.adtrafficquality.google",
+    "ep2.adtrafficquality.google",
+    "fonts.googleapis.com",
+    "fonts.gstatic.com",
+    "googleads.g.doubleclick.net",
+    "pagead2.googlesyndication.com",
+    "static.cloudflareinsights.com",
+    "www.google.com"
+   ],
+   "uploads_over_4kb": [],
+   "non_get_requests": [],
+   "pass": true
+  },
+  "resize-percent-400-huge": {
+   "slug": "resize-image",
+   "files": [
+    "huge-48mp.jpg"
+   ],
+   "expect": "ok_or_err",
+   "mobile": false,
+   "status": "32000\u00d724000 px is too large for this device to create. Choose a smaller size.",
+   "outcome": "err",
+   "outputs": 0,
+   "out_text": "",
+   "saved": [],
+   "heap_mb": 11.5,
+   "heap_growth_mb": 1.7,
+   "seconds": 2.0,
+   "page_errors": [
+    "console: Error: 32000\u00d724000 px is too large for this device to create. Choose a smaller size.\n    at Object.resize (http://localhost:8001/assets/files.js?v=bc3edd1c:195:"
+   ],
+   "hosts": [
+    "cloudflareinsights.com",
+    "ep1.adtrafficquality.google",
+    "ep2.adtrafficquality.google",
+    "fonts.googleapis.com",
+    "fonts.gstatic.com",
+    "googleads.g.doubleclick.net",
+    "pagead2.googlesyndication.com",
+    "static.cloudflareinsights.com",
+    "www.google.com"
+   ],
+   "uploads_over_4kb": [],
+   "non_get_requests": [],
+   "pass": true
+  },
+  "resize-negative": {
+   "slug": "resize-image",
+   "files": [
+    "photo.jpg"
+   ],
+   "expect": "err",
+   "mobile": false,
+   "status": "Width and height must be between 1 and 20,000 pixels.",
+   "outcome": "err",
+   "outputs": 0,
+   "out_text": "",
+   "saved": [],
+   "heap_mb": 11.4,
+   "heap_growth_mb": 1.6,
+   "seconds": 2.0,
+   "page_errors": [
+    "console: Error: Width and height must be between 1 and 20,000 pixels.\n    at Object.resize (http://localhost:8001/assets/files.js?v=bc3edd1c:189:76)\n    at $.onclick (ht"
+   ],
+   "hosts": [
+    "cloudflareinsights.com",
+    "ep1.adtrafficquality.google",
+    "ep2.adtrafficquality.google",
+    "fonts.googleapis.com",
+    "fonts.gstatic.com",
+    "googleads.g.doubleclick.net",
+    "pagead2.googlesyndication.com",
+    "static.cloudflareinsights.com",
+    "www.google.com"
+   ],
+   "uploads_over_4kb": [],
+   "non_get_requests": [],
+   "pass": true
+  },
+  "resize-empty-size": {
+   "slug": "resize-image",
+   "files": [
+    "photo.jpg"
+   ],
+   "expect": "err",
+   "mobile": false,
+   "status": "Enter a width or a height.",
+   "outcome": "err",
+   "outputs": 0,
+   "out_text": "",
+   "saved": [],
+   "heap_mb": 11.4,
+   "heap_growth_mb": 1.8,
+   "seconds": 1.9,
+   "page_errors": [
+    "console: Error: Enter a width or a height.\n    at Object.resize (http://localhost:8001/assets/files.js?v=bc3edd1c:188:29)\n    at $.onclick (http://localhost:8001/assets/"
+   ],
+   "hosts": [
+    "cloudflareinsights.com",
+    "ep1.adtrafficquality.google",
+    "ep2.adtrafficquality.google",
+    "fonts.googleapis.com",
+    "fonts.gstatic.com",
+    "googleads.g.doubleclick.net",
+    "pagead2.googlesyndication.com",
+    "static.cloudflareinsights.com",
+    "www.google.com"
+   ],
+   "uploads_over_4kb": [],
+   "non_get_requests": [],
+   "pass": true
+  },
+  "png-to-jpg-alpha": {
+   "slug": "png-to-jpg",
+   "files": [
+    "alpha.png"
+   ],
+   "expect": "ok",
+   "mobile": false,
+   "status": "Done. Your files are ready below.",
+   "outcome": "ok",
+   "outputs": 1,
+   "out_text": "alpha.jpg | 15 KB | Download",
+   "saved": [
+    "png-to-jpg-alpha-0-alpha.jpg (15841 B)"
+   ],
+   "validation": [
+    {
+     "ok": true,
+     "w": 800,
+     "h": 600,
+     "fmt": "JPEG",
+     "mode": "RGB"
+    }
+   ],
+   "heap_mb": 11.4,
+   "heap_growth_mb": 1.6,
+   "seconds": 1.9,
+   "page_errors": [],
+   "hosts": [
+    "cloudflareinsights.com",
+    "ep1.adtrafficquality.google",
+    "ep2.adtrafficquality.google",
+    "fonts.googleapis.com",
+    "fonts.gstatic.com",
+    "googleads.g.doubleclick.net",
+    "pagead2.googlesyndication.com",
+    "static.cloudflareinsights.com",
+    "www.google.com"
+   ],
+   "uploads_over_4kb": [],
+   "non_get_requests": [],
+   "pass": true
+  },
+  "jpg-to-png": {
+   "slug": "jpg-to-png",
+   "files": [
+    "photo.jpg"
+   ],
+   "expect": "ok",
+   "mobile": false,
+   "status": "Done. Your files are ready below.",
+   "outcome": "ok",
+   "outputs": 1,
+   "out_text": "photo.png | 185 KB | Download",
+   "saved": [
+    "jpg-to-png-0-photo.png (189447 B)"
+   ],
+   "validation": [
+    {
+     "ok": true,
+     "w": 1600,
+     "h": 1000,
+     "fmt": "PNG",
+     "mode": "RGBA"
+    }
+   ],
+   "heap_mb": 11.4,
+   "heap_growth_mb": 1.6,
+   "seconds": 2.0,
+   "page_errors": [],
+   "hosts": [
+    "cloudflareinsights.com",
+    "ep1.adtrafficquality.google",
+    "ep2.adtrafficquality.google",
+    "fonts.googleapis.com",
+    "fonts.gstatic.com",
+    "googleads.g.doubleclick.net",
+    "pagead2.googlesyndication.com",
+    "static.cloudflareinsights.com",
+    "www.google.com"
+   ],
+   "uploads_over_4kb": [],
+   "non_get_requests": [],
+   "pass": true
+  },
+  "webp-to-jpg": {
+   "slug": "webp-to-jpg",
+   "files": [
+    "photo.webp"
+   ],
+   "expect": "ok",
+   "mobile": false,
+   "status": "Done. Your files are ready below.",
+   "outcome": "ok",
+   "outputs": 1,
+   "out_text": "photo.jpg | 112 KB | Download",
+   "saved": [
+    "webp-to-jpg-0-photo.jpg (115099 B)"
+   ],
+   "validation": [
+    {
+     "ok": true,
+     "w": 1600,
+     "h": 1000,
+     "fmt": "JPEG",
+     "mode": "RGB"
+    }
+   ],
+   "heap_mb": 11.4,
+   "heap_growth_mb": 1.6,
+   "seconds": 2.0,
+   "page_errors": [],
+   "hosts": [
+    "cloudflareinsights.com",
+    "ep1.adtrafficquality.google",
+    "ep2.adtrafficquality.google",
+    "fonts.googleapis.com",
+    "fonts.gstatic.com",
+    "googleads.g.doubleclick.net",
+    "pagead2.googlesyndication.com",
+    "static.cloudflareinsights.com",
+    "www.google.com"
+   ],
+   "uploads_over_4kb": [],
+   "non_get_requests": [],
+   "pass": true
+  },
+  "heic-to-jpg": {
+   "slug": "heic-to-jpg",
+   "files": [
+    "photo.heic"
+   ],
+   "expect": "ok",
+   "mobile": false,
+   "status": "Done. Your files are ready below.",
+   "outcome": "ok",
+   "outputs": 1,
+   "out_text": "photo.jpg | 99 KB | Download",
+   "saved": [
+    "heic-to-jpg-0-photo.jpg (101101 B)"
+   ],
+   "validation": [
+    {
+     "ok": true,
+     "w": 1600,
+     "h": 1000,
+     "fmt": "JPEG",
+     "mode": "RGB"
+    }
+   ],
+   "heap_mb": 21.4,
+   "heap_growth_mb": 11.9,
+   "seconds": 2.1,
+   "page_errors": [],
+   "hosts": [
+    "cdn.jsdelivr.net",
+    "cloudflareinsights.com",
+    "ep1.adtrafficquality.google",
+    "ep2.adtrafficquality.google",
+    "fonts.googleapis.com",
+    "fonts.gstatic.com",
+    "googleads.g.doubleclick.net",
+    "pagead2.googlesyndication.com",
+    "static.cloudflareinsights.com",
+    "www.google.com"
+   ],
+   "uploads_over_4kb": [],
+   "non_get_requests": [],
+   "pass": true
+  },
+  "heic-corrupt": {
+   "slug": "heic-to-jpg",
+   "files": [
+    "corrupt.jpg"
+   ],
+   "expect": "reject",
+   "mobile": false,
+   "outcome": "reject",
+   "status": "That file type is not supported here. Supported: HEIC / HEIF (iPhone photos).",
+   "heap_mb": 10.8,
+   "heap_growth_mb": 1.1,
+   "seconds": 1.5,
+   "page_errors": [],
+   "hosts": [
+    "cloudflareinsights.com",
+    "ep1.adtrafficquality.google",
+    "ep2.adtrafficquality.google",
+    "fonts.googleapis.com",
+    "fonts.gstatic.com",
+    "googleads.g.doubleclick.net",
+    "pagead2.googlesyndication.com",
+    "static.cloudflareinsights.com",
+    "www.google.com"
+   ],
+   "uploads_over_4kb": [],
+   "non_get_requests": [],
+   "pass": true
+  },
+  "passport-uk": {
+   "slug": "uk-passport-photo",
+   "files": [
+    "portrait.jpg"
+   ],
+   "expect": "ok",
+   "mobile": false,
+   "status": "Done. Your files are ready below.",
+   "outcome": "ok",
+   "outputs": 2,
+   "out_text": "passport-photo.jpg | 6 KB | Download | passport-sheet-4x6.jpg | 62 KB | Download | Download all (2 files, .zip)",
+   "saved": [
+    "passport-uk-0-passport-photo.jpg (6505 B)",
+    "passport-uk-1-passport-sheet-4x6.jpg (62984 B)"
+   ],
+   "validation": [
+    {
+     "ok": true,
+     "w": 413,
+     "h": 531,
+     "fmt": "JPEG",
+     "mode": "RGB"
+    },
+    {
+     "ok": true,
+     "w": 1800,
+     "h": 1200,
+     "fmt": "JPEG",
+     "mode": "RGB"
+    }
+   ],
+   "heap_mb": 11.6,
+   "heap_growth_mb": 2.0,
+   "seconds": 2.0,
+   "page_errors": [],
+   "hosts": [
+    "cloudflareinsights.com",
+    "ep1.adtrafficquality.google",
+    "ep2.adtrafficquality.google",
+    "fonts.googleapis.com",
+    "fonts.gstatic.com",
+    "googleads.g.doubleclick.net",
+    "pagead2.googlesyndication.com",
+    "static.cloudflareinsights.com",
+    "www.google.com"
+   ],
+   "uploads_over_4kb": [],
+   "non_get_requests": [],
+   "pass": true
+  },
+  "passport-us": {
+   "slug": "us-passport-photo",
+   "files": [
+    "portrait.jpg"
+   ],
+   "expect": "ok",
+   "mobile": false,
+   "status": "Done. Your files are ready below.",
+   "outcome": "ok",
+   "outputs": 2,
+   "out_text": "passport-photo.jpg | 9 KB | Download | passport-sheet-4x6.jpg | 68 KB | Download | Download all (2 files, .zip)",
+   "saved": [
+    "passport-us-0-passport-photo.jpg (9032 B)",
+    "passport-us-1-passport-sheet-4x6.jpg (69946 B)"
+   ],
+   "validation": [
+    {
+     "ok": true,
+     "w": 600,
+     "h": 600,
+     "fmt": "JPEG",
+     "mode": "RGB"
+    }
+   ],
+   "heap_mb": 11.5,
+   "heap_growth_mb": 1.6,
+   "seconds": 2.0,
+   "page_errors": [],
+   "hosts": [
+    "cloudflareinsights.com",
+    "ep1.adtrafficquality.google",
+    "ep2.adtrafficquality.google",
+    "fonts.googleapis.com",
+    "fonts.gstatic.com",
+    "googleads.g.doubleclick.net",
+    "pagead2.googlesyndication.com",
+    "static.cloudflareinsights.com",
+    "www.google.com"
+   ],
+   "uploads_over_4kb": [],
+   "non_get_requests": [],
+   "pass": true
+  },
+  "passport-corrupt": {
+   "slug": "passport-photo-maker",
+   "files": [
+    "corrupt.jpg"
+   ],
+   "expect": "err_or_reject",
+   "mobile": false,
+   "outcome": "reject",
+   "status": "Could not read corrupt.jpg. The image may be damaged or in an unsupported format. Choose a JPG or PNG photo.",
+   "heap_mb": 10.8,
+   "heap_growth_mb": 0.6,
+   "seconds": 1.5,
+   "page_errors": [],
+   "hosts": [
+    "cloudflareinsights.com",
+    "ep1.adtrafficquality.google",
+    "ep2.adtrafficquality.google",
+    "fonts.googleapis.com",
+    "fonts.gstatic.com",
+    "googleads.g.doubleclick.net",
+    "pagead2.googlesyndication.com",
+    "static.cloudflareinsights.com",
+    "www.google.com"
+   ],
+   "uploads_over_4kb": [],
+   "non_get_requests": [],
+   "pass": true
+  },
+  "bgremove": {
+   "slug": "remove-background",
+   "files": [
+    "portrait.jpg"
+   ],
+   "expect": "ok",
+   "mobile": false,
+   "status": "Done. Your files are ready below.",
+   "outcome": "ok",
+   "outputs": 1,
+   "out_text": "portrait-no-background.png | 272 KB | Download",
+   "saved": [
+    "bgremove-0-portrait-no-background.png (278950 B)"
+   ],
+   "validation": [
+    {
+     "ok": true,
+     "w": 900,
+     "h": 1200,
+     "fmt": "PNG",
+     "mode": "RGBA",
+     "alpha_range": [
+      0,
+      254
+     ]
+    }
+   ],
+   "heap_mb": 52.4,
+   "heap_growth_mb": 42.4,
+   "seconds": 11.9,
+   "page_errors": [],
+   "hosts": [
+    "cdn.jsdelivr.net",
+    "cloudflareinsights.com",
+    "ep1.adtrafficquality.google",
+    "ep2.adtrafficquality.google",
+    "fonts.googleapis.com",
+    "fonts.gstatic.com",
+    "googleads.g.doubleclick.net",
+    "pagead2.googlesyndication.com",
+    "static.cloudflareinsights.com",
+    "staticimgly.com",
+    "www.google.com"
+   ],
+   "uploads_over_4kb": [],
+   "non_get_requests": [],
+   "pass": true
+  },
+  "ocr-eng": {
+   "slug": "image-to-text",
+   "files": [
+    "photo.png"
+   ],
+   "expect": "ok",
+   "mobile": false,
+   "status": "Done. Your files are ready below.",
+   "outcome": "ok",
+   "outputs": 1,
+   "out_text": "photo.txt | 0 KB | Download",
+   "saved": [
+    "ocr-eng-0-photo.txt (36 B)"
+   ],
+   "validation": [
+    {
+     "ok": true,
+     "text": "Tools for World \u00ae\nFree online tools"
+    }
+   ],
+   "heap_mb": 11.9,
+   "heap_growth_mb": 2.2,
+   "seconds": 2.5,
+   "page_errors": [],
+   "hosts": [
+    "cdn.jsdelivr.net",
+    "cloudflareinsights.com",
+    "ep1.adtrafficquality.google",
+    "ep2.adtrafficquality.google",
+    "fonts.googleapis.com",
+    "fonts.gstatic.com",
+    "googleads.g.doubleclick.net",
+    "pagead2.googlesyndication.com",
+    "static.cloudflareinsights.com",
+    "www.google.com"
+   ],
+   "uploads_over_4kb": [],
+   "non_get_requests": [],
+   "pass": true
+  },
+  "ocr-corrupt": {
+   "slug": "image-to-text",
+   "files": [
+    "corrupt.jpg"
+   ],
+   "expect": "err",
+   "mobile": false,
+   "status": "Could not read corrupt.jpg. The image may be damaged or in an unsupported format.",
+   "outcome": "err",
+   "outputs": 0,
+   "out_text": "",
+   "saved": [],
+   "heap_mb": 12.1,
+   "heap_growth_mb": 2.1,
+   "seconds": 1.9,
+   "page_errors": [
+    "console: Error: Could not read corrupt.jpg. The image may be damaged or in an unsupported format.\n    at i.onerror (http://localhost:8001/assets/files.js?v=bc3edd1c:142:"
+   ],
+   "hosts": [
+    "cdn.jsdelivr.net",
+    "cloudflareinsights.com",
+    "csi.gstatic.com",
+    "ep1.adtrafficquality.google",
+    "ep2.adtrafficquality.google",
+    "fonts.googleapis.com",
+    "fonts.gstatic.com",
+    "googleads.g.doubleclick.net",
+    "pagead2.googlesyndication.com",
+    "static.cloudflareinsights.com",
+    "www.google.com"
+   ],
+   "uploads_over_4kb": [],
+   "non_get_requests": [],
+   "pass": true
+  },
+  "jpg-to-pdf-3": {
+   "slug": "jpg-to-pdf",
+   "files": [
+    "photo.jpg",
+    "photo.png",
+    "photo.webp"
+   ],
+   "expect": "ok",
+   "mobile": false,
+   "status": "Done. Your files are ready below.",
+   "outcome": "ok",
+   "outputs": 1,
+   "out_text": "images.pdf | 276 KB | Download",
+   "saved": [
+    "jpg-to-pdf-3-0-images.pdf (282733 B)"
+   ],
+   "validation": [
+    {
+     "ok": true,
+     "pages": 3
+    }
+   ],
+   "heap_mb": 33.5,
+   "heap_growth_mb": 23.9,
+   "seconds": 2.1,
+   "page_errors": [],
+   "hosts": [
+    "cdnjs.cloudflare.com",
+    "cloudflareinsights.com",
+    "ep1.adtrafficquality.google",
+    "ep2.adtrafficquality.google",
+    "fonts.googleapis.com",
+    "fonts.gstatic.com",
+    "googleads.g.doubleclick.net",
+    "pagead2.googlesyndication.com",
+    "static.cloudflareinsights.com",
+    "www.google.com"
+   ],
+   "uploads_over_4kb": [],
+   "non_get_requests": [],
+   "pass": true
+  },
+  "jpg-to-pdf-huge": {
+   "slug": "jpg-to-pdf",
+   "files": [
+    "huge-48mp.jpg"
+   ],
+   "expect": "ok",
+   "mobile": false,
+   "status": "Done. Your files are ready below.",
+   "outcome": "ok",
+   "outputs": 1,
+   "out_text": "images.pdf | 2.05 MB | Download",
+   "saved": [
+    "jpg-to-pdf-huge-0-images.pdf (2151176 B)"
+   ],
+   "validation": [
+    {
+     "ok": true,
+     "pages": 1
+    }
+   ],
+   "heap_mb": 18.6,
+   "heap_growth_mb": 8.8,
+   "seconds": 2.0,
+   "page_errors": [],
+   "hosts": [
+    "cdnjs.cloudflare.com",
+    "cloudflareinsights.com",
+    "ep1.adtrafficquality.google",
+    "ep2.adtrafficquality.google",
+    "fonts.googleapis.com",
+    "fonts.gstatic.com",
+    "googleads.g.doubleclick.net",
+    "pagead2.googlesyndication.com",
+    "static.cloudflareinsights.com",
+    "www.google.com"
+   ],
+   "uploads_over_4kb": [],
+   "non_get_requests": [],
+   "pass": true
+  },
+  "merge-2": {
+   "slug": "merge-pdf",
+   "files": [
+    "doc.pdf",
+    "long-60p.pdf"
+   ],
+   "expect": "ok",
+   "mobile": false,
+   "status": "Done. Your files are ready below.",
+   "outcome": "ok",
+   "outputs": 1,
+   "out_text": "merged.pdf | 153 KB | Download",
+   "saved": [
+    "merge-2-0-merged.pdf (156401 B)"
+   ],
+   "validation": [
+    {
+     "ok": true,
+     "pages": 63
+    }
+   ],
+   "heap_mb": 17.6,
+   "heap_growth_mb": 7.8,
+   "seconds": 1.9,
+   "page_errors": [],
+   "hosts": [
+    "cdnjs.cloudflare.com",
+    "cloudflareinsights.com",
+    "ep1.adtrafficquality.google",
+    "ep2.adtrafficquality.google",
+    "fonts.googleapis.com",
+    "fonts.gstatic.com",
+    "googleads.g.doubleclick.net",
+    "pagead2.googlesyndication.com",
+    "static.cloudflareinsights.com",
+    "www.google.com"
+   ],
+   "uploads_over_4kb": [],
+   "non_get_requests": [],
+   "pass": true
+  },
+  "merge-encrypted": {
+   "slug": "merge-pdf",
+   "files": [
+    "doc.pdf",
+    "encrypted.pdf"
+   ],
+   "expect": "ok_or_err",
+   "mobile": false,
+   "status": "encrypted.pdf is password-protected or damaged.",
+   "outcome": "err",
+   "outputs": 0,
+   "out_text": "",
+   "saved": [],
+   "heap_mb": 14.4,
+   "heap_growth_mb": 4.7,
+   "seconds": 1.9,
+   "page_errors": [
+    "console: Error: encrypted.pdf is password-protected or damaged.\n    at Object.merge (http://localhost:8001/assets/files.js?v=bc3edd1c:241:102)\n    at async $.onclick (ht"
+   ],
+   "hosts": [
+    "cdnjs.cloudflare.com",
+    "cloudflareinsights.com",
+    "ep1.adtrafficquality.google",
+    "ep2.adtrafficquality.google",
+    "fonts.googleapis.com",
+    "fonts.gstatic.com",
+    "googleads.g.doubleclick.net",
+    "pagead2.googlesyndication.com",
+    "static.cloudflareinsights.com",
+    "www.google.com"
+   ],
+   "uploads_over_4kb": [],
+   "non_get_requests": [],
+   "pass": true
+  },
+  "merge-corrupt": {
+   "slug": "merge-pdf",
+   "files": [
+    "doc.pdf",
+    "fake.pdf"
+   ],
+   "expect": "err",
+   "mobile": false,
+   "status": "fake.pdf is password-protected or damaged.",
+   "outcome": "err",
+   "outputs": 0,
+   "out_text": "",
+   "saved": [],
+   "heap_mb": 13.9,
+   "heap_growth_mb": 4.2,
+   "seconds": 1.9,
+   "page_errors": [
+    "console: Error: fake.pdf is password-protected or damaged.\n    at Object.merge (http://localhost:8001/assets/files.js?v=bc3edd1c:241:102)\n    at async $.onclick (http://"
+   ],
+   "hosts": [
+    "cdnjs.cloudflare.com",
+    "cloudflareinsights.com",
+    "ep1.adtrafficquality.google",
+    "ep2.adtrafficquality.google",
+    "fonts.googleapis.com",
+    "fonts.gstatic.com",
+    "googleads.g.doubleclick.net",
+    "pagead2.googlesyndication.com",
+    "static.cloudflareinsights.com",
+    "www.google.com"
+   ],
+   "uploads_over_4kb": [],
+   "non_get_requests": [],
+   "pass": true
+  },
+  "split-range": {
+   "slug": "split-pdf",
+   "files": [
+    "long-60p.pdf"
+   ],
+   "expect": "ok",
+   "mobile": false,
+   "status": "Done. Your files are ready below.",
+   "outcome": "ok",
+   "outputs": 1,
+   "out_text": "long-60p-pages.pdf | 2 KB | Download",
+   "saved": [
+    "split-range-0-long-60p-pages.pdf (2159 B)"
+   ],
+   "validation": [
+    {
+     "ok": true,
+     "pages": 4
+    }
+   ],
+   "heap_mb": 15.4,
+   "heap_growth_mb": 5.6,
+   "seconds": 2.0,
+   "page_errors": [],
+   "hosts": [
+    "cdnjs.cloudflare.com",
+    "cloudflareinsights.com",
+    "ep1.adtrafficquality.google",
+    "ep2.adtrafficquality.google",
+    "fonts.googleapis.com",
+    "fonts.gstatic.com",
+    "googleads.g.doubleclick.net",
+    "pagead2.googlesyndication.com",
+    "static.cloudflareinsights.com",
+    "www.google.com"
+   ],
+   "uploads_over_4kb": [],
+   "non_get_requests": [],
+   "pass": true
+  },
+  "split-bad-range": {
+   "slug": "split-pdf",
+   "files": [
+    "doc.pdf"
+   ],
+   "expect": "err",
+   "mobile": false,
+   "status": "Enter pages between 1 and 3, like 1-3, 5.",
+   "outcome": "err",
+   "outputs": 0,
+   "out_text": "",
+   "saved": [],
+   "heap_mb": 14.0,
+   "heap_growth_mb": 4.5,
+   "seconds": 2.0,
+   "page_errors": [
+    "console: Error: Enter pages between 1 and 3, like 1-3, 5.\n    at Object.split (http://localhost:8001/assets/files.js?v=bc3edd1c:253:24)\n    at async $.onclick (http://lo"
+   ],
+   "hosts": [
+    "cdnjs.cloudflare.com",
+    "cloudflareinsights.com",
+    "ep1.adtrafficquality.google",
+    "ep2.adtrafficquality.google",
+    "fonts.googleapis.com",
+    "fonts.gstatic.com",
+    "googleads.g.doubleclick.net",
+    "pagead2.googlesyndication.com",
+    "static.cloudflareinsights.com",
+    "www.google.com"
+   ],
+   "uploads_over_4kb": [],
+   "non_get_requests": [],
+   "pass": true
+  },
+  "split-encrypted": {
+   "slug": "split-pdf",
+   "files": [
+    "encrypted.pdf"
+   ],
+   "expect": "ok_or_err",
+   "mobile": false,
+   "status": "This PDF is password-protected or damaged.",
+   "outcome": "err",
+   "outputs": 0,
+   "out_text": "",
+   "saved": [],
+   "heap_mb": 13.9,
+   "heap_growth_mb": 3.8,
+   "seconds": 2.0,
+   "page_errors": [
+    "console: Error: This PDF is password-protected or damaged.\n    at Object.split (http://localhost:8001/assets/files.js?v=bc3edd1c:247:72)\n    at async $.onclick (http://l"
+   ],
+   "hosts": [
+    "cdnjs.cloudflare.com",
+    "cloudflareinsights.com",
+    "ep1.adtrafficquality.google",
+    "ep2.adtrafficquality.google",
+    "fonts.googleapis.com",
+    "fonts.gstatic.com",
+    "googleads.g.doubleclick.net",
+    "pagead2.googlesyndication.com",
+    "static.cloudflareinsights.com",
+    "www.google.com"
+   ],
+   "uploads_over_4kb": [],
+   "non_get_requests": [],
+   "pass": true
+  },
+  "pdf-to-jpg": {
+   "slug": "pdf-to-jpg",
+   "files": [
+    "doc.pdf"
+   ],
+   "expect": "ok",
+   "mobile": false,
+   "status": "Done. Your files are ready below.",
+   "outcome": "ok",
+   "outputs": 3,
+   "out_text": "doc-page-1.jpg | 130 KB | Download | doc-page-2.jpg | 130 KB | Download | doc-page-3.jpg | 130 KB | Download | Download all (3 files, .zip)",
+   "saved": [
+    "pdf-to-jpg-0-doc-page-1.jpg (132695 B)",
+    "pdf-to-jpg-1-doc-page-2.jpg (132933 B)",
+    "pdf-to-jpg-2-doc-page-3.jpg (133055 B)"
+   ],
+   "validation": [
+    {
+     "ok": true,
+     "w": 1190,
+     "h": 1683,
+     "fmt": "JPEG",
+     "mode": "RGB"
+    }
+   ],
+   "heap_mb": 12.7,
+   "heap_growth_mb": 2.9,
+   "seconds": 2.3,
+   "page_errors": [],
+   "hosts": [
+    "cdnjs.cloudflare.com",
+    "cloudflareinsights.com",
+    "ep1.adtrafficquality.google",
+    "ep2.adtrafficquality.google",
+    "fonts.googleapis.com",
+    "fonts.gstatic.com",
+    "googleads.g.doubleclick.net",
+    "pagead2.googlesyndication.com",
+    "static.cloudflareinsights.com",
+    "www.google.com"
+   ],
+   "uploads_over_4kb": [],
+   "non_get_requests": [],
+   "pass": true
+  },
+  "pdf-to-jpg-rotated": {
+   "slug": "pdf-to-jpg",
+   "files": [
+    "rotated.pdf"
+   ],
+   "expect": "ok",
+   "mobile": false,
+   "status": "Done. Your files are ready below.",
+   "outcome": "ok",
+   "outputs": 3,
+   "out_text": "rotated-page-1.jpg | 118 KB | Download | rotated-page-2.jpg | 130 KB | Download | rotated-page-3.jpg | 130 KB | Download | Download all (3 files, .zip)",
+   "saved": [
+    "pdf-to-jpg-rotated-0-rotated-page-1.jpg (121088 B)",
+    "pdf-to-jpg-rotated-1-rotated-page-2.jpg (132933 B)",
+    "pdf-to-jpg-rotated-2-rotated-page-3.jpg (133055 B)"
+   ],
+   "validation": [
+    {
+     "ok": true,
+     "w": 1683,
+     "h": 1190,
+     "fmt": "JPEG",
+     "mode": "RGB"
+    }
+   ],
+   "heap_mb": 12.9,
+   "heap_growth_mb": 2.9,
+   "seconds": 2.3,
+   "page_errors": [],
+   "hosts": [
+    "cdnjs.cloudflare.com",
+    "cloudflareinsights.com",
+    "ep1.adtrafficquality.google",
+    "ep2.adtrafficquality.google",
+    "fonts.googleapis.com",
+    "fonts.gstatic.com",
+    "googleads.g.doubleclick.net",
+    "pagead2.googlesyndication.com",
+    "static.cloudflareinsights.com",
+    "www.google.com"
+   ],
+   "uploads_over_4kb": [],
+   "non_get_requests": [],
+   "pass": true
+  },
+  "pdf-to-jpg-encrypted": {
+   "slug": "pdf-to-jpg",
+   "files": [
+    "encrypted.pdf"
+   ],
+   "expect": "err",
+   "mobile": false,
+   "status": "This PDF is password-protected or damaged.",
+   "outcome": "err",
+   "outputs": 0,
+   "out_text": "",
+   "saved": [],
+   "heap_mb": 12.3,
+   "heap_growth_mb": 2.3,
+   "seconds": 2.1,
+   "page_errors": [
+    "console: Error: This PDF is password-protected or damaged.\n    at Object.pdf2jpg (http://localhost:8001/assets/files.js?v=bc3edd1c:259:91)\n    at async $.onclick (http:/"
+   ],
+   "hosts": [
+    "cdnjs.cloudflare.com",
+    "cloudflareinsights.com",
+    "ep1.adtrafficquality.google",
+    "ep2.adtrafficquality.google",
+    "fonts.googleapis.com",
+    "fonts.gstatic.com",
+    "googleads.g.doubleclick.net",
+    "pagead2.googlesyndication.com",
+    "static.cloudflareinsights.com",
+    "www.google.com"
+   ],
+   "uploads_over_4kb": [],
+   "non_get_requests": [],
+   "pass": true
+  },
+  "pdf-to-jpg-corrupt": {
+   "slug": "pdf-to-jpg",
+   "files": [
+    "corrupt.pdf"
+   ],
+   "expect": "err_or_ok",
+   "mobile": false,
+   "status": "This PDF is password-protected or damaged.",
+   "outcome": "err",
+   "outputs": 0,
+   "out_text": "",
+   "saved": [],
+   "heap_mb": 12.4,
+   "heap_growth_mb": 2.3,
+   "seconds": 2.0,
+   "page_errors": [
+    "console: Error: This PDF is password-protected or damaged.\n    at Object.pdf2jpg (http://localhost:8001/assets/files.js?v=bc3edd1c:259:91)\n    at async $.onclick (http:/"
+   ],
+   "hosts": [
+    "cdnjs.cloudflare.com",
+    "cloudflareinsights.com",
+    "ep1.adtrafficquality.google",
+    "ep2.adtrafficquality.google",
+    "fonts.googleapis.com",
+    "fonts.gstatic.com",
+    "googleads.g.doubleclick.net",
+    "pagead2.googlesyndication.com",
+    "static.cloudflareinsights.com",
+    "www.google.com"
+   ],
+   "uploads_over_4kb": [],
+   "non_get_requests": [],
+   "pass": true
+  },
+  "compress-pdf-scan": {
+   "slug": "compress-pdf",
+   "files": [
+    "scan.pdf"
+   ],
+   "expect": "ok",
+   "mobile": false,
+   "status": "1.52 MB \u2192 534 KB (66% smaller)",
+   "outcome": "ok",
+   "outputs": 1,
+   "out_text": "scan-compressed.pdf | 534 KB | Download",
+   "saved": [
+    "compress-pdf-scan-0-scan-compressed.pdf (546931 B)"
+   ],
+   "validation": [
+    {
+     "ok": true,
+     "pages": 3,
+     "dark_share_by_page": [
+      [
+       1,
+       0.1485
+      ],
+      [
+       3,
+       0.1485
+      ]
+     ]
+    }
+   ],
+   "heap_mb": 13.1,
+   "heap_growth_mb": 3.2,
+   "seconds": 2.7,
+   "page_errors": [],
+   "hosts": [
+    "cdnjs.cloudflare.com",
+    "cloudflareinsights.com",
+    "ep1.adtrafficquality.google",
+    "ep2.adtrafficquality.google",
+    "fonts.googleapis.com",
+    "fonts.gstatic.com",
+    "googleads.g.doubleclick.net",
+    "pagead2.googlesyndication.com",
+    "static.cloudflareinsights.com",
+    "www.google.com"
+   ],
+   "uploads_over_4kb": [],
+   "non_get_requests": [],
+   "pass": true
+  },
+  "compress-pdf-to-200kb": {
+   "slug": "compress-pdf-to-200kb",
+   "files": [
+    "scan.pdf"
+   ],
+   "expect": "ok",
+   "mobile": false,
+   "status": "1.52 MB \u2192 167 KB (89% smaller)",
+   "outcome": "ok",
+   "outputs": 1,
+   "out_text": "scan-compressed.pdf | 167 KB | Download",
+   "saved": [
+    "compress-pdf-to-200kb-0-scan-compressed.pdf (170898 B)"
+   ],
+   "validation": [
+    {
+     "ok": true,
+     "pages": 3
+    }
+   ],
+   "heap_mb": 19.4,
+   "heap_growth_mb": 9.4,
+   "seconds": 2.7,
+   "page_errors": [],
+   "hosts": [
+    "cdnjs.cloudflare.com",
+    "cloudflareinsights.com",
+    "ep1.adtrafficquality.google",
+    "ep2.adtrafficquality.google",
+    "fonts.googleapis.com",
+    "fonts.gstatic.com",
+    "googleads.g.doubleclick.net",
+    "pagead2.googlesyndication.com",
+    "static.cloudflareinsights.com",
+    "www.google.com"
+   ],
+   "uploads_over_4kb": [],
+   "non_get_requests": [],
+   "pass": true
+  },
+  "compress-pdf-text-only": {
+   "slug": "compress-pdf",
+   "files": [
+    "long-60p.pdf"
+   ],
+   "expect": "ok_or_err",
+   "mobile": false,
+   "status": "This PDF is already well compressed (new size 5.17 MB would not be smaller). Try a stronger level.",
+   "outcome": "err",
+   "outputs": 1,
+   "out_text": "long-60p.pdf | 35 KB | Download",
+   "saved": [
+    "compress-pdf-text-only-0-long-60p.pdf (35794 B)"
+   ],
+   "heap_mb": 43.5,
+   "heap_growth_mb": 33.7,
+   "seconds": 3.1,
+   "page_errors": [
+    "console: Error: This PDF is already well compressed (new size 5.17 MB would not be smaller). Try a stronger level.\n    at RUN.pdfcompress (http://localhost:8001/assets/f"
+   ],
+   "hosts": [
+    "cdnjs.cloudflare.com",
+    "cloudflareinsights.com",
+    "ep1.adtrafficquality.google",
+    "ep2.adtrafficquality.google",
+    "fonts.googleapis.com",
+    "fonts.gstatic.com",
+    "googleads.g.doubleclick.net",
+    "pagead2.googlesyndication.com",
+    "static.cloudflareinsights.com",
+    "www.google.com"
+   ],
+   "uploads_over_4kb": [],
+   "non_get_requests": [],
+   "pass": true
+  },
+  "compress-pdf-rotated": {
+   "slug": "compress-pdf",
+   "files": [
+    "rotated.pdf"
+   ],
+   "expect": "ok_or_err",
+   "mobile": false,
+   "status": "This PDF is already well compressed (new size 157 KB would not be smaller). Try a stronger level.",
+   "outcome": "err",
+   "outputs": 1,
+   "out_text": "rotated.pdf | 131 KB | Download",
+   "saved": [
+    "compress-pdf-rotated-0-rotated.pdf (134424 B)"
+   ],
+   "heap_mb": 16.7,
+   "heap_growth_mb": 7.0,
+   "seconds": 2.2,
+   "page_errors": [
+    "console: Error: This PDF is already well compressed (new size 157 KB would not be smaller). Try a stronger level.\n    at RUN.pdfcompress (http://localhost:8001/assets/fi"
+   ],
+   "hosts": [
+    "cdnjs.cloudflare.com",
+    "cloudflareinsights.com",
+    "ep1.adtrafficquality.google",
+    "ep2.adtrafficquality.google",
+    "fonts.googleapis.com",
+    "fonts.gstatic.com",
+    "googleads.g.doubleclick.net",
+    "pagead2.googlesyndication.com",
+    "static.cloudflareinsights.com",
+    "www.google.com"
+   ],
+   "uploads_over_4kb": [],
+   "non_get_requests": [],
+   "pass": true
+  },
+  "compress-pdf-fake": {
+   "slug": "compress-pdf",
+   "files": [
+    "fake.pdf"
+   ],
+   "expect": "err",
+   "mobile": false,
+   "status": "This PDF is password-protected or damaged.",
+   "outcome": "err",
+   "outputs": 0,
+   "out_text": "",
+   "saved": [],
+   "heap_mb": 14.0,
+   "heap_growth_mb": 4.0,
+   "seconds": 2.1,
+   "page_errors": [
+    "console: Error: This PDF is password-protected or damaged.\n    at RUN.pdfcompress (http://localhost:8001/assets/files.js?v=bc3edd1c:357:99)\n    at async $.onclick (http:"
+   ],
+   "hosts": [
+    "cdnjs.cloudflare.com",
+    "cloudflareinsights.com",
+    "ep1.adtrafficquality.google",
+    "ep2.adtrafficquality.google",
+    "fonts.googleapis.com",
+    "fonts.gstatic.com",
+    "googleads.g.doubleclick.net",
+    "pagead2.googlesyndication.com",
+    "static.cloudflareinsights.com",
+    "www.google.com"
+   ],
+   "uploads_over_4kb": [],
+   "non_get_requests": [],
+   "pass": true
+  },
+  "pdf-to-word": {
+   "slug": "pdf-to-word",
+   "files": [
+    "doc.pdf"
+   ],
+   "expect": "ok",
+   "mobile": false,
+   "status": "Done. Your files are ready below.",
+   "outcome": "ok",
+   "outputs": 1,
+   "out_text": "doc.docx | 4 KB | Download",
+   "saved": [
+    "pdf-to-word-0-doc.docx (4255 B)"
+   ],
+   "validation": [
+    {
+     "ok": true,
+     "has_text": true,
+     "xml_kb": 2
+    }
+   ],
+   "heap_mb": 13.0,
+   "heap_growth_mb": 3.2,
+   "seconds": 2.0,
+   "page_errors": [],
+   "hosts": [
+    "cdnjs.cloudflare.com",
+    "cloudflareinsights.com",
+    "ep1.adtrafficquality.google",
+    "ep2.adtrafficquality.google",
+    "fonts.googleapis.com",
+    "fonts.gstatic.com",
+    "googleads.g.doubleclick.net",
+    "pagead2.googlesyndication.com",
+    "static.cloudflareinsights.com",
+    "www.google.com"
+   ],
+   "uploads_over_4kb": [],
+   "non_get_requests": [],
+   "pass": true
+  },
+  "pdf-to-word-60p": {
+   "slug": "pdf-to-word",
+   "files": [
+    "long-60p.pdf"
+   ],
+   "expect": "ok",
+   "mobile": false,
+   "status": "Done. Your files are ready below.",
+   "outcome": "ok",
+   "outputs": 1,
+   "out_text": "long-60p.docx | 85 KB | Download",
+   "saved": [
+    "pdf-to-word-60p-0-long-60p.docx (87025 B)"
+   ],
+   "validation": [
+    {
+     "ok": true,
+     "has_text": true,
+     "xml_kb": 83
+    }
+   ],
+   "heap_mb": 13.7,
+   "heap_growth_mb": 3.9,
+   "seconds": 2.1,
+   "page_errors": [],
+   "hosts": [
+    "cdnjs.cloudflare.com",
+    "cloudflareinsights.com",
+    "ep1.adtrafficquality.google",
+    "ep2.adtrafficquality.google",
+    "fonts.googleapis.com",
+    "fonts.gstatic.com",
+    "googleads.g.doubleclick.net",
+    "pagead2.googlesyndication.com",
+    "static.cloudflareinsights.com",
+    "www.google.com"
+   ],
+   "uploads_over_4kb": [],
+   "non_get_requests": [],
+   "pass": true
+  },
+  "pdf-to-word-scan": {
+   "slug": "pdf-to-word",
+   "files": [
+    "scan.pdf"
+   ],
+   "expect": "err",
+   "mobile": false,
+   "status": "No text found. This looks like a scanned PDF: use Image to Text (OCR) instead.",
+   "outcome": "err",
+   "outputs": 0,
+   "out_text": "",
+   "saved": [],
+   "heap_mb": 12.7,
+   "heap_growth_mb": 2.7,
+   "seconds": 2.0,
+   "page_errors": [
+    "console: Error: No text found. This looks like a scanned PDF: use Image to Text (OCR) instead.\n    at RUN.pdf2word (http://localhost:8001/assets/files.js?v=bc3edd1c:440:"
+   ],
+   "hosts": [
+    "cdnjs.cloudflare.com",
+    "cloudflareinsights.com",
+    "ep1.adtrafficquality.google",
+    "ep2.adtrafficquality.google",
+    "fonts.googleapis.com",
+    "fonts.gstatic.com",
+    "googleads.g.doubleclick.net",
+    "pagead2.googlesyndication.com",
+    "static.cloudflareinsights.com",
+    "www.google.com"
+   ],
+   "uploads_over_4kb": [],
+   "non_get_requests": [],
+   "pass": true
+  },
+  "pdf-to-word-encrypted": {
+   "slug": "pdf-to-word",
+   "files": [
+    "encrypted.pdf"
+   ],
+   "expect": "err",
+   "mobile": false,
+   "status": "This PDF is password-protected or damaged.",
+   "outcome": "err",
+   "outputs": 0,
+   "out_text": "",
+   "saved": [],
+   "heap_mb": 12.4,
+   "heap_growth_mb": 2.7,
+   "seconds": 2.1,
+   "page_errors": [
+    "console: Error: This PDF is password-protected or damaged.\n    at RUN.pdf2word (http://localhost:8001/assets/files.js?v=bc3edd1c:421:116)\n    at async $.onclick (http://"
+   ],
+   "hosts": [
+    "cdnjs.cloudflare.com",
+    "cloudflareinsights.com",
+    "ep1.adtrafficquality.google",
+    "ep2.adtrafficquality.google",
+    "fonts.googleapis.com",
+    "fonts.gstatic.com",
+    "googleads.g.doubleclick.net",
+    "pagead2.googlesyndication.com",
+    "static.cloudflareinsights.com",
+    "www.google.com"
+   ],
+   "uploads_over_4kb": [],
+   "non_get_requests": [],
+   "pass": true
+  },
+  "word-to-pdf": {
+   "slug": "word-to-pdf",
+   "files": [
+    "doc.docx"
+   ],
+   "expect": "ok",
+   "mobile": false,
+   "status": "Done. Your files are ready below.",
+   "outcome": "ok",
+   "outputs": 1,
+   "out_text": "doc.pdf | 100 KB | Download",
+   "saved": [
+    "word-to-pdf-0-doc.pdf (102021 B)"
+   ],
+   "validation": [
+    {
+     "ok": true,
+     "pages": 1,
+     "dark_share_by_page": [
+      [
+       1,
+       0.0271
+      ]
+     ]
+    }
+   ],
+   "heap_mb": 24.5,
+   "heap_growth_mb": 14.5,
+   "seconds": 2.3,
+   "page_errors": [],
+   "hosts": [
+    "cdn.jsdelivr.net",
+    "cdnjs.cloudflare.com",
+    "cloudflareinsights.com",
+    "ep1.adtrafficquality.google",
+    "ep2.adtrafficquality.google",
+    "fonts.googleapis.com",
+    "fonts.gstatic.com",
+    "googleads.g.doubleclick.net",
+    "pagead2.googlesyndication.com",
+    "static.cloudflareinsights.com",
+    "www.google.com"
+   ],
+   "uploads_over_4kb": [],
+   "non_get_requests": [],
+   "pass": true
+  },
+  "word-to-pdf-long": {
+   "slug": "word-to-pdf",
+   "files": [
+    "long-45ch.docx"
+   ],
+   "expect": "ok",
+   "mobile": false,
+   "status": "Done. Your files are ready below.",
+   "outcome": "ok",
+   "outputs": 1,
+   "out_text": "long-45ch.pdf | 25.73 MB | Download",
+   "saved": [
+    "word-to-pdf-long-0-long-45ch.pdf (26983505 B)"
+   ],
+   "validation": [
+    {
+     "ok": true,
+     "pages": 38,
+     "dark_share_by_page": [
+      [
+       1,
+       0.1568
+      ],
+      [
+       19,
+       0.1676
+      ],
+      [
+       38,
+       0.1209
+      ]
+     ]
+    }
+   ],
+   "heap_mb": 69.5,
+   "heap_growth_mb": 59.5,
+   "seconds": 6.3,
+   "page_errors": [],
+   "hosts": [
+    "cdn.jsdelivr.net",
+    "cdnjs.cloudflare.com",
+    "cloudflareinsights.com",
+    "ep1.adtrafficquality.google",
+    "ep2.adtrafficquality.google",
+    "fonts.googleapis.com",
+    "fonts.gstatic.com",
+    "googleads.g.doubleclick.net",
+    "pagead2.googlesyndication.com",
+    "static.cloudflareinsights.com",
+    "www.google.com"
+   ],
+   "uploads_over_4kb": [],
+   "non_get_requests": [],
+   "pass": true
+  },
+  "word-to-pdf-old-doc": {
+   "slug": "word-to-pdf",
+   "files": [
+    "old.doc"
+   ],
+   "expect": "reject_or_err",
+   "mobile": false,
+   "outcome": "reject",
+   "status": "That file type is not supported here. Supported: Word .docx.",
+   "heap_mb": 10.6,
+   "heap_growth_mb": 0.8,
+   "seconds": 1.5,
+   "page_errors": [],
+   "hosts": [
+    "cloudflareinsights.com",
+    "ep1.adtrafficquality.google",
+    "ep2.adtrafficquality.google",
+    "fonts.googleapis.com",
+    "fonts.gstatic.com",
+    "googleads.g.doubleclick.net",
+    "pagead2.googlesyndication.com",
+    "static.cloudflareinsights.com",
+    "www.google.com"
+   ],
+   "uploads_over_4kb": [],
+   "non_get_requests": [],
+   "pass": true
+  },
+  "word-to-pdf-corrupt": {
+   "slug": "word-to-pdf",
+   "files": [
+    "corrupt.docx"
+   ],
+   "expect": "err",
+   "mobile": false,
+   "status": "Could not read this Word file. It may be damaged or password-protected.",
+   "outcome": "err",
+   "outputs": 0,
+   "out_text": "",
+   "saved": [],
+   "heap_mb": 16.0,
+   "heap_growth_mb": 6.2,
+   "seconds": 1.9,
+   "page_errors": [
+    "console: Error: Could not read this Word file. It may be damaged or password-protected.\n    at RUN.word2pdf (http://localhost:8001/assets/files.js?v=bc3edd1c:298:91)\n   "
+   ],
+   "hosts": [
+    "cdn.jsdelivr.net",
+    "cdnjs.cloudflare.com",
+    "cloudflareinsights.com",
+    "ep1.adtrafficquality.google",
+    "ep2.adtrafficquality.google",
+    "fonts.googleapis.com",
+    "fonts.gstatic.com",
+    "googleads.g.doubleclick.net",
+    "pagead2.googlesyndication.com",
+    "static.cloudflareinsights.com",
+    "www.google.com"
+   ],
+   "uploads_over_4kb": [],
+   "non_get_requests": [],
+   "pass": true
+  },
+  "mp4-to-mp3": {
+   "slug": "mp4-to-mp3",
+   "files": [
+    "video.mp4"
+   ],
+   "expect": "ok",
+   "mobile": false,
+   "status": "Done. Your files are ready below.",
+   "outcome": "ok",
+   "outputs": 1,
+   "out_text": "video.mp3 | 141 KB | Download",
+   "saved": [
+    "mp4-to-mp3-0-video.mp3 (144822 B)"
+   ],
+   "validation": [
+    {
+     "ok": true,
+     "duration": 6.03,
+     "codec": "mp3",
+     "rate": "44100",
+     "ch": 2
+    }
+   ],
+   "heap_mb": 31.8,
+   "heap_growth_mb": 21.9,
+   "seconds": 2.2,
+   "page_errors": [],
+   "hosts": [
+    "cdn.jsdelivr.net",
+    "cloudflareinsights.com",
+    "ep1.adtrafficquality.google",
+    "ep2.adtrafficquality.google",
+    "fonts.googleapis.com",
+    "fonts.gstatic.com",
+    "googleads.g.doubleclick.net",
+    "pagead2.googlesyndication.com",
+    "static.cloudflareinsights.com",
+    "www.google.com"
+   ],
+   "uploads_over_4kb": [],
+   "non_get_requests": [],
+   "pass": true
+  },
+  "mp4-to-mp3-10min": {
+   "slug": "mp4-to-mp3",
+   "files": [
+    "long-10min.mp4"
+   ],
+   "expect": "ok",
+   "mobile": false,
+   "status": "Done. Your files are ready below.",
+   "outcome": "ok",
+   "outputs": 1,
+   "out_text": "long-10min.mp3 | 13.73 MB | Download",
+   "saved": [
+    "mp4-to-mp3-10min-0-long-10min.mp3 (14400783 B)"
+   ],
+   "validation": [
+    {
+     "ok": true,
+     "duration": 600.03,
+     "codec": "mp3",
+     "rate": "44100",
+     "ch": 1
+    }
+   ],
+   "heap_mb": 146.9,
+   "heap_growth_mb": 136.9,
+   "seconds": 10.7,
+   "page_errors": [],
+   "hosts": [
+    "cdn.jsdelivr.net",
+    "cloudflareinsights.com",
+    "ep1.adtrafficquality.google",
+    "ep2.adtrafficquality.google",
+    "fonts.googleapis.com",
+    "fonts.gstatic.com",
+    "googleads.g.doubleclick.net",
+    "pagead2.googlesyndication.com",
+    "static.cloudflareinsights.com",
+    "www.google.com"
+   ],
+   "uploads_over_4kb": [],
+   "non_get_requests": [],
+   "pass": true
+  },
+  "m4a-to-mp3": {
+   "slug": "mp4-to-mp3",
+   "files": [
+    "audio.m4a"
+   ],
+   "expect": "ok",
+   "mobile": false,
+   "status": "Done. Your files are ready below.",
+   "outcome": "ok",
+   "outputs": 1,
+   "out_text": "audio.mp3 | 118 KB | Download",
+   "saved": [
+    "m4a-to-mp3-0-audio.mp3 (120999 B)"
+   ],
+   "validation": [
+    {
+     "ok": true,
+     "duration": 5.04,
+     "codec": "mp3",
+     "rate": "44100",
+     "ch": 1
+    }
+   ],
+   "heap_mb": 32.7,
+   "heap_growth_mb": 22.6,
+   "seconds": 2.1,
+   "page_errors": [],
+   "hosts": [
+    "cdn.jsdelivr.net",
+    "cloudflareinsights.com",
+    "ep1.adtrafficquality.google",
+    "ep2.adtrafficquality.google",
+    "fonts.googleapis.com",
+    "fonts.gstatic.com",
+    "googleads.g.doubleclick.net",
+    "pagead2.googlesyndication.com",
+    "static.cloudflareinsights.com",
+    "www.google.com"
+   ],
+   "uploads_over_4kb": [],
+   "non_get_requests": [],
+   "pass": true
+  },
+  "mp4-no-audio": {
+   "slug": "mp4-to-mp3",
+   "files": [
+    "noaudio.mp4"
+   ],
+   "expect": "err",
+   "mobile": false,
+   "status": "This file has no audio track your browser can read. Try another video.",
+   "outcome": "err",
+   "outputs": 0,
+   "out_text": "",
+   "saved": [],
+   "heap_mb": 11.6,
+   "heap_growth_mb": 2.0,
+   "seconds": 1.9,
+   "page_errors": [
+    "console: Error: This file has no audio track your browser can read. Try another video.\n    at RUN.mp4mp3 (http://localhost:8001/assets/files.js?v=bc3edd1c:409:82)\n    at"
+   ],
+   "hosts": [
+    "cdn.jsdelivr.net",
+    "cloudflareinsights.com",
+    "ep1.adtrafficquality.google",
+    "ep2.adtrafficquality.google",
+    "fonts.googleapis.com",
+    "fonts.gstatic.com",
+    "googleads.g.doubleclick.net",
+    "pagead2.googlesyndication.com",
+    "static.cloudflareinsights.com",
+    "www.google.com"
+   ],
+   "uploads_over_4kb": [],
+   "non_get_requests": [],
+   "pass": true
+  },
+  "mobile:compress-basic": {
+   "slug": "compress-image",
+   "files": [
+    "photo.jpg"
+   ],
+   "expect": "ok",
+   "mobile": true,
+   "status": "Done. photo.jpg: 128 KB \u2192 71 KB",
+   "outcome": "ok",
+   "outputs": 1,
+   "out_text": "photo-compressed.jpg | 71 KB | Download",
+   "saved": [
+    "compress-basic-0-photo-compressed.jpg (73032 B)"
+   ],
+   "validation": [
+    {
+     "ok": true,
+     "w": 1600,
+     "h": 1000,
+     "fmt": "JPEG",
+     "mode": "RGB"
+    }
+   ],
+   "heap_mb": 11.2,
+   "heap_growth_mb": 1.6,
+   "seconds": 2.1,
+   "page_errors": [],
+   "hosts": [
+    "cloudflareinsights.com",
+    "ep1.adtrafficquality.google",
+    "ep2.adtrafficquality.google",
+    "fonts.googleapis.com",
+    "fonts.gstatic.com",
+    "googleads.g.doubleclick.net",
+    "pagead2.googlesyndication.com",
+    "static.cloudflareinsights.com",
+    "www.google.com"
+   ],
+   "uploads_over_4kb": [],
+   "non_get_requests": [],
+   "pass": true
+  },
+  "mobile:passport-uk": {
+   "slug": "uk-passport-photo",
+   "files": [
+    "portrait.jpg"
+   ],
+   "expect": "ok",
+   "mobile": true,
+   "status": "Done. Your files are ready below.",
+   "outcome": "ok",
+   "outputs": 2,
+   "out_text": "passport-photo.jpg | 6 KB | Download | passport-sheet-4x6.jpg | 62 KB | Download | Download all (2 files, .zip)",
+   "saved": [
+    "passport-uk-0-passport-photo.jpg (6505 B)",
+    "passport-uk-1-passport-sheet-4x6.jpg (62984 B)"
+   ],
+   "validation": [
+    {
+     "ok": true,
+     "w": 413,
+     "h": 531,
+     "fmt": "JPEG",
+     "mode": "RGB"
+    },
+    {
+     "ok": true,
+     "w": 1800,
+     "h": 1200,
+     "fmt": "JPEG",
+     "mode": "RGB"
+    }
+   ],
+   "heap_mb": 11.2,
+   "heap_growth_mb": 1.8,
+   "seconds": 2.0,
+   "page_errors": [],
+   "hosts": [
+    "cloudflareinsights.com",
+    "ep1.adtrafficquality.google",
+    "ep2.adtrafficquality.google",
+    "fonts.googleapis.com",
+    "fonts.gstatic.com",
+    "googleads.g.doubleclick.net",
+    "pagead2.googlesyndication.com",
+    "static.cloudflareinsights.com",
+    "www.google.com"
+   ],
+   "uploads_over_4kb": [],
+   "non_get_requests": [],
+   "pass": true
+  },
+  "mobile:pdf-to-jpg": {
+   "slug": "pdf-to-jpg",
+   "files": [
+    "doc.pdf"
+   ],
+   "expect": "ok",
+   "mobile": true,
+   "status": "Done. Your files are ready below.",
+   "outcome": "ok",
+   "outputs": 3,
+   "out_text": "doc-page-1.jpg | 130 KB | Download | doc-page-2.jpg | 130 KB | Download | doc-page-3.jpg | 130 KB | Download | Download all (3 files, .zip)",
+   "saved": [
+    "pdf-to-jpg-0-doc-page-1.jpg (132695 B)",
+    "pdf-to-jpg-1-doc-page-2.jpg (132933 B)",
+    "pdf-to-jpg-2-doc-page-3.jpg (133055 B)"
+   ],
+   "validation": [
+    {
+     "ok": true,
+     "w": 1190,
+     "h": 1683,
+     "fmt": "JPEG",
+     "mode": "RGB"
+    }
+   ],
+   "heap_mb": 12.6,
+   "heap_growth_mb": 2.9,
+   "seconds": 2.3,
+   "page_errors": [],
+   "hosts": [
+    "cdnjs.cloudflare.com",
+    "cloudflareinsights.com",
+    "ep1.adtrafficquality.google",
+    "ep2.adtrafficquality.google",
+    "fonts.googleapis.com",
+    "fonts.gstatic.com",
+    "googleads.g.doubleclick.net",
+    "pagead2.googlesyndication.com",
+    "static.cloudflareinsights.com",
+    "www.google.com"
+   ],
+   "uploads_over_4kb": [],
+   "non_get_requests": [],
+   "pass": true
+  },
+  "mobile:pdf-to-word": {
+   "slug": "pdf-to-word",
+   "files": [
+    "doc.pdf"
+   ],
+   "expect": "ok",
+   "mobile": true,
+   "status": "Done. Your files are ready below.",
+   "outcome": "ok",
+   "outputs": 1,
+   "out_text": "doc.docx | 4 KB | Download",
+   "saved": [
+    "pdf-to-word-0-doc.docx (4255 B)"
+   ],
+   "validation": [
+    {
+     "ok": true,
+     "has_text": true,
+     "xml_kb": 2
+    }
+   ],
+   "heap_mb": 12.8,
+   "heap_growth_mb": 3.2,
+   "seconds": 2.0,
+   "page_errors": [],
+   "hosts": [
+    "cdnjs.cloudflare.com",
+    "cloudflareinsights.com",
+    "ep1.adtrafficquality.google",
+    "ep2.adtrafficquality.google",
+    "fonts.googleapis.com",
+    "fonts.gstatic.com",
+    "googleads.g.doubleclick.net",
+    "pagead2.googlesyndication.com",
+    "static.cloudflareinsights.com",
+    "www.google.com"
+   ],
+   "uploads_over_4kb": [],
+   "non_get_requests": [],
+   "pass": true
+  },
+  "mobile:word-to-pdf": {
+   "slug": "word-to-pdf",
+   "files": [
+    "doc.docx"
+   ],
+   "expect": "ok",
+   "mobile": true,
+   "status": "Done. Your files are ready below.",
+   "outcome": "ok",
+   "outputs": 1,
+   "out_text": "doc.pdf | 94 KB | Download",
+   "saved": [
+    "word-to-pdf-0-doc.pdf (96173 B)"
+   ],
+   "validation": [
+    {
+     "ok": true,
+     "pages": 1,
+     "dark_share_by_page": [
+      [
+       1,
+       0.0191
+      ]
+     ]
+    }
+   ],
+   "heap_mb": 24.4,
+   "heap_growth_mb": 15.1,
+   "seconds": 2.3,
+   "page_errors": [],
+   "hosts": [
+    "cdn.jsdelivr.net",
+    "cdnjs.cloudflare.com",
+    "cloudflareinsights.com",
+    "ep1.adtrafficquality.google",
+    "ep2.adtrafficquality.google",
+    "fonts.googleapis.com",
+    "fonts.gstatic.com",
+    "googleads.g.doubleclick.net",
+    "pagead2.googlesyndication.com",
+    "static.cloudflareinsights.com",
+    "www.google.com"
+   ],
+   "uploads_over_4kb": [],
+   "non_get_requests": [],
+   "pass": true
+  },
+  "mobile:mp4-to-mp3": {
+   "slug": "mp4-to-mp3",
+   "files": [
+    "video.mp4"
+   ],
+   "expect": "ok",
+   "mobile": true,
+   "status": "Done. Your files are ready below.",
+   "outcome": "ok",
+   "outputs": 1,
+   "out_text": "video.mp3 | 141 KB | Download",
+   "saved": [
+    "mp4-to-mp3-0-video.mp3 (144822 B)"
+   ],
+   "validation": [
+    {
+     "ok": true,
+     "duration": 6.03,
+     "codec": "mp3",
+     "rate": "44100",
+     "ch": 2
+    }
+   ],
+   "heap_mb": 27.7,
+   "heap_growth_mb": 18.3,
+   "seconds": 2.2,
+   "page_errors": [],
+   "hosts": [
+    "cdn.jsdelivr.net",
+    "cloudflareinsights.com",
+    "ep1.adtrafficquality.google",
+    "ep2.adtrafficquality.google",
+    "fonts.googleapis.com",
+    "fonts.gstatic.com",
+    "googleads.g.doubleclick.net",
+    "pagead2.googlesyndication.com",
+    "static.cloudflareinsights.com",
+    "www.google.com"
+   ],
+   "uploads_over_4kb": [],
+   "non_get_requests": [],
+   "pass": true
+  }
+ },
+ "layout": {
+  "mobile_small_tap_targets": {
+   "/": 72,
+   "/credits/": 27,
+   "/guides/social-media-image-sizes/": 22,
+   "/china-visa-photo/": 18,
+   "/guides/image-resolution-sizes-explained/": 18,
+   "/us-passport-photo/": 17,
+   "/uk-passport-photo/": 17,
+   "/canada-passport-photo/": 17
+  },
+  "mobile": {
+   "pages": 92,
+   "problems": [],
+   "page_errors": []
+  },
+  "desktop_small_tap_targets": {
+   "/": 76,
+   "/credits/": 40,
+   "/guides/social-media-image-sizes/": 27,
+   "/india-passport-photo/": 24,
+   "/china-visa-photo/": 24,
+   "/guides/image-resolution-sizes-explained/": 24,
+   "/us-passport-photo/": 23,
+   "/uk-passport-photo/": 23
+  },
+  "desktop": {
+   "pages": 92,
+   "problems": [],
+   "page_errors": []
+  }
+ },
+ "summary": {
+  "passed": 62,
+  "total": 62,
+  "failed": [],
+  "privacy_violations": [],
+  "third_party_hosts": [
+   "cdn.jsdelivr.net",
+   "cdnjs.cloudflare.com",
+   "cloudflareinsights.com",
+   "csi.gstatic.com",
+   "ep1.adtrafficquality.google",
+   "ep2.adtrafficquality.google",
+   "fonts.googleapis.com",
+   "fonts.gstatic.com",
+   "googleads.g.doubleclick.net",
+   "pagead2.googlesyndication.com",
+   "static.cloudflareinsights.com",
+   "staticimgly.com",
+   "www.google.com"
+  ]
+ }
+}
