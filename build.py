@@ -321,6 +321,19 @@ def build():
             + "".join(f'<button type="button" class="flt" data-f="{k}" aria-pressed="{"true" if k == "all" else "false"}">{lbl}</button>' for k, lbl in FILTERS)
             + '</div><div class="tgrid" id="tgrid">' + "".join(tile(t) for t in mains) + '</div>'
             + f'<ul class="trust"><li>{TICK}Files stay on your device</li><li>{TICK}No sign-up, no watermark, no limits</li><li>{TICK}Works on any phone or computer</li></ul>'
+            + '<section class="why" aria-labelledby="why-h"><h2 class="h2" id="why-h">Why Tools for World</h2><div class="whygrid">'
+              '<div><h3>Your files stay with you</h3><p>PDFs, photos and scans are processed inside your browser. They are never sent to a server, so a passport scan or a payslip never leaves your device. <a href="guides/check-files-never-uploaded/">Check it yourself in one minute</a>.</p></div>'
+              '<div><h3>Made for real forms</h3><p>Job portals, visa forms and universities ask for exact sizes: a photo under 50 KB, a PDF under 2 MB, a 35&nbsp;×&nbsp;45&nbsp;mm passport photo. Each of these has its own ready-set page.</p></div>'
+              '<div><h3>Free without catches</h3><p>No account, no watermark, no daily limit and no "upgrade to download". The site is paid for by ads, which never see your files.</p></div>'
+              '<div><h3>Tested on every update</h3><p>Every tool is run automatically in a real browser each time the site changes, and official sizes link to the government pages they come from.</p></div>'
+              '</div>'
+              '<div class="scroll"><table class="t cmp"><caption>How this compares with many online converters</caption><thead><tr><th></th><th>Tools for World</th><th>Many online converters</th></tr></thead><tbody>'
+              '<tr><td>Your file is uploaded to a server</td><td>Never</td><td>Usually</td></tr>'
+              '<tr><td>Account needed</td><td>No</td><td>Often, for bigger files or more uses</td></tr>'
+              '<tr><td>Watermark on results</td><td>No</td><td>Sometimes, on free plans</td></tr>'
+              '<tr><td>Daily limit</td><td>No</td><td>Often, on free plans</td></tr>'
+              '<tr><td>Exact size presets (KB, pixels, mm)</td><td>Yes</td><td>Varies</td></tr>'
+              '</tbody></table></div></section>'
             + f'<details class="xall"><summary>All sizes, countries and languages</summary>{extra}</details></div>'
             + '<p class="aka">Tools for World (also written ToolsForWorld or Tools 4 World) is at toolsforworld.com.</p>')
     write("index.html", page("", "Tools for World – Free PDF, Image & Everyday Tools Online",
@@ -337,6 +350,7 @@ def build():
 <h2>Who makes it</h2><p>Tools for World is an independent project built and maintained by <b>Mehroz Shabir</b>. Every tool is designed, written and tested by hand, and new tools are added based on what visitors ask for.</p>
 <h2>How the tools work</h2><p>All tools run inside your browser. Files you open are processed on your own device and are never uploaded to our servers. Where a tool needs extra code, such as the OCR language data or the background-removal model, your browser downloads that code, and then the work happens locally. This is why the tools keep working on slow connections once a page has loaded, and why your documents stay private.</p>
 <h2>What we promise</h2><ul><li><b>Free:</b> no sign-up, no limits on use and no watermarks.</li><li><b>Private:</b> your files stay on your device. See our <a href="../privacy/">privacy policy</a>.</li><li><b>Accurate guidance:</b> pages about official sizes, such as passport photos, link to the rules and remind you to check the latest requirements with the official authority.</li><li><b>Tested:</b> every tool is checked automatically in a real browser whenever the site is updated.</li></ul>
+<h2>Don't just take our word for it</h2><p>You can confirm that your files are not uploaded using the developer tools built into every desktop browser. Our short guide shows how: <a href="../guides/check-files-never-uploaded/">how to check that your files never leave your device</a>.</p>
 <h2>How the site is funded</h2><p>The site is kept free by advertising. Ads never change how a tool works, and they never have access to your files.</p>
 <h2>Get in touch</h2><p>Found a bug or want a new tool? Write to us via the <a href="../contact/">contact page</a>. Many of our tools were added because someone asked for them.</p>
 <p>You may also see us written as ToolsForWorld, Tools4World or Tools 4 World. It's the same site: <a href="https://toolsforworld.com/">toolsforworld.com</a>.</p>'''),

@@ -276,3 +276,6 @@ header nav .navall{color:var(--accent);font-weight:600}
   .filters::-webkit-scrollbar{display:none}
   .flt{white-space:nowrap;flex:none}
 }
+.why{margin:2.2rem 0 1rem}.whygrid{display:grid;grid-template-columns:repeat(auto-fit,minmax(220px,1fr));gap:14px;margin:.6rem 0 1rem}
+.whygrid>div{background:var(--surface);border:1px solid var(--line);border-radius:12px;padding:14px 16px}.whygrid h3{margin:0 0 .35rem;font-size:1rem}.whygrid p{margin:0;font-size:.92rem;color:var(--muted)}
+.cmp caption{text-align:left;font-weight:600;padding:.4rem 0}

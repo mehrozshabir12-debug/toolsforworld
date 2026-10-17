@@ -256,4 +256,39 @@ GUIDES = [
              ("How many megapixels is 3000x3000?", "9 megapixels: 3000 × 3000 = 9,000,000 pixels."),
              ("How do I resize a photo to an exact pixel size for free?", "Open the matching resize page, choose your photo, pick crop or border, and press Resize. It runs in your browser, so nothing is uploaded.")],
     ),
+    dict(
+        slug="check-files-never-uploaded",
+        date="2026-10-17",
+        title="How to Check That a Website Never Uploads Your Files",
+        desc="Two simple tests anyone can do to see whether an online PDF or image tool uploads your files: the airplane-mode test and the browser Network tab.",
+        h1="How to check that a website never uploads your files",
+        lead="Many sites say “we respect your privacy”. With two quick tests you can see for yourself whether a tool sends your file to a server, before you trust it with a passport scan, a payslip or an assignment.",
+        body='''<h2>Why it matters</h2>
+<p>Most online converters work by uploading your file to their server, processing it there and sending back the result. That can be fine for a holiday photo, but not for a passport, a bank statement or medical letter. A tool that runs in your browser does the work on your own device instead, so the file never travels anywhere.</p>
+
+<h2>Test 1: the airplane-mode test (any phone or computer)</h2>
+<ol><li>Open the tool page and wait until it has fully loaded.</li>
+<li>Turn on airplane mode, or switch off Wi-Fi and mobile data.</li>
+<li>Choose your file and run the tool.</li></ol>
+<p>If you still get your result with no internet connection, the file could not have been uploaded. Try it with our <a href="{R}compress-image/">image compressor</a> or <a href="{R}merge-pdf/">Merge PDF</a>.</p>
+<div class="warnbox">Some tools need to download extra code the first time, such as the language data for <a href="{R}image-to-text/">OCR</a> or the AI model for the <a href="{R}remove-background/">background remover</a>. Run them once while online so that part is downloaded, then repeat the test offline.</div>
+
+<h2>Test 2: the Network tab (desktop browsers)</h2>
+<p>Every desktop browser can show you each request a page makes.</p>
+<ol><li>Open the tool page.</li>
+<li>Open the developer tools: <b>F12</b> or <b>Ctrl + Shift + I</b> on Windows and Linux, <b>Cmd + Option + I</b> on a Mac. In Safari, first turn on Settings → Advanced → “Show features for web developers”.</li>
+<li>Click the <b>Network</b> tab, then the clear button (a circle with a line through it) so the list is empty.</li>
+<li>Choose your file and run the tool, then look at the new rows in the list.</li></ol>
+<p><b>What an upload looks like:</b> a request with the method <b>POST</b> or <b>PUT</b> whose request size is about as big as your file (for example a 2 MB request after you picked a 2 MB PDF). Click a row to see its size and where it went.</p>
+<p><b>What is normal:</b> downloads of scripts and fonts, and small requests to analytics or ads services. These are a few kilobytes and don't contain your file. On Tools for World you will not see a request the size of your file.</p>
+
+<h2>Other signs to watch for</h2>
+<ul><li>A progress bar that says “Uploading…”.</li>
+<li>A results page with a link that works on another device: the file must be stored on a server.</li>
+<li>A notice that files are “deleted after one hour”: they were uploaded first.</li></ul>
+<p>None of these is wrong in itself, but they tell you the file left your device. For private documents, choose a tool that passes both tests above.</p>''',
+        faq=[("Does a padlock in the address bar mean my file stays private?", "No. The padlock means the connection is encrypted. Your file can still be uploaded and stored on the website's server."),
+             ("Why does the page load anything at all if files aren't uploaded?", "The page downloads the code that does the work, such as the PDF library or OCR language data. Downloads come to you; nothing from your file goes out."),
+             ("Does Tools for World use analytics or ads?", "Yes. The site uses Google Analytics and shows ads to stay free. Those services see that a page was visited, but never your files.")],
+    ),
 ]
