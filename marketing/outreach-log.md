@@ -10,6 +10,14 @@ Rules (owner, 17 Oct 2026):
 - Never contact the same site twice. Follow up at most once, after 7+ days, only if there was no reply.
 - Never pay for links.
 
+Focus (owner, 17 Oct 2026): from now on approach only university teaching staff and university teaching/library/digital-learning teams (word-of-mouth through students). Each address is found and checked one by one on the person's or team's own university page; no bulk lists, no scraping tools, no bought lists (Australian Spam Act bans harvested-address lists). Max 10 a day, max 1 per department per day.
+
+## How to send approved emails (when the owner says "approved emails bhej do" on his computer)
+1. Pull the repo and open this file. Take every item marked "Approved (date)" that is not yet sent.
+2. For each one, in Claude in Chrome open a Gmail compose URL: https://mail.google.com/mail/?view=cm&fs=1&to=<email>&su=<subject>&body=<body> (URL-encoded, text exactly as approved).
+3. Click the recipient row to reveal From, open the From dropdown, choose "Tools For World <hello@toolsforworld.com>", zoom to confirm the From field, then press Send and confirm "Message sent".
+4. Move the row to "Contacted" with the send date, commit and push. Report in Roman Urdu.
+
 ## Contacted
 
 | Date | Site | Contact | Page / reason | Channel | Status |
