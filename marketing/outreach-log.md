@@ -22,6 +22,14 @@ Focus (owner, 17 Oct 2026): from now on approach only university teaching staff 
 
 | Date | Site | Contact | Page / reason | Channel | Status |
 |---|---|---|---|---|---|
+| 2026-10-18 | Oxford Continuing Education (TALL) | tallithelp@conted.ox.ac.uk | Online support: My file is too large to submit | email | sent |
+| 2026-10-18 | Glasgow School of Art Library | library@gsa.ac.uk | Library FAQ: compress files for Canvas | email | sent |
+| 2026-10-18 | U of Toronto Engineering EdTech | fase.edtech@utoronto.ca | Faculty Question of the Week: 100 MB Turnitin limit | email | sent |
+| 2026-10-18 | Utah State Univ. (Prof. Darrin Brooks) | darrin.brooks@usu.edu | BID portfolio submission, 25MB limit | email | sent |
+| 2026-10-18 | Macquarie Univ. (Nicole Matthews) | nicole.matthews@mq.edu.au | MMCC2061 Photo Media unit | email | sent |
+| 2026-10-18 | U of Nottingham HELM Team | hs-elearning-help@nottingham.ac.uk | Turnitin help: save as PDF and compress (links SmallPDF) | email | sent |
+| 2026-10-18 | U of Cumbria Library | library@cumbria.ac.uk | Cumbria Card photo instructions (links picresize) | email | sent |
+| 2026-10-18 | UW–Madison Gernsbacher Lab | gernsbacherlab@psych.wisc.edu | PSY 532 file-size handout (links smallpdf) | email | sent |
 | 2026-10-17 | SoftwareTestingHelp | info@softwaretestinghelp.com | Best image resizer tools list (invites suggestions) | email | replied 17 Oct: paid placements only, not pursuing |
 | 2026-10-17 | UAL CSM Digital Learning | csmdigitallearning@arts.ac.uk | Compressing files for assignments | email | sent |
 | 2026-10-17 | Insider Guides | content@insiderguides.com.au | Passport photo guide for international students | email | sent |
@@ -45,7 +53,7 @@ Focus (owner, 17 Oct 2026): from now on approach only university teaching staff 
 | softwaretestinghelp.com | listings are paid (PPC/PPL) only |
 | ailovekit, pdfsnap, mochitools, convertkr, getpdfnest, aservus, raptorpdf, qwikpdf, passlens, passportninja, photopass, passportprints | competing tool vendors |
 
-## Ready to send (2026-10-18)
+## Sent 2026-10-18 (texts kept for reference)
 
 | # | Name | University | Country | Email | Source page | Why |
 |---|---|---|---|---|---|---|
