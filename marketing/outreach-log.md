@@ -22,6 +22,7 @@ Focus (owner, 17 Oct 2026): from now on approach only university teaching staff 
 
 | Date | Site | Contact | Page / reason | Channel | Status |
 |---|---|---|---|---|---|
+| 2026-10-18 | Muzamil Hasan (Thought Behind Things podcast) | hello@muzamilhasan.com | Owner asked for a promotion request; email from his contact page; owner allowed 'student studying in Australia' in this email | email | sent |
 | 2026-10-18 | Oxford Continuing Education (TALL) | tallithelp@conted.ox.ac.uk | Online support: My file is too large to submit | email | sent |
 | 2026-10-18 | Glasgow School of Art Library | library@gsa.ac.uk | Library FAQ: compress files for Canvas | email | sent |
 | 2026-10-18 | U of Toronto Engineering EdTech | fase.edtech@utoronto.ca | Faculty Question of the Week: 100 MB Turnitin limit | email | sent |
