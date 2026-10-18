@@ -148,3 +148,66 @@ The Tools for World team
 https://toolsforworld.com
 
 If you'd rather not hear from us again, just reply and let us know.
+
+### Added 2026-10-18 (owner asked to approach the best backlink places today)
+
+| # | Name | University | Country | Email | Source page | Why |
+|---|---|---|---|---|---|---|
+| 6 | HELM Team (Health E-Learning and Media), School of Health Sciences | University of Nottingham | UK | hs-elearning-help@nottingham.ac.uk | https://www.nottingham.ac.uk/healthsciences/app-resources/turnitinhelp/Saving_as_pdf.html | Turnitin help page "save as PDF and compress it" already links SmallPDF for files over 20MB; email given on the page |
+| 7 | Library (LiSS), Cumbria Card photos | University of Cumbria | UK | library@cumbria.ac.uk | https://www.cumbria.ac.uk/media/university-of-cumbria-website/content-assets/liss/documents/information/PhotoUploadInstructions2021.pdf | Student ID photo instructions recommend an external site (picresize.com) to crop to 300 px; email given in the document |
+| 8 | Gernsbacher Lab (Prof. Morton Ann Gernsbacher) | University of Wisconsin–Madison | USA | gernsbacherlab@psych.wisc.edu | https://internet.psych.wisc.edu/wp-content/uploads/532-Master/532-CourseMaterials/PSY-532_FileSize_Canvas_HANDOUT.pdf | PSY 532 Canvas file-size handout links smallpdf.com; lab contact page says to email this address for inquiries |
+
+### 6. Nottingham HELM Team – hs-elearning-help@nottingham.ac.uk
+Subject: A no-upload PDF compressor for your Turnitin help page
+
+Hello HELM Team,
+
+We came across your Turnitin help page on saving a Word document as a PDF and compressing it. It's clear and practical, and it points students to an online compressor when a file is over 20MB.
+
+In case a second option is useful, Tools for World is a free PDF compressor that runs inside the browser, so the student's assignment is never uploaded to a server. For health sciences students, whose work can include placement or patient-related material, that may be a reassuring difference. There is no sign-up and no cost:
+
+https://toolsforworld.com/compress-pdf/
+
+If you think it would help, you're welcome to add it to the page or share it with students. Thanks for the useful guide either way.
+
+The Tools for World team
+https://toolsforworld.com
+
+If you'd rather not hear from us again, just reply and let us know.
+
+### 7. University of Cumbria Library – library@cumbria.ac.uk
+Subject: A no-upload option for Cumbria Card photo cropping
+
+Hello Library team,
+
+We read your Cumbria Card photo upload instructions. They explain the process well, and for cropping they suggest an outside website where students upload their photo.
+
+Since a student ID photo is personal, you might like a free option that doesn't upload it at all. Tools for World crops and resizes photos to an exact pixel size (for example 300 px wide) inside the browser, so the picture never leaves the student's device. No sign-up, no cost:
+
+https://toolsforworld.com/resize-image/
+
+If it seems helpful, you're welcome to mention it in the instructions next time they are updated. Thank you for your time.
+
+The Tools for World team
+https://toolsforworld.com
+
+If you'd rather not hear from us again, just reply and let us know.
+
+### 8. Gernsbacher Lab, UW–Madison – gernsbacherlab@psych.wisc.edu
+Subject: A free, no-upload PDF compressor for the PSY 532 file-size handout
+
+Hello,
+
+We came across the file-size handout for PSY 532 on Canvas. It's a thoughtful, step-by-step guide, and it links an online PDF compressor for students on Windows.
+
+In case it's useful, Tools for World is a free compressor that works in any browser on Windows, Mac or a phone, and processes the file on the student's own device, so their work is never uploaded to a server. There is no sign-up, no limit and no watermark:
+
+https://toolsforworld.com/compress-pdf/
+https://toolsforworld.com/compress-image/
+
+If it fits, you're welcome to add it to the handout or share it with students. Thank you for making such clear course materials.
+
+The Tools for World team
+https://toolsforworld.com
+
+If you'd rather not hear from us again, just reply and let us know.
