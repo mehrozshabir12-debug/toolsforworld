@@ -44,3 +44,107 @@ Focus (owner, 17 Oct 2026): from now on approach only university teaching staff 
 | dcreport.org | advertorial (paid) content |
 | softwaretestinghelp.com | listings are paid (PPC/PPL) only |
 | ailovekit, pdfsnap, mochitools, convertkr, getpdfnest, aservus, raptorpdf, qwikpdf, passlens, passportninja, photopass, passportprints | competing tool vendors |
+
+## Ready to send (2026-10-18)
+
+| # | Name | University | Country | Email | Source page | Why |
+|---|---|---|---|---|---|---|
+| 1 | Online courses support (TALL help), Department for Continuing Education | University of Oxford | UK | tallithelp@conted.ox.ac.uk | https://onlinesupport.conted.ox.ac.uk/my-file-is-too-large-to-submit-what-do-i-do/ | Online/distance student support page "My file is too large to submit" suggests a free online image/PDF compressor |
+| 2 | GSA Library and LT Help | The Glasgow School of Art | UK (Scotland) | library@gsa.ac.uk | https://gsa.libanswers.com/faq/263876 | Library FAQ "How do I compress my files before ... submitting to Canvas?" (official GSA Library Help site, hosted on LibAnswers) |
+| 3 | Education Technology Office, Faculty of Applied Science & Engineering | University of Toronto | Canada | fase.edtech@utoronto.ca | https://edtech.engineering.utoronto.ca/faculty-question-of-the-week-april-09-2026/ | Post on large PDFs failing DocViewer/Turnitin's 100 MB limit; advises shrinking images and splitting files |
+| 4 | Darrin Brooks, Professor, Interior Architecture & Design | Utah State University | USA | darrin.brooks@usu.edu | https://artsci.usu.edu/art-design/students/bid-portfolio-review/portfolio-submission | Contact for BID portfolio review; 25MB PDF limit, links students to a compression guide |
+| 5 | Nicole Matthews, Convenor, MMCC2061 Photo Media | Macquarie University | Australia | nicole.matthews@mq.edu.au | https://unitguides.mq.edu.au/unit_offerings/168322/unit_guide | Photography unit with a photo-essay assessment; online flex (external) students submit everything digitally |
+
+### 1. Oxford Continuing Education – tallithelp@conted.ox.ac.uk
+Subject: A no-upload option for your "My file is too large to submit" page
+
+Hello,
+
+We came across your support article "My file is too large to submit – what do I do?" for online course students. It's a clear step-by-step guide, and it suggests a free online image or PDF compressor when Word's own options aren't enough.
+
+In case it's useful, Tools for World is a free set of file tools that run inside the browser, so the student's assignment is never uploaded to a server. That matters for students who aren't comfortable sending their work to an unknown converter site. It's free and needs no sign-up:
+
+https://toolsforworld.com/compress-pdf/
+https://toolsforworld.com/compress-image/
+
+If it looks helpful, you're welcome to mention it on the page or share it with students. Either way, thanks for the useful guide.
+
+The Tools for World team
+https://toolsforworld.com
+
+If you'd rather not hear from us again, just reply and let us know.
+
+### 2. Glasgow School of Art Library – library@gsa.ac.uk
+Subject: A free in-browser compressor for your Canvas file-size FAQ
+
+Hello GSA Library team,
+
+We read your FAQ "How do I compress my files before sending as an email attachment or submitting to Canvas?" It explains the Acrobat and PowerPoint routes well. Many art students don't have Acrobat Pro at home, though, and some end up uploading portfolios to random converter sites.
+
+Tools for World is a free alternative that works in any browser: it compresses PDFs and images on the student's own computer, so the files are never uploaded. No sign-up, no cost:
+
+https://toolsforworld.com/compress-pdf/
+https://toolsforworld.com/compress-image/
+
+If it seems useful, you could add it to the FAQ or pass it on to students. Thanks for the helpful guidance either way.
+
+The Tools for World team
+https://toolsforworld.com
+
+If you'd rather not hear from us again, just reply and let us know.
+
+### 3. University of Toronto Engineering EdTech Office – fase.edtech@utoronto.ca
+Subject: A free tool for the "file too large for Turnitin" problem
+
+Hello EdTech Office team,
+
+We read your Faculty Question of the Week from 9 April 2026, about a group PDF that wouldn't render in DocViewer or get a Turnitin report because it was over 100 MB. The fixes you list (smaller images, re-printing to PDF, splitting the file) are spot on.
+
+In case it helps students with those steps, Tools for World is a free set of browser-based tools that compress, split and merge PDFs and shrink images. Everything runs on the student's own computer, so their assignment files are never uploaded anywhere. No sign-up needed:
+
+https://toolsforworld.com/compress-pdf/
+https://toolsforworld.com/split-pdf/
+
+If it's useful, feel free to share it with instructors or students. Thanks for publishing such practical guidance.
+
+The Tools for World team
+https://toolsforworld.com
+
+If you'd rather not hear from us again, just reply and let us know.
+
+### 4. Darrin Brooks (Utah State University) – darrin.brooks@usu.edu
+Subject: A free way for BID students to get portfolios under 25MB
+
+Hello Professor Brooks,
+
+We saw the portfolio submission page for the Interior Architecture & Design portfolio review, which you are listed as the contact for. The 25MB PDF limit, and the reminder to check that images still look good after reducing the file, is a step a lot of students find tricky.
+
+Tools for World is a free website that compresses PDFs and images inside the browser, so students' portfolio files never leave their own computer. There is no sign-up and no cost, which helps students who don't have Acrobat:
+
+https://toolsforworld.com/compress-pdf/
+
+If you think it would help, you're welcome to share it with students before the next review. Thank you for your time.
+
+The Tools for World team
+https://toolsforworld.com
+
+If you'd rather not hear from us again, just reply and let us know.
+
+### 5. Nicole Matthews (Macquarie University) – nicole.matthews@mq.edu.au
+Subject: A free photo tool for Photo Media students
+
+Hello Nicole,
+
+We came across the unit guide for MMCC2061 Photo Media. With a photo essay as a major task and online flex students submitting everything digitally, we thought a simple file tool might be handy for your students.
+
+Students often hit upload limits with full-size camera photos, and many end up using unknown converter sites. Tools for World resizes and compresses images, and turns a set of photos into one PDF, all inside the browser, so the photos never leave the student's computer. It's free with no sign-up:
+
+https://toolsforworld.com/compress-image/
+https://toolsforworld.com/jpg-to-pdf/
+
+If it seems useful, feel free to share it with students or add it to the unit resources. Thanks for your time.
+
+The Tools for World team
+https://toolsforworld.com
+
+If you'd rather not hear from us again, just reply and let us know.
