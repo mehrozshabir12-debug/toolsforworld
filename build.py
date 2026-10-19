@@ -62,6 +62,8 @@ import landing_notes
 landing_notes.enrich(T)
 import query_boost
 query_boost.enrich(T)
+import core_content
+core_content.enrich(T)
 BY = {t['slug']: t for t in T}
 
 # Hand-picked "related tools" for each main tool (what people usually need next)
@@ -397,11 +399,14 @@ def build():
 <h2>Children</h2><p>Tools for World is a general-audience site and does not knowingly collect personal information from children.</p>
 <h2>Contact</h2><p>Questions about this policy: see our <a href="../contact/">contact page</a>.</p>'''),
         "terms": ("Terms of Use – Tools for World", "The terms for using Tools for World's free online PDF, image and text tools, including limits of liability.",
-                  f'''<h1>Terms of Use</h1><p>Last updated: __LASTMOD__</p><p>Tools for World tools are free to use for personal and business purposes. They are provided “as is”, without any warranty, and we are not liable for any loss arising from their use.</p>
-<p>Results such as conversions and calculations are provided for convenience. Check important documents and figures before you rely on them.</p>
-<p>You are responsible for the files you process. Only convert files you own or have permission to use, and do not use the tools for anything illegal.</p>
+                  f'''<h1>Terms of Use</h1><p>Last updated: __LASTMOD__</p><p>By using toolsforworld.com you agree to these terms. If you don't agree, please don't use the site.</p>
+<h2>Using the tools</h2><p>Tools for World tools are free to use for personal and business purposes, with no account needed. Please don't try to disrupt the site, overload it with automated requests, or copy the site as a whole to present it as your own.</p>
+<h2>Your files and content</h2><p>Files you open in our tools are processed in your own browser and are not uploaded to us. You are responsible for the files you process. Only convert files you own or have permission to use, and do not use the tools for anything illegal, such as forging documents or breaking copyright.</p>
+<h2>Accuracy and no warranty</h2><p>The tools and guides are provided “as is”, without any warranty, and we are not liable for any loss arising from their use. Results such as conversions and calculations are provided for convenience. Check important documents and figures before you rely on them.</p>
 <p>Official photo sizes and other rules shown on this site are a guide. Always check the latest requirements with the official authority before you submit an application.</p>
-<p>We may change or remove tools and these terms at any time. Questions: see our <a href="../contact/">contact page</a>.</p>'''),
+<h2>Advertising and other websites</h2><p>The site may show ads served by Google AdSense and links to other websites. We don't control those sites or ads and aren't responsible for their content. How ads and cookies work is explained in our <a href="../privacy/">privacy policy</a>.</p>
+<h2>Our content</h2><p>The text, guides and design of this site belong to Tools for World. You're welcome to link to any page. The open-source libraries that power some tools keep their own licences, listed on the <a href="../credits/">credits page</a>.</p>
+<h2>Changes</h2><p>We may change or remove tools and these terms at any time. The date at the top shows when they last changed. Questions: see our <a href="../contact/">contact page</a>.</p>'''),
         "credits": ("Open-Source Credits – Tools for World", "The open-source libraries and fonts that power Tools for World, with their licences.",
                     '''<h1>Open-source credits</h1><p>Tools for World is built on excellent open-source software. Thank you to everyone who makes these projects. Each library is used unmodified and is loaded from a public CDN; follow the links for the source code and full licence text.</p>
 <div class="scroll"><table class="t"><thead><tr><th>Project</th><th>Used for</th><th>Licence</th></tr></thead><tbody>
