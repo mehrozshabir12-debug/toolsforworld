@@ -64,6 +64,8 @@ import query_boost
 query_boost.enrich(T)
 import core_content
 core_content.enrich(T)
+import preset_content
+preset_content.enrich(T)
 BY = {t['slug']: t for t in T}
 
 # Hand-picked "related tools" for each main tool (what people usually need next)
