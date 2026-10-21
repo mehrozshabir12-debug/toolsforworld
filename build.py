@@ -156,7 +156,7 @@ def page(rel_root, title, desc, canon, body, scripts="", body_attr="", jsonld=No
 {ld}
 </head>
 <body{body_attr}>
-<header><div class="wrap"><a class="logo" href="{rel_root}" aria-label="Tools for World home"><svg viewBox="0 0 32 32" width="40" height="40" aria-hidden="true"><circle cx="16" cy="16" r="15" fill="var(--accent)"/><g fill="none" stroke="var(--accent-ink)" stroke-width="1.8"><circle cx="16" cy="16" r="9.5"/><ellipse cx="16" cy="16" rx="4.2" ry="9.5"/><path d="M6.8 13h18.4M6.8 19h18.4"/></g></svg><span>Tools <i>for</i> World</span></a><nav aria-label="Main">{nav}<a href="{rel_root}#all" class="navall">All tools</a></nav><form class="hsearch" role="search" action="{rel_root}" method="get"><input type="search" name="q" placeholder="Search tools…" aria-label="Search tools" autocomplete="off"></form></div></header>
+<header><div class="wrap"><a class="logo" href="{rel_root or './'}" aria-label="Tools for World home"><svg viewBox="0 0 32 32" width="40" height="40" aria-hidden="true"><circle cx="16" cy="16" r="15" fill="var(--accent)"/><g fill="none" stroke="var(--accent-ink)" stroke-width="1.8"><circle cx="16" cy="16" r="9.5"/><ellipse cx="16" cy="16" rx="4.2" ry="9.5"/><path d="M6.8 13h18.4M6.8 19h18.4"/></g></svg><span>Tools <i>for</i> World</span></a><nav aria-label="Main">{nav}<a href="{rel_root}#all" class="navall">All tools</a></nav><form class="hsearch" role="search" action="{rel_root}" method="get"><input type="search" name="q" placeholder="Search tools…" aria-label="Search tools" autocomplete="off"></form></div></header>
 <main class="wrap">
 {body}
 </main>

@@ -8,7 +8,7 @@ GUIDES = [
     dict(
         slug="passport-photo-size-by-country",
         date="2026-10-15",
-        title="Passport Photo Size by Country: US, UK, Canada, Australia, India, Pakistan, Schengen & China",
+        title="Passport Photo Size by Country: US, UK, Canada, India & More",
         desc="Passport and visa photo sizes for 8 countries in one table, with head size, background colour and the mistakes that get photos rejected.",
         h1="Passport photo size by country",
         lead="Every country sets its own photo size, head size and background. Here are the rules for eight of the most common applications in one place, and how to get a photo that passes first time.",
@@ -84,7 +84,7 @@ GUIDES = [
     dict(
         slug="how-to-compress-photo-to-50kb",
         date="2026-10-15",
-        title="How to Reduce Photo Size to 50 KB for Online Forms (Without Losing Quality)",
+        title="How to Reduce Photo Size to 50 KB for Online Forms",
         desc="Step-by-step: make a photo or signature fit the 20 KB, 50 KB or 100 KB limit on exam, job and government forms, on phone or computer, for free.",
         h1="How to reduce a photo to 50 KB for online forms",
         lead="Exam, job and government portals often reject photos that are even 1 KB over the limit. Here is how to get under 50 KB (or any size) while keeping your face sharp.",
@@ -168,7 +168,7 @@ GUIDES = [
     dict(
         slug="social-media-image-sizes",
         date="2026-10-15",
-        title="Social Media Image Sizes Cheat Sheet: Instagram, Facebook, YouTube, LinkedIn, X & Pinterest",
+        title="Social Media Image Sizes: Instagram, Facebook, YouTube & More",
         desc="The image sizes in pixels for posts, stories, covers, banners and thumbnails on every major platform, plus the safe zones where text gets hidden.",
         h1="Social media image sizes cheat sheet",
         lead="Uploading at the wrong size makes platforms crop or blur your image. Here are the sizes that work on each platform, and where to keep your text so it isn't hidden.",
@@ -215,7 +215,7 @@ GUIDES = [
     dict(
         slug="image-resolution-sizes-explained",
         date="2026-10-16",
-        title="Image Resolutions Explained: 720p, 1080p, 1440p, 4K & Square Sizes in Pixels",
+        title="Image Resolutions Explained: 720p, 1080p, 4K & Square Sizes",
         desc="What 1280×720, 1920×1080, 2560×1440, 1080×1920 and 3000×3000 mean, which shape each one is, how pixels relate to print size, and how to resize to any of them.",
         h1="Image resolutions explained: 720p, 1080p, 1440p, 4K and square sizes",
         lead="Forms, platforms and screens ask for sizes like 1920×1080 or 3000×3000. Here is what those numbers mean, which shape each one is, and how to get your photo to exactly the right size.",
