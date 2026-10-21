@@ -257,6 +257,54 @@ GUIDES = [
              ("How do I resize a photo to an exact pixel size for free?", "Open the matching resize page, choose your photo, pick crop or border, and press Resize. It runs in your browser, so nothing is uploaded.")],
     ),
     dict(
+        slug="file-size-limits-kb-mb-explained",
+        date="2026-10-22",
+        title="File Size Limits Explained: KB vs MB and How to Get Under Them",
+        desc="What “under 200 KB” or “less than 1 MB” really means, why 1 MB can be 1000 or 1024 KB, how to check a file's size on any device, and how to meet each kind of limit.",
+        h1="File size limits explained: KB, MB and how to get under them",
+        lead="Online forms reject files that are a few kilobytes too big, and the rules are rarely explained. This guide covers what the numbers mean, how to check your file, and the quickest way to meet each kind of limit.",
+        body=r"""<h2>What KB and MB mean</h2>
+<p>File size is measured in bytes. A <b>kilobyte (KB)</b> is about a thousand bytes and a <b>megabyte (MB)</b> is about a thousand kilobytes. A typed one-page PDF is often 20–80 KB, a phone photo is usually 2–5 MB, and a phone-scanned page saved as a PDF can be 1–3 MB on its own.</p>
+
+<h2>Is 1 MB 1000 KB or 1024 KB?</h2>
+<p>Both are in use. Windows File Explorer counts 1 KB as 1024 bytes and 1 MB as 1024 KB. macOS Finder and most phone apps count in thousands. A file that Windows calls 1,000 KB is shown as about 1.02 MB on a Mac. Upload forms don't say which they use, so the safe rule is simple: <b>aim a little under the limit</b>. Our compressors do this for you, making the file just under the number you choose.</p>
+
+<h2>How to check a file's size</h2>
+<div class="scroll"><table class="t"><thead><tr><th>Device</th><th>How</th></tr></thead><tbody>
+<tr><td>Windows</td><td>Right-click the file → <b>Properties</b>. Look at “Size”, not “Size on disk”.</td></tr>
+<tr><td>Mac</td><td>Select the file and press <b>Cmd + I</b>.</td></tr>
+<tr><td>Android</td><td>Open the Files app, long-press the file and choose <b>Details</b> or <b>Info</b>.</td></tr>
+<tr><td>iPhone</td><td>In the Files app, press and hold the file → <b>Get Info</b>. In Photos, open the photo and tap the <b>(i)</b> button.</td></tr>
+</tbody></table></div>
+
+<h2>Which tool for which limit</h2>
+<div class="scroll"><table class="t"><thead><tr><th>What the form asks for</th><th>Use</th></tr></thead><tbody>
+<tr><td>A photo under a size (20 KB, 50 KB, 100 KB…)</td><td><a href="{R}compress-image-to-50kb/">Compress image to 50 KB</a>, <a href="{R}compress-image-to-100kb/">100 KB</a>, or any size in the <a href="{R}compress-image/">Image Compressor</a></td></tr>
+<tr><td>A photo of exact pixels (for example 600 × 600)</td><td><a href="{R}resize-image/">Resize Image</a>, then compress if there is also a KB limit</td></tr>
+<tr><td>A PDF made from photos or phone scans, under a size</td><td><a href="{R}jpg-to-pdf-under-200kb/">JPG to PDF under 200 KB</a>, <a href="{R}jpg-to-pdf-under-100kb/">100 KB</a> or <a href="{R}jpg-to-pdf-under-500kb/">500 KB</a></td></tr>
+<tr><td>An existing PDF that is too big</td><td><a href="{R}compress-pdf-to-200kb/">Compress PDF to 200 KB</a>, <a href="{R}compress-pdf-to-500kb/">500 KB</a>, <a href="{R}compress-pdf-to-1mb/">1 MB</a></td></tr>
+<tr><td>A passport or visa photo</td><td><a href="{R}passport-photo-maker/">Passport Photo Maker</a>, then compress if needed</td></tr>
+</tbody></table></div>
+
+<h2>Five reasons a file is still rejected</h2>
+<ol><li><b>Wrong type.</b> The form wants JPG and you sent PNG or HEIC. Convert with <a href="{R}png-to-jpg/">PNG to JPG</a> or <a href="{R}heic-to-jpg/">HEIC to JPG</a>.</li>
+<li><b>Pixel size as well as file size.</b> Some forms set both, for example “200 × 230 px and under 50 KB”. Resize first, then compress.</li>
+<li><b>A minimum size.</b> “Between 20 KB and 50 KB” rejects a 12 KB file. Set the target near the top of the range, such as 45 KB.</li>
+<li><b>The 1000 vs 1024 difference.</b> A file at exactly the limit can fail on one site and pass on another. Go a few KB under.</li>
+<li><b>Unusual characters in the file name.</b> Rename it to letters, numbers and dashes only, such as <code>passport-photo.jpg</code>.</li></ol>
+
+<h2>Keeping quality at small sizes</h2>
+<ul><li>Crop away everything the form doesn't need: background around a face, the table around a page.</li>
+<li>Fewer pages means sharper pages. Remove blank or extra pages with <a href="{R}split-pdf/">Split PDF</a>.</li>
+<li>Scan documents in daylight, straight from above, so text is dark on clean white paper.</li>
+<li>Check the result at full size before you submit. If the smallest text is hard to read, use a higher limit or fewer pages.</li></ul>
+<p>For more detail on PDFs, see <a href="{R}guides/reduce-scanned-pdf-size/">how to reduce the size of a scanned PDF</a>; for photos, <a href="{R}guides/how-to-compress-photo-to-50kb/">how to reduce a photo to 50 KB</a>.</p>""",
+        faq=[("Is 1 MB equal to 1000 KB or 1024 KB?", "It depends on the software. Windows uses 1024 KB per MB; Macs and most phones use 1000. Stay a few KB under the limit and it passes either way."),
+             ("Why does my 199 KB file fail a 200 KB limit?", "The site may count sizes differently from your device, or check the pixel size or file type too. Compress to a slightly lower target, such as 190 KB, and check the file type."),
+             ("How do I make a file bigger to meet a minimum size?", "Save the photo at a higher quality or larger pixel size. In the Image Compressor, set the target near the top of the allowed range instead of the bottom."),
+             ("Are my files uploaded when I use these tools?", "No. All the tools mentioned here run in your browser, so your files stay on your device.")],
+    ),
+    dict(
         slug="check-files-never-uploaded",
         date="2026-10-17",
         title="How to Check That a Website Never Uploads Your Files",

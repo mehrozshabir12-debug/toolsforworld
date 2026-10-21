@@ -346,12 +346,25 @@ def landing(define_tool):
 
     # ---- JPG to PDF under a size limit (approved 22 Oct 2026; strong Google autocomplete demand) ----
     PDFLIB_ONLY = PDFLIBS.split("</script>")[0] + "</script>"
-    for kb, use, extra in ((100, "admission and exam forms with a strict 100 KB limit",
-                            "At 100 KB, one or two pages work best. A single page of a typed document stays readable; a full-colour photo is reduced to around 1000 px on its longest side."),
-                           (200, "job applications, university portals and government forms",
-                            "200 KB is the most common limit on application portals. Two to four phone-scanned pages usually fit with readable text."),
-                           (500, "visa, scholarship and bank forms that allow up to 500 KB",
-                            "500 KB leaves room for several pages. Five to ten phone-scanned pages typically fit with clear text.")):
+    JP = {
+        100: dict(use="admission and exam forms with a strict 100 KB limit",
+                  fit="At 100 KB, one or two pages work best. A single typed page stays readable; a full-colour photo is reduced to about 1000 px on its longest side, which is still clear on screen.",
+                  example="A typical case: an exam portal asks for your mark sheet as one PDF under 100 KB. Photograph the sheet flat in daylight, crop it to the paper edges, choose the photo here and press Create PDF. One page fits comfortably, and the numbers stay sharp.",
+                  tips=["Upload one document per PDF. Two certificates in one 100 KB file both lose sharpness.", "Black-and-white documents compress best. A coloured background or border uses space.", "If your mark sheet has small print, zoom in on the result before you submit."],
+                  faq=("Can I fit a two-sided ID card in 100 KB?", "Yes. Take one photo of each side, crop them tightly, and add both here. Two small pages fit well under 100 KB.")),
+        200: dict(use="job applications, university portals and government forms",
+                  fit="200 KB is the most common limit on application portals. Two to four phone-scanned pages usually fit with readable text.",
+                  example="A typical case: a university portal wants your transcript (three pages) as one PDF under 200 KB. Scan each page with your phone, choose all three here, check the order with the arrows and press Create PDF. The tool lowers the photo quality only as much as needed to fit all three pages.",
+                  tips=["Put the pages in the right order before you press Create PDF: use the arrows next to each photo.", "Leave the page size on A4 unless the form says otherwise. It prints correctly and keeps text a normal size.", "For a CV made in Word, convert it with Word to PDF instead. A typed PDF is far smaller than a photo of it."],
+                  faq=("How many pages fit in a 200 KB PDF?", "Usually two to four phone-scanned pages with readable text. Plain black text on white paper fits more pages than colourful documents.")),
+        500: dict(use="visa, scholarship and bank forms that allow up to 500 KB",
+                  fit="500 KB leaves room for several pages. Five to ten phone-scanned pages typically fit with clear text.",
+                  example="A typical case: a visa application asks for three months of bank statements as one PDF under 500 KB. Photograph each page, choose them all here and press Create PDF. With six to nine pages, 500 KB keeps the figures easy to read.",
+                  tips=["Remove pages the form does not ask for, such as terms and conditions pages, to keep the rest sharp.", "Statements with small figures need the most space: check the smallest numbers in the result.", "Need several separate PDFs? Make each one here, then join them with Merge PDF only if the form wants a single file."],
+                  faq=("Will a 10-page document fit under 500 KB?", "Often, if the pages are mostly text. Pages with photos or coloured tables may need to be split into two PDFs or reduced to the pages the form actually needs.")),
+    }
+    for kb, d in JP.items():
+        use, extra = d["use"], d["fit"]
         lab = f"{kb}KB"; lab_s = f"{kb} KB"
         t(slug=f"jpg-to-pdf-under-{lab.lower()}", group="pdf", icon="pdf", name=f"JPG to PDF under {lab}", ftool="img2pdf", libs=PDFLIB_ONLY,
           parent="jpg-to-pdf", preset={"#itkb": kb},
@@ -362,9 +375,10 @@ def landing(define_tool):
           body=f'''<h2>How to make a PDF under {lab_s} from photos</h2><ol><li>Choose your JPG, PNG or WebP photos. Use the arrows to put the pages in order.</li><li>The limit is already set to <b>{lab_s}</b>. Change it if your form allows a different size.</li><li>Press <b>Create PDF</b> and download the file.</li></ol>
 <h2>How it works</h2><p>The PDF is first made at full quality. If it is bigger than {lab_s}, every photo is re-saved a little smaller and the tool searches for the sharpest level at which the whole PDF still fits. Nothing is uploaded: your photos are processed by your own browser.</p>
 <h2>How many pages fit in {lab_s}?</h2><p>{extra} Fewer pages always means sharper pages.</p>
-<h2>Tips for a clear result</h2><ul><li>Crop each photo to the page edges first. A table or floor around the page wastes space.</li><li>Take scans in daylight, straight from above, so the text is dark on a white page.</li><li>Already have a PDF that is too big? Use <a href="../compress-pdf-to-{lab.lower()}/">Compress PDF to {lab}</a> instead.</li></ul>''',
+<h2>Example</h2><p>{d["example"]}</p>\n<h2>Tips for {lab_s}</h2><ul>{"".join(f"<li>{x}</li>" for x in d["tips"])}<li>Already have a PDF that is too big? Use <a href="../compress-pdf-to-{lab.lower()}/">Compress PDF to {lab}</a> instead.</li></ul>''',
           faq=[(f"Is this the same as “image to PDF under {lab_s}” or “photo to PDF less than {lab_s}”?", f"Yes. JPG to PDF, image to PDF and photo to PDF all mean the same here, and under, below, less than and up to {lab_s} all mean the PDF must be {lab_s} or smaller."),
                (f"What if the PDF can't get under {lab_s}?", "The tool shows the smallest size it could reach. Remove a page, crop the photos tighter or use a higher limit if your form allows it."),
+               d["faq"],
                ("Can I do this on my phone?", "Yes. Open this page in your phone's browser, choose photos from your gallery and download the PDF. No app is needed.")])
 
     # ---- Passport and visa photos by country ----

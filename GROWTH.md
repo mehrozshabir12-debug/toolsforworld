@@ -25,7 +25,7 @@ never change DNS/account settings, never open AdSense, never invent numbers (mar
    `report.json` and `audit_report.json` fully passing), then push the same commit to `main`; "Test all tools" must pass.
 4. Log the week below (numbers + what changed and why). Report to the owner in Roman Urdu.
 
-Approved page additions: compress image/PDF to 2 MB and 5 MB (done 13 Oct). Nothing else is approved.
+Approved page additions: compress image/PDF to 2 MB and 5 MB (done 13 Oct). On 22 Oct the owner gave a free hand for growth ("kro jo tmri mrzi"): JPG to PDF max-size option + under 100/200/500 KB pages and the file-size-limits guide added under that approval.
 Sitemap `lastmod` comes from `lastmod.json` (content hash per page); IndexNow sends only changed URLs.
 
 ## Keyword backlog
