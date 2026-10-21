@@ -62,7 +62,7 @@ FILE_TESTS = [  # slug, sample, timeout s, extra setup
     ("compress-image", "photo.jpg", 30, None), ("compress-image-to-50kb", "photo.jpg", 60, None), ("resize-image-to-1080x1080", "photo.jpg", 30, None), ("resize-image", "photo.jpg", 30, ("#rw", "800")),
     ("png-to-jpg", "photo.png", 30, None), ("jpg-to-png", "photo.jpg", 30, None), ("webp-to-jpg", "photo.webp", 30, None),
     ("heic-to-jpg", "photo.heic", 90, None), ("passport-photo-maker", "photo.jpg", 30, None),
-    ("jpg-to-pdf", "photo.jpg", 30, None), ("merge-pdf", ["doc.pdf", "doc2.pdf"], 60, None),
+    ("jpg-to-pdf", "photo.jpg", 30, None), ("jpg-to-pdf-under-200kb", "photo.jpg", 90, None), ("merge-pdf", ["doc.pdf", "doc2.pdf"], 60, None),
     ("split-pdf", "doc.pdf", 60, ("#sr", "1-2")), ("pdf-to-jpg", "doc.pdf", 90, None), ("compress-pdf", "scan.pdf", 180, None),
     ("pdf-to-word", "doc.pdf", 90, None), ("word-to-pdf", "doc.docx", 120, None), ("image-to-text", "photo.png", 240, None),
     ("mp4-to-mp3", "video.mp4", 120, None), ("remove-background", "photo.jpg", 420, None),
@@ -105,6 +105,8 @@ async def main():
                             r["ok"] = r["ok"] and r["docx_has_text"]
                 if slug == "compress-pdf-to-500kb":
                     r["ok"] = r["ok"] and 0 < r.get("download_bytes", 0) <= 500 * 1024
+                if slug == "jpg-to-pdf-under-200kb":
+                    r["ok"] = r["ok"] and 0 < r.get("download_bytes", 0) <= 200 * 1024
                 if slug == "compress-image-to-1mb":
                     r["ok"] = r["ok"] and 0 < r.get("download_bytes", 0) <= 1024 * 1024
                 if slug.startswith("image-to-text"):

@@ -45,11 +45,10 @@ NO_UPLOAD = {
 }
 
 JPG_TO_PDF_LIMITS = ('<h2>Need the PDF under a size limit?</h2>'
-                     '<p>Many forms ask for a PDF “under 200 KB” or “less than 1 MB”. Make the PDF here first, then shrink it to the exact limit: '
-                     '<a href="../compress-pdf-to-100kb/">under 100 KB</a>, <a href="../compress-pdf-to-200kb/">under 200 KB</a>, '
-                     '<a href="../compress-pdf-to-300kb/">under 300 KB</a>, <a href="../compress-pdf-to-500kb/">under 500 KB</a> or '
-                     '<a href="../compress-pdf-to-1mb/">under 1 MB</a>. For a single photo, it often helps to '
-                     '<a href="../compress-image/">compress the image</a> before converting.</p>')
+                     '<p>Many forms ask for a PDF “under 200 KB” or “less than 1 MB”. Type the limit in <b>Max PDF size</b> above and the photos are made just small enough to fit, '
+                     'or open a ready preset: <a href="../jpg-to-pdf-under-100kb/">JPG to PDF under 100 KB</a>, <a href="../jpg-to-pdf-under-200kb/">under 200 KB</a> or '
+                     '<a href="../jpg-to-pdf-under-500kb/">under 500 KB</a>. Already have a PDF that is too big? Use '
+                     '<a href="../compress-pdf-to-200kb/">Compress PDF to 200 KB</a> or <a href="../compress-pdf-to-1mb/">to 1 MB</a>.</p>')
 
 
 def enrich(T):

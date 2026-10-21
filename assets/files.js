@@ -121,7 +121,7 @@ function renderOpts(){
      <label>Up / down <input type="range" id="py" min="-100" max="100" value="0"></label>
      <label>Copies on 4×6 sheet <select id="pn"><option>4</option><option selected>6</option><option>8</option></select></label>
      <p class="note">Line guides: the top of the head near the upper line, the chin near the lower line.</p></div></div>`,
-   img2pdf:`<div class="row"><label>Page <select id="pg"><option value="a4">A4</option><option value="letter">Letter</option><option value="fit">Same as image</option></select></label><label>Margin <select id="pm"><option value="0">None</option><option value="20" selected>Small</option><option value="40">Large</option></select></label></div>`,
+   img2pdf:`<div class="row"><label>Page <select id="pg"><option value="a4">A4</option><option value="letter">Letter</option><option value="fit">Same as image</option></select></label><label>Margin <select id="pm"><option value="0">None</option><option value="20" selected>Small</option><option value="40">Large</option></select></label></div><div class="row"><label>Max PDF size <input type="number" id="itkb" placeholder="Any" min="20" step="1"> KB</label><span class="note">Set a limit (like 200) and the photos are made just small enough for the whole PDF to fit under it.</span></div>`,
    word2pdf:`<div class="row"><label>Page <select id="wp"><option value="a4">A4</option><option value="letter">Letter</option><option value="legal">Legal</option></select></label><label>Orientation <select id="wo"><option value="portrait">Portrait</option><option value="landscape">Landscape</option></select></label></div><p class="note">Best for simple documents (text, headings, lists, small tables, pictures). Complex layouts may look slightly different.</p>`,
    merge:'',
    split:`<div class="row"><label><input type="radio" name="sm" value="range" checked> Pages</label><input type="text" id="sr" placeholder="e.g. 1-3, 5, 8-10" aria-label="Pages to extract"><label><input type="radio" name="sm" value="each"> Every page as a separate PDF</label></div>`,
@@ -222,19 +222,38 @@ const RUN={
   addOut(await toBlob(S,'image/jpeg',.95),'passport-sheet-4x6.jpg');
  },
  async img2pdf(){
-  const {PDFDocument}=PDFLib,doc=await PDFDocument.create(),pg=$('#pg').value,mg=+$('#pm').value;
+  const {PDFDocument}=PDFLib,pg=$('#pg').value,mg=+$('#pm').value,target=(+(($('#itkb')||{}).value)||0)*1024;
   const sizes={a4:[595.28,841.89],letter:[612,792]};
-  for(const f of files){
-   let bytes=await f.arrayBuffer(),em;
-   if(f.type==='image/png')em=await doc.embedPng(bytes);
-   else if(f.type==='image/jpeg')em=await doc.embedJpg(bytes);
-   else{const i=await loadImg(f);const b=await toBlob(draw(i,i.naturalWidth,i.naturalHeight,'image/jpeg'),'image/jpeg',.92);em=await doc.embedJpg(await b.arrayBuffer())}
-   let [W,H]=pg==='fit'?[em.width+mg*2,em.height+mg*2]:sizes[pg];
-   if(pg!=='fit'&&em.width>em.height)[W,H]=[H,W];
-   const s=Math.min((W-mg*2)/em.width,(H-mg*2)/em.height),w=em.width*s,h=em.height*s;
-   doc.addPage([W,H]).drawImage(em,{x:(W-w)/2,y:(H-h)/2,width:w,height:h});
-  }
-  addOut(new Blob([await doc.save()],{type:'application/pdf'}),'images.pdf');
+  if(target&&target<20*1024)throw new Error('Choose a size of at least 20 KB.');
+  const imgs=target?await Promise.all(files.map(loadImg)):null;
+  // lv = null keeps the original photos; lv = [longest side in px, JPG quality] re-saves them smaller
+  const build=async(lv,label)=>{const doc=await PDFDocument.create();
+   for(let n=0;n<files.length;n++){const f=files[n];let em;
+    if(lv){status(`${label}photo ${n+1} of ${files.length}…`);
+     const i=imgs[n],sc=Math.min(1,lv[0]/Math.max(i.naturalWidth,i.naturalHeight));
+     const c=draw(i,Math.max(1,Math.round(i.naturalWidth*sc)),Math.max(1,Math.round(i.naturalHeight*sc)),'image/jpeg');
+     em=await doc.embedJpg(await (await toBlob(c,'image/jpeg',lv[1])).arrayBuffer());c.width=c.height=0}
+    else{const bytes=await f.arrayBuffer();
+     if(f.type==='image/png')em=await doc.embedPng(bytes);
+     else if(f.type==='image/jpeg')em=await doc.embedJpg(bytes);
+     else{const i=await loadImg(f);const b=await toBlob(draw(i,i.naturalWidth,i.naturalHeight,'image/jpeg'),'image/jpeg',.92);em=await doc.embedJpg(await b.arrayBuffer())}}
+    let [W,H]=pg==='fit'?[em.width+mg*2,em.height+mg*2]:sizes[pg];
+    if(pg!=='fit'&&em.width>em.height)[W,H]=[H,W];
+    const s=Math.min((W-mg*2)/em.width,(H-mg*2)/em.height),w=em.width*s,h=em.height*s;
+    doc.addPage([W,H]).drawImage(em,{x:(W-w)/2,y:(H-h)/2,width:w,height:h});
+   }
+   return new Blob([await doc.save()],{type:'application/pdf'})};
+  const orig=await build(null,'');
+  if(!target||orig.size<=target){addOut(orig,'images.pdf');if(target)setTimeout(()=>status(`Done. PDF is ${kb(orig.size)}, already under ${kb(target)} at full quality.`),0);return}
+  // quality ladder from best to smallest; binary search for the best level that fits
+  const L=[[3000,.9],[2400,.85],[2000,.8],[1700,.75],[1400,.7],[1200,.65],[1000,.6],[850,.55],[700,.5],[600,.45],[500,.4],[400,.35],[320,.3],[260,.25]];
+  let lo=0,hi=L.length-1,best=null,smallest=null,tries=0;
+  while(lo<=hi){const m=(lo+hi)>>1;tries++;const b=await build(L[m],`Try ${tries}: `);
+   if(!smallest||b.size<smallest.size)smallest=b;
+   if(b.size<=target){best=b;hi=m-1}else lo=m+1}
+  if(!best){addOut(smallest,'images.pdf');throw new Error(`Could not get under ${kb(target)}. The smallest possible is ${kb(smallest.size)}. Use fewer photos or a higher limit.`)}
+  addOut(best,'images.pdf');
+  setTimeout(()=>status(`Done. PDF is ${kb(best.size)} (limit ${kb(target)}, ${files.length} photo${files.length>1?'s':''})`),0);
  },
  async merge(){
   const {PDFDocument}=PDFLib,out=await PDFDocument.create();

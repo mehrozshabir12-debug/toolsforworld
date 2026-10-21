@@ -135,9 +135,10 @@ def v_image(path, w=None, h=None, max_bytes=None, alpha=False, fmt=None):
     return ok, r
 
 
-def v_pdf(path, pages=None, check_last_page_not_blank=False, text=None, min_pages=None):
+def v_pdf(path, pages=None, check_last_page_not_blank=False, text=None, min_pages=None, max_bytes=None):
     from pypdf import PdfReader
-    rd = PdfReader(path); n = len(rd.pages); r = {"pages": n}; ok = True
+    rd = PdfReader(path); n = len(rd.pages); r = {"pages": n, "bytes": os.path.getsize(path)}; ok = True
+    if max_bytes and r["bytes"] > max_bytes: ok = False
     if pages is not None and n != pages: ok = False
     if min_pages is not None and n < min_pages: ok = False
     if text is not None:
@@ -205,6 +206,8 @@ CASES = [
     # pdf
     ("jpg-to-pdf-3", "jpg-to-pdf", ["photo.jpg", "photo.png", "photo.webp"], "ok", {}, [(0, "pdf", {"pages": 3})], 60),
     ("jpg-to-pdf-huge", "jpg-to-pdf", ["huge-48mp.jpg"], "ok", {}, [(0, "pdf", {"pages": 1})], 240),
+    ("jpg-to-pdf-under-200kb-3", "jpg-to-pdf-under-200kb", ["photo.jpg", "photo.png", "photo.webp"], "ok", {}, [(0, "pdf", {"pages": 3, "max_bytes": 200 * 1024})], 180),
+    ("jpg-to-pdf-under-100kb-huge", "jpg-to-pdf-under-100kb", ["huge-48mp.jpg"], "ok", {}, [(0, "pdf", {"pages": 1, "max_bytes": 100 * 1024})], 300),
     ("merge-2", "merge-pdf", ["doc.pdf", "long-60p.pdf"], "ok", {}, [(0, "pdf", {"pages": 63})], 120),
     ("merge-encrypted", "merge-pdf", ["doc.pdf", "encrypted.pdf"], "ok_or_err", {}, [], 60),
     ("merge-corrupt", "merge-pdf", ["doc.pdf", "fake.pdf"], "err", {}, [], 60),

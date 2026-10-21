@@ -344,6 +344,29 @@ def landing(define_tool):
           faq=[(f"What if my PDF can't get under {lab}?", "The tool shows the smallest size it could reach. Split the PDF into parts or remove pages, then try again."),
                ("Is my PDF uploaded?", "No. Compression happens inside your browser, so the file stays on your device.")])
 
+    # ---- JPG to PDF under a size limit (approved 22 Oct 2026; strong Google autocomplete demand) ----
+    PDFLIB_ONLY = PDFLIBS.split("</script>")[0] + "</script>"
+    for kb, use, extra in ((100, "admission and exam forms with a strict 100 KB limit",
+                            "At 100 KB, one or two pages work best. A single page of a typed document stays readable; a full-colour photo is reduced to around 1000 px on its longest side."),
+                           (200, "job applications, university portals and government forms",
+                            "200 KB is the most common limit on application portals. Two to four phone-scanned pages usually fit with readable text."),
+                           (500, "visa, scholarship and bank forms that allow up to 500 KB",
+                            "500 KB leaves room for several pages. Five to ten phone-scanned pages typically fit with clear text.")):
+        lab = f"{kb}KB"; lab_s = f"{kb} KB"
+        t(slug=f"jpg-to-pdf-under-{lab.lower()}", group="pdf", icon="pdf", name=f"JPG to PDF under {lab}", ftool="img2pdf", libs=PDFLIB_ONLY,
+          parent="jpg-to-pdf", preset={"#itkb": kb},
+          card=f"Photos to one PDF under {lab_s}.",
+          title=f"JPG to PDF Under {lab} – Photos to PDF Less Than {lab_s}",
+          desc=f"Convert JPG or phone photos into one PDF under {lab_s} for free. The photos are made just small enough to fit. No upload: works in your browser.",
+          h1=f"JPG to PDF under {lab}", lead=f"Turn photos or phone scans into a single PDF that is just under {lab_s}, ready for {use}.",
+          body=f'''<h2>How to make a PDF under {lab_s} from photos</h2><ol><li>Choose your JPG, PNG or WebP photos. Use the arrows to put the pages in order.</li><li>The limit is already set to <b>{lab_s}</b>. Change it if your form allows a different size.</li><li>Press <b>Create PDF</b> and download the file.</li></ol>
+<h2>How it works</h2><p>The PDF is first made at full quality. If it is bigger than {lab_s}, every photo is re-saved a little smaller and the tool searches for the sharpest level at which the whole PDF still fits. Nothing is uploaded: your photos are processed by your own browser.</p>
+<h2>How many pages fit in {lab_s}?</h2><p>{extra} Fewer pages always means sharper pages.</p>
+<h2>Tips for a clear result</h2><ul><li>Crop each photo to the page edges first. A table or floor around the page wastes space.</li><li>Take scans in daylight, straight from above, so the text is dark on a white page.</li><li>Already have a PDF that is too big? Use <a href="../compress-pdf-to-{lab.lower()}/">Compress PDF to {lab}</a> instead.</li></ul>''',
+          faq=[(f"Is this the same as “image to PDF under {lab_s}” or “photo to PDF less than {lab_s}”?", f"Yes. JPG to PDF, image to PDF and photo to PDF all mean the same here, and under, below, less than and up to {lab_s} all mean the PDF must be {lab_s} or smaller."),
+               (f"What if the PDF can't get under {lab_s}?", "The tool shows the smallest size it could reach. Remove a page, crop the photos tighter or use a higher limit if your form allows it."),
+               ("Can I do this on my phone?", "Yes. Open this page in your phone's browser, choose photos from your gallery and download the PDF. No app is needed.")])
+
     # ---- Passport and visa photos by country ----
     for slug, country, ps, size_txt, bg in (
             ("us-passport-photo", "US", "50.8x50.8", "2 × 2 inches (51 × 51 mm)", "plain white or off-white"),
