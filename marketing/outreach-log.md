@@ -40,7 +40,7 @@ Focus (owner, 17 Oct 2026): from now on approach only university teaching staff 
 | 2026-10-17 | FilterGrade | support@filtergrade.com | Free passport photo makers guide | email | sent |
 | 2026-10-17 | WayToIdea | vishal@waytoidea.com | Image compressor tools article | email | sent |
 | 2026-10-17 | Culleva | support@culleva.com | Assignment submission guide (compress step) | email | sent |
-| 2026-10-12 | SaaSHub | account | Software directory | listing | pending approval |
+| 2026-10-12 | SaaSHub | account | Software directory | listing | live (checked 22 Oct): saashub.com/tools-for-world, 'Visit website' link is dofollow; listed in 7 categories, 12 alternatives |
 
 ## Skipped (do not contact)
 
