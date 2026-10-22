@@ -23,13 +23,13 @@ Focus (owner, 17 Oct 2026): from now on approach only university teaching staff 
 | Date | Site | Contact | Page / reason | Channel | Status |
 |---|---|---|---|---|---|
 | 2026-10-18 | Muzamil Hasan (Thought Behind Things podcast) | hello@muzamilhasan.com | Owner asked for a promotion request; email from his contact page; owner allowed 'student studying in Australia' in this email | email | sent |
-| 2026-10-18 | Oxford Continuing Education (TALL) | tallithelp@conted.ox.ac.uk | Online support: My file is too large to submit | email | sent |
-| 2026-10-18 | Glasgow School of Art Library | library@gsa.ac.uk | Library FAQ: compress files for Canvas | email | sent |
-| 2026-10-18 | U of Toronto Engineering EdTech | fase.edtech@utoronto.ca | Faculty Question of the Week: 100 MB Turnitin limit | email | sent |
+| 2026-10-18 | Oxford Continuing Education (TALL) | tallithelp@conted.ox.ac.uk | Online support: My file is too large to submit | email | sent (ticket #8541 auto-ack, no human reply yet) |
+| 2026-10-18 | Glasgow School of Art Library | library@gsa.ac.uk | Library FAQ: compress files for Canvas | email | sent (LibAnswers auto-ack, no human reply yet) |
+| 2026-10-18 | U of Toronto Engineering EdTech | fase.edtech@utoronto.ca | Faculty Question of the Week: 100 MB Turnitin limit | email | replied 19 Oct (Yun Wu, Educational Technologist): thanked us for sharing the resource; ticket INC1951748 marked resolved. No commitment to share. Do not follow up. |
 | 2026-10-18 | Utah State Univ. (Prof. Darrin Brooks) | darrin.brooks@usu.edu | BID portfolio submission, 25MB limit | email | sent |
 | 2026-10-18 | Macquarie Univ. (Nicole Matthews) | nicole.matthews@mq.edu.au | MMCC2061 Photo Media unit | email | sent |
-| 2026-10-18 | U of Nottingham HELM Team | hs-elearning-help@nottingham.ac.uk | Turnitin help: save as PDF and compress (links SmallPDF) | email | sent |
-| 2026-10-18 | U of Cumbria Library | library@cumbria.ac.uk | Cumbria Card photo instructions (links picresize) | email | sent |
+| 2026-10-18 | U of Nottingham HELM Team | hs-elearning-help@nottingham.ac.uk | Turnitin help: save as PDF and compress (links SmallPDF) | email | sent (auto-reply only, 18 Oct) |
+| 2026-10-18 | U of Cumbria Library | library@cumbria.ac.uk | Cumbria Card photo instructions (links picresize) | email | sent (auto-reply only, 18 Oct) |
 | 2026-10-18 | UW–Madison Gernsbacher Lab | gernsbacherlab@psych.wisc.edu | PSY 532 file-size handout (links smallpdf) | email | sent |
 | 2026-10-17 | SoftwareTestingHelp | info@softwaretestinghelp.com | Best image resizer tools list (invites suggestions) | email | replied 17 Oct: paid placements only, not pursuing |
 | 2026-10-17 | UAL CSM Digital Learning | csmdigitallearning@arts.ac.uk | Compressing files for assignments | email | sent |
@@ -217,6 +217,154 @@ https://toolsforworld.com/compress-pdf/
 https://toolsforworld.com/compress-image/
 
 If it fits, you're welcome to add it to the handout or share it with students. Thank you for making such clear course materials.
+
+The Tools for World team
+https://toolsforworld.com
+
+If you'd rather not hear from us again, just reply and let us know.
+
+## Ready to send (2026-10-22)
+
+Gmail check 22 Oct: one human reply (U of Toronto EdTech, Yun Wu: thanks, ticket resolved). Others: auto-acknowledgements only. No opt-out requests. Unsolicited vendor pitches (BacklinkLog, SellWithBoost, PeerPush, StartupSubmitHQ, SoloLaunches) not answered.
+
+| # | Name | University | Country | Email | Source page | Why |
+|---|---|---|---|---|---|---|
+| 1 | clickUP e-learning support (e-support) | University of Pretoria | South Africa | e-support@up.ac.za | https://eduvation.up.ac.za/students/index.php/assessments/reduce-submission-file-size (guidance); email published at https://clickup-help.up.ac.za/docs/contact-information | Student page "Reduce file size of submissions": 100MB clickUP limit; points students to Adobe's online compressor and a tips article for images |
+| 2 | Digital Media Projects (DMP), D2L Brightspace support | Toronto Metropolitan University | Canada | courses@torontomu.ca | https://www.torontomu.ca/content/ryerson/courses/students/tutorials/assignments.html (guidance); email at https://www.torontomu.ca/content/ryerson/courses/contact/index.html | Student assignment tutorial: resize/compress images and videos, upload designs as PDF; suggests Google Docs > PDF for students without Word/Acrobat |
+| 3 | Medical Education Technology, Heritage College of Osteopathic Medicine | Ohio University | USA | HCOMTech@ohio.edu | https://help.ohio.edu/TDClient/30/Portal/KB/ArticleDet?ID=1025 | KB article "How to Reduce PDF Size for Student Portal Uploads": 4MB portal limit; only fix given is Acrobat, otherwise OneDrive + ticket |
+| 4 | Kaunter Kad Matrik (student matric card counter) | Universiti Teknologi Malaysia | Malaysia | identitycard@utm.my | https://registrar.utm.my/kl/wp-content/uploads/sites/459/2025/11/FAQ-Kad-Matrik-@-UTMKL-Services.pdf (item 21, "Emel : identitycard@utm.my"); photo rules at https://studentaffairs.utm.my/wp-content/uploads/2025/09/Guideline-for-UTM-Matric-Card.pdf | Matric card photo must be passport-style, white background, JPEG, 70kB to 100kB |
+| 5 | Crawford College of Art & Design, portfolio team | Munster Technological University (Cork) | Ireland | crawford.portfolio@mtu.ie | https://crawford.mtu.ie/how-to-apply/ ; tips: https://crawford.mtu.ie/contentFiles/Tips_for_Creating_a_Digital_Portfolio_2020.pdf | Digital portfolio PDF max 50MB; guide says compress images, 72 DPI, Word "Reduce File Size" |
+| 6 | School of Design (admissions/web enquiries) | The Hong Kong Polytechnic University | Hong Kong | sdweb@polyu.edu.hk | https://www.sd.polyu.edu.hk/admission/JUPASInformation2026-27.pdf | BA (Hons) Scheme in Design asks for an A3 portfolio of 20-30 pages, not exceeding 20 MB in PDF |
+| 7 | Aalto ARTS incoming exchange coordination | Aalto University | Finland | in-exchange-arts@aalto.fi | https://www.aalto.fi/en/international-students/incoming-exchange-students-to-the-school-of-arts-design-and-architecture ; guide: https://www.aalto.fi/sites/default/files/2024-09/How-to-make-your-portfolio-to-Aalto-ARTS_1.pdf | Exchange applicants' portfolio PDF limited to 2MB; guide says oversized files "get stuck in the system". (Note: the page's mailto link has a typo "in-exvhange"; the displayed address is correct.) |
+
+Considered and left out today: AUT portfolio page (only a general future-students inbox), NTU ADM (address published only for internal programme transfers), College for Creative Studies (already recommends a competitor via career office, weak fit), Otago Geology (contact left in 2018).
+
+### 1. University of Pretoria clickUP support – e-support@up.ac.za
+Subject: A free, no-upload compressor for your "Reduce file size of submissions" page
+
+Hello clickUP support team,
+
+We came across the student page "Reduce file size of submissions" on Eduvation. It explains the 100MB clickUP limit clearly and gives students practical places to start for PDFs, images and video.
+
+In case another option is useful, Tools for World is a free set of file tools that run inside the browser. Students can compress a PDF or shrink photos on their own device, so their assignment files are never uploaded to a server. There is no sign-up and no cost, and it works on a phone too:
+
+https://toolsforworld.com/compress-pdf/
+https://toolsforworld.com/compress-image/
+
+If it seems helpful, you're welcome to add it to the page or share it with students. Thank you for the useful guidance either way.
+
+The Tools for World team
+https://toolsforworld.com
+
+If you'd rather not hear from us again, just reply and let us know.
+
+### 2. Toronto Metropolitan University DMP – courses@torontomu.ca
+Subject: A free browser tool for the D2L assignment tutorial
+
+Hello DMP team,
+
+We read the student tutorial on submitting assignments in D2L Brightspace. We liked the practical tips, such as uploading designs as PDF and using Google Docs when a student doesn't have Word or Acrobat.
+
+Along the same no-software lines, Tools for World is a free website that resizes and compresses images and turns photos or scans into a PDF, all inside the browser. The files stay on the student's computer and are never uploaded. No sign-up is needed:
+
+https://toolsforworld.com/compress-image/
+https://toolsforworld.com/jpg-to-pdf/
+
+If you think it would help, feel free to mention it in the tutorial or pass it on to instructors. Thanks for your time.
+
+The Tools for World team
+https://toolsforworld.com
+
+If you'd rather not hear from us again, just reply and let us know.
+
+### 3. Ohio University HCOM Medical Education Technology – HCOMTech@ohio.edu
+Subject: A no-Acrobat option for the 4MB Student Portal limit
+
+Hello Medical Education Technology team,
+
+We came across your help article "How to Reduce PDF Size for Student Portal Uploads". It explains the 4MB error well, and the Acrobat "Reduced Size PDF" route works, but students without Acrobat end up on the OneDrive-and-ticket workaround.
+
+In case it saves you a few tickets, Tools for World is a free PDF compressor that works in any browser. The PDF is processed on the student's own device and is never uploaded to a server, which may be reassuring for medical students' documents. It's free and needs no sign-up:
+
+https://toolsforworld.com/compress-pdf/
+
+If it seems useful, you're welcome to add it to the article as an extra step. Thank you for your time.
+
+The Tools for World team
+https://toolsforworld.com
+
+If you'd rather not hear from us again, just reply and let us know.
+
+### 4. UTM Kaunter Kad Matrik – identitycard@utm.my
+Subject: A free tool for the 70-100 kB matric card photo
+
+Hello,
+
+We read the UTM matric card FAQ and the photo guideline. The rules are clear: a passport-style JPEG with a white background, between 70 kB and 100 kB. Photos taken on a phone are usually much bigger than that, so this step can be tricky for new students.
+
+Tools for World is a free website that crops a photo to passport proportions and compresses it to a target size, all inside the browser. The photo stays on the student's own phone or computer and is never uploaded. No sign-up, no cost:
+
+https://toolsforworld.com/passport-photo-maker/
+https://toolsforworld.com/compress-image/
+
+If you think it would help, you're welcome to share it with new students. Thank you for your time.
+
+The Tools for World team
+https://toolsforworld.com
+
+If you'd rather not hear from us again, just reply and let us know.
+
+### 5. MTU Crawford College of Art & Design – crawford.portfolio@mtu.ie
+Subject: A free way to get portfolios under 50MB
+
+Hello,
+
+We read your "Tips for Creating a Digital Portfolio" guide. The advice on setting images to 72 DPI and using "Reduce File Size" in Word to stay under 50MB is very practical.
+
+For applicants who still end up with a file that's too big, Tools for World is a free website that compresses PDFs and images and combines photos of artwork into one PDF, all inside the browser. The portfolio stays on the applicant's own computer and is never uploaded. No sign-up, no cost:
+
+https://toolsforworld.com/compress-pdf/
+https://toolsforworld.com/jpg-to-pdf/
+
+If it seems useful, you're welcome to mention it to applicants before the February portfolio window. Thank you for your time.
+
+The Tools for World team
+https://toolsforworld.com
+
+If you'd rather not hear from us again, just reply and let us know.
+
+### 6. PolyU School of Design – sdweb@polyu.edu.hk
+Subject: A free tool for keeping A3 portfolios under 20 MB
+
+Hello School of Design team,
+
+We read the JUPAS admission information for the BA (Hons) Scheme in Design. An A3 portfolio of 20 to 30 pages with development work is image-heavy, and keeping it under 20 MB in PDF can be hard for applicants.
+
+Tools for World is a free website that compresses PDFs and turns photos of sketches and models into one PDF, all inside the browser. The applicant's work stays on their own computer and is never uploaded. No sign-up, no cost:
+
+https://toolsforworld.com/compress-pdf/
+https://toolsforworld.com/jpg-to-pdf/
+
+If you think it would help, you're welcome to share it with applicants or students. Thank you for your time.
+
+The Tools for World team
+https://toolsforworld.com
+
+If you'd rather not hear from us again, just reply and let us know.
+
+### 7. Aalto ARTS incoming exchange – in-exchange-arts@aalto.fi
+Subject: A free tool for the 2MB exchange portfolio limit (and a small link typo)
+
+Hello,
+
+We read the page for incoming exchange students to the School of Arts, Design and Architecture and the guide "How to make your portfolio to Aalto ARTS". A 2MB limit for a design or architecture portfolio is tight, and the guide rightly warns that larger files get stuck in the system.
+
+Tools for World is a free website that compresses PDFs and images inside the browser, so applicants' portfolios stay on their own computer and are never uploaded. No sign-up, no cost:
+
+https://toolsforworld.com/compress-pdf/
+https://toolsforworld.com/compress-image/
+
+If it seems useful, you're welcome to mention it to applicants. A small note in case it helps: the email link on that page currently points to "in-exvhange-arts@aalto.fi", while the address shown is in-exchange-arts@aalto.fi.
 
 The Tools for World team
 https://toolsforworld.com
