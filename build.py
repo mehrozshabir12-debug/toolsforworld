@@ -381,7 +381,9 @@ def build():
                              BASE, home, f'<script src="assets/calc.js?v={_v("calc.js")}"></script>', ' class="home"',
                              jsonld=[{"@context": "https://schema.org", "@type": "WebSite", "name": "Tools for World", "alternateName": BRAND_NAMES, "url": BASE},
                                      {"@context": "https://schema.org", "@type": "Organization", "name": "Tools for World", "alternateName": BRAND_NAMES, "url": BASE, "logo": BASE + "logo.png",
-                                      "email": "hello@toolsforworld.com"}], keywords=BRAND_KEYWORDS))
+                                      "email": "hello@toolsforworld.com",
+                                      # official listings of the site (checked live 22 Oct 2026)
+                                      "sameAs": ["https://www.producthunt.com/products/tools-for-world", "https://www.saashub.com/tools-for-world"]}], keywords=BRAND_KEYWORDS))
 
     info = {
         "about": ("About Tools for World", "Tools for World makes free, simple and private online tools for everyday tasks.",
