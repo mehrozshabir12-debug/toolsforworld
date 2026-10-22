@@ -68,6 +68,8 @@ import preset_content
 preset_content.enrich(T)
 import longtail
 longtail.enrich(T)
+import striking
+striking.enrich(T)
 BY = {t['slug']: t for t in T}
 
 # Hand-picked "related tools" for each main tool (what people usually need next)

@@ -219,7 +219,17 @@ GUIDES = [
         desc="What 1280×720, 1920×1080, 2560×1440, 1080×1920 and 3000×3000 mean, which shape each one is, how pixels relate to print size, and how to resize to any of them.",
         h1="Image resolutions explained: 720p, 1080p, 1440p, 4K and square sizes",
         lead="Forms, platforms and screens ask for sizes like 1920×1080 or 3000×3000. Here is what those numbers mean, which shape each one is, and how to get your photo to exactly the right size.",
-        body='''<h2>Reading a size like 1920 × 1080</h2>
+        body='''<h2>Quick answers</h2>
+<div class="scroll"><table class="t"><thead><tr><th>Question</th><th>Answer in pixels</th></tr></thead><tbody>
+<tr><td>1080p photo size</td><td>1920 × 1080 (landscape, 16:9)</td></tr>
+<tr><td>1080p portrait resolution</td><td>1080 × 1920 (vertical, 9:16) – <a href="{R}resize-image-to-1080x1920/">resize to 1080×1920</a></td></tr>
+<tr><td>1080p square resolution</td><td>1080 × 1080 (1:1) – <a href="{R}resize-image-to-1080x1080/">resize to 1080×1080</a></td></tr>
+<tr><td>HD pixel size</td><td>1280 × 720 (HD); 1920 × 1080 is Full HD</td></tr>
+<tr><td>4K resolution</td><td>3840 × 2160 (UHD, 16:9)</td></tr>
+<tr><td>4K square size</td><td>No official size. 2160 × 2160 (matches 4K height) is the most common; 3840 × 3840 matches 4K width</td></tr>
+</tbody></table></div>
+
+<h2>Reading a size like 1920 × 1080</h2>
 <p>The first number is the <b>width</b> in pixels, the second is the <b>height</b>. So 1920 × 1080 is a wide landscape image and 1080 × 1920 is the same image turned upright. Multiply the two numbers to get the total pixels: 1920 × 1080 = 2,073,600 pixels, about 2.1 megapixels.</p>
 
 <h2>Common widescreen sizes (16:9)</h2>
@@ -254,6 +264,8 @@ GUIDES = [
         faq=[("What is the difference between 1080p and 1080x1920?", "1080p usually means 1920 × 1080 landscape. 1080 × 1920 is the same number of pixels in a vertical 9:16 shape, used for phone-screen content like Stories and Reels."),
              ("Is 2560x1440 2K or 1440p?", "Both names are used. 2560 × 1440 is officially QHD (Quad HD), commonly called 1440p, and many monitors sell it as 2K."),
              ("How many megapixels is 3000x3000?", "9 megapixels: 3000 × 3000 = 9,000,000 pixels."),
+             ("What is a 4K square size?", "There is no official 4K square format. Most people use 2160 × 2160 pixels, the height of 4K, which is about 4.7 megapixels. 3840 × 3840 matches the 4K width and is about 14.7 megapixels."),
+             ("What is the pixel size of HD?", "HD (720p) is 1280 × 720 pixels. Full HD (1080p) is 1920 × 1080. Both are 16:9."),
              ("How do I resize a photo to an exact pixel size for free?", "Open the matching resize page, choose your photo, pick crop or border, and press Resize. It runs in your browser, so nothing is uploaded.")],
     ),
     dict(
