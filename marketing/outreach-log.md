@@ -40,6 +40,7 @@ Focus (owner, 17 Oct 2026): from now on approach only university teaching staff 
 | 2026-10-17 | FilterGrade | support@filtergrade.com | Free passport photo makers guide | email | sent |
 | 2026-10-17 | WayToIdea | vishal@waytoidea.com | Image compressor tools article | email | sent |
 | 2026-10-17 | Culleva | support@culleva.com | Assignment submission guide (compress step) | email | sent |
+| 2026-10-23 | LaunchFree (The Runway) | form (owner approved submit) | Free launch directory, dofollow listing | form | submitted 23 Oct, review within 24 h; confirmation to hello@toolsforworld.com |
 | 2026-10-14 | Product Hunt | owner account | Launch | launch | live since 14 Oct (2 points, 2 followers); website link is nofollow/ugc, so referral traffic only |
 | — | AlternativeTo | owner account | Software directory | listing | declined: AlternativeTo does not approve tool collections (PDF/QR/OCR/converters); re-review possible until 13 Dec 2026 but would need a different product, not advised |
 | 2026-10-12 | SaaSHub | account | Software directory | listing | live (checked 22 Oct): saashub.com/tools-for-world, 'Visit website' link is dofollow; listed in 7 categories, 12 alternatives |
