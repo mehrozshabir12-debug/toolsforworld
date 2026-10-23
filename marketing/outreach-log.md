@@ -598,3 +598,51 @@ The Tools for World team
 https://toolsforworld.com
 
 If you'd rather not hear from us again, just reply and let us know.
+
+## Backlink targets (2026-10-23) — waiting for owner approval
+
+Research 23 Oct (owner asked for good sites that give backlinks). Finding: most "best free PDF/image tools" lists in this niche are published by competing tool sites (pdflegacy, pdfwix, ihatepdf, pdfkits, fixmypdf, aservus, brevtool, filozy...) or affiliate/paid blogs, so they are skipped. Checked and left out: independenttravelcats.com (affiliate links, recommends paid services), csulb.libguides.com onlineEduTools (no email, 2023), webformix.com (ISP blog, no suggestions), grandavehousing.calpoly.edu (no contact), DonationCoder (archived), primarytech.global2.vic.edu.au (no longer updated), furman.edu blog (form only), vajiramandravi.com and pw.live guides (no editorial email), Journalist's Toolbox (no published email found; Substack paywall).
+
+| # | Site | Email | Source | Why |
+|---|---|---|---|---|
+| 1 | Educators Technology (Med Kharbach) | info@educatorstechnology.com | https://www.educatorstechnology.com/contact/ ("questions about the site, publications, or potential collaborations") | Large site of classroom tech-tool guides for teachers. If they ask for payment, decline. |
+| 2 | Lenawee District Library, College Students page | lovemylibrary@gmail.com | https://lenawee.lib.mi.us/college (email shown on the page) | Public library list of useful sites for college students (Khan Academy, EasyBib, Evernote); no file tools yet |
+
+### 1. Educators Technology – info@educatorstechnology.com
+Subject: A free, no-upload file toolkit teachers can share with students
+
+Hello,
+
+Your guides to classroom tech tools are a resource many teachers rely on, so we wanted to share a free tool that may fit one of them.
+
+Tools for World is a free set of file tools that run inside the browser: compress a PDF or photo to a size limit, turn photos or scans into one PDF, resize images, and extract text from an image. Files are processed on the student's own device and never uploaded, there is no sign-up, and it works on phones and Chromebooks:
+
+https://toolsforworld.com/compress-pdf/
+https://toolsforworld.com/jpg-to-pdf/
+https://toolsforworld.com/image-to-text/
+
+It tends to help when an LMS rejects a file as too large, or when students photograph handwritten work and need one PDF. If it seems useful, you're welcome to include it in a future post. Thank you for your time.
+
+The Tools for World team
+https://toolsforworld.com
+
+If you'd rather not hear from us again, just reply and let us know.
+
+### 2. Lenawee District Library – lovemylibrary@gmail.com
+Subject: A free file tool for your College Students page
+
+Hello,
+
+We came across the College Students page on the Lenawee District Library website. The list of study sites like Khan Academy, EasyBib and Evernote is a handy starting point.
+
+One thing college students often struggle with is a portal rejecting a file as too large. Tools for World is a free website that compresses PDFs and photos and turns photos of handwritten work into one PDF, all inside the browser, so the files never leave the student's own device. No sign-up, no cost:
+
+https://toolsforworld.com/compress-pdf/
+https://toolsforworld.com/jpg-to-pdf/
+
+If it seems useful, you're welcome to add it to the page. Thank you for your time.
+
+The Tools for World team
+https://toolsforworld.com
+
+If you'd rather not hear from us again, just reply and let us know.
