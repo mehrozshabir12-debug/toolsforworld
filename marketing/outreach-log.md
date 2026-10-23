@@ -371,3 +371,211 @@ The Tools for World team
 https://toolsforworld.com
 
 If you'd rather not hear from us again, just reply and let us know.
+
+## Ready to send (2026-10-23)
+
+Gmail check 23 Oct: no new human replies from contacted universities since 22 Oct (only the earlier auto-acks and the U of Toronto reply already logged). No opt-out requests. New vendor mail only (LaunchFree submission confirmation; PeerPush, StartupSubmitHQ, SellWithBoost, SoloLaunches follow-ups), not answered. The 2026-10-22 list above is still waiting for owner approval and is offered again together with this one.
+
+| # | Name | University | Country | Email | Source page | Why |
+|---|---|---|---|---|---|---|
+| 1 | Alexandra Murphy, Course Leader, BA (Hons) Photography | Buckinghamshire New University | UK | Alexandra.Murphy@bnu.ac.uk | https://www.bucks.ac.uk/sites/default/files/2025-11/BA%20%28Hons%29%20Photography%20Portfolio%20Guidance.pdf ("Email your portfolio ... to the Course Leader, Alexandra.Murphy@bnu.ac.uk.") | Portfolio PDF "no bigger than 20Mbs", reduce large images first |
+| 2 | School of Architecture, Building and Environment (TU832 Architecture) | Technological University Dublin | Ireland | School.SABE@tudublin.ie | https://www.tudublin.ie/media/website/study/undergraduate/TU832-Architecture-Portfolio-Guidance-2027.pdf ("For general course or portfolio queries please email the School at School.SABE@tudublin.ie.") | Portfolio max 10MB, 5MB per item; links Adobe and other online compressors |
+| 3 | School of Architecture, Master's programme in Architecture | KTH Royal Institute of Technology | Sweden | master@arch.kth.se | https://kth.se/studies/master/architecture/entry-requirements-architecture-1.48053 ("If you are unable to upload your portfolio via SharePoint due to a technical problem, please contact master@arch.kth.se") | Portfolio PDF max 15 MB |
+| 4 | Library & Student IT Advice | Leeds Beckett University | UK | library@leedsbeckett.ac.uk | https://libanswers.leedsbeckett.ac.uk/faq/179518 (Contact us block) | FAQ on Turnitin file size: limit 100MB, recommends under 50MB, PDF if problems |
+| 5 | Teaching and Learning Centre | Ontario Tech University | Canada | teachingandlearning@ontariotechu.ca | https://shared.ontariotechu.ca/shared/department/tlc/teaching-support/course-design/exam-uploadingimages-updatedw2021-1.pdf ("please mail teachingandlearning@ontariotechu.ca") | Student handout on uploading photos/scans of exam answers to Canvas; HEIC errors, compress images |
+| 6 | Identificación (student ID photo office) | UPAEP (Universidad Popular Autónoma del Estado de Puebla) | Mexico | identificacion@upaep.mx | https://upaep.mx/micrositios/induccion/posgrados/img/pdf/LIC_Requisitos_Fotografia_Credencial.pdf ("¿Tienes dudas? Por favor, escríbenos: identificacion@upaep.mx") | ID photo: JPG, 45-200 KB, 267x315 px, white background |
+| 7 | Sección de Registro y Matrícula, Sede Palmira | Universidad Nacional de Colombia | Colombia | registro_pal@unal.edu.co | https://www.palmira.unal.edu.co/registro/images/Solicitud_de_Duplicado_de_Carne_2023.pdf (office contact block) | Student card photo: JPEG, white background, max 1920x1080 px, max 500KB |
+| 8 | ODeL Support (Open, Distance & e-Learning) | Africa International University | Kenya | odel.support@aiu.ac.ke | https://odel.aiu.ac.ke/mod/page/view.php?id=69916 ("Get In Touch" block) | Student page on photographing handwritten assignments and combining images into one PDF for the eLearning portal |
+| 9 | IGNOU Study Centre SC-29050, Shyam Lal College (Evening), University of Delhi | University of Delhi / IGNOU | India | ignou29050@shyamlale.du.ac.in | https://shyamlale.du.ac.in/wp-content/uploads/2025/03/Guidelines-to-submission-of-IGNOU-Assignment-in-LSC-29050.pdf ("may email their grievances on ignou29050@shyamlale.du.ac.in") | Distance learners must submit scanned handwritten assignments as clear PDFs |
+| 10 | ORSID, Office of the University Registrar | University of the Philippines Open University | Philippines | orsid.support@upou.edu.ph | https://upou.edu.ph/announcement/filing-of-a-request-for-upou-student-id ; email on https://registrar.upou.edu.ph/contact-us/ ("ID and Validation Sticker-Related Concerns:", shown via the page's Cloudflare email link, decoded) | Student ID photo: 2x2, 100-500 KB, 350-1000 px |
+
+Considered and left out today: UNE Australia LN70 team (email given only for an unrelated topic), Prof. Girardi USC (course page from 2020), UF photojournalism syllabus (instructor not named), SETU Wexford art (second Irish one today), Weissensee Berlin (only a general advisory inbox), Stirling (generic hub inbox).
+
+### 1. Alexandra Murphy (Buckinghamshire New University) – Alexandra.Murphy@bnu.ac.uk
+Subject: A free way to get photography portfolios under 20MB
+
+Hello Alexandra,
+
+We came across the portfolio guidance for BA (Hons) Photography. The advice to reduce large images before building the PDF, and to keep it under 20MB, is exactly the step many applicants find tricky with full-size camera files.
+
+Tools for World is a free website that compresses images and PDFs and turns a set of photos into one PDF, all inside the browser, so the photographs never leave the applicant's own computer. No sign-up, no cost:
+
+https://toolsforworld.com/compress-image/
+https://toolsforworld.com/compress-pdf/
+
+If you think it would help, you're welcome to share it with applicants or students. Thank you for your time.
+
+The Tools for World team
+https://toolsforworld.com
+
+If you'd rather not hear from us again, just reply and let us know.
+
+### 2. TU Dublin School of Architecture, Building and Environment – School.SABE@tudublin.ie
+Subject: A no-upload compressor for the TU832 portfolio limits
+
+Hello,
+
+We read the TU832 Architecture portfolio submission guidance. The 10MB total and 5MB per item limits are tight for drawings and model photos, and it's helpful that the guide points applicants to online compressors.
+
+In case another option is useful, Tools for World is a free compressor for PDFs and images that runs inside the browser, so applicants' work is never uploaded to a server. No sign-up, no cost:
+
+https://toolsforworld.com/compress-pdf/
+https://toolsforworld.com/compress-image/
+
+If it seems helpful, you're welcome to mention it in the guidance next time it's updated, or share it with students. Thank you for your time.
+
+The Tools for World team
+https://toolsforworld.com
+
+If you'd rather not hear from us again, just reply and let us know.
+
+### 3. KTH School of Architecture – master@arch.kth.se
+Subject: A free tool for the 15 MB architecture portfolio limit
+
+Hello,
+
+We read the entry requirements for the Master's programme in Architecture. A portfolio of up to nine pages within 15 MB is a real squeeze for image-heavy work, and some applicants end up uploading their portfolios to unknown converter sites to shrink them.
+
+Tools for World is a free website that compresses PDFs inside the browser, so the portfolio stays on the applicant's own computer and is never uploaded. No sign-up, no cost:
+
+https://toolsforworld.com/compress-pdf/
+
+If you think it would help, you're welcome to share it with applicants. Thank you for your time.
+
+The Tools for World team
+https://toolsforworld.com
+
+If you'd rather not hear from us again, just reply and let us know.
+
+### 4. Leeds Beckett University Library – library@leedsbeckett.ac.uk
+Subject: A free, no-upload compressor for your Turnitin file size FAQ
+
+Hello Library team,
+
+We came across your FAQ "What are the file type/size requirements for Turnitin assignments?". The tip to keep files under 50MB, even though the limit is 100MB, is very practical.
+
+For students whose file is still too big, Tools for World is a free PDF and image compressor that works in any browser. The file is processed on the student's own device and is never uploaded to a server. No sign-up, no cost:
+
+https://toolsforworld.com/compress-pdf/
+https://toolsforworld.com/compress-image/
+
+If it seems useful, you're welcome to add it to the FAQ or share it with students. Thanks for the helpful guidance either way.
+
+The Tools for World team
+https://toolsforworld.com
+
+If you'd rather not hear from us again, just reply and let us know.
+
+### 5. Ontario Tech University Teaching and Learning Centre – teachingandlearning@ontariotechu.ca
+Subject: A free browser tool for students uploading photos of their work
+
+Hello Teaching and Learning Centre team,
+
+We came across your handout on uploading images of written exam answers to Canvas. It covers the real problems well: iPhone HEIC files causing errors, large attachments, and the need to compress images.
+
+Tools for World is a free website that compresses photos and combines them into a single PDF, all inside the browser. The student's work stays on their own phone or computer and is never uploaded. No sign-up, no cost:
+
+https://toolsforworld.com/jpg-to-pdf/
+https://toolsforworld.com/compress-image/
+
+If you think it would help, you're welcome to share it with instructors or students. Thank you for your time.
+
+The Tools for World team
+https://toolsforworld.com
+
+If you'd rather not hear from us again, just reply and let us know.
+
+### 6. UPAEP student ID office – identificacion@upaep.mx
+Subject: A free tool for the 45-200 KB student ID photo
+
+Hello,
+
+We read the photo requirements for the UPAEP student ID: JPG, white background, 267 x 315 px and between 45 and 200 KB. Phone photos are usually far larger, so getting the size right can be the hardest part for new students.
+
+Tools for World is a free website that crops a photo to an exact size and compresses it to a target file size, all inside the browser. The photo stays on the student's device and is never uploaded. No sign-up, no cost:
+
+https://toolsforworld.com/passport-photo-maker/
+https://toolsforworld.com/compress-image/
+
+If it seems helpful, you're welcome to share it with new students. Thank you for your time.
+
+The Tools for World team
+https://toolsforworld.com
+
+If you'd rather not hear from us again, just reply and let us know.
+
+### 7. Universidad Nacional de Colombia, Registro y Matrícula Palmira – registro_pal@unal.edu.co
+Subject: A free tool for the student card photo requirements
+
+Hello,
+
+We read the instructions for requesting a duplicate student card at the Palmira campus. The photo has to be a JPEG with a white background, at most 1920 x 1080 pixels and 500KB, which can be tricky with a phone camera.
+
+Tools for World is a free website that resizes and compresses photos inside the browser, so the student's photo never leaves their own device. No sign-up, no cost:
+
+https://toolsforworld.com/resize-image/
+https://toolsforworld.com/compress-image/
+
+If you think it would help, you're welcome to share it with students. Thank you for your time.
+
+The Tools for World team
+https://toolsforworld.com
+
+If you'd rather not hear from us again, just reply and let us know.
+
+### 8. Africa International University ODeL Support – odel.support@aiu.ac.ke
+Subject: A free way for students to turn photos of assignments into one PDF
+
+Hello ODeL Support team,
+
+We came across your eLearning portal page on using a phone to photograph handwritten assignments and combine the images into one PDF. It's a practical guide for distance learners.
+
+In case a no-install option helps, Tools for World is a free website that turns photos into a single PDF and compresses it, all inside the browser. It works on a phone, and the student's work is never uploaded to a server. No sign-up, no cost:
+
+https://toolsforworld.com/jpg-to-pdf/
+https://toolsforworld.com/compress-pdf/
+
+If it seems useful, you're welcome to share it with students or add it to the portal resources. Thank you for your time.
+
+The Tools for World team
+https://toolsforworld.com
+
+If you'd rather not hear from us again, just reply and let us know.
+
+### 9. IGNOU Study Centre SC-29050 (Shyam Lal College Evening) – ignou29050@shyamlale.du.ac.in
+Subject: A free tool for scanned IGNOU assignment PDFs
+
+Hello,
+
+We read the study centre's guidelines for submitting IGNOU assignments: one clear PDF per assignment, scanned from the handwritten copy and named with the course code and enrolment number.
+
+Many learners only have a phone, so Tools for World may help: it is a free website that turns photos of pages into one PDF and compresses it, all inside the browser. The assignment stays on the learner's own device and is never uploaded. No sign-up, no cost:
+
+https://toolsforworld.com/jpg-to-pdf/
+https://toolsforworld.com/compress-pdf/
+
+If you think it would help, you're welcome to share it with learners. Thank you for your time.
+
+The Tools for World team
+https://toolsforworld.com
+
+If you'd rather not hear from us again, just reply and let us know.
+
+### 10. UP Open University, Office of the University Registrar (ORSID) – orsid.support@upou.edu.ph
+Subject: A free tool for the UPOU student ID photo requirements
+
+Hello,
+
+We read the announcement on requesting a UPOU Student ID. The photo rules (2 x 2, between 100 KB and 500 KB, 350 to 1000 pixels, coloured background) are clear, but getting a phone photo into that range can be hard for online learners.
+
+Tools for World is a free website that crops a photo to passport-style proportions and resizes and compresses it, all inside the browser. The photo stays on the student's own device and is never uploaded. No sign-up, no cost:
+
+https://toolsforworld.com/passport-photo-maker/
+https://toolsforworld.com/compress-image/
+
+If it seems helpful, you're welcome to share it with students. Thank you for your time.
+
+The Tools for World team
+https://toolsforworld.com
+
+If you'd rather not hear from us again, just reply and let us know.
