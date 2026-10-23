@@ -12,6 +12,8 @@ Rules (owner, 17 Oct 2026):
 
 Focus (owner, 17 Oct 2026): from now on approach only university teaching staff and university teaching/library/digital-learning teams (word-of-mouth through students). Each address is found and checked one by one on the person's or team's own university page; no bulk lists, no scraping tools, no bought lists (Australian Spam Act bans harvested-address lists). Max 10 a day, max 1 per department per day.
 
+Update (owner, 23 Oct 2026: "backlinks k leye b", "10 wala formula follow kro"): keep the total at about 10 personal emails a day, never bulk. Mix: about 7 university targets as above, plus up to 3 backlink targets: independent articles or resource pages that list free PDF/image/passport-photo tools and say they welcome suggestions, or student/edtech blogs with a published contact address. Same rules apply (no paid or advertorial placements, no link sellers, no competitor tool sites, no guessed addresses, one follow-up at most). Cold bulk email or bought lists are never allowed (Australian Spam Act).
+
 Link priority (owner gave a free hand, 23 Oct 2026; from Search Console + OpenSEO rank check, India mobile): when a target's page fits, link the specific size page instead of a general tool, because these are closest to Google's first page and the big brands have no exact-size pages:
 - File-size limit of 10–20 KB (signatures, tiny photos) → https://toolsforworld.com/compress-image-to-10kb/ (position 43)
 - PDF limit of 1 MB → https://toolsforworld.com/compress-pdf-to-1mb/ (position 50)
