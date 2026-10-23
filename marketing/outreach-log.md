@@ -31,6 +31,16 @@ Only use one of these when it truly matches what the target's page says; otherwi
 
 | Date | Site | Contact | Page / reason | Channel | Status |
 |---|---|---|---|---|---|
+| 2026-10-23 | University of Pretoria clickUP support | e-support@up.ac.za | Reduce file size of submissions (100MB) | email | sent (owner approved 23 Oct, sent from hello@ via Chrome, confirmed in Sent) |
+| 2026-10-23 | Toronto Metropolitan Univ. DMP | courses@torontomu.ca | D2L assignment tutorial | email | sent (owner approved 23 Oct, sent from hello@ via Chrome, confirmed in Sent) |
+| 2026-10-23 | Ohio Univ. HCOM Medical Ed Tech | HCOMTech@ohio.edu | 4MB Student Portal PDF limit | email | sent (owner approved 23 Oct, sent from hello@ via Chrome, confirmed in Sent) |
+| 2026-10-23 | UTM Kad Matrik | identitycard@utm.my | Matric card photo 70-100 kB | email | sent (owner approved 23 Oct, sent from hello@ via Chrome, confirmed in Sent) |
+| 2026-10-23 | MTU Crawford College of Art & Design | crawford.portfolio@mtu.ie | Portfolio under 50MB | email | sent (owner approved 23 Oct, sent from hello@ via Chrome, confirmed in Sent) |
+| 2026-10-23 | PolyU School of Design | sdweb@polyu.edu.hk | A3 portfolio under 20 MB | email | sent (owner approved 23 Oct, sent from hello@ via Chrome, confirmed in Sent) |
+| 2026-10-23 | Aalto ARTS incoming exchange | in-exchange-arts@aalto.fi | Exchange portfolio 2MB (+ mailto typo note) | email | sent (owner approved 23 Oct, sent from hello@ via Chrome, confirmed in Sent) |
+| 2026-10-23 | Bucks New Univ. (Alexandra Murphy) | Alexandra.Murphy@bnu.ac.uk | Photography portfolio under 20MB | email | sent (owner approved 23 Oct, sent from hello@ via Chrome, confirmed in Sent) |
+| 2026-10-23 | TU Dublin SABE (TU832) | School.SABE@tudublin.ie | Portfolio 10MB / 5MB per item | email | sent (owner approved 23 Oct, sent from hello@ via Chrome, confirmed in Sent) |
+| 2026-10-23 | KTH School of Architecture | master@arch.kth.se | Master's portfolio 15 MB | email | sent (owner approved 23 Oct, sent from hello@ via Chrome, confirmed in Sent) |
 | 2026-10-18 | Muzamil Hasan (Thought Behind Things podcast) | hello@muzamilhasan.com | Owner asked for a promotion request; email from his contact page; owner allowed 'student studying in Australia' in this email | email | sent |
 | 2026-10-18 | Oxford Continuing Education (TALL) | tallithelp@conted.ox.ac.uk | Online support: My file is too large to submit | email | sent (ticket #8541 auto-ack, no human reply yet) |
 | 2026-10-18 | Glasgow School of Art Library | library@gsa.ac.uk | Library FAQ: compress files for Canvas | email | sent (LibAnswers auto-ack, no human reply yet) |
@@ -233,7 +243,7 @@ https://toolsforworld.com
 
 If you'd rather not hear from us again, just reply and let us know.
 
-## Ready to send (2026-10-22)
+## Ready to send (2026-10-22) — ALL 7 SENT 2026-10-23 (see Contacted)
 
 Gmail check 22 Oct: one human reply (U of Toronto EdTech, Yun Wu: thanks, ticket resolved). Others: auto-acknowledgements only. No opt-out requests. Unsolicited vendor pitches (BacklinkLog, SellWithBoost, PeerPush, StartupSubmitHQ, SoloLaunches) not answered.
 
@@ -381,7 +391,7 @@ https://toolsforworld.com
 
 If you'd rather not hear from us again, just reply and let us know.
 
-## Ready to send (2026-10-23)
+## Ready to send (2026-10-23) — #1-3 SENT 2026-10-23; #4-10 Approved (2026-10-23), owner asked to send them on 24 Oct (10-a-day rule)
 
 Gmail check 23 Oct: no new human replies from contacted universities since 22 Oct (only the earlier auto-acks and the U of Toronto reply already logged). No opt-out requests. New vendor mail only (LaunchFree submission confirmation; PeerPush, StartupSubmitHQ, SellWithBoost, SoloLaunches follow-ups), not answered. The 2026-10-22 list above is still waiting for owner approval and is offered again together with this one.
 
