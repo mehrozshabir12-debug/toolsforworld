@@ -6,7 +6,7 @@
 # slug -> (title, description). Pages with impressions and 0 clicks.
 TITLES = {
     "resize-image-to-3000x3000": (
-        "Resize Image to 3000x3000 px – Convert Any Photo to 3000 x 3000",
+        "Resize Image to 3000x3000 – Convert Any Photo to 3000 x 3000",
         "Convert any image to exactly 3000 × 3000 pixels in seconds: square cover art for Spotify, Apple Music and podcasts. Free, no upload, no watermark."),
     "resize-image-to-1080x1920": (
         "1080x1920 Resize – Make Any Photo 1080 x 1920 (9:16) Free",
@@ -18,7 +18,7 @@ TITLES = {
         "Compress PDF to 1MB – Make a PDF Less Than 1 MB Free",
         "Reduce PDF size to under 1 MB for email, WhatsApp and upload forms. The sharpest quality that fits is picked for you. Free, no upload, no sign-up."),
     "remove-background": (
-        "Remove Background from Image Free – Transparent PNG, No Upload",
+        "Remove Background from Image Free – Transparent PNG",
         "Remove the background from any photo in one click and download a transparent PNG. Free with no limits or credits: the AI runs in your browser."),
 }
 

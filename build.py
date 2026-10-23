@@ -126,7 +126,7 @@ FONTS = "https://fonts.googleapis.com/css2?family=Bricolage+Grotesque:opsz,wght@
 
 def fit_title(t):
     """Keep titles short enough for search results: drop the brand suffix when the title is long."""
-    return t.replace(" | Tools for World", "") if len(t) > 62 and t.endswith(" | Tools for World") else t
+    return t.replace(" | Tools for World", "") if len(t) > 60 and t.endswith(" | Tools for World") else t
 
 
 def fit_desc(d):

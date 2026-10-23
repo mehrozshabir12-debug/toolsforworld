@@ -75,7 +75,7 @@ def define(tool, F, N, SEL, RESULT, PDFLIB, PDFJS, MAMMOTH, H2PDF):
 
     tool(slug="image-to-text", group="pdf", icon="text", name="Image to Text (OCR)", ftool="ocr", libs=TESS,
          card="Copy text from a photo or screenshot.",
-         title="Image to Text Converter (OCR) – Extract Text from Images Free | Tools for World",
+         title="Image to Text (OCR) – Extract Text from Images Free | Tools for World",
          desc="Extract text from images, photos and screenshots with free OCR. Supports English, Spanish, French, German, Arabic, Hindi, Chinese and more. Runs in your browser.",
          h1="Image to text (OCR)", lead="Pull the text out of a photo, scan or screenshot so you can copy and edit it.",
          body='''<h2>How to extract text from an image</h2><ol><li>Choose a photo or screenshot.</li><li>Pick the language of the text.</li><li>Press <b>Extract text</b>, then copy it or download a .txt file.</li></ol>
@@ -271,7 +271,7 @@ def landing(define_tool):
         t(slug=f"resize-image-to-{w}x{h}", group="img", icon="img", name=f"Resize to {w}×{h}", ftool="resize", libs="",
           parent="resize-image", preset={"#rm": "px", "#rw": w, "#rh": h, "#rk": False, "#rf": "crop"},
           card=f"{label}: exactly {w}×{h} px.",
-          title=f"Resize Image to {w}x{h} Pixels Free ({label})" if len(label) > 16 else f"Resize Image to {w}x{h} Pixels Online Free ({label})",
+          title=next(x for x in (f"Resize Image to {w}x{h} Pixels Online Free ({label})", f"Resize Image to {w}x{h} Pixels Free ({label})", f"Resize Image to {w}x{h} Free ({label})") if len(x) <= 60 or x.startswith("Resize Image to " + f"{w}x{h} Free")),
           desc=f"Resize any photo to exactly {w}×{h} pixels for {use}. Crop to fill or add a border. Free and private: works in your browser.",
           h1=f"Resize image to {w}×{h} pixels", lead=f"Get a photo that is exactly {w} × {h} px for {use}. Choose crop to fill, or fit with a white border.",
           body=f'''<h2>How to resize to {w}×{h}</h2><ol><li>Choose one or more images.</li><li>The size is already set to <b>{w} × {h}</b>.</li><li>Pick <b>Crop to fill</b> (no empty space) or <b>Fit with white border</b> (nothing cut off), then press <b>Resize</b>.</li></ol>
@@ -305,7 +305,7 @@ def landing(define_tool):
     t(slug="wifi-qr-code-generator", group="util", icon="qr", name="Wi-Fi QR Code", calc="qr", libs=QRLIB, parent="qr-code-generator",
       preset={"#qt": "WIFI:T:WPA;S:MyNetwork;P:MyPassword;;"},
       card="Guests scan to join your Wi-Fi.",
-      title="Wi-Fi QR Code Generator – Share Wi-Fi Without Typing the Password | Tools for World",
+      title="Wi-Fi QR Code Generator – Share Wi-Fi Without the Password | Tools for World",
       desc="Make a free Wi-Fi QR code: guests scan it with their phone camera to join your network. No sign-up, works offline once loaded.",
       h1="Wi-Fi QR code generator", lead="Create a QR code that connects phones to your Wi-Fi in one scan. Replace the network name and password in the box.",
       ui=None, body='''<h2>How to make a Wi-Fi QR code</h2><ol><li>In the box, replace <code>MyNetwork</code> with your Wi-Fi name and <code>MyPassword</code> with the password.</li><li>Keep <code>T:WPA</code> for most routers (use <code>T:WEP</code> for very old ones, or <code>T:nopass</code> for open networks).</li><li>Download the PNG and print it for guests.</li></ol>
@@ -315,7 +315,7 @@ def landing(define_tool):
     t(slug="whatsapp-qr-code-generator", group="util", icon="qr", name="WhatsApp QR Code", calc="qr", libs=QRLIB, parent="qr-code-generator",
       preset={"#qt": "https://wa.me/15551234567?text=Hello"},
       card="Customers scan to message you on WhatsApp.",
-      title="WhatsApp QR Code Generator – Free QR for Your WhatsApp Number | Tools for World",
+      title="WhatsApp QR Code Generator – Free QR for Your Number | Tools for World",
       desc="Create a WhatsApp QR code for your number with a ready message. Customers scan to start a chat. Free, no sign-up, never expires.",
       h1="WhatsApp QR code generator", lead="Make a QR code that opens a WhatsApp chat with you. Put your number (with country code) in the link.",
       ui=None, body='''<h2>How to make a WhatsApp QR code</h2><ol><li>In the box, replace <code>15551234567</code> with your number in international format, without + or spaces (for example 923001234567 for Pakistan or 61412345678 for Australia).</li><li>Change the text after <code>?text=</code> to the first message you want customers to send, or delete it.</li><li>Download the PNG and put it on your shop counter, menu, card or flyer.</li></ol>''',
@@ -393,7 +393,7 @@ def landing(define_tool):
         t(slug=slug, group="img", icon="user", name=f"{country} Passport Photo" if "visa" not in country else f"{country} Photo",
           ftool="passport", libs="", parent="passport-photo-maker", preset={"#ps": ps},
           card=f"{size_txt}, plus a 4×6 print sheet.",
-          title=f"{country.replace(' visa', ' Visa')} {'Passport ' if 'visa' not in country else ''}Photo Maker – {size_txt.split(' (')[0]}, Size & Requirements",
+          title=f"{country.replace(' visa', ' Visa')} {'Passport ' if 'visa' not in country else ''}Photo Maker – {size_txt.split(' (')[0]}, Size & Requirements" if len(f"{country.replace(' visa', ' Visa')} {'Passport ' if 'visa' not in country else ''}Photo Maker – {size_txt.split(' (')[0]}, Size & Requirements") <= 60 else f"{country.replace(' visa', ' Visa')} {'Passport ' if 'visa' not in country else ''}Photo Maker – {size_txt.split(' (')[0]} Requirements",
           desc=f"Make a {country} {'passport ' if 'visa' not in country else ''}photo online for free: crop to {size_txt} and get a ready-to-print 4×6 inch sheet. No upload, works on your phone.",
           h1=f"{country} {'passport ' if 'visa' not in country else ''}photo maker",
           lead=f"Crop your photo to the {country} size of {size_txt} and download a single photo plus a 4×6 inch sheet to print.",

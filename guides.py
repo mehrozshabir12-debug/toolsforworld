@@ -168,7 +168,7 @@ GUIDES = [
     dict(
         slug="social-media-image-sizes",
         date="2026-10-15",
-        title="Social Media Image Sizes: Instagram, Facebook, YouTube & More",
+        title="Social Media Image Sizes: Instagram, Facebook, YouTube, More",
         desc="The image sizes in pixels for posts, stories, covers, banners and thumbnails on every major platform, plus the safe zones where text gets hidden.",
         h1="Social media image sizes cheat sheet",
         lead="Uploading at the wrong size makes platforms crop or blur your image. Here are the sizes that work on each platform, and where to keep your text so it isn't hidden.",
@@ -271,7 +271,7 @@ GUIDES = [
     dict(
         slug="file-size-limits-kb-mb-explained",
         date="2026-10-22",
-        title="File Size Limits Explained: KB vs MB and How to Get Under Them",
+        title="File Size Limits: KB vs MB and How to Get Under Them",
         desc="What “under 200 KB” or “less than 1 MB” really means, why 1 MB can be 1000 or 1024 KB, how to check a file's size on any device, and how to meet each kind of limit.",
         h1="File size limits explained: KB, MB and how to get under them",
         lead="Online forms reject files that are a few kilobytes too big, and the rules are rarely explained. This guide covers what the numbers mean, how to check your file, and the quickest way to meet each kind of limit.",
