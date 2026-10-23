@@ -39,6 +39,22 @@ OCR_NATIVE = {
     "chi_sim": ("zh-Hans", "ltr", "图片转文字（中文 OCR）：选择照片或截图，然后复制识别出的文字。您的图片不会上传到任何服务器。"),
 }
 
+# Competitor gap (OpenSEO, India, 23 Oct 2026): "passport size photo size in cm / in inches / in india" have keyword
+# difficulty 0-2 and the top results average only ~4 referring domains; 123passportphoto ranks 11-29 there with
+# query-string URLs. imgsmaller.com ranks 37-54 for "whatsapp dp size" (difficulty 0). Answer those exact questions.
+INDIA_UNITS = '''<h2>Passport size photo size in India: cm, inches and pixels</h2>
+<div class="scroll"><table class="t"><tbody>
+<tr><th>Centimetres</th><td>3.5 × 4.5 cm</td></tr>
+<tr><th>Millimetres</th><td>35 × 45 mm</td></tr>
+<tr><th>Inches</th><td>about 1.38 × 1.77 inches</td></tr>
+<tr><th>Pixels at 300 dpi</th><td>413 × 531 px (what this tool makes)</td></tr>
+<tr><th>Shape</th><td>portrait, width to height 7:9</td></tr>
+</tbody></table></div>
+<p>All rows describe the same photo in different units. Online forms usually also set a file size: make the photo here first, then use <a href="../compress-image-to-50kb/">Compress image to 50 KB</a> or the limit your form gives. A square 2 × 2 inch photo (51 × 51 mm) is a different size, used for the Indian e-Visa and some missions abroad.</p>'''
+
+WHATSAPP_DP = '''<h2>WhatsApp DP size</h2>
+<p>WhatsApp shows your profile photo as a circle cut from a square, so any square image works. 500 × 500 px is a safe size: sharp on every phone and small enough to upload quickly. If your photo is a rectangle, WhatsApp asks you to crop it; to keep the whole picture instead, choose <b>Fit with white border</b> here first. Keep your face in the middle, because the corners are hidden by the circle.</p>'''
+
 
 def enrich(T):
     for t in T:
@@ -47,6 +63,15 @@ def enrich(T):
             t["body"] += R1080
         elif s == "resize-image-to-1500x500":
             t["body"] += R1500
+        elif s == "india-passport-photo":
+            t["body"] += INDIA_UNITS
+            t["faq"] = list(t.get("faq") or []) + [
+                ("What is the passport size photo size in cm in India?", "3.5 × 4.5 cm (35 × 45 mm), which is about 1.38 × 1.77 inches. At 300 dpi that is 413 × 531 pixels."),
+                ("How many KB should a passport size photo be?", "There is no single rule: each online form sets its own limit, often between 20 KB and 200 KB. Make the photo here, then compress it to the limit your form shows.")]
+        elif s == "resize-image-to-500x500":
+            t["body"] += WHATSAPP_DP
+            t["faq"] = list(t.get("faq") or []) + [
+                ("What is the WhatsApp DP size?", "Any square photo works because WhatsApp crops it to a circle. 500 × 500 px is a good, safe size.")]
         elif t.get("parent") == "image-to-text":
             code = (t.get("preset") or {}).get("#ol")
             if code in OCR_NATIVE:
