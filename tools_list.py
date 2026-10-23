@@ -77,7 +77,7 @@ def define(tool, F, N, SEL, RESULT, PDFLIB, PDFJS, MAMMOTH, H2PDF):
          card="Copy text from a photo or screenshot.",
          title="Image to Text (OCR) – Extract Text from Images Free | Tools for World",
          desc="Extract text from images, photos and screenshots with free OCR. Supports English, Spanish, French, German, Arabic, Hindi, Chinese and more. Runs in your browser.",
-         h1="Image to text (OCR)", lead="Pull the text out of a photo, scan or screenshot so you can copy and edit it.",
+         h1="Image to text (OCR)", lead="Extract text from an image, photo, scan or screenshot so you can copy and edit it.",
          body='''<h2>How to extract text from an image</h2><ol><li>Choose a photo or screenshot.</li><li>Pick the language of the text.</li><li>Press <b>Extract text</b>, then copy it or download a .txt file.</li></ol>
 <h2>Tips for better results</h2><ul><li>Use a sharp, well-lit photo taken straight on.</li><li>Crop away everything except the text.</li><li>Printed text works much better than handwriting.</li></ul>''',
          faq=[("Which languages are supported?", "English, Spanish, French, German, Portuguese, Italian, Russian, Turkish, Arabic, Urdu, Hindi, Bengali, Indonesian and Simplified Chinese."),
@@ -337,7 +337,7 @@ def landing(define_tool):
           card=f"Shrink a PDF to under {lab_s} automatically.",
           title=f"Compress PDF to {lab} Online Free – PDF Under {lab_s} | Tools for World",
           desc=f"Compress a PDF to {lab} or less for free. The best quality that fits under {lab_s} is picked for you. No upload: works in your browser.",
-          h1=f"Compress PDF to {lab}", lead=f"Choose a PDF and it is made just under {lab_s}, keeping as much quality as possible. Ideal for {use}.",
+          h1=f"Compress PDF to {lab}", lead=f"Reduce PDF size to under {lab_s} in one step: choose a PDF and it is made just under {lab_s}, keeping as much quality as possible. Ideal for {use}.",
           body=f'''<h2>How to compress a PDF to {lab}</h2><ol><li>Choose your PDF.</li><li>The target is already set to <b>{lab_s}</b>. Change it if your form allows a different size.</li><li>Press <b>Compress PDF</b> and download the smaller file.</li></ol>
 <h2>How it works</h2><p>Each page is re-saved as a compressed image. The tool tries several quality levels and keeps the sharpest one that still fits under {lab_s}. Your file never leaves your device.</p>
 <h2>Tips</h2><ul><li>Scanned documents and PDFs full of photos shrink the most.</li><li>Fewer pages means better quality at {lab_s}. Remove pages you don't need with <a href="../split-pdf/">Split PDF</a> first.</li><li>Text in the result can no longer be selected or searched, which is fine for forms and scans.</li></ul>''',
@@ -394,14 +394,14 @@ def landing(define_tool):
           ftool="passport", libs="", parent="passport-photo-maker", preset={"#ps": ps},
           card=f"{size_txt}, plus a 4×6 print sheet.",
           title=f"{country.replace(' visa', ' Visa')} {'Passport ' if 'visa' not in country else ''}Photo Maker – {size_txt.split(' (')[0]}, Size & Requirements" if len(f"{country.replace(' visa', ' Visa')} {'Passport ' if 'visa' not in country else ''}Photo Maker – {size_txt.split(' (')[0]}, Size & Requirements") <= 60 else f"{country.replace(' visa', ' Visa')} {'Passport ' if 'visa' not in country else ''}Photo Maker – {size_txt.split(' (')[0]} Requirements",
-          desc=f"Make a {country} {'passport ' if 'visa' not in country else ''}photo online for free: crop to {size_txt} and get a ready-to-print 4×6 inch sheet. No upload, works on your phone.",
+          desc=f"Make {'an' if country[0] in 'AEIOU' else 'a'} {country} {'passport ' if 'visa' not in country else ''}photo online for free: crop to {size_txt} and get a ready-to-print 4×6 inch sheet. No upload, works on your phone.",
           h1=f"{country} {'passport ' if 'visa' not in country else ''}photo maker",
           lead=f"Crop your photo to the {country} size of {size_txt} and download a single photo plus a 4×6 inch sheet to print.",
-          body=f'''<h2>How to make a {country} {'passport ' if 'visa' not in country else ''}photo</h2><ol><li>Take a photo facing the camera against a {bg} background, with even light and no shadows.</li><li>Choose the photo. The size is already set to <b>{size_txt}</b>.</li><li>Use zoom and the sliders so the top of the head is near the upper guide line and the chin near the lower one.</li><li>Press <b>Make sheet</b>. Print the 4×6 sheet at 100% scale at home or at a photo shop, or use the single photo for online applications.</li></ol>
+          body=f'''<h2>How to make {'an' if country[0] in 'AEIOU' else 'a'} {country} {'passport ' if 'visa' not in country else ''}photo</h2><ol><li>Take a photo facing the camera against a {bg} background, with even light and no shadows.</li><li>Choose the photo. The size is already set to <b>{size_txt}</b>.</li><li>Use zoom and the sliders so the top of the head is near the upper guide line and the chin near the lower one.</li><li>Press <b>Make sheet</b>. Print the 4×6 sheet at 100% scale at home or at a photo shop, or use the single photo for online applications.</li></ol>
 <h2>Photo checklist</h2><ul><li>Size: {size_txt}.</li><li>Background: {bg}, with no patterns or objects.</li><li>Neutral expression, mouth closed, eyes open and visible.</li><li>No glasses glare, hats or filters.</li></ul>
 <p>Applying online? Many portals set a file-size limit: <a href="../compress-image-to-50kb/">compress the photo to 50 KB</a>, <a href="../compress-image-to-100kb/">100 KB</a> or <a href="../compress-image-to-200kb/">200 KB</a> after making it here.</p>
 <div class="warnbox">Rules change from time to time. Always check the latest photo requirements on the official government website before you apply.</div>''',
-          faq=[(f"What size is a {country} {'passport ' if 'visa' not in country else ''}photo?", f"{size_txt}. This tool crops your photo to exactly that size at 300 dpi."),
+          faq=[(f"What size is {'an' if country[0] in 'AEIOU' else 'a'} {country} {'passport ' if 'visa' not in country else ''}photo?", f"{size_txt}. This tool crops your photo to exactly that size at 300 dpi."),
                ("Is my photo uploaded?", "No. Cropping and the print sheet are made in your browser, so the photo stays on your device.")])
 
     # ---- Utility variants ----
