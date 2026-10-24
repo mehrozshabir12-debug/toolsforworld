@@ -1,0 +1,250 @@
+{
+ "local:mobile:/": {
+  "performance": 99,
+  "accessibility": 100,
+  "best-practices": 75,
+  "seo": 100,
+  "LCP_s": 1.07,
+  "CLS": 0,
+  "TBT_ms": 126,
+  "FCP_s": 1.07,
+  "bytes_kb": 467,
+  "weak_audits": [
+   "errors-in-console",
+   "interactive",
+   "third-party-cookies",
+   "td-has-header",
+   "uses-long-cache-ttl",
+   "unused-css-rules",
+   "unused-javascript",
+   "uses-text-compression",
+   "inspector-issues"
+  ]
+ },
+ "local:mobile:/pdf-to-word/": {
+  "performance": 100,
+  "accessibility": 100,
+  "best-practices": 75,
+  "seo": 100,
+  "LCP_s": 1.22,
+  "CLS": 0.0,
+  "TBT_ms": 81,
+  "FCP_s": 1.22,
+  "bytes_kb": 486,
+  "weak_audits": [
+   "errors-in-console",
+   "interactive",
+   "third-party-cookies",
+   "uses-long-cache-ttl",
+   "unused-css-rules",
+   "unused-javascript",
+   "uses-text-compression",
+   "inspector-issues"
+  ]
+ },
+ "local:mobile:/compress-image/": {
+  "performance": 99,
+  "accessibility": 100,
+  "best-practices": 75,
+  "seo": 100,
+  "LCP_s": 1.22,
+  "CLS": 0,
+  "TBT_ms": 105,
+  "FCP_s": 1.22,
+  "bytes_kb": 488,
+  "weak_audits": [
+   "errors-in-console",
+   "interactive",
+   "third-party-cookies",
+   "uses-long-cache-ttl",
+   "unused-css-rules",
+   "unused-javascript",
+   "uses-text-compression",
+   "inspector-issues"
+  ]
+ },
+ "local:mobile:/remove-background/": {
+  "performance": 99,
+  "accessibility": 100,
+  "best-practices": 75,
+  "seo": 100,
+  "LCP_s": 1.22,
+  "CLS": 0,
+  "TBT_ms": 115,
+  "FCP_s": 1.22,
+  "bytes_kb": 486,
+  "weak_audits": [
+   "errors-in-console",
+   "interactive",
+   "third-party-cookies",
+   "uses-long-cache-ttl",
+   "unused-css-rules",
+   "unused-javascript",
+   "uses-text-compression",
+   "inspector-issues"
+  ]
+ },
+ "local:mobile:/word-counter/": {
+  "performance": 99,
+  "accessibility": 100,
+  "best-practices": 75,
+  "seo": 100,
+  "LCP_s": 0.91,
+  "CLS": 0.018,
+  "TBT_ms": 109,
+  "FCP_s": 0.91,
+  "bytes_kb": 452,
+  "weak_audits": [
+   "errors-in-console",
+   "interactive",
+   "third-party-cookies",
+   "uses-long-cache-ttl",
+   "unused-css-rules",
+   "unused-javascript",
+   "uses-text-compression",
+   "inspector-issues"
+  ]
+ },
+ "local:mobile:/compress-pdf-to-200kb/": {
+  "performance": 100,
+  "accessibility": 100,
+  "best-practices": 75,
+  "seo": 100,
+  "LCP_s": 1.35,
+  "CLS": 0.0,
+  "TBT_ms": 74,
+  "FCP_s": 1.35,
+  "bytes_kb": 490,
+  "weak_audits": [
+   "errors-in-console",
+   "interactive",
+   "third-party-cookies",
+   "uses-long-cache-ttl",
+   "unused-css-rules",
+   "unused-javascript",
+   "uses-text-compression",
+   "inspector-issues"
+  ]
+ },
+ "local:desktop:/": {
+  "performance": 100,
+  "accessibility": 100,
+  "best-practices": 74,
+  "seo": 100,
+  "LCP_s": 0.29,
+  "CLS": 0,
+  "TBT_ms": 0,
+  "FCP_s": 0.29,
+  "bytes_kb": 466,
+  "weak_audits": [
+   "errors-in-console",
+   "third-party-cookies",
+   "td-has-header",
+   "uses-long-cache-ttl",
+   "unused-css-rules",
+   "unused-javascript",
+   "uses-text-compression",
+   "inspector-issues"
+  ]
+ },
+ "local:desktop:/pdf-to-word/": {
+  "performance": 100,
+  "accessibility": 100,
+  "best-practices": 74,
+  "seo": 100,
+  "LCP_s": 0.33,
+  "CLS": 0.0,
+  "TBT_ms": 0,
+  "FCP_s": 0.33,
+  "bytes_kb": 487,
+  "weak_audits": [
+   "errors-in-console",
+   "third-party-cookies",
+   "uses-long-cache-ttl",
+   "unused-css-rules",
+   "unused-javascript",
+   "uses-text-compression",
+   "inspector-issues"
+  ]
+ },
+ "local:desktop:/compress-image/": {
+  "performance": 100,
+  "accessibility": 100,
+  "best-practices": 74,
+  "seo": 100,
+  "LCP_s": 0.33,
+  "CLS": 0,
+  "TBT_ms": 0,
+  "FCP_s": 0.33,
+  "bytes_kb": 486,
+  "weak_audits": [
+   "errors-in-console",
+   "third-party-cookies",
+   "uses-long-cache-ttl",
+   "unused-css-rules",
+   "unused-javascript",
+   "uses-text-compression",
+   "inspector-issues"
+  ]
+ },
+ "local:desktop:/remove-background/": {
+  "performance": 100,
+  "accessibility": 100,
+  "best-practices": 74,
+  "seo": 100,
+  "LCP_s": 0.32,
+  "CLS": 0.0,
+  "TBT_ms": 0,
+  "FCP_s": 0.32,
+  "bytes_kb": 486,
+  "weak_audits": [
+   "errors-in-console",
+   "third-party-cookies",
+   "uses-long-cache-ttl",
+   "unused-css-rules",
+   "unused-javascript",
+   "uses-text-compression",
+   "inspector-issues"
+  ]
+ },
+ "local:desktop:/word-counter/": {
+  "performance": 100,
+  "accessibility": 100,
+  "best-practices": 74,
+  "seo": 100,
+  "LCP_s": 0.24,
+  "CLS": 0.039,
+  "TBT_ms": 0,
+  "FCP_s": 0.24,
+  "bytes_kb": 451,
+  "weak_audits": [
+   "errors-in-console",
+   "third-party-cookies",
+   "uses-long-cache-ttl",
+   "unused-css-rules",
+   "unused-javascript",
+   "uses-text-compression",
+   "inspector-issues"
+  ]
+ },
+ "local:desktop:/compress-pdf-to-200kb/": {
+  "performance": 100,
+  "accessibility": 100,
+  "best-practices": 74,
+  "seo": 100,
+  "LCP_s": 0.36,
+  "CLS": 0.0,
+  "TBT_ms": 0,
+  "FCP_s": 0.36,
+  "bytes_kb": 489,
+  "weak_audits": [
+   "errors-in-console",
+   "third-party-cookies",
+   "uses-long-cache-ttl",
+   "unused-css-rules",
+   "unused-javascript",
+   "uses-text-compression",
+   "inspector-issues"
+  ]
+ }
+}
