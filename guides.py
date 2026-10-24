@@ -19,7 +19,7 @@ GUIDES = [
 <tr><td>Canada passport</td><td>50 × 70 mm</td><td>31–36 mm</td><td>White or light-coloured</td><td><a href="{R}canada-passport-photo/">Canada photo maker</a></td></tr>
 <tr><td>Australia passport</td><td>35–40 × 45–50 mm</td><td>32–36 mm</td><td>Plain white or light grey</td><td><a href="{R}australia-passport-photo/">Australia photo maker</a></td></tr>
 <tr><td>India passport (applying in India)</td><td>35 × 45 mm (3.5 × 4.5 cm)</td><td>Head centred, both ears visible</td><td>Plain white</td><td><a href="{R}india-passport-photo/">India photo maker</a></td></tr>
-<tr><td>Pakistan passport (online application)</td><td>Digital: 350 × 467 px, JPG, max 3 MB</td><td>Not specified by DGIP</td><td>White</td><td><a href="{R}resize-image/">Resize to 350 × 467</a></td></tr>
+<tr><td>Pakistan passport (online application)</td><td>Digital: 350 × 467 px, JPG, max 3 MB</td><td>Not specified by DGIP</td><td>White</td><td><a href="{R}pakistan-passport-photo/">Pakistan photo maker</a></td></tr>
 <tr><td>Schengen visa</td><td>35 × 45 mm</td><td>32–36 mm, chin to hairline (German missions)</td><td>Plain, one light colour</td><td><a href="{R}schengen-visa-photo/">Schengen photo maker</a></td></tr>
 <tr><td>China visa</td><td>33 × 48 mm</td><td>28–33 mm</td><td>Plain white</td><td><a href="{R}china-visa-photo/">China photo maker</a></td></tr>
 </tbody></table></div>
@@ -63,7 +63,7 @@ GUIDES = [
 <h2>Pakistani passports: online applications</h2>
 <p>For online passport applications, Pakistan's Directorate General of Immigration &amp; Passports (DGI&amp;P) asks for a colour photo with a white background, 350 × 467 pixels, in JPG or JPEG format and no larger than 3 MB. DGI&amp;P does not publish a head size for this upload, so follow the general rules above: face the camera, neutral expression, even light and no shadows.</p>
 <ol><li>Take the photo against a plain white wall in daylight.</li>
-<li>Open <a href="{R}resize-image/">Resize Image</a>, choose <b>Pixels</b>, type 350 × 467 and pick <b>Crop to fill</b>, keeping your face in the centre.</li>
+<li>Open the <a href="{R}pakistan-passport-photo/">Pakistan passport photo maker</a>. The size is already set to 350 × 467 px; move and zoom so your face is centred.</li>
 <li>Download the JPG. At 350 × 467 px it will be far below the 3 MB limit.</li></ol>
 <p>If you apply in person at a passport office, your photo is taken there.</p>
 

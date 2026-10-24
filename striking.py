@@ -55,6 +55,25 @@ INDIA_UNITS = '''<h2>Passport size photo size in India: cm, inches and pixels</h
 WHATSAPP_DP = '''<h2>WhatsApp DP size</h2>
 <p>WhatsApp shows your profile photo as a circle cut from a square, so any square image works. 500 × 500 px is a safe size: sharp on every phone and small enough to upload quickly. If your photo is a rectangle, WhatsApp asks you to crop it; to keep the whole picture instead, choose <b>Fit with white border</b> here first. Keep your face in the middle, because the corners are hidden by the circle.</p>'''
 
+# Pakistan passport page (owner approved 24 Oct 2026). Facts only from DGI&P's online-passport page, as already used in
+# the passport-size guide: colour, white background, 350 x 467 px, JPG/JPEG, max 3 MB. No head size is published for it.
+PAK_TITLE = "Pakistan Passport Photo 350×467 px – Free Online Maker"
+PAK_DESC = "Make a photo for the Pakistan online passport application: 350 × 467 pixels, white background, JPG under 3 MB. Free, no upload, works on your phone."
+PAK_BODY = '''<h2>Pakistan passport photo requirements (online application)</h2>
+<div class="scroll"><table class="t"><tbody>
+<tr><th>Size</th><td>350 × 467 pixels (this page makes exactly that)</td></tr>
+<tr><th>Format</th><td>JPG / JPEG</td></tr>
+<tr><th>File size</th><td>3 MB at most; a 350 × 467 photo is far smaller</td></tr>
+<tr><th>Background</th><td>White</td></tr>
+<tr><th>Colour</th><td>Colour photo</td></tr>
+<tr><th>Head size</th><td>Not published by DGI&amp;P for the online upload; keep your face centred and the whole head in the frame</td></tr>
+</tbody></table></div>
+<p>For the online form you only need the single photo, not the 4×6 print sheet. If you apply in person at a passport office, your photo is taken there. 350 × 467 px is a 3:4 shape, a little narrower than a 35 × 45 mm print, so use this pixel size for the online upload rather than resizing a printed photo.</p>
+<p class="quick" lang="ur" dir="rtl">پاکستانی پاسپورٹ کی آن لائن درخواست کے لیے تصویر: 350 × 467 پکسل، سفید پس منظر، رنگین، JPG فارمیٹ اور زیادہ سے زیادہ 3 MB۔ یہ صفحہ آپ کی تصویر بالکل اسی سائز میں بناتا ہے، اور تصویر کہیں اپ لوڈ نہیں ہوتی۔</p>
+<p>Official source: <a href="https://dgip.gov.pk/eServices/online-passport.php" rel="nofollow">DGI&amp;P – Online passport (document requirements)</a>. See also <a href="../guides/passport-photo-size-by-country/">passport photo sizes by country</a>.</p>'''
+PAK_FAQ = [("What is the Pakistan passport photo size in pixels?", "350 × 467 pixels for the online application, in JPG with a white background and no more than 3 MB."),
+           ("Is 350 × 467 px the same as 35 × 45 mm?", "No. 350 × 467 px is a 3:4 shape, a little narrower than 35 × 45 mm. For the online passport form, use the pixel size DGI&P gives.")]
+
 
 def enrich(T):
     for t in T:
@@ -68,6 +87,10 @@ def enrich(T):
             t["faq"] = list(t.get("faq") or []) + [
                 ("What is the passport size photo size in cm in India?", "3.5 × 4.5 cm (35 × 45 mm), which is about 1.38 × 1.77 inches. At 300 dpi that is 413 × 531 pixels."),
                 ("How many KB should a passport size photo be?", "There is no single rule: each online form sets its own limit, often between 20 KB and 200 KB. Make the photo here, then compress it to the limit your form shows.")]
+        elif s == "pakistan-passport-photo":
+            t["title"], t["desc"] = PAK_TITLE, PAK_DESC
+            t["body"] += PAK_BODY
+            t["faq"] = list(t.get("faq") or []) + PAK_FAQ
         elif s == "resize-image-to-500x500":
             t["body"] += WHATSAPP_DP
             t["faq"] = list(t.get("faq") or []) + [

@@ -389,7 +389,8 @@ def landing(define_tool):
             ("australia-passport-photo", "Australia", "35x45", "35 × 45 mm", "plain light-coloured"),
             ("india-passport-photo", "India", "35x45", "35 × 45 mm", "plain white"),
             ("schengen-visa-photo", "Schengen visa", "35x45", "35 × 45 mm", "plain light-coloured"),
-            ("china-visa-photo", "China visa", "33x48", "33 × 48 mm", "plain white")):
+            ("china-visa-photo", "China visa", "33x48", "33 × 48 mm", "plain white"),
+            ("pakistan-passport-photo", "Pakistan", "29.63x39.54", "350 × 467 pixels", "plain white")):
         t(slug=slug, group="img", icon="user", name=f"{country} Passport Photo" if "visa" not in country else f"{country} Photo",
           ftool="passport", libs="", parent="passport-photo-maker", preset={"#ps": ps},
           card=f"{size_txt}, plus a 4×6 print sheet.",

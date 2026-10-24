@@ -98,6 +98,10 @@ RELATED = {
     "mp4-to-mp3": ["compress-image", "heic-to-jpg", "pdf-to-word", "image-to-text"],
 }
 FMT = {'compress': 'Supported: JPG, PNG, WebP, GIF, BMP · several files at once', 'resize': 'Supported: JPG, PNG, WebP, GIF, BMP · several files at once', 'convert': 'Supported: JPG, PNG, WebP · several files at once', 'passport': 'Supported: JPG, PNG, WebP', 'img2pdf': 'Supported: JPG, PNG, WebP · several files at once', 'merge': 'Supported: PDF · several files at once', 'split': 'Supported: PDF', 'pdf2jpg': 'Supported: PDF', 'word2pdf': 'Supported: Word .docx', 'png2jpg': 'Supported: PNG · several files at once', 'jpg2png': 'Supported: JPG / JPEG · several files at once', 'webp2jpg': 'Supported: WebP · several files at once', 'heic2jpg': 'Supported: HEIC / HEIF (iPhone photos) · several files at once', 'pdfcompress': 'Supported: PDF', 'ocr': 'Supported: JPG, PNG, WebP, BMP', 'bgremove': 'Supported: JPG, PNG, WebP', 'mp4mp3': 'Supported: MP4, MOV, WebM, M4A', 'pdf2word': 'Supported: PDF'}  # what each file tool accepts (shown under the drop zone; kept in sync with TOOLS in files.js)
+# Exact-size pages shown on the home page (closest to Google's first page in Search Console / OpenSEO, 24 Oct 2026)
+HOME_SIZES = ["pakistan-passport-photo", "india-passport-photo", "compress-image-to-10kb", "compress-image-to-20kb",
+              "compress-image-to-50kb", "compress-pdf-to-200kb", "compress-pdf-to-300kb", "compress-pdf-to-1mb",
+              "resize-image-to-1080x1920", "resize-image-to-500x500"]
 POPULAR = ["pdf-to-word", "compress-image-to-100kb", "compress-pdf", "remove-background", "image-to-text", "passport-photo-maker", "jpg-to-pdf", "word-to-pdf"]
 
 # Google AdSense publisher ID, e.g. "ca-pub-1234567890123456". Empty = no ad code on the site.
@@ -361,6 +365,9 @@ def build():
             + "".join(f'<button type="button" class="flt" data-f="{k}" aria-pressed="{"true" if k == "all" else "false"}">{lbl}</button>' for k, lbl in FILTERS)
             + '</div><div class="tgrid" id="tgrid">' + "".join(tile(t) for t in mains) + '</div>'
             + f'<ul class="trust"><li>{TICK}Files stay on your device</li><li>{TICK}No sign-up, no watermark, no limits</li><li>{TICK}Works on any phone or computer</li></ul>'
+            + '<section class="popsizes" aria-labelledby="pop-h"><h2 class="h2" id="pop-h">Popular exact sizes</h2>'
+            + chips("", [t for s_ in HOME_SIZES for t in T if t["slug"] == s_], "Forms and portals")
+            + '<p class="note">Passport photos: <a href="guides/passport-photo-size-by-country/">sizes by country</a>.</p></section>'
             + '<section class="why" aria-labelledby="why-h"><h2 class="h2" id="why-h">Why Tools for World</h2><div class="whygrid">'
               '<div><h3>Your files stay with you</h3><p>PDFs, photos and scans are processed inside your browser. They are never sent to a server, so a passport scan or a payslip never leaves your device. <a href="guides/check-files-never-uploaded/">Check it yourself in one minute</a>.</p></div>'
               '<div><h3>Made for real forms</h3><p>Job portals, visa forms and universities ask for exact sizes: a photo under 50 KB, a PDF under 2 MB, a 35&nbsp;×&nbsp;45&nbsp;mm passport photo. Each of these has its own ready-set page.</p></div>'
