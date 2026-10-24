@@ -78,3 +78,8 @@ Sitemap `lastmod` comes from `lastmod.json` (content hash per page); IndexNow se
 - 2026-10-13 (audit): fixed Word-to-PDF long docs (1 page → full), passport mobile overflow, compressor growing files, input validation, OCR crash; lazy-loaded libraries; search, recent/popular, related tools, progress, ZIP; content for thin/duplicate pages. Live mobile Lighthouse 54–78 → 97–100. Deep audit: `tests/audit.py` (push to branch `audit`, results on `audit-results`).
 - 2026-10-13: 62 → 80 pages. Added 10 OCR languages, 6 resize sizes, character counter, discount calculator.
   Earlier the same day: compress-PDF-to-size pages, 7 passport/visa pages, more image sizes; sitemap resubmitted.
+
+## 2026-10-25 – CTR: custom-size wording on all 16 resize pages
+- GSC (28 d): resize pages show for many odd sizes people type ("3000 x 400", "700*500", "600*125", "500 x 1550") at positions 2–12, but 0 clicks: the snippet only says the preset size.
+- Change: meta descriptions + lead + 1 FAQ on every resize-image-to-* page now say any custom width/height works (descriptions only, titles unchanged).
+- Check on 8 Nov: CTR of resize-image-to-* pages vs. 28 days before.

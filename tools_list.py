@@ -272,11 +272,11 @@ def landing(define_tool):
           parent="resize-image", preset={"#rm": "px", "#rw": w, "#rh": h, "#rk": False, "#rf": "crop"},
           card=f"{label}: exactly {w}×{h} px.",
           title=next(x for x in (f"Resize Image to {w}x{h} Pixels Online Free ({label})", f"Resize Image to {w}x{h} Pixels Free ({label})", f"Resize Image to {w}x{h} Free ({label})") if len(x) <= 60 or x.startswith("Resize Image to " + f"{w}x{h} Free")),
-          desc=f"Resize any photo to exactly {w}×{h} pixels for {use}. Crop to fill or add a border. Free and private: works in your browser.",
-          h1=f"Resize image to {w}×{h} pixels", lead=f"Get a photo that is exactly {w} × {h} px for {use}. Choose crop to fill, or fit with a white border.",
+          desc=next(x for x in (f"Resize any photo to exactly {w}×{h} pixels for {use}. Need another size? Type any width and height. Free, no upload.", f"Resize any photo to exactly {w}×{h} px for {use}. Or type any custom size. Free, no upload.", f"Resize any photo to exactly {w}×{h} px, or type any custom width and height. Free, no upload.") if len(x) <= 158),
+          h1=f"Resize image to {w}×{h} pixels", lead=f"Get a photo that is exactly {w} × {h} px for {use}. Choose crop to fill, or fit with a white border. Need a different size, like 3000 × 400 or 700 × 500? Just type your own width and height in the boxes.",
           body=f'''<h2>How to resize to {w}×{h}</h2><ol><li>Choose one or more images.</li><li>The size is already set to <b>{w} × {h}</b>.</li><li>Pick <b>Crop to fill</b> (no empty space) or <b>Fit with white border</b> (nothing cut off), then press <b>Resize</b>.</li></ol>
 <h2>Why exact size matters</h2><p>Platforms crop or blur images that are the wrong shape. Uploading at exactly {w} × {h} px keeps your photo sharp and framed the way you want.</p>''',
-          faq=[("Will my photo be stretched?", "No. Crop to fill keeps the proportions and trims the edges; Fit with white border keeps the whole photo and adds a border.")])
+          faq=[("Will my photo be stretched?", "No. Crop to fill keeps the proportions and trims the edges; Fit with white border keeps the whole photo and adds a border."), (f"Can I resize to a size other than {w}×{h}?", "Yes. Type any width and height in pixels (up to 20,000) in the size boxes, for example 3000 × 400, 1500 × 400 or 600 × 750, and press Resize.")])
 
     for code, lang, extra in (("urd", "Urdu", "Nastaliq printed text from books, newspapers and screenshots"),
                               ("ara", "Arabic", "printed Arabic text, documents and screenshots"),
