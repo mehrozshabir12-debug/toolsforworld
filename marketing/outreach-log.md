@@ -33,13 +33,13 @@ Only use one of these when it truly matches what the target's page says; otherwi
 |---|---|---|---|---|---|
 | 2026-10-23 | University of Pretoria clickUP support | e-support@up.ac.za | Reduce file size of submissions (100MB) | email | sent (owner approved 23 Oct, sent from hello@ via Chrome, confirmed in Sent) |
 | 2026-10-23 | Toronto Metropolitan Univ. DMP | courses@torontomu.ca | D2L assignment tutorial | email | sent (owner approved 23 Oct, sent from hello@ via Chrome, confirmed in Sent) |
-| 2026-10-23 | Ohio Univ. HCOM Medical Ed Tech | HCOMTech@ohio.edu | 4MB Student Portal PDF limit | email | sent (owner approved 23 Oct, sent from hello@ via Chrome, confirmed in Sent) |
+| 2026-10-23 | Ohio Univ. HCOM Medical Ed Tech | HCOMTech@ohio.edu | 4MB Student Portal PDF limit | email | sent; HCOM ticket created 23 Oct (auto) (owner approved, sent from hello@) |
 | 2026-10-23 | UTM Kad Matrik | identitycard@utm.my | Matric card photo 70-100 kB | email | sent (owner approved 23 Oct, sent from hello@ via Chrome, confirmed in Sent) |
 | 2026-10-23 | MTU Crawford College of Art & Design | crawford.portfolio@mtu.ie | Portfolio under 50MB | email | sent (owner approved 23 Oct, sent from hello@ via Chrome, confirmed in Sent) |
 | 2026-10-23 | PolyU School of Design | sdweb@polyu.edu.hk | A3 portfolio under 20 MB | email | sent (owner approved 23 Oct, sent from hello@ via Chrome, confirmed in Sent) |
 | 2026-10-23 | Aalto ARTS incoming exchange | in-exchange-arts@aalto.fi | Exchange portfolio 2MB (+ mailto typo note) | email | sent (owner approved 23 Oct, sent from hello@ via Chrome, confirmed in Sent) |
 | 2026-10-23 | Bucks New Univ. (Alexandra Murphy) | Alexandra.Murphy@bnu.ac.uk | Photography portfolio under 20MB | email | sent (owner approved 23 Oct, sent from hello@ via Chrome, confirmed in Sent) |
-| 2026-10-23 | TU Dublin SABE (TU832) | School.SABE@tudublin.ie | Portfolio 10MB / 5MB per item | email | sent (owner approved 23 Oct, sent from hello@ via Chrome, confirmed in Sent) |
+| 2026-10-23 | TU Dublin SABE (TU832) | School.SABE@tudublin.ie | Portfolio 10MB / 5MB per item | email | sent; auto-reply 23 Oct: away until 29 Oct (owner approved, sent from hello@) |
 | 2026-10-23 | KTH School of Architecture | master@arch.kth.se | Master's portfolio 15 MB | email | sent (owner approved 23 Oct, sent from hello@ via Chrome, confirmed in Sent) |
 | 2026-10-18 | Muzamil Hasan (Thought Behind Things podcast) | hello@muzamilhasan.com | Owner asked for a promotion request; email from his contact page; owner allowed 'student studying in Australia' in this email | email | sent |
 | 2026-10-18 | Oxford Continuing Education (TALL) | tallithelp@conted.ox.ac.uk | Online support: My file is too large to submit | email | sent (ticket #8541 auto-ack, no human reply yet) |
@@ -59,7 +59,7 @@ Only use one of these when it truly matches what the target's page says; otherwi
 | 2026-10-17 | FilterGrade | support@filtergrade.com | Free passport photo makers guide | email | sent |
 | 2026-10-17 | WayToIdea | vishal@waytoidea.com | Image compressor tools article | email | sent |
 | 2026-10-17 | Culleva | support@culleva.com | Assignment submission guide (compress step) | email | sent |
-| 2026-10-23 | LaunchFree (The Runway) | form (owner approved submit) | Free launch directory, dofollow listing | form | submitted 23 Oct, review within 24 h; confirmation to hello@toolsforworld.com |
+| 2026-10-23 | LaunchFree (The Runway) | form (owner approved submit) | Free launch directory, dofollow listing | form | live 24 Oct: https://launchfree.io/listings/tools-for-world.html |
 | 2026-10-14 | Product Hunt | owner account | Launch | launch | live since 14 Oct (2 points, 2 followers); website link is nofollow/ugc, so referral traffic only |
 | — | AlternativeTo | owner account | Software directory | listing | declined: AlternativeTo does not approve tool collections (PDF/QR/OCR/converters); re-review possible until 13 Dec 2026 but would need a different product, not advised |
 | 2026-10-12 | SaaSHub | account | Software directory | listing | live (checked 22 Oct): saashub.com/tools-for-world, 'Visit website' link is dofollow; listed in 7 categories, 12 alternatives |
