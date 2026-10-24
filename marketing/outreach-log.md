@@ -40,7 +40,7 @@ Only use one of these when it truly matches what the target's page says; otherwi
 | 2026-10-24 | UPOU ORSID | orsid.support@upou.edu.ph | Student ID photo 100-500 KB | email | sent (owner approved, sent from hello@ via Chrome, confirmed in Sent) |
 | 2026-10-24 | Educators Technology (backlink) | info@educatorstechnology.com | Tech-tool guides for teachers | email | sent (owner approved, sent from hello@ via Chrome, confirmed in Sent) |
 | 2026-10-24 | Lenawee District Library (backlink) | lovemylibrary@gmail.com | College Students useful sites page | email | sent (owner approved, sent from hello@ via Chrome, confirmed in Sent) |
-| 2026-10-23 | University of Pretoria clickUP support | e-support@up.ac.za | Reduce file size of submissions (100MB) | email | sent (owner approved 23 Oct, sent from hello@ via Chrome, confirmed in Sent) |
+| 2026-10-23 | University of Pretoria clickUP support | e-support@up.ac.za | Reduce file size of submissions (100MB) | email | sent (owner approved 23 Oct, sent from hello@ via Chrome); 'High Load' auto-ack 23 Oct, no human reply yet |
 | 2026-10-23 | Toronto Metropolitan Univ. DMP | courses@torontomu.ca | D2L assignment tutorial | email | sent (owner approved 23 Oct, sent from hello@ via Chrome, confirmed in Sent) |
 | 2026-10-23 | Ohio Univ. HCOM Medical Ed Tech | HCOMTech@ohio.edu | 4MB Student Portal PDF limit | email | sent; HCOM ticket created 23 Oct (auto) (owner approved, sent from hello@) |
 | 2026-10-23 | UTM Kad Matrik | identitycard@utm.my | Matric card photo 70-100 kB | email | sent (owner approved 23 Oct, sent from hello@ via Chrome, confirmed in Sent) |
@@ -650,6 +650,153 @@ https://toolsforworld.com/compress-pdf/
 https://toolsforworld.com/jpg-to-pdf/
 
 If it seems useful, you're welcome to add it to the page. Thank you for your time.
+
+The Tools for World team
+https://toolsforworld.com
+
+If you'd rather not hear from us again, just reply and let us know.
+
+## Ready to send (2026-10-24)
+
+Gmail check 24 Oct (cloud run): no human replies to the emails sent 23-24 Oct yet, no bounces, no opt-out requests. Only auto-messages already logged (TU Dublin away until 29 Oct, Ohio HCOM ticket, Pretoria "High Load" auto-ack) plus LaunchFree "live" confirmation. Vendor pitches (StartupSubmitHQ, PeerPush) not answered.
+
+| # | Name | University | Country | Email | Source page | Why |
+|---|---|---|---|---|---|---|
+| 1 | School of Design and Creative Arts, undergraduate admissions | Loughborough University | UK | sdcaadmissions@mailbox.lboro.ac.uk | https://lboro.ac.uk/schools/design-creative-arts/study/undergraduate/application-process/design-creative-arts-guidance-and-portfolio/formatting-and-submission/ ("Email your portfolio and design task ... to sdcaadmissions@mailbox.lboro.ac.uk") | Portfolio PDF "no more than 20MB"; page itself suggests "one of the many free PDF compression tools available online" |
+| 2 | Judith Lubbersen, coordinator, Textile & Fashion department | Royal Academy of Art The Hague (KABK) | Netherlands | j.lubbersen@kabk.nl | https://www.kabk.nl/en/programmes/bachelor/textile-and-fashion/admission-requirements ("More questions? contact the coordinator of the Textile & Fashion department", linked to j.lubbersen@kabk.nl) | Portfolio "1 PDF, max 20MB" |
+| 3 | Michaelis School of Fine Art, admissions | University of Cape Town | South Africa | admissions.fineart@uct.ac.za | https://humanities.uct.ac.za/node/48420 ("All portfolios must be sent to: admissions.fineart@uct.ac.za") | Portfolio PDF max 20MB; "if your file size is bigger than 20MB, your email will not be delivered" |
+| 4 | Sydney College of the Arts, enquiries | The University of Sydney | Australia | sca.enquiries@sydney.edu.au | https://www.sydney.edu.au/arts/schools/sydney-college-of-the-arts/portfolio.html ("You can email your questions to sca.enquiries@sydney.edu.au") | Portfolio images under 5MB each, PDF under 10MB, 72 dpi |
+| 5 | School of Architecture (Waterloo Architecture) | University of Waterloo | Canada | architecture@uwaterloo.ca | https://uwaterloo.ca/architecture/march-portfolio-requirements (contact block) | M.Arch portfolio: one PDF, max 50 pages or 30MB |
+| 6 | Student Records Team, Registry | Hong Kong Metropolitan University | Hong Kong | regrec@hkmu.edu.hk | https://hkmu.edu.hk/reg/sid-photo-reqs (enquiries: "regrec@hkmu.edu.hk") | Student ID photo: JPEG, max 600 KB, 1200 x 1600 px |
+| 7 | Joy Christiansen Erb, instructor, DSGN 2656 Design + Photography 1 | Youngstown State University | USA | jchristiansenerb@ysu.edu | https://catalog.ysu.edu/syllabi/2026-summer/dsgn-2656-a01-30974/syllabi-202630-dsgn-2656-a01-30974.pdf (instructor contact in syllabus) | Photography course; students prepare and submit image files (JPEG, resolution, web 72 dpi export) |
+
+Considered and left out today: Penn State STAT 415 scanning page (links Smallpdf, but no email on the page), Unisa compress-PDF exam guide (no email), UCC and SIT ID photo pages (forms only / no email), London Met photojournalism (general contact only), Salford arts portfolios (second UK target today), Twente IDE (general study inbox), Universidad Veracruzana (2023 call), ISI Kolkata photo rules (no email), Kyutech graduate photo upload (2025 one-off deadline).
+
+### 1. Loughborough University School of Design and Creative Arts – sdcaadmissions@mailbox.lboro.ac.uk
+Subject: A no-upload option for the 20MB portfolio limit
+
+Hello,
+
+We read your page on formatting and submitting design portfolios. It's helpful that it explains the Acrobat settings and also mentions free online PDF compression tools for applicants who don't have Acrobat Pro.
+
+One worry with many of those online tools is that the applicant's portfolio gets uploaded to an unknown server. Tools for World is a free PDF compressor that runs inside the browser, so the file never leaves the applicant's own computer. No sign-up, no cost:
+
+https://toolsforworld.com/compress-pdf/
+
+If it seems useful, you're welcome to mention it on the page or share it with applicants. Thank you for your time.
+
+The Tools for World team
+https://toolsforworld.com
+
+If you'd rather not hear from us again, just reply and let us know.
+
+### 2. Judith Lubbersen (KABK Textile & Fashion) – j.lubbersen@kabk.nl
+Subject: A free tool for the 20MB Textile & Fashion portfolio
+
+Hello Judith,
+
+We came across the admission requirements for the Textile & Fashion bachelor at KABK. A portfolio of textile and fashion work in a single PDF of 20MB or less is image-heavy, and applicants often struggle to get photos of fabrics and garments under the limit without losing detail.
+
+Tools for World is a free website that combines photos into one PDF and compresses PDFs and images, all inside the browser, so the applicant's work never leaves their own computer. No sign-up, no cost:
+
+https://toolsforworld.com/jpg-to-pdf/
+https://toolsforworld.com/compress-pdf/
+
+If you think it would help, you're welcome to share it with applicants or students. Thank you for your time.
+
+The Tools for World team
+https://toolsforworld.com
+
+If you'd rather not hear from us again, just reply and let us know.
+
+### 3. UCT Michaelis School of Fine Art – admissions.fineart@uct.ac.za
+Subject: A free way to keep Michaelis portfolios under 20MB
+
+Hello,
+
+We read the Michaelis School of Fine Art portfolio requirements for first-year applicants. The warning that an email over 20MB will not be delivered is important, and with photos of artworks straight from a phone it's easy to go over that limit.
+
+Tools for World is a free website that turns photos of artworks into one PDF and compresses it, all inside the browser. It works on a phone, and the applicant's work is never uploaded to a server. No sign-up, no cost:
+
+https://toolsforworld.com/jpg-to-pdf/
+https://toolsforworld.com/compress-pdf/
+
+If it seems helpful, you're welcome to share it with applicants. Thank you for your time.
+
+The Tools for World team
+https://toolsforworld.com
+
+If you'd rather not hear from us again, just reply and let us know.
+
+### 4. Sydney College of the Arts – sca.enquiries@sydney.edu.au
+Subject: A free tool for the SCA portfolio file limits
+
+Hello,
+
+We read the Sydney College of the Arts portfolio guidelines. Keeping each image under 5MB at 72 dpi and a multi-image PDF under 10MB is clear guidance, but resizing a whole folder of artwork photos can be the fiddliest part for applicants.
+
+Tools for World is a free website that resizes and compresses images and PDFs inside the browser, so applicants' work stays on their own computer and is never uploaded. No sign-up, no cost:
+
+https://toolsforworld.com/compress-image/
+https://toolsforworld.com/compress-pdf/
+
+If you think it would help, you're welcome to share it with applicants or students. Thank you for your time.
+
+The Tools for World team
+https://toolsforworld.com
+
+If you'd rather not hear from us again, just reply and let us know.
+
+### 5. University of Waterloo School of Architecture – architecture@uwaterloo.ca
+Subject: A free tool for the 30MB M.Arch portfolio limit
+
+Hello,
+
+We read the M.Arch portfolio requirements: a single PDF of no more than 50 pages or 30MB. With drawings, renders and model photos, that limit is easy to go over, and some applicants end up uploading their portfolios to unknown converter sites to shrink them.
+
+Tools for World is a free PDF compressor that runs inside the browser, so the portfolio stays on the applicant's own computer and is never uploaded. No sign-up, no cost:
+
+https://toolsforworld.com/compress-pdf/
+
+If it seems useful, you're welcome to share it with applicants. Thank you for your time.
+
+The Tools for World team
+https://toolsforworld.com
+
+If you'd rather not hear from us again, just reply and let us know.
+
+### 6. HKMU Registry, Student Records Team – regrec@hkmu.edu.hk
+Subject: A free tool for the student ID photo requirements
+
+Hello Student Records Team,
+
+We read the photo requirements for the HKMU student ID card: JPEG, 1200 x 1600 pixels and no more than 600 KB. Phone photos are usually much larger, so getting both the size and the file weight right can be tricky, especially for students studying at a distance.
+
+Tools for World is a free website that crops a photo to ID proportions, resizes it to exact pixels and compresses it to a target size, all inside the browser. The photo stays on the student's own device and is never uploaded. No sign-up, no cost:
+
+https://toolsforworld.com/passport-photo-maker/
+https://toolsforworld.com/compress-image/
+
+If it seems helpful, you're welcome to share it with new students. Thank you for your time.
+
+The Tools for World team
+https://toolsforworld.com
+
+If you'd rather not hear from us again, just reply and let us know.
+
+### 7. Joy Christiansen Erb (Youngstown State University) – jchristiansenerb@ysu.edu
+Subject: A free image tool for Design + Photography students
+
+Hello Professor Christiansen Erb,
+
+We came across the syllabus for DSGN 2656 Design + Photography 1. Since students prepare and export their own image files, with separate settings for print and for the web, we thought a simple free tool might be handy for them.
+
+Students often hit upload limits with full-size camera files, and many end up on unknown converter sites. Tools for World resizes and compresses images inside the browser, so the photos never leave the student's computer. It's free with no sign-up:
+
+https://toolsforworld.com/resize-image/
+https://toolsforworld.com/compress-image/
+
+If it seems useful, feel free to share it with students or add it to the course resources. Thank you for your time.
 
 The Tools for World team
 https://toolsforworld.com
