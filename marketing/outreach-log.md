@@ -31,6 +31,15 @@ Only use one of these when it truly matches what the target's page says; otherwi
 
 | Date | Site | Contact | Page / reason | Channel | Status |
 |---|---|---|---|---|---|
+| 2026-10-24 | Leeds Beckett Univ. Library | library@leedsbeckett.ac.uk | Turnitin file size FAQ | email | sent (owner approved, sent from hello@ via Chrome, confirmed in Sent) |
+| 2026-10-24 | Ontario Tech Teaching and Learning Centre | teachingandlearning@ontariotechu.ca | Uploading exam answer photos to Canvas | email | sent (owner approved, sent from hello@ via Chrome, confirmed in Sent) |
+| 2026-10-24 | UPAEP student ID office | identificacion@upaep.mx | ID photo 45-200 KB | email | sent (owner approved, sent from hello@ via Chrome, confirmed in Sent) |
+| 2026-10-24 | UNAL Palmira Registro | registro_pal@unal.edu.co | Student card photo 500KB | email | sent (owner approved, sent from hello@ via Chrome, confirmed in Sent) |
+| 2026-10-24 | AIU ODeL Support | odel.support@aiu.ac.ke | Photos of assignments into one PDF | email | sent (owner approved, sent from hello@ via Chrome, confirmed in Sent) |
+| 2026-10-24 | IGNOU Study Centre 29050 (Shyam Lal Evening) | ignou29050@shyamlale.du.ac.in | Scanned IGNOU assignment PDFs | email | sent (owner approved, sent from hello@ via Chrome, confirmed in Sent) |
+| 2026-10-24 | UPOU ORSID | orsid.support@upou.edu.ph | Student ID photo 100-500 KB | email | sent (owner approved, sent from hello@ via Chrome, confirmed in Sent) |
+| 2026-10-24 | Educators Technology (backlink) | info@educatorstechnology.com | Tech-tool guides for teachers | email | sent (owner approved, sent from hello@ via Chrome, confirmed in Sent) |
+| 2026-10-24 | Lenawee District Library (backlink) | lovemylibrary@gmail.com | College Students useful sites page | email | sent (owner approved, sent from hello@ via Chrome, confirmed in Sent) |
 | 2026-10-23 | University of Pretoria clickUP support | e-support@up.ac.za | Reduce file size of submissions (100MB) | email | sent (owner approved 23 Oct, sent from hello@ via Chrome, confirmed in Sent) |
 | 2026-10-23 | Toronto Metropolitan Univ. DMP | courses@torontomu.ca | D2L assignment tutorial | email | sent (owner approved 23 Oct, sent from hello@ via Chrome, confirmed in Sent) |
 | 2026-10-23 | Ohio Univ. HCOM Medical Ed Tech | HCOMTech@ohio.edu | 4MB Student Portal PDF limit | email | sent; HCOM ticket created 23 Oct (auto) (owner approved, sent from hello@) |
@@ -391,7 +400,7 @@ https://toolsforworld.com
 
 If you'd rather not hear from us again, just reply and let us know.
 
-## Ready to send (2026-10-23) — #1-3 SENT 2026-10-23; #4-10 Approved (2026-10-23), owner asked to send them on 24 Oct (10-a-day rule)
+## Ready to send (2026-10-23) — #1-3 SENT 2026-10-23; #4-10 SENT 2026-10-24
 
 Gmail check 23 Oct: no new human replies from contacted universities since 22 Oct (only the earlier auto-acks and the U of Toronto reply already logged). No opt-out requests. New vendor mail only (LaunchFree submission confirmation; PeerPush, StartupSubmitHQ, SellWithBoost, SoloLaunches follow-ups), not answered. The 2026-10-22 list above is still waiting for owner approval and is offered again together with this one.
 
@@ -599,7 +608,7 @@ https://toolsforworld.com
 
 If you'd rather not hear from us again, just reply and let us know.
 
-## Backlink targets (2026-10-23) — waiting for owner approval
+## Backlink targets (2026-10-23) — BOTH SENT 2026-10-24
 
 Research 23 Oct (owner asked for good sites that give backlinks). Finding: most "best free PDF/image tools" lists in this niche are published by competing tool sites (pdflegacy, pdfwix, ihatepdf, pdfkits, fixmypdf, aservus, brevtool, filozy...) or affiliate/paid blogs, so they are skipped. Checked and left out: independenttravelcats.com (affiliate links, recommends paid services), csulb.libguides.com onlineEduTools (no email, 2023), webformix.com (ISP blog, no suggestions), grandavehousing.calpoly.edu (no contact), DonationCoder (archived), primarytech.global2.vic.edu.au (no longer updated), furman.edu blog (form only), vajiramandravi.com and pw.live guides (no editorial email), Journalist's Toolbox (no published email found; Substack paywall).
 
