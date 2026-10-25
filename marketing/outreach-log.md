@@ -31,6 +31,12 @@ Only use one of these when it truly matches what the target's page says; otherwi
 
 | Date | Site | Contact | Page / reason | Channel | Status |
 |---|---|---|---|---|---|
+| 2026-10-25 | Loughborough Univ. SDCA admissions | sdcaadmissions@mailbox.lboro.ac.uk | Portfolio PDF max 20MB | email | sent (owner approved 25 Oct, sent from hello@, confirmed in Sent) |
+| 2026-10-25 | KABK Textile & Fashion (Judith Lubbersen) | j.lubbersen@kabk.nl | Portfolio 1 PDF max 20MB | email | sent (owner approved 25 Oct, sent from hello@, confirmed in Sent) |
+| 2026-10-25 | UCT Michaelis School of Fine Art | admissions.fineart@uct.ac.za | Portfolio PDF max 20MB | email | sent (owner approved 25 Oct, sent from hello@, confirmed in Sent) |
+| 2026-10-25 | Sydney College of the Arts | sca.enquiries@sydney.edu.au | Images <5MB, PDF <10MB | email | sent (owner approved 25 Oct, sent from hello@, confirmed in Sent) |
+| 2026-10-25 | Univ. of Waterloo School of Architecture | architecture@uwaterloo.ca | M.Arch portfolio 30MB | email | sent (owner approved 25 Oct, sent from hello@); auto-reply 25 Oct: Kelsey out of office until 28 Oct |
+| 2026-10-25 | HKMU Registry Student Records | regrec@hkmu.edu.hk | Student ID photo max 600 KB | email | sent (owner approved 25 Oct, sent from hello@, confirmed in Sent) |
 | 2026-10-24 | Leeds Beckett Univ. Library | library@leedsbeckett.ac.uk | Turnitin file size FAQ | email | sent (owner approved, sent from hello@ via Chrome, confirmed in Sent) |
 | 2026-10-24 | Ontario Tech Teaching and Learning Centre | teachingandlearning@ontariotechu.ca | Uploading exam answer photos to Canvas | email | sent (owner approved, sent from hello@ via Chrome, confirmed in Sent) |
 | 2026-10-24 | UPAEP student ID office | identificacion@upaep.mx | ID photo 45-200 KB | email | sent (owner approved, sent from hello@ via Chrome, confirmed in Sent) |
@@ -656,7 +662,7 @@ https://toolsforworld.com
 
 If you'd rather not hear from us again, just reply and let us know.
 
-## Ready to send (2026-10-24) — ALL 7 Approved (2026-10-25), not yet sent
+## Ready to send (2026-10-24) — ALL 7 Approved (2026-10-25); #1-6 SENT 2026-10-25; #7 (YSU, Joy Christiansen Erb) Approved (2026-10-25), NOT YET SENT
 
 Gmail check 24 Oct (cloud run): no human replies to the emails sent 23-24 Oct yet, no bounces, no opt-out requests. Only auto-messages already logged (TU Dublin away until 29 Oct, Ohio HCOM ticket, Pretoria "High Load" auto-ack) plus LaunchFree "live" confirmation. Vendor pitches (StartupSubmitHQ, PeerPush) not answered.
 
@@ -797,6 +803,174 @@ https://toolsforworld.com/resize-image/
 https://toolsforworld.com/compress-image/
 
 If it seems useful, feel free to share it with students or add it to the course resources. Thank you for your time.
+
+The Tools for World team
+https://toolsforworld.com
+
+If you'd rather not hear from us again, just reply and let us know.
+
+## Ready to send (2026-10-25)
+
+Gmail check 25 Oct (cloud run): 6 of the 7 approved 24 Oct emails were sent today from hello@ (Loughborough, KABK, UCT, Sydney, Waterloo, HKMU; see Contacted). YSU (#7) is approved but not yet sent. Only new message: Waterloo auto-reply (out of office until 28 Oct). No human replies, no bounces, no opt-out requests. LaunchFree "live" mail already logged. No backlink targets added today (university targets only).
+
+| # | Name | University | Country | Email | Source page | Why |
+|---|---|---|---|---|---|---|
+| 1 | Alison Tanner, Senior Lecturer and Programme Leader, BA Photography | Middlesex University | UK | a.tanner@mdx.ac.uk | https://www.mdx.ac.uk/media/middlesex-university/courses-pdfs/BA-(Hons)-Photography-Portfolio-Guidance.pdf ("Contact: Alison Tanner ... Email: a.tanner@mdx.ac.uk"); role confirmed at https://mdx.ac.uk/about-us/our-people/staff-directory/miss-alison-tanner | Photography portfolio of 15-20 images as a single PDF (or website) |
+| 2 | Industrial Design master's programme (international coordinator Sabine Petersson) | Lund University (LTH) | Sweden | mfa.design@lth.lu.se | https://www.lunduniversity.lu.se/study/industrial-design-masters-programme-TAIDE/admissiontest ("Email: mfa.design@lth.lu.se") | Admission test and portfolio as one PDF, "maximum 10MB" |
+| 3 | School of Architecture and Urban Design | RMIT University | Australia | aud.he@rmit.edu.au | https://www.rmit.edu.au/assets/au/en/docs/study/level-of-study/courses/bp250-inton-selection-task.pdf ("Contact: School of Architecture and Urban Design ... Email: aud.he@rmit.edu.au"), July 2026 | BP250 selection task: 4 A3 pages merged into one PDF; folio "single PDF (maximum size 10MB)" |
+| 4 | Prof. Willie Pittman, Portfolio Coordinator (Interim Assistant Chair, Dept. of Architecture) | Kennesaw State University | USA | wpittma2@kennesaw.edu | https://campus.kennesaw.edu/colleges-departments/cacm/academics/architecture/docs/2026-2nd-year-portfolio-guidelines.pdf (portfolio questions: "Prof. Pittman, wpittma2@kennesaw.edu"); title at https://kennesaw.edu/cacm/academics/architecture/about/faculty-staff.php | 2nd-year portfolio review: single PDF "not to exceed 20MB" |
+| 5 | Department of Visual Arts, applications | Stellenbosch University | South Africa | visualartapplication@sun.ac.za | https://files.su.ac.za/public/department-visual-arts/documents/2026-04/2027-portfolio-requirementspdf.pdf ("Please email this file to visualartapplication@sun.ac.za") | Portfolio preferred as a single PDF of photos/scans of artworks; guide tells applicants to combine JPEGs into one PDF |
+| 6 | Educational Affairs Section, Graduate School of Frontier Biosciences | The University of Osaka | Japan | seimei-daigakuin@office.osaka-u.ac.jp | https://www.fbs.osaka-u.ac.jp/_upload/news/en_enrollment_procedures_202610.pdf ("E-mail: seimei-daigakuin@office.osaka-u.ac.jp") | New students upload a headshot: JPG, under 2MB, at least 640x480, trimmed to set dimensions |
+| 7 | School of Fine Arts and Design (SFAD) Graduate School | Philippine Women's University | Philippines | sfadgrad@pwu.edu.ph | https://www.pwu.edu.ph/wp-content/uploads/2026/04/pwu-mfad-application-informantion-and-checklist-2026.pdf ("give viewing access for sfadgrad@pwu.edu.ph") | M.FAD portfolio: up to 20 JPEG images, 120 dpi, max 1.7 MB each |
+| 8 | Wendy Roussin, Associate Professor, CO 3403 Photographic Communication | Mississippi State University | USA | wroussin@comm.msstate.edu | https://wkr1.comm.msstate.edu/3403/CO3403Syllabus.html (instructor email in syllabus) | Students shoot on DSLR and post their photo assignments live to their own website |
+
+Considered and left out today: Clarkson Moodle help (no email), Ara NZ architecture (general enrolment inbox, no size limit), KTU Lithuania (address is the exam submission inbox), Federation Uni, Southampton, UWGB, Reading TEL (no email on page), Accademia Venezia, AP Arts, Potsdam, HTWG Konstanz, Stuttgart, MOME, UH, Melbourne MSD, EASD Valencia (no email), CEPT and Kantana (general admissions inboxes only), Nelson Mandela Univ. (second South African target today), CityTech CUNY ARCH1231 (Fall 2025 page), UNN, IIIT, NUS, Fergusson, Kent, VU, Radboud, Yale Nursing (no email), IGNOU Delhi circular (2020), PUCMM and UPSJB (general IT help desks), Flinders placements (no file guidance), Bristol Card Services (limits are generous, weak fit).
+
+### 1. Alison Tanner (Middlesex University) – a.tanner@mdx.ac.uk
+Subject: A free photo tool for BA Photography applicants and students
+
+Hello Alison,
+
+We came across the BA (Hons) Photography portfolio guidance, which asks applicants for 15 to 20 images as a single PDF or a website. Putting full-size camera files into one PDF usually produces a very large file, and many applicants end up uploading their photographs to unknown converter sites to shrink it.
+
+Tools for World is a free website that compresses images, turns a set of photos into one PDF and compresses PDFs, all inside the browser, so the photographs never leave the applicant's own computer. No sign-up, no cost:
+
+https://toolsforworld.com/jpg-to-pdf/
+https://toolsforworld.com/compress-image/
+
+If you think it would help, you're welcome to share it with applicants or students. Thank you for your time.
+
+The Tools for World team
+https://toolsforworld.com
+
+If you'd rather not hear from us again, just reply and let us know.
+
+### 2. Lund University Industrial Design – mfa.design@lth.lu.se
+Subject: A free tool for the 10MB Industrial Design admission PDF
+
+Hello,
+
+We read the admission test page for the Master's Programme in Industrial Design. Fitting the admission projects, the template pages and up to three A3 pages of optional work into one PDF of at most 10MB is a real squeeze for image-heavy design work.
+
+Tools for World is a free website that compresses PDFs and images inside the browser, so the applicant's work stays on their own computer and is never uploaded. No sign-up, no cost:
+
+https://toolsforworld.com/compress-pdf/
+https://toolsforworld.com/compress-image/
+
+If it seems useful, you're welcome to share it with applicants. Thank you for your time.
+
+The Tools for World team
+https://toolsforworld.com
+
+If you'd rather not hear from us again, just reply and let us know.
+
+### 3. RMIT School of Architecture and Urban Design – aud.he@rmit.edu.au
+Subject: A free tool for the Bachelor of Architectural Design selection task
+
+Hello,
+
+We read the BP250 Bachelor of Architectural Design selection task. Merging four A3 pages into a single PDF, and keeping an advanced-standing folio under 10MB, are the steps where applicants often get stuck, especially when their drawings are scanned or photographed.
+
+Tools for World is a free website that turns photos or scans into one PDF and compresses PDFs, all inside the browser, so the applicant's work is never uploaded to a server. It works on a phone too. No sign-up, no cost:
+
+https://toolsforworld.com/jpg-to-pdf/
+https://toolsforworld.com/compress-pdf/
+
+If you think it would help, you're welcome to share it with applicants. Thank you for your time.
+
+The Tools for World team
+https://toolsforworld.com
+
+If you'd rather not hear from us again, just reply and let us know.
+
+### 4. Prof. Willie Pittman (Kennesaw State University) – wpittma2@kennesaw.edu
+Subject: A free tool for the 20MB second-year portfolio limit
+
+Hello Professor Pittman,
+
+We came across the 2026 second-year portfolio guidelines for the Department of Architecture, where you are listed as a portfolio coordinator. A 25 to 30 page portfolio of drawings, renders and model photos in a single PDF under 20MB is a tight limit, and some students end up uploading their work to unknown converter sites to shrink it.
+
+Tools for World is a free PDF compressor that runs inside the browser, so the portfolio stays on the student's own computer and is never uploaded. No sign-up, no cost:
+
+https://toolsforworld.com/compress-pdf/
+
+If it seems useful, you're welcome to share it with students before the next portfolio review. Thank you for your time.
+
+The Tools for World team
+https://toolsforworld.com
+
+If you'd rather not hear from us again, just reply and let us know.
+
+### 5. Stellenbosch University Department of Visual Arts – visualartapplication@sun.ac.za
+Subject: A free way for applicants to combine artwork photos into one PDF
+
+Hello,
+
+We read the 2027 portfolio requirements for the Department of Visual Arts. The guide asks for a single PDF made from good photos or scans of each work, and helpfully links instructions for combining JPEG images into one PDF.
+
+In case a simpler option helps future applicants, Tools for World is a free website that turns photos into one PDF and compresses it, all inside the browser. It works on a phone, and the applicant's artwork is never uploaded to a server. No sign-up, no cost:
+
+https://toolsforworld.com/jpg-to-pdf/
+https://toolsforworld.com/compress-pdf/
+
+If it seems useful, you're welcome to mention it to applicants or students. Thank you for your time.
+
+The Tools for World team
+https://toolsforworld.com
+
+If you'd rather not hear from us again, just reply and let us know.
+
+### 6. University of Osaka, Graduate School of Frontier Biosciences – seimei-daigakuin@office.osaka-u.ac.jp
+Subject: A free tool for the enrollment headshot upload
+
+Hello,
+
+We read the English enrollment procedures for the Graduate School of Frontier Biosciences. The headshot must be a JPG under 2MB, at least 640 x 480, and trimmed to the system's dimensions. Photos from recent phones are often larger than 2MB, which can be a small but confusing hurdle for new international students.
+
+Tools for World is a free website that resizes, crops and compresses photos inside the browser, so the student's photo never leaves their own device. No sign-up, no cost:
+
+https://toolsforworld.com/compress-image/
+https://toolsforworld.com/resize-image/
+
+If you think it would help, you're welcome to share it with incoming students. Thank you for your time.
+
+The Tools for World team
+https://toolsforworld.com
+
+If you'd rather not hear from us again, just reply and let us know.
+
+### 7. PWU School of Fine Arts and Design Graduate School – sfadgrad@pwu.edu.ph
+Subject: A free tool for the 1.7 MB per image M.FAD portfolio rule
+
+Hello,
+
+We read the M.FAD application information and checklist. The portfolio rules are clear: up to 20 JPEG images at 120 dpi and no more than 1.7 MB each. Photos of artworks taken on a phone or camera are usually several times larger, so resizing them can be the fiddliest part for applicants.
+
+Tools for World is a free website that resizes and compresses images inside the browser, so the applicant's work stays on their own device and is never uploaded. No sign-up, no cost:
+
+https://toolsforworld.com/compress-image/
+https://toolsforworld.com/resize-image/
+
+If it seems helpful, you're welcome to share it with applicants or students. Thank you for your time.
+
+The Tools for World team
+https://toolsforworld.com
+
+If you'd rather not hear from us again, just reply and let us know.
+
+### 8. Wendy Roussin (Mississippi State University) – wroussin@comm.msstate.edu
+Subject: A free image tool for Photographic Communication students
+
+Hello Professor Roussin,
+
+We came across the syllabus for CO 3403 Photographic Communication. Since students shoot on a DSLR and post their assignments live to their own websites, they need to get full-size camera files down to a web-friendly size.
+
+Photoshop handles this well, but when students are on another computer or a phone, Tools for World is a free website that resizes and compresses images inside the browser, so the photos never leave the student's device. No sign-up, no cost:
+
+https://toolsforworld.com/resize-image/
+https://toolsforworld.com/compress-image/
+
+If it seems useful, feel free to share it with students. Thank you for your time.
 
 The Tools for World team
 https://toolsforworld.com
