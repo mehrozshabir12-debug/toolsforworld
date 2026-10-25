@@ -31,6 +31,12 @@ Only use one of these when it truly matches what the target's page says; otherwi
 
 | Date | Site | Contact | Page / reason | Channel | Status |
 |---|---|---|---|---|---|
+| 2026-10-25 | Loughborough Univ. SDCA admissions | sdcaadmissions@mailbox.lboro.ac.uk | Portfolio PDF 20MB | email | sent (owner approved, sent from hello@ via Chrome, confirmed in Sent) |
+| 2026-10-25 | KABK Textile & Fashion (Judith Lubbersen) | j.lubbersen@kabk.nl | Portfolio 1 PDF max 20MB | email | sent (owner approved, sent from hello@ via Chrome, confirmed in Sent) |
+| 2026-10-25 | UCT Michaelis School of Fine Art | admissions.fineart@uct.ac.za | Portfolio PDF max 20MB | email | sent (owner approved, sent from hello@ via Chrome, confirmed in Sent) |
+| 2026-10-25 | Univ. of Sydney, Sydney College of the Arts | sca.enquiries@sydney.edu.au | Portfolio images <5MB, PDF <10MB | email | sent (owner approved, sent from hello@ via Chrome, confirmed in Sent) |
+| 2026-10-25 | Univ. of Waterloo School of Architecture | architecture@uwaterloo.ca | M.Arch portfolio 30MB | email | sent (owner approved, sent from hello@ via Chrome, confirmed in Sent); auto-reply 25 Oct: out of office until 28 Oct |
+| 2026-10-25 | HKMU Registry Student Records | regrec@hkmu.edu.hk | Student ID photo 600 KB | email | sent (owner approved, sent from hello@ via Chrome, confirmed in Sent) |
 | 2026-10-25 | Loughborough Univ. SDCA admissions | sdcaadmissions@mailbox.lboro.ac.uk | Portfolio PDF max 20MB | email | sent (owner approved 25 Oct, sent from hello@, confirmed in Sent) |
 | 2026-10-25 | KABK Textile & Fashion (Judith Lubbersen) | j.lubbersen@kabk.nl | Portfolio 1 PDF max 20MB | email | sent (owner approved 25 Oct, sent from hello@, confirmed in Sent) |
 | 2026-10-25 | UCT Michaelis School of Fine Art | admissions.fineart@uct.ac.za | Portfolio PDF max 20MB | email | sent (owner approved 25 Oct, sent from hello@, confirmed in Sent) |
