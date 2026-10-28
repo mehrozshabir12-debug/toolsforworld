@@ -151,6 +151,16 @@ def _v(name):
 
 ADS_QUEUE = f"TFW3P.push(['https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client={ADSENSE_CLIENT}',1]);"
 
+def _css():
+    """The whole stylesheet inlined (minified, ~5 KB gzipped): no render-blocking CSS request before the first paint."""
+    import re
+    c = open(os.path.join(ROOT, "assets", "style.css"), encoding="utf-8").read()
+    c = re.sub(r"/\*.*?\*/", "", c, flags=re.S)
+    c = re.sub(r"\s+", " ", c)
+    c = re.sub(r"\s*([{};,>])\s*", r"\1", c)
+    return c.replace(";}", "}").strip()
+
+
 FONTS = "https://fonts.googleapis.com/css2?family=Bricolage+Grotesque:opsz,wght@12..96,600;12..96,800&family=Figtree:wght@400;500;600&family=JetBrains+Mono:wght@500&display=optional"
 
 
@@ -186,7 +196,7 @@ def page(rel_root, title, desc, canon, body, scripts="", body_attr="", jsonld=No
 {f'<meta name="google-adsense-account" content="{ADSENSE_CLIENT}">' if ADSENSE_CLIENT else ""}
 <link rel="preconnect" href="https://fonts.googleapis.com"><link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link rel="preload" as="style" href="{FONTS}"><link rel="stylesheet" href="{FONTS}" media="print" onload="this.media='all'"><noscript><link rel="stylesheet" href="{FONTS}"></noscript>
-<link rel="stylesheet" href="{rel_root}assets/style.css?v={_v("style.css")}">
+<style>{_css()}</style>
 {ld}
 </head>
 <body{body_attr}>
