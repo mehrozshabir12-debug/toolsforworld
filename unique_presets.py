@@ -7,6 +7,7 @@ is reused on a sibling page. Official rules were checked on the government pages
 passport page (29 Oct 2026); where a rule is not certain, the text points to the official page instead.
 """
 from unique_presets_data import PAGES
+from up_more import MORE
 
 
 def enrich(T):
@@ -17,3 +18,8 @@ def enrich(T):
         body, faq = extra
         t["body"] = body + t["body"]
         t["faq"] = list(faq) + list(t.get("faq", []))
+    for t in T:
+        extra = MORE.get(t["slug"])
+        if extra:
+            t["body"] = t["body"] + extra[0]
+            t["faq"] = list(t.get("faq", [])) + list(extra[1])

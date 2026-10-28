@@ -442,6 +442,10 @@ def build():
               '<tr><td>Daily limit</td><td>No</td><td>Often, on free plans</td></tr>'
               '<tr><td>Exact size presets (KB, pixels, mm)</td><td>Yes</td><td>Varies</td></tr>'
               '</tbody></table></div></section>'
+            + '<section class="why" aria-labelledby="start-h"><h2 class="h2" id="start-h">Not sure where to start?</h2>'
+              '<p>Most visitors arrive with a deadline: an application closes tonight and the portal keeps saying the file is too big or in the wrong format. '
+              'Start with the error message. "File exceeds limit" means compress it; "invalid format" means convert it; "photo dimensions incorrect" means resize or crop it. '
+              'If a scan is unreadable after shrinking, rescan in daylight rather than compressing harder, and if you have several pages, put them into one PDF before you upload.</p></section>'
             + f'<details class="xall"><summary>All sizes, countries and languages</summary>{extra}</details></div>'
             + '<p class="aka">Tools for World (also written ToolsForWorld or Tools 4 World) is at toolsforworld.com.</p>')
     write("index.html", page("", "Tools for World – Free PDF, Image & Everyday Tools Online",
