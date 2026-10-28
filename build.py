@@ -458,7 +458,7 @@ def build():
                                       "sameAs": ["https://www.producthunt.com/products/tools-for-world", "https://www.saashub.com/tools-for-world"]}], keywords=BRAND_KEYWORDS))
 
     info = {
-        "about": ("About Tools for World", "Tools for World makes free, simple and private online tools for everyday tasks.",
+        "about": ("About Tools for World – Free, Private Browser Tools", "Tools for World makes free, simple and private online tools for everyday tasks.",
                   '''<h1>Who makes Tools for World, and why</h1><p>Tools for World is a free collection of everyday online tools: PDF and Word converters, image compressors and converters, a background remover, OCR in many languages, passport photo makers, a QR code generator, a password generator and simple calculators.</p>
 <h2>Why we built it</h2><p>Most people meet these tasks at awkward moments: a job portal wants a photo under 50 KB, a visa form wants a PDF under 300 KB, or a scanned letter needs to become editable text. Many sites that do this ask you to sign up, add watermarks, or upload private documents to unknown servers. Tools for World was built to do these jobs quickly, for free, without any of that.</p>
 <h2>Who makes it</h2><p>Tools for World is an independent project built and maintained by <b>Mehroz Shabir</b>. Every tool is designed, written and tested by hand, and new tools are added based on what visitors ask for.</p>
@@ -505,7 +505,7 @@ def build():
 </tbody></table></div>
 <p>Trademarks and product names mentioned on this site belong to their owners. Tools for World is an independent project and is not affiliated with any government office or with the projects above.</p>
 <p>Spotted a missing credit? Please tell us via the <a href="../contact/">contact page</a>.</p>'''),
-        "contact": ("Contact – Tools for World", "Contact Tools for World to report a bug, suggest a new free tool or ask a question about privacy.",
+        "contact": ("Contact Tools for World – Bugs, Ideas and Questions", "Contact Tools for World to report a bug, suggest a new free tool or ask a question about privacy.",
                     '''<h1>Contact</h1><p>Found a bug, or want a new tool? We would love to hear from you.</p><p>Email: <b>hello@toolsforworld.com</b>. We read every message and usually reply within a few working days.</p>
 <h2>Reporting a problem</h2><p>Tell us which tool you used, your device and browser (for example “iPhone, Safari” or “Windows, Chrome”), and what happened. A screenshot of any error message helps a lot. Please don't send us private documents: our tools never need your files, because everything runs in your browser.</p>
 <h2>Suggesting a tool</h2><p>Describe the job you are trying to do, for example “I need to turn a photo into a 35 × 45 mm print with a blue background”. If a form or website asks for a specific size or format, include its exact wording.</p>
