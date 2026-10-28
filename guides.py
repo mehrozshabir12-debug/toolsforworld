@@ -321,7 +321,7 @@ GUIDES = [
         date="2026-10-17",
         title="How to Check That a Website Never Uploads Your Files",
         desc="Two simple tests anyone can do to see whether an online PDF or image tool uploads your files: the airplane-mode test and the browser Network tab.",
-        h1="How to check that a website never uploads your files",
+        h1="Two quick tests to see if an online tool uploads your files",
         lead="Many sites say “we respect your privacy”. With two quick tests you can see for yourself whether a tool sends your file to a server, before you trust it with a passport scan, a payslip or an assignment.",
         body='''<h2>Why it matters</h2>
 <p>Most online converters work by uploading your file to their server, processing it there and sending back the result. That can be fine for a holiday photo, but not for a passport, a bank statement or medical letter. A tool that runs in your browser does the work on your own device instead, so the file never travels anywhere.</p>

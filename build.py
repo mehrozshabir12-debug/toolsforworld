@@ -70,14 +70,16 @@ import longtail
 longtail.enrich(T)
 import striking
 striking.enrich(T)
+import seo_fixes
+seo_fixes.enrich(T)
 import retire
 retire.apply(T)   # low-demand preset pages folded into their main tool (see retire.py)
 BY = {t['slug']: t for t in T}
 
 # Hand-picked "related tools" for each main tool (what people usually need next)
 RELATED = {
-    "pdf-to-word": ["word-to-pdf", "image-to-text", "compress-pdf", "pdf-to-jpg"],
-    "word-to-pdf": ["pdf-to-word", "compress-pdf", "merge-pdf", "jpg-to-pdf"],
+    "pdf-to-word": ["word-to-pdf", "image-to-text", "compress-pdf", "pdf-to-jpg", "txt-to-pdf"],
+    "word-to-pdf": ["pdf-to-word", "txt-to-pdf", "compress-pdf", "merge-pdf", "jpg-to-pdf"],
     "compress-pdf": ["compress-pdf-to-200kb", "split-pdf", "merge-pdf", "compress-image", "word-to-pdf"],
     "merge-pdf": ["split-pdf", "compress-pdf", "jpg-to-pdf", "word-to-pdf"],
     "split-pdf": ["merge-pdf", "compress-pdf", "pdf-to-jpg", "pdf-to-word"],
@@ -89,7 +91,7 @@ RELATED = {
     "png-to-pdf": ["jpg-to-pdf", "pdf-to-png", "merge-pdf", "compress-pdf", "png-to-jpg"],
     "pdf-to-jpg": ["pdf-to-png", "compress-image", "image-to-text", "split-pdf", "jpg-to-pdf"],
     "pdf-to-png": ["pdf-to-jpg", "png-to-pdf", "split-pdf", "image-to-text", "compress-image"],
-    "image-to-text": ["pdf-to-word", "pdf-to-jpg", "word-counter", "image-to-text-urdu"],
+    "image-to-text": ["pdf-to-word", "txt-to-pdf", "pdf-to-jpg", "word-counter", "image-to-text-urdu"],
     "compress-image": ["resize-image", "compress-image-to-100kb", "jpg-to-pdf", "heic-to-jpg"],
     "resize-image": ["compress-image", "passport-photo-maker", "remove-background", "resize-image-to-1080x1920"],
     "remove-background": ["passport-photo-maker", "resize-image", "compress-image", "png-to-jpg", "jpg-to-png"],
@@ -100,7 +102,7 @@ RELATED = {
     "heic-to-jpg": ["heic-to-pdf", "compress-image", "jpg-to-pdf", "webp-to-jpg", "resize-image", "mp4-to-mp3"],
     "passport-photo-maker": ["remove-background", "compress-image-to-50kb", "resize-image", "us-passport-photo"],
     "qr-code-generator": ["wifi-qr-code-generator", "password-generator", "word-counter", "character-counter"],
-    "word-counter": ["character-counter", "image-to-text", "password-generator", "percentage-calculator"],
+    "word-counter": ["character-counter", "txt-to-pdf", "image-to-text", "password-generator", "percentage-calculator"],
     "password-generator": ["qr-code-generator", "word-counter", "character-counter", "age-calculator"],
     "age-calculator": ["date-calculator", "percentage-calculator", "discount-calculator", "word-counter"],
     "date-calculator": ["age-calculator", "percentage-calculator", "discount-calculator", "word-counter"],
@@ -277,9 +279,9 @@ def write(rel_path, content):
 
 GUIDE_FOR = {  # tool family (main slug) -> guides that explain it
     "passport-photo-maker": ["passport-photo-size-by-country"],
-    "compress-image": ["how-to-compress-photo-to-50kb"],
-    "compress-pdf": ["reduce-scanned-pdf-size"],
-    "jpg-to-pdf": ["reduce-scanned-pdf-size"],
+    "compress-image": ["how-to-compress-photo-to-50kb", "file-size-limits-kb-mb-explained"],
+    "compress-pdf": ["reduce-scanned-pdf-size", "file-size-limits-kb-mb-explained"],
+    "jpg-to-pdf": ["reduce-scanned-pdf-size", "file-size-limits-kb-mb-explained"],
     "resize-image": ["social-media-image-sizes", "image-resolution-sizes-explained"],
 }
 EXTRA_GUIDE = {"resize-image-to-600x600": "passport-photo-size-by-country", "us-passport-photo": "passport-photo-size-by-country"}
@@ -335,8 +337,9 @@ def build():
 <div class="how">{t["body"]}{guide_links(r, t, par)}{f'<h2>Questions</h2><div class="faq">{faq}</div>' if faq else ""}</div>
 <div class="related"><div class="sect">{"Related tools" if par else "More " + group_name.lower()}</div>{cards(r, related)}</div></section>'''
         canon = BASE + t["slug"] + "/"
-        ld = [{"@context": "https://schema.org", "@type": "WebApplication", "name": t["name"], "url": canon, "applicationCategory": "UtilitiesApplication",
-               "operatingSystem": "Any", "offers": {"@type": "Offer", "price": "0", "priceCurrency": "USD"}, "description": t["desc"]}]
+        # No WebApplication/SoftwareApplication item: Google's software-app rich result requires aggregateRating or review,
+        # and the site has no genuine ratings to show (invented ones break Google's policy). Semrush flagged all 77 as errors.
+        ld = []
         trail = [("Home", BASE)] + ([(par["name"], BASE + par["slug"] + "/")] if par else []) + [(t["name"], canon)]
         ld.append(breadcrumb(trail))
         if t.get("faq"):
@@ -448,7 +451,7 @@ def build():
 
     info = {
         "about": ("About Tools for World", "Tools for World makes free, simple and private online tools for everyday tasks.",
-                  '''<h1>About Tools for World</h1><p>Tools for World is a free collection of everyday online tools: PDF and Word converters, image compressors and converters, a background remover, OCR in many languages, passport photo makers, a QR code generator, a password generator and simple calculators.</p>
+                  '''<h1>Who makes Tools for World, and why</h1><p>Tools for World is a free collection of everyday online tools: PDF and Word converters, image compressors and converters, a background remover, OCR in many languages, passport photo makers, a QR code generator, a password generator and simple calculators.</p>
 <h2>Why we built it</h2><p>Most people meet these tasks at awkward moments: a job portal wants a photo under 50 KB, a visa form wants a PDF under 300 KB, or a scanned letter needs to become editable text. Many sites that do this ask you to sign up, add watermarks, or upload private documents to unknown servers. Tools for World was built to do these jobs quickly, for free, without any of that.</p>
 <h2>Who makes it</h2><p>Tools for World is an independent project built and maintained by <b>Mehroz Shabir</b>. Every tool is designed, written and tested by hand, and new tools are added based on what visitors ask for.</p>
 <h2>How the tools work</h2><p>All tools run inside your browser. Files you open are processed on your own device and are never uploaded to our servers. Where a tool needs extra code, such as the OCR language data or the background-removal model, your browser downloads that code, and then the work happens locally. This is why the tools keep working on slow connections once a page has loaded, and why your documents stay private.</p>
@@ -486,7 +489,7 @@ def build():
 <tr><td><a href="https://github.com/naptha/tesseract.js">Tesseract.js</a> and <a href="https://github.com/tesseract-ocr/tesseract">Tesseract OCR</a></td><td>Image to text (OCR) and language data</td><td><a href="https://github.com/naptha/tesseract.js/blob/master/LICENSE.md">Apache-2.0</a></td></tr>
 <tr><td><a href="https://github.com/imgly/background-removal-js">IMG.LY Background Removal</a></td><td>Background remover (AI model runs in your browser)</td><td><a href="https://github.com/imgly/background-removal-js/blob/main/LICENSE.md">AGPL-3.0</a> – used unmodified; source code at the link</td></tr>
 <tr><td><a href="https://github.com/microsoft/onnxruntime">ONNX Runtime Web</a></td><td>Runs the background-removal model</td><td><a href="https://github.com/microsoft/onnxruntime/blob/main/LICENSE">MIT</a></td></tr>
-<tr><td><a href="https://github.com/alexcorvi/heic2any">heic2any</a> (includes <a href="https://github.com/strukturag/libheif">libheif</a>)</td><td>HEIC to JPG</td><td><a href="https://github.com/alexcorvi/heic2any/blob/master/LICENSE">MIT</a>; libheif <a href="https://github.com/strukturag/libheif/blob/master/COPYING">LGPL-3.0</a></td></tr>
+<tr><td><a href="https://github.com/alexcorvi/heic2any">heic2any</a> (includes <a href="https://github.com/strukturag/libheif">libheif</a>)</td><td>HEIC to JPG</td><td><a href="https://github.com/alexcorvi/heic2any/blob/master/LICENSE.md">MIT</a>; libheif <a href="https://github.com/strukturag/libheif/blob/master/COPYING">LGPL-3.0</a></td></tr>
 <tr><td><a href="https://github.com/zhuker/lamejs">lamejs</a></td><td>MP4 to MP3 (MP3 encoding)</td><td><a href="https://github.com/zhuker/lamejs/blob/master/LICENSE">LGPL-3.0</a> – used unmodified; source code at the link</td></tr>
 <tr><td><a href="https://github.com/Stuk/jszip">JSZip</a></td><td>Building .docx files for PDF to Word</td><td><a href="https://github.com/Stuk/jszip/blob/main/LICENSE.markdown">MIT or GPL-3.0</a> (used under MIT)</td></tr>
 <tr><td><a href="https://github.com/kazuhikoarase/qrcode-generator">qrcode-generator</a></td><td>QR code generator</td><td><a href="https://github.com/kazuhikoarase/qrcode-generator/blob/master/LICENSE">MIT</a></td></tr>

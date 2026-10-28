@@ -1,0 +1,31 @@
+# Tools for World
+
+> Free online PDF, image, document, audio and everyday tools at toolsforworld.com. Every tool runs inside the visitor's browser, so files are never uploaded to a server. No sign-up, no watermark and no daily limit.
+
+Contact: hello@toolsforworld.com
+
+## PDF and documents
+- [PDF to Word](https://toolsforworld.com/pdf-to-word/): turn a PDF into an editable .docx file
+- [Word to PDF](https://toolsforworld.com/word-to-pdf/): convert .docx documents to PDF
+- [Compress PDF](https://toolsforworld.com/compress-pdf/): shrink PDFs, or set an exact target such as 200 KB or 1 MB
+- [Merge PDF](https://toolsforworld.com/merge-pdf/) and [Split PDF](https://toolsforworld.com/split-pdf/)
+- [JPG to PDF](https://toolsforworld.com/jpg-to-pdf/), [PNG to PDF](https://toolsforworld.com/png-to-pdf/), [HEIC to PDF](https://toolsforworld.com/heic-to-pdf/), [TXT to PDF](https://toolsforworld.com/txt-to-pdf/)
+- [PDF to JPG](https://toolsforworld.com/pdf-to-jpg/) and [PDF to PNG](https://toolsforworld.com/pdf-to-png/)
+- [Image to Text (OCR)](https://toolsforworld.com/image-to-text/): extract text from photos and screenshots in many languages
+
+## Images
+- [Image Compressor](https://toolsforworld.com/compress-image/): reduce photo size in KB, with presets from 10 KB to 5 MB
+- [Image Resizer](https://toolsforworld.com/resize-image/): exact width and height in pixels
+- [Background Remover](https://toolsforworld.com/remove-background/): transparent PNG, AI runs on the device
+- [Passport Photo Maker](https://toolsforworld.com/passport-photo-maker/): 35×45 mm, 2×2 inch and country presets with a 4×6 print sheet
+- Converters: [HEIC to JPG](https://toolsforworld.com/heic-to-jpg/), [PNG to JPG](https://toolsforworld.com/png-to-jpg/), [JPG to PNG](https://toolsforworld.com/jpg-to-png/), [WebP to JPG](https://toolsforworld.com/webp-to-jpg/), [WebP to PNG](https://toolsforworld.com/webp-to-png/), [JFIF to JPG](https://toolsforworld.com/jfif-to-jpg/), [JPEG to JPG](https://toolsforworld.com/jpeg-to-jpg/)
+
+## Everyday tools
+- [QR Code Generator](https://toolsforworld.com/qr-code-generator/), [Word Counter](https://toolsforworld.com/word-counter/), [Password Generator](https://toolsforworld.com/password-generator/)
+- [Age Calculator](https://toolsforworld.com/age-calculator/), [Date Calculator](https://toolsforworld.com/date-calculator/), [Percentage Calculator](https://toolsforworld.com/percentage-calculator/)
+
+## Audio and video
+- [MP4 to MP3](https://toolsforworld.com/mp4-to-mp3/) and [Video to MP3](https://toolsforworld.com/video-to-mp3/): extract audio from your own videos
+
+## Guides
+- [All guides](https://toolsforworld.com/guides/): passport photo sizes by country, file-size limits, image resolutions and more
