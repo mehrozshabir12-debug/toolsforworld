@@ -149,6 +149,8 @@ def _v(name):
         return "0"
 
 
+ADS_QUEUE = f"TFW3P.push(['https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client={ADSENSE_CLIENT}',1]);"
+
 FONTS = "https://fonts.googleapis.com/css2?family=Bricolage+Grotesque:opsz,wght@12..96,600;12..96,800&family=Figtree:wght@400;500;600&family=JetBrains+Mono:wght@500&display=optional"
 
 
@@ -172,7 +174,7 @@ def page(rel_root, title, desc, canon, body, scripts="", body_attr="", jsonld=No
 <html lang="en">
 <head>
 <meta charset="utf-8">
-<!-- Google tag (gtag.js): only real visitors on the live site, never test browsers or local copies --><script>window.dataLayer=window.dataLayer||[];function gtag(){{dataLayer.push(arguments);}}if(location.hostname==='toolsforworld.com'&&!navigator.webdriver){{var g=document.createElement('script');g.async=true;g.src='https://www.googletagmanager.com/gtag/js?id={GA_ID}';document.head.appendChild(g);{NOAD_CONSENT if not ads else ''}gtag('js',new Date());gtag('config','{GA_ID}');}}</script>
+<!-- Google tag (gtag.js) and AdSense: queued now, downloaded on the visitor's first tap/scroll/key (or 10 s after load), so they never slow the first paint. Analytics only for real visitors on the live site. --><script>window.dataLayer=window.dataLayer||[];function gtag(){{dataLayer.push(arguments);}}var TFW3P=[];(function(){{var d=0;function go(){{if(d)return;d=1;TFW3P.forEach(function(s){{var e=document.createElement('script');e.async=true;e.src=s[0];if(s[1])e.crossOrigin='anonymous';document.head.appendChild(e);}});}}['pointerdown','keydown','touchstart','scroll','wheel','mousemove'].forEach(function(t){{addEventListener(t,go,{{once:true,passive:true}});}});addEventListener('load',function(){{setTimeout(go,10000);}});}})();if(location.hostname==='toolsforworld.com'&&!navigator.webdriver){{TFW3P.push(['https://www.googletagmanager.com/gtag/js?id={GA_ID}']);{NOAD_CONSENT if not ads else ''}gtag('js',new Date());gtag('config','{GA_ID}');}}{ADS_QUEUE if (ads and ADSENSE_CLIENT) else ''}</script>
 <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
 <meta http-equiv="Content-Security-Policy" content="object-src 'none'; base-uri 'self'; form-action 'self'; upgrade-insecure-requests">
 <meta name="referrer" content="strict-origin-when-cross-origin">
@@ -181,7 +183,7 @@ def page(rel_root, title, desc, canon, body, scripts="", body_attr="", jsonld=No
 {f'<link rel="canonical" href="{canon}">' if canon else '<meta name="robots" content="noindex">'}
 <meta property="og:title" content="{html.escape(title)}"><meta property="og:description" content="{html.escape(desc)}">{f'<meta property="og:url" content="{canon}">' if canon else ""}<meta property="og:type" content="website"><meta property="og:site_name" content="Tools for World"><meta property="og:image" content="{BASE}og-image.png"><meta name="twitter:card" content="summary_large_image">
 <link rel="icon" href="https://toolsforworld.com/favicon.ico" sizes="48x48"><link rel="icon" href="https://toolsforworld.com/favicon-96.png" type="image/png" sizes="96x96"><link rel="icon" href="https://toolsforworld.com/favicon-192.png" type="image/png" sizes="192x192"><link rel="icon" href="https://toolsforworld.com/favicon.svg" type="image/svg+xml"><link rel="apple-touch-icon" href="https://toolsforworld.com/apple-touch-icon.png"><link rel="manifest" href="https://toolsforworld.com/site.webmanifest"><meta name="theme-color" content="#0d7a55">
-{(f'<meta name="google-adsense-account" content="{ADSENSE_CLIENT}">' + (f'<script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client={ADSENSE_CLIENT}" crossorigin="anonymous"></script>' if ads else "")) if ADSENSE_CLIENT else ""}
+{f'<meta name="google-adsense-account" content="{ADSENSE_CLIENT}">' if ADSENSE_CLIENT else ""}
 <link rel="preconnect" href="https://fonts.googleapis.com"><link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link rel="preload" as="style" href="{FONTS}"><link rel="stylesheet" href="{FONTS}" media="print" onload="this.media='all'"><noscript><link rel="stylesheet" href="{FONTS}"></noscript>
 <link rel="stylesheet" href="{rel_root}assets/style.css?v={_v("style.css")}">
@@ -427,7 +429,7 @@ def build():
             + '<p class="aka">Tools for World (also written ToolsForWorld or Tools 4 World) is at toolsforworld.com.</p>')
     write("index.html", page("", "Tools for World – Free PDF, Image & Everyday Tools Online",
                              "Free online tools: PDF to Word, Word to PDF, compress PDF and images, background remover, HEIC to JPG, OCR, QR code generator, MP4 to MP3 and more. Private: files never leave your device.",
-                             BASE, home, f'<script src="assets/calc.js?v={_v("calc.js")}"></script>', ' class="home"',
+                             BASE, home, "", ' class="home"',
                              jsonld=[{"@context": "https://schema.org", "@type": "WebSite", "name": "Tools for World", "alternateName": BRAND_NAMES, "url": BASE},
                                      {"@context": "https://schema.org", "@type": "Organization", "name": "Tools for World", "alternateName": BRAND_NAMES, "url": BASE, "logo": BASE + "logo.png",
                                       "email": "hello@toolsforworld.com",
