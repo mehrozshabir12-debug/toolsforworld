@@ -23,6 +23,9 @@ def make_samples():
     d.text((80, 300), "Free online tools", fill="black", font=f)
     d.ellipse((1200, 80, 1500, 380), fill=(220, 60, 60))
     im.save(f"{S}/photo.jpg", quality=92); im.save(f"{S}/photo.png"); im.save(f"{S}/photo.webp")
+    import shutil; shutil.copy(f"{S}/photo.jpg", f"{S}/photo.jfif"); shutil.copy(f"{S}/photo.jpg", f"{S}/photo.jpeg")
+    open(f"{S}/notes.txt", "w", encoding="utf-8").write("Tools for World sample paragraph.\n\n" + "A long line that keeps going so it has to wrap onto the next line of the PDF page. " * 6 + "\n" + "\n".join(f"Line {i}" for i in range(1, 121)))
+    open(f"{S}/urdu.txt", "w", encoding="utf-8").write("یہ ایک نمونہ ہے\nTools for World\n")
     try:
         import pillow_heif
         pillow_heif.register_heif_opener(); im.save(f"{S}/photo.heic")
@@ -66,6 +69,7 @@ FILE_TESTS = [  # slug, sample, timeout s, extra setup
     ("split-pdf", "doc.pdf", 60, ("#sr", "1-2")), ("pdf-to-jpg", "doc.pdf", 90, None), ("compress-pdf", "scan.pdf", 180, None),
     ("pdf-to-word", "doc.pdf", 90, None), ("word-to-pdf", "doc.docx", 120, None), ("image-to-text", "photo.png", 240, None),
     ("mp4-to-mp3", "video.mp4", 120, None), ("remove-background", "photo.jpg", 420, None),
+    ("jfif-to-jpg", "photo.jfif", 30, None), ("jpeg-to-jpg", "photo.jpeg", 30, None), ("txt-to-pdf", "notes.txt", 60, None), ("heic-to-pdf", "photo.heic", 120, None),
     ("png-to-pdf", "photo.png", 30, None), ("pdf-to-png", "doc.pdf", 90, None), ("webp-to-png", "photo.webp", 30, None), ("video-to-mp3", "video.mp4", 120, None),
     ("compress-pdf-to-500kb", "scan.pdf", 300, None), ("compress-image-to-1mb", "photo.png", 60, None),
     ("us-passport-photo", "photo.jpg", 30, None), ("image-to-text-french", "photo.png", 240, None), ("resize-image-to-1500x500", "photo.jpg", 30, None), ("canada-passport-photo", "photo.jpg", 30, None),

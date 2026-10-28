@@ -82,6 +82,10 @@ RELATED = {
     "merge-pdf": ["split-pdf", "compress-pdf", "jpg-to-pdf", "word-to-pdf"],
     "split-pdf": ["merge-pdf", "compress-pdf", "pdf-to-jpg", "pdf-to-word"],
     "jpg-to-pdf": ["png-to-pdf", "compress-image", "merge-pdf", "compress-pdf", "heic-to-jpg", "word-to-pdf"],
+    "heic-to-pdf": ["heic-to-jpg", "jpg-to-pdf", "compress-pdf", "merge-pdf", "png-to-pdf"],
+    "txt-to-pdf": ["word-to-pdf", "image-to-text", "merge-pdf", "compress-pdf", "word-counter"],
+    "jfif-to-jpg": ["jpeg-to-jpg", "webp-to-jpg", "png-to-jpg", "compress-image", "jpg-to-pdf"],
+    "jpeg-to-jpg": ["jfif-to-jpg", "heic-to-jpg", "png-to-jpg", "compress-image", "jpg-to-png"],
     "png-to-pdf": ["jpg-to-pdf", "pdf-to-png", "merge-pdf", "compress-pdf", "png-to-jpg"],
     "pdf-to-jpg": ["pdf-to-png", "compress-image", "image-to-text", "split-pdf", "jpg-to-pdf"],
     "pdf-to-png": ["pdf-to-jpg", "png-to-pdf", "split-pdf", "image-to-text", "compress-image"],
@@ -93,7 +97,7 @@ RELATED = {
     "jpg-to-png": ["png-to-jpg", "webp-to-png", "remove-background", "compress-image", "webp-to-jpg"],
     "webp-to-jpg": ["webp-to-png", "png-to-jpg", "heic-to-jpg", "compress-image", "resize-image"],
     "webp-to-png": ["webp-to-jpg", "jpg-to-png", "remove-background", "compress-image", "png-to-pdf"],
-    "heic-to-jpg": ["compress-image", "jpg-to-pdf", "webp-to-jpg", "resize-image", "mp4-to-mp3"],
+    "heic-to-jpg": ["heic-to-pdf", "compress-image", "jpg-to-pdf", "webp-to-jpg", "resize-image", "mp4-to-mp3"],
     "passport-photo-maker": ["remove-background", "compress-image-to-50kb", "resize-image", "us-passport-photo"],
     "qr-code-generator": ["wifi-qr-code-generator", "password-generator", "word-counter", "character-counter"],
     "word-counter": ["character-counter", "image-to-text", "password-generator", "percentage-calculator"],
@@ -104,7 +108,7 @@ RELATED = {
     "mp4-to-mp3": ["video-to-mp3", "compress-image", "heic-to-jpg", "image-to-text"],
     "video-to-mp3": ["mp4-to-mp3", "image-to-text", "compress-image", "heic-to-jpg"],
 }
-FMT = {'compress': 'Supported: JPG, PNG, WebP, GIF, BMP · several files at once', 'resize': 'Supported: JPG, PNG, WebP, GIF, BMP · several files at once', 'convert': 'Supported: JPG, PNG, WebP · several files at once', 'passport': 'Supported: JPG, PNG, WebP', 'img2pdf': 'Supported: JPG, PNG, WebP · several files at once', 'merge': 'Supported: PDF · several files at once', 'split': 'Supported: PDF', 'pdf2jpg': 'Supported: PDF', 'pdf2png': 'Supported: PDF', 'webp2png': 'Supported: WebP · several files at once', 'word2pdf': 'Supported: Word .docx', 'png2jpg': 'Supported: PNG · several files at once', 'jpg2png': 'Supported: JPG / JPEG · several files at once', 'webp2jpg': 'Supported: WebP · several files at once', 'heic2jpg': 'Supported: HEIC / HEIF (iPhone photos) · several files at once', 'pdfcompress': 'Supported: PDF', 'ocr': 'Supported: JPG, PNG, WebP, BMP', 'bgremove': 'Supported: JPG, PNG, WebP', 'mp4mp3': 'Supported: MP4, MOV, WebM, MKV, M4A, WAV', 'pdf2word': 'Supported: PDF'}  # what each file tool accepts (shown under the drop zone; kept in sync with TOOLS in files.js)
+FMT = {'compress': 'Supported: JPG, PNG, WebP, GIF, BMP · several files at once', 'resize': 'Supported: JPG, PNG, WebP, GIF, BMP · several files at once', 'convert': 'Supported: JPG, PNG, WebP · several files at once', 'passport': 'Supported: JPG, PNG, WebP', 'img2pdf': 'Supported: JPG, PNG, WebP · several files at once', 'merge': 'Supported: PDF · several files at once', 'split': 'Supported: PDF', 'pdf2jpg': 'Supported: PDF', 'pdf2png': 'Supported: PDF', 'webp2png': 'Supported: WebP · several files at once', 'heic2pdf': 'Supported: HEIC / HEIF (iPhone photos), JPG, PNG · several files at once', 'tojpg': 'Supported: JFIF, JPEG, JPE · several files at once', 'txt2pdf': 'Supported: TXT, MD, CSV, LOG · several files at once', 'word2pdf': 'Supported: Word .docx', 'png2jpg': 'Supported: PNG · several files at once', 'jpg2png': 'Supported: JPG / JPEG · several files at once', 'webp2jpg': 'Supported: WebP · several files at once', 'heic2jpg': 'Supported: HEIC / HEIF (iPhone photos) · several files at once', 'pdfcompress': 'Supported: PDF', 'ocr': 'Supported: JPG, PNG, WebP, BMP', 'bgremove': 'Supported: JPG, PNG, WebP', 'mp4mp3': 'Supported: MP4, MOV, WebM, MKV, M4A, WAV', 'pdf2word': 'Supported: PDF'}  # what each file tool accepts (shown under the drop zone; kept in sync with TOOLS in files.js)
 # Exact-size pages shown on the home page (closest to Google's first page in Search Console / OpenSEO, 24 Oct 2026)
 HOME_SIZES = ["pakistan-passport-photo", "india-passport-photo", "compress-image-to-10kb", "compress-image-to-20kb",
               "compress-image-to-50kb", "compress-pdf-to-200kb", "compress-pdf-to-300kb", "compress-pdf-to-1mb",
@@ -207,6 +211,7 @@ KW = {  # extra search words (synonyms people type)
     "age-calculator": "birthday date of birth years", "percentage-calculator": "percent discount increase decrease", "mp4-to-mp3": "audio video extract sound music",
     "png-to-jpg": "convert image", "jpg-to-png": "convert image transparent", "webp-to-jpg": "convert image",
     "png-to-pdf": "screenshot image convert", "pdf-to-png": "image pages transparent", "webp-to-png": "convert image transparent",
+    "heic-to-pdf": "iphone photo heif convert", "txt-to-pdf": "text file notepad convert", "jfif-to-jpg": "jfif convert image jpeg", "jpeg-to-jpg": "jpeg rename convert image",
     "date-calculator": "days between dates add days count weeks business days", "video-to-mp3": "audio extract mov webm mkv sound",
 }
 
@@ -348,6 +353,10 @@ def build():
         "compress-pdf": ("#dc2626", sv(DOC + '<path d="M12 10v3m0 0l-2-2m2 2l2-2M12 18v-3m0 0l-2 2m2-2l2 2"/>')),
         "merge-pdf": ("#ea580c", sv('<rect x="3" y="4" width="8" height="11" rx="1.5"/><rect x="13" y="9" width="8" height="11" rx="1.5"/><path d="M9 18h3"/>')),
         "split-pdf": ("#b45309", sv('<circle cx="6" cy="6" r="2.5"/><circle cx="6" cy="18" r="2.5"/><path d="M8 7.5L20 18M8 16.5L20 6"/>')),
+        "heic-to-pdf": ("#9f1239", sv('<rect x="4" y="2.5" width="9" height="15" rx="2"/><circle cx="8.5" cy="8" r="2"/><path d="M15 10h4a2 2 0 0 1 2 2v7a2 2 0 0 1-2 2h-8a2 2 0 0 1-2-2v-1"/>')),
+        "txt-to-pdf": ("#334155", sv(DOC + '<path d="M8 12h8M8 15h8M8 18h5"/>')),
+        "jfif-to-jpg": ("#0369a1", sv('<rect x="3" y="4" width="18" height="16" rx="2"/><path d="M7 15l3-3 2 2 3-3 2 2"/>')),
+        "jpeg-to-jpg": ("#1d4ed8", sv('<rect x="3" y="4" width="18" height="16" rx="2"/><path d="M8 12h8M13 9l3 3-3 3"/>')),
         "png-to-pdf": ("#be123c", sv('<rect x="3" y="5" width="11" height="9" rx="1.5"/><path d="M5 12h7M5 9h4"/><path d="M15 10h4a2 2 0 0 1 2 2v7a2 2 0 0 1-2 2h-8a2 2 0 0 1-2-2v-2"/>')),
         "pdf-to-png": ("#ca8a04", sv(DOC + '<path d="M8 13h8M8 16h5"/>')),
         "webp-to-png": ("#0e7490", sv('<circle cx="12" cy="12" r="9"/><path d="M3 12h18M12 3a14 14 0 0 1 0 18"/>')),
@@ -373,7 +382,7 @@ def build():
     }
     FILTERS = [("all", "All tools"), ("pdf", "PDF & Word"), ("img", "Images"), ("util", "Text & everyday"), ("media", "Audio")]
     order = ["pdf-to-word", "compress-pdf", "compress-image", "remove-background", "word-to-pdf", "jpg-to-pdf", "image-to-text", "passport-photo-maker",
-             "merge-pdf", "split-pdf", "pdf-to-jpg", "png-to-pdf", "pdf-to-png", "resize-image", "heic-to-jpg", "png-to-jpg", "jpg-to-png", "webp-to-jpg", "webp-to-png",
+             "merge-pdf", "split-pdf", "pdf-to-jpg", "png-to-pdf", "heic-to-pdf", "txt-to-pdf", "pdf-to-png", "resize-image", "heic-to-jpg", "png-to-jpg", "jpg-to-png", "webp-to-jpg", "webp-to-png", "jfif-to-jpg", "jpeg-to-jpg",
              "qr-code-generator", "word-counter", "password-generator", "age-calculator", "date-calculator", "percentage-calculator", "mp4-to-mp3", "video-to-mp3"]
     mains = sorted([t for t in T if not t.get("parent")], key=lambda t: order.index(t["slug"]) if t["slug"] in order else 99)
     TICK = '<svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" aria-hidden="true"><path d="M5 12.5l4.5 4.5L19 7.5"/></svg>'

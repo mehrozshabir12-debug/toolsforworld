@@ -35,6 +35,9 @@ def make_samples():
 
     im = photo(1600, 1000, f"{S}/photo.jpg", quality=92)
     im.save(f"{S}/photo.png"); im.save(f"{S}/photo.webp")
+    import shutil; shutil.copy(f"{S}/photo.jpg", f"{S}/photo.jfif"); shutil.copy(f"{S}/photo.jpg", f"{S}/photo.jpeg")
+    open(f"{S}/notes.txt", "w", encoding="utf-8").write("Tools for World sample paragraph.\n\n" + "A long line that keeps going so it has to wrap onto the next line of the PDF page. " * 6 + "\n" + "\n".join(f"Line {i}" for i in range(1, 121)))
+    open(f"{S}/urdu.txt", "w", encoding="utf-8").write("یہ ایک نمونہ ہے\nTools for World\n")
     # 48 MP photo like a modern phone camera (noisy so it compresses badly)
     big = photo(8000, 6000, f"{S}/tmp.png")
     rnd = random.Random(2); d = ImageDraw.Draw(big)
@@ -197,6 +200,8 @@ CASES = [
     ("png-to-jpg-alpha", "png-to-jpg", ["alpha.png"], "ok", {}, [(0, "image", {"fmt": "JPEG", "w": 800})], 60),
     ("jpg-to-png", "jpg-to-png", ["photo.jpg"], "ok", {}, [(0, "image", {"fmt": "PNG", "w": 1600})], 60),
     ("webp-to-jpg", "webp-to-jpg", ["photo.webp"], "ok", {}, [(0, "image", {"fmt": "JPEG"})], 60),
+    ("jfif-to-jpg", "jfif-to-jpg", ["photo.jfif"], "ok", {}, [(0, "image", {"fmt": "JPEG", "w": 1600})], 60),
+    ("jpeg-to-jpg", "jpeg-to-jpg", ["photo.jpeg"], "ok", {}, [(0, "image", {"fmt": "JPEG", "w": 1600})], 60),
     ("webp-to-png-alpha", "webp-to-png", ["alpha.webp"], "ok", {}, [(0, "image", {"fmt": "PNG", "w": 800, "alpha": True})], 60),
     ("webp-to-png-wrong-type", "webp-to-png", ["photo.jpg"], "reject", {}, [], 30),
     ("heic-to-jpg", "heic-to-jpg", ["photo.heic"], "ok", {}, [(0, "image", {"fmt": "JPEG", "w": 1600})], 120),
@@ -225,6 +230,10 @@ CASES = [
     ("pdf-to-png-transparent", "pdf-to-png", ["doc.pdf"], "ok", {"#dt": True}, [(0, "image", {"fmt": "PNG", "alpha": True})], 120),
     ("pdf-to-png-encrypted", "pdf-to-png", ["encrypted.pdf"], "err", {}, [], 60),
     ("png-to-pdf-2", "png-to-pdf", ["alpha.png", "photo.png"], "ok", {}, [(0, "pdf", {"pages": 2})], 60),
+    ("heic-to-pdf-mixed", "heic-to-pdf", ["photo.heic", "photo.jpg"], "ok", {}, [(0, "pdf", {"pages": 2})], 180),
+    ("txt-to-pdf", "txt-to-pdf", ["notes.txt"], "ok", {}, [(0, "pdf", {"min_pages": 2, "text": "sample paragraph"})], 60),
+    ("txt-to-pdf-urdu", "txt-to-pdf", ["urdu.txt"], "ok", {}, [(0, "pdf", {"pages": 1, "check_last_page_not_blank": True})], 60),
+    ("txt-to-pdf-wrong-type", "txt-to-pdf", ["photo.jpg"], "reject", {}, [], 30),
     ("pdf-to-jpg-corrupt", "pdf-to-jpg", ["corrupt.pdf"], "err_or_ok", {}, [], 60),
     ("compress-pdf-scan", "compress-pdf", ["scan.pdf"], "ok", {}, [(0, "pdf", {"pages": 3, "check_last_page_not_blank": True})], 240),
     ("compress-pdf-to-200kb", "compress-pdf-to-200kb", ["scan.pdf"], "ok", {}, [(0, "pdf", {"pages": 3})], 400),

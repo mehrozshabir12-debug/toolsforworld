@@ -83,6 +83,38 @@ def define(tool, F, N, SEL, RESULT, PDFLIB, PDFJS, MAMMOTH, H2PDF):
               ("What happens to transparent backgrounds?", "Transparent areas appear white on the PDF page."),
               ("Are my images uploaded?", "No. The PDF is made inside your browser, so the files never leave your device."),
               ("Can I convert PNG to PDF on iPhone or Android?", "Yes. Open this page in Safari or Chrome, choose the images from Photos or Files, and download the PDF.")])
+
+    tool(slug="heic-to-pdf", group="pdf", icon="pdf", name="HEIC to PDF", ftool="heic2pdf", libs=HEIC + PDFLIB,
+         card="Put iPhone HEIC photos straight into one PDF.",
+         title="HEIC to PDF Converter – iPhone Photos to PDF Free",
+         desc="Convert HEIC to PDF online for free. Put iPhone HEIC photos into one PDF in the order you choose, with A4, Letter or photo-size pages. No upload, no sign-up.",
+         h1="HEIC to PDF converter", lead="Turn iPhone photos (.heic) into a single PDF in one step: no need to convert to JPG first. Reorder the pages, pick a page size, and nothing is uploaded.",
+         body='''<h2>How to convert HEIC to PDF</h2><ol><li>Choose one or more <code>.heic</code> photos. You can mix in JPG and PNG files too.</li><li>Put them in order with the ▲ ▼ arrows.</li><li>Pick a page size (<b>A4</b>, <b>Letter</b> or <b>Same as image</b>) and a margin.</li><li>Press <b>Create PDF</b> and download the file.</li></ol>
+<h2>Why iPhone photos need converting</h2><p>Since iOS 11, iPhones save photos as HEIC by default, because the files are about half the size of JPG. Many upload portals, Windows PCs and printers can't open HEIC, and most forms want documents as PDF anyway. This tool turns each HEIC photo into a high-quality JPG inside the PDF, all on your device.</p>
+<h2>Great for</h2><ul><li><b>Documents photographed on an iPhone</b>: ID cards, certificates, receipts and signed forms for job, visa or university applications.</li><li><b>Homework and notes</b>: several pages photographed in class, submitted as one PDF.</li><li><b>Claims and records</b>: photos of damage or purchases for insurance or expense reports.</li></ul>
+<h2>Keeping the PDF small</h2><p>Phone photos are large. If the portal has a limit, type it in <b>Max PDF size</b> (for example 2048 for 2 MB) and the photos are made just small enough to fit. Or shrink a finished PDF with <a href="../compress-pdf/">Compress PDF</a>.</p>
+<p>Want separate JPG files instead? Use <a href="../heic-to-jpg/">HEIC to JPG</a>. Tip: on iPhone, Settings → Camera → Formats → "Most Compatible" makes new photos JPG from the start.</p>''',
+         faq=[("Is HEIC to PDF free?", "Yes. There is no limit, sign-up or watermark."),
+              ("Can I put several HEIC photos into one PDF?", "Yes. Choose them all, reorder them with the arrows, and each photo becomes one page of the same PDF."),
+              ("Are my iPhone photos uploaded?", "No. They are converted and put into the PDF inside your browser."),
+              ("Can I mix HEIC with JPG or PNG?", "Yes. HEIC photos are converted and JPG or PNG files are added as they are."),
+              ("Does it work on iPhone?", "Yes. Open this page in Safari, choose photos from your library or the Files app, and download the PDF.")])
+
+    tool(slug="txt-to-pdf", group="pdf", icon="pdf", name="TXT to PDF", ftool="txt2pdf", libs=PDFLIB,
+         card="Turn plain text files into tidy PDFs.",
+         title="TXT to PDF Converter – Convert Text File to PDF Free",
+         desc="Convert TXT to PDF online for free. Turn plain text files into clean A4 or Letter PDFs with wrapped lines and your choice of font. Works in your browser, no upload.",
+         h1="TXT to PDF converter", lead="Turn plain text files (.txt) into clean, printable PDFs. Long lines wrap neatly, pages break automatically, and your file is never uploaded.",
+         body='''<h2>How to convert TXT to PDF</h2><ol><li>Choose one or more <code>.txt</code> files (Markdown, CSV and log files work too).</li><li>Pick a font, size and page size.</li><li>Press <b>Convert to PDF</b> and download one PDF per text file.</li></ol>
+<h2>What the PDF looks like</h2><ul><li>Each line of your file starts on a new line in the PDF; blank lines are kept, so paragraphs stay separate.</li><li>Lines longer than the page width wrap at a space, and very long words or links are split so nothing runs off the page.</li><li>Pages have 2 cm margins and break automatically when one is full.</li><li>Tabs become four spaces. Pick <b>Monospace</b> to keep columns, code and ASCII tables lined up.</li></ul>
+<h2>Languages and characters</h2><p>Text in Latin letters (English, Spanish, French, German and so on) is written into the PDF as real text, so you can select, copy and search it. Arabic, Urdu, Hindi, Chinese, Cyrillic and other scripts are drawn onto the pages as images using your device's fonts, so every character shows correctly; that text can't be selected afterwards.</p>
+<h2>When to use it</h2><ul><li>Submitting notes, code or logs to a portal that only accepts PDF.</li><li>Printing a long text file with proper page breaks.</li><li>Sharing a README, lyrics you wrote yourself, a script or a transcript as one tidy document.</li></ul>
+<p>Have a Word document instead? Use <a href="../word-to-pdf/">Word to PDF</a>. Need the text from a photo first? <a href="../image-to-text/">Image to Text (OCR)</a> turns it into a .txt file.</p>''',
+         faq=[("Is TXT to PDF free?", "Yes, with no limits, sign-up or watermark."),
+              ("Can I select and copy the text in the PDF?", "Yes for text in Latin letters. Other scripts are drawn as page images so they display correctly, and can't be selected."),
+              ("Does it keep my line breaks?", "Yes. Every line break and blank line in the .txt file is kept, and long lines wrap to fit the page."),
+              ("Can I convert several text files at once?", "Yes. Choose several files and you get one PDF for each."),
+              ("Is my file uploaded?", "No. The PDF is made in your browser, so the text never leaves your device.")])
     tool(slug="pdf-to-jpg", group="pdf", icon="pdf", name="PDF to JPG", ftool="pdf2jpg", libs=PDFJS,
          card="Save every PDF page as an image.",
          title="PDF to JPG – Convert PDF Pages to Images Free | Tools for World",
@@ -181,13 +213,44 @@ def define(tool, F, N, SEL, RESULT, PDFLIB, PDFJS, MAMMOTH, H2PDF):
               ("Can I convert many WebP files at once?", "Yes. Choose several files and download them one by one or as a ZIP."),
               ("Are my images uploaded?", "No. The conversion happens in your browser, on your device."),
               ("Why is the PNG bigger than the WebP?", "WebP compresses very efficiently, and PNG stores every pixel exactly, so the PNG is usually larger. That is normal.")])
+
+    tool(slug="jfif-to-jpg", group="img", icon="img", name="JFIF to JPG", ftool="tojpg", libs="",
+         card="Turn .jfif pictures into normal .jpg files.",
+         title="JFIF to JPG Converter – Convert JFIF to JPG Free",
+         desc="Convert JFIF to JPG online for free, with no quality loss. Fix .jfif images saved from Chrome, Edge or WhatsApp Web so any app or form accepts them. No upload.",
+         h1="JFIF to JPG converter", lead="Turn .jfif images into normal .jpg files that every app, website and upload form accepts. No quality is lost, many files work at once, and nothing is uploaded.",
+         body='''<h2>How to convert JFIF to JPG</h2><ol><li>Choose one or more <code>.jfif</code> files.</li><li>Press <b>Convert to JPG</b>.</li><li>Download each <code>.jpg</code>, or all of them as one ZIP.</li></ol>
+<h2>What is a JFIF file?</h2><p>JFIF stands for <b>JPEG File Interchange Format</b>. It is the standard way JPEG photos are stored, so a <code>.jfif</code> file is a JPEG picture with an unusual file ending. On some Windows PCs, pictures saved from Chrome, Edge or WhatsApp Web come out as <code>.jfif</code> instead of <code>.jpg</code> because of a Windows file-type setting. The picture is fine; the ending is the problem, because many upload forms, printers and apps only look for <code>.jpg</code>.</p>
+<h2>Why no quality is lost</h2><p>Because the inside of a JFIF file is already JPEG data, this tool doesn't re-compress the picture. It checks that the file really is a JPEG and saves the same data with a <code>.jpg</code> ending. The JPG has exactly the same pixels and the same file size. If a file only pretends to be JFIF (for example a PNG renamed by mistake), it is converted to a real JPG at high quality instead.</p>
+<h2>Tips</h2><ul><li>Got a whole folder of .jfif downloads? Select them all at once and use <b>Download all</b> to get one ZIP.</li><li>Need the photo under a size limit, like 100 KB for a form? After converting, use the <a href="../compress-image/">Image Compressor</a>.</li><li>Want a PDF instead? Put the pictures into one document with <a href="../jpg-to-pdf/">JPG to PDF</a>.</li></ul>''',
+         faq=[("Is JFIF the same as JPG?", "Yes, in practice. A JFIF file contains a JPEG image; only the file ending is different. Converting just gives it the ending that apps expect."),
+              ("Will converting JFIF to JPG reduce quality?", "No. The image data is kept as it is, so the JPG is identical to the original."),
+              ("Why does my computer save pictures as JFIF?", "On some Windows PCs a setting tells the browser to use .jfif for JPEG images. The files are normal JPEGs and can be converted here in one click."),
+              ("Can I convert many JFIF files at once?", "Yes. Choose several files and download them one by one or as a single ZIP."),
+              ("Are my pictures uploaded?", "No. Everything happens in your browser, on your device.")])
+
+    tool(slug="jpeg-to-jpg", group="img", icon="img", name="JPEG to JPG", ftool="tojpg", libs="",
+         card="Change .jpeg files to .jpg with no quality loss.",
+         title="JPEG to JPG Converter – Change JPEG to JPG Free",
+         desc="Convert JPEG to JPG online for free. Change the .jpeg file ending to .jpg with no quality loss, for forms and apps that only accept .jpg. Batch, no upload.",
+         h1="JPEG to JPG converter", lead="Change .jpeg (and .jpe) files to .jpg in one click, for forms and apps that only accept .jpg. The picture stays exactly the same.",
+         body='''<h2>How to convert JPEG to JPG</h2><ol><li>Choose one or more <code>.jpeg</code> files.</li><li>Press <b>Convert to JPG</b>.</li><li>Download each <code>.jpg</code>, or all of them as one ZIP.</li></ol>
+<h2>JPEG vs JPG: is there a difference?</h2><p>No. JPEG and JPG are the same image format. The format is named after the Joint Photographic Experts Group; the shorter <code>.jpg</code> ending comes from early versions of Windows, which only allowed three letters after the dot. Today both endings hold identical data, but some upload forms, government portals and older programs check the file name and reject <code>.jpeg</code>.</p>
+<h2>What this tool does</h2><p>It confirms each file really is a JPEG and saves the same data under a <code>.jpg</code> name. There is no re-compression, so the quality and file size don't change. Files that aren't really JPEGs inside are converted to a proper JPG at high quality.</p>
+<h2>Other ways to do it</h2><ul><li><b>Windows</b>: turn on "File name extensions" in File Explorer's View menu, then rename the file from <code>photo.jpeg</code> to <code>photo.jpg</code>.</li><li><b>Mac</b>: select the file, choose File → Get Info, and change the ending under Name &amp; Extension.</li><li><b>Phone</b>: renaming endings is awkward in most phone file apps, so converting here is usually quicker.</li></ul>
+<p>Need the photo smaller in KB as well? Use the <a href="../compress-image/">Image Compressor</a>. Saving an iPhone photo? Start with <a href="../heic-to-jpg/">HEIC to JPG</a>.</p>''',
+         faq=[("Is JPEG the same as JPG?", "Yes. They are two spellings of the same format and the files are identical inside."),
+              ("Does converting JPEG to JPG lower the quality?", "No. The picture data is not re-compressed, so nothing changes except the file name."),
+              ("Why does a form reject my .jpeg file?", "Some websites only check for the .jpg ending. Converting here gives the file that ending without changing the picture."),
+              ("Can I convert several files at once?", "Yes. Choose many files and download them separately or as one ZIP."),
+              ("Is my photo uploaded?", "No. The conversion runs in your browser.")])
     tool(slug="heic-to-jpg", group="img", icon="img", name="HEIC to JPG", ftool="heic2jpg", libs=HEIC,
          card="Convert iPhone HEIC photos to JPG.",
          title="HEIC to JPG Converter Free – iPhone HEIC to JPEG",
          desc="Convert iPhone HEIC and HEIF photos to JPG (JPEG) for free. Batch convert in your browser with no upload, then download one by one or as a ZIP.",
          h1="HEIC to JPG converter", lead="Convert iPhone photos (.heic / .heif) to JPG so they open on Windows, Android and any website.",
          body='''<h2>How to convert HEIC to JPG</h2><ol><li>Choose one or more .heic photos.</li><li>Set the quality.</li><li>Press <b>Convert to JPG</b>.</li></ol><p>Tip: on iPhone, Settings → Camera → Formats → “Most Compatible” saves new photos as JPG.</p>
-<h2>HEIC to PDF</h2><p>Convert the photos to JPG here first, then put them into one PDF with <a href="../jpg-to-pdf/">JPG to PDF</a>. Need the photos smaller for an upload? Run them through the <a href="../compress-image/">Image Compressor</a>.</p>''',
+<h2>HEIC to PDF</h2><p>Need one PDF instead of JPG files? <a href="../heic-to-pdf/">HEIC to PDF</a> does it in one step. Need the photos smaller for an upload? Run them through the <a href="../compress-image/">Image Compressor</a>.</p>''',
          faq=[("Why can't I open HEIC files?", "HEIC is Apple's photo format. Many Windows PCs, Android phones and websites don't support it."),
               ("Is JPEG the same as JPG?", "Yes. JPG and JPEG are two spellings of the same format; the files are identical.")])
 

@@ -36,6 +36,9 @@ const TOOLS={
  webp2jpg:{accept:'image/webp',exts:['webp'],multi:true,go:'Convert to JPG',fmt:'WebP',warn:40},
  webp2png:{accept:'image/webp',exts:['webp'],multi:true,go:'Convert to PNG',fmt:'WebP',warn:40},
  heic2jpg:{accept:'image/heic,image/heif,.heic,.heif',exts:['heic','heif'],multi:true,go:'Convert to JPG',libs:['heic'],fmt:'HEIC / HEIF (iPhone photos)',warn:40},
+ heic2pdf:{accept:'image/heic,image/heif,.heic,.heif,image/jpeg,image/png',exts:['heic','heif','jpg','jpeg','png'],multi:true,go:'Create PDF',libs:['heic','pdflib'],fmt:'HEIC / HEIF (iPhone photos), JPG, PNG',warn:40},
+ tojpg:{accept:'image/jpeg,image/pjpeg,.jfif,.jpeg,.jpe,.jif,.jfi,.jpg',exts:['jfif','jpeg','jpe','jif','jfi','jpg'],multi:true,go:'Convert to JPG',fmt:'JFIF, JPEG, JPE',warn:40},
+ txt2pdf:{accept:'text/plain,.txt,.text,.log,.md,.csv',exts:['txt','text','log','md','csv'],multi:true,go:'Convert to PDF',libs:['pdflib'],fmt:'TXT (plain text), also .md, .csv, .log',warn:20},
  pdfcompress:{accept:'application/pdf',exts:['pdf'],multi:false,go:'Compress PDF',libs:['pdflib','pdfjs'],fmt:'PDF',warn:150},
  ocr:{accept:'image/*',exts:IMG_EXT,multi:false,go:'Extract text',libs:['tess'],fmt:'JPG, PNG, WebP, BMP',warn:30},
  bgremove:{accept:'image/*',exts:IMG_EXT,multi:false,go:'Remove background',fmt:'JPG, PNG, WebP',warn:30},
@@ -66,7 +69,7 @@ function fitLimit(w,h){let s=Math.min(1,Math.sqrt(MAXPX/(w*h)),MAXSIDE/w,MAXSIDE
 function addFiles(list){
   const t=TOOLS[cur];list=[...list];
   const heic=f=>/^image\/hei[cf]/.test(f.type)||/^hei[cf]$/.test(extOf(f.name));
-  if(cur!=='heic2jpg'&&list.some(heic)){
+  if(cur!=='heic2jpg'&&cur!=='heic2pdf'&&list.some(heic)){
     status(`iPhone HEIC photos can't be opened here directly. Convert them with <a href="../heic-to-jpg/">HEIC to JPG</a> first, then come back.`,true,true);
     list=list.filter(f=>!heic(f));if(!list.length)return}
   const ok=f=>t.accept.split(',').some(a=>a.startsWith('.')?f.name.toLowerCase().endsWith(a):a.endsWith('/*')?f.type.startsWith(a.slice(0,-1)):f.type===a)||(!f.type||f.type==='application/octet-stream')&&(t.exts||[]).includes(extOf(f.name));
@@ -92,7 +95,7 @@ function render(){
   $('#panel').hidden=!files.length;
   thumbs.forEach(u=>URL.revokeObjectURL(u));thumbs=[];
   const L=$('#list');L.innerHTML='';
-  const reorder=['img2pdf','merge'].includes(cur);
+  const reorder=['img2pdf','merge','heic2pdf'].includes(cur);
   files.forEach((f,i)=>{
     const d=document.createElement('div');d.className='file';
     let th=`<span class="ic" style="color:var(--accent)">${I.pdf}</span>`;
@@ -356,6 +359,9 @@ const OPTX={
  png2jpg:`<div class="row"><label>Quality <input type="range" id="tq" min="10" max="100" value="92"></label><span class="note">Transparent areas become white.</span></div>`,
  jpg2png:'',
  webp2jpg:`<div class="row"><label>Quality <input type="range" id="tq" min="10" max="100" value="92"></label></div>`,
+ heic2pdf:`<div class="row"><label>Page <select id="pg"><option value="a4">A4</option><option value="letter">Letter</option><option value="fit">Same as image</option></select></label><label>Margin <select id="pm"><option value="0">None</option><option value="20" selected>Small</option><option value="40">Large</option></select></label></div><div class="row"><label>Max PDF size <input type="number" id="itkb" placeholder="Any" min="20" step="1"> KB</label><span class="note">Set a limit (like 200) and the photos are made just small enough for the whole PDF to fit under it.</span></div><p class="note">iPhone photos (.heic) are converted to high-quality JPG inside the PDF. Each photo can take a few seconds.</p>`,
+ tojpg:`<p class="note">JFIF and JPEG files are already JPG inside, so they are renamed to .jpg without re-compressing: no quality is lost and the file size stays the same.</p>`,
+ txt2pdf:`<div class="row"><label>Font <select id="xf"><option value="Helvetica">Sans (Helvetica)</option><option value="TimesRoman">Serif (Times)</option><option value="Courier">Monospace (Courier)</option></select></label><label>Size <select id="xs"><option>10</option><option selected>11</option><option>12</option><option>14</option></select></label><label>Page <select id="xp"><option value="a4">A4</option><option value="letter">Letter</option></select></label></div><p class="note">Long lines wrap to the page. Text in Latin letters stays selectable and searchable; other scripts (Arabic, Urdu, Hindi, Chinese…) are drawn as page images so every character shows correctly.</p>`,
  webp2png:`<p class="note">Transparency in the WebP is kept. Animated WebP: only the first frame is saved.</p>`,
  heic2jpg:`<div class="row"><label>Quality <input type="range" id="tq" min="10" max="100" value="92"></label><span class="note">iPhone photos (.heic). Conversion can take a few seconds per photo.</span></div>`,
  pdfcompress:`<div class="row"><label>Level <select id="pc"><option value="150|0.75">Recommended (150 dpi)</option><option value="110|0.6" selected>Strong (110 dpi)</option><option value="200|0.85">Light (200 dpi)</option><option value="80|0.5">Extreme (80 dpi)</option></select></label><label>Target size <input type="number" id="ptkb" placeholder="Any" min="20" step="1"> KB</label></div><p class="note">Set a target (like 200) and the best level that fits under it is chosen for you. Best for scanned PDFs and PDFs full of photos. Pages are re-saved as images, so text can no longer be selected or searched.</p>`,
@@ -370,6 +376,53 @@ const conv=type=>async function(){
 };
 RUN.png2jpg=conv('image/jpeg');RUN.jpg2png=conv('image/png');RUN.webp2jpg=conv('image/jpeg');RUN.webp2png=conv('image/png');
 
+RUN.tojpg=async function(){
+  for(const f of files){const head=new Uint8Array(await f.slice(0,3).arrayBuffer());
+    if(head[0]===0xFF&&head[1]===0xD8&&head[2]===0xFF){addOut(new Blob([f],{type:'image/jpeg'}),base(f.name)+'.jpg');continue}
+    const i=await loadImg(f);addOut(await toBlob(draw(i,i.naturalWidth,i.naturalHeight,'image/jpeg'),'image/jpeg',.92),base(f.name)+'.jpg')}
+};
+RUN.heic2pdf=async function(){
+  const heicF=f=>/^image\/hei[cf]/.test(f.type)||/^hei[cf]$/.test(extOf(f.name)),orig=files,conv=[];
+  try{for(let n=0;n<orig.length;n++){const f=orig[n];
+      if(!heicF(f)){conv.push(f);continue}
+      status(`Converting photo ${n+1} of ${orig.length}…`);let out;
+      try{out=await heic2any({blob:f,toType:'image/jpeg',quality:.92})}catch(e){throw new Error(f.name+' could not be read as a HEIC photo.')}
+      (Array.isArray(out)?out:[out]).forEach((b,i,a)=>conv.push(new File([b],base(f.name)+(a.length>1?'-'+(i+1):'')+'.jpg',{type:'image/jpeg'})))}
+    files=conv;await RUN.img2pdf();
+    const o=$('#out a.save');if(o&&orig.length===1)o.download=base(orig[0].name)+'.pdf';
+  }finally{files=orig}
+};
+RUN.txt2pdf=async function(){
+  const {PDFDocument,StandardFonts,rgb}=PDFLib,size=+$('#xs').value,fam=$('#xf').value;
+  const [W,H]=$('#xp').value==='letter'?[612,792]:[595.28,841.89],M=56,lh=size*1.4,maxW=W-2*M,perPage=Math.floor((H-2*M)/lh);
+  const wrap=(line,measure)=>{const out=[];let cur='';
+    for(const tok of line.split(/(\s+)/)){if(!tok)continue;
+      if(measure(cur+tok)<=maxW){cur+=tok;continue}
+      if(cur.trim())out.push(cur.trimEnd());cur=tok.trimStart();
+      while(measure(cur)>maxW){let k=1;while(k<cur.length&&measure(cur.slice(0,k+1))<=maxW)k++;out.push(cur.slice(0,k));cur=cur.slice(k)}}
+    out.push(cur.trimEnd());return out};
+  let pictured=0;
+  for(const f of files){status('Reading '+f.name+'…');
+    let text=(await f.text()).replace(/^\uFEFF/,'').replace(/\r\n?/g,'\n').replace(/\t/g,'    ').replace(/[\u0000-\u0008\u000B-\u001F\u007F]/g,'');
+    if(!text.trim())throw new Error(f.name+' is empty.');
+    const doc=await PDFDocument.create(),font=await doc.embedFont(StandardFonts[fam]);
+    let latin=true;try{font.encodeText(text.replace(/\n/g,' '))}catch(e){latin=false}
+    if(latin){const lines=text.split('\n').flatMap(l=>wrap(l,t=>font.widthOfTextAtSize(t,size)));
+      for(let p=0;p<lines.length;p+=perPage){const pg=doc.addPage([W,H]);
+        lines.slice(p,p+perPage).forEach((l,i)=>{if(l)pg.drawText(l,{x:M,y:H-M-size-i*lh,size,font,color:rgb(0,0,0)})})}}
+    else{pictured++;const S=2.5,c=document.createElement('canvas');c.width=Math.round(W*S);c.height=Math.round(H*S);const x=c.getContext('2d');
+      const css={Helvetica:'Arial, "Noto Sans", sans-serif',TimesRoman:'"Times New Roman", "Noto Serif", serif',Courier:'"Courier New", monospace'}[fam];
+      x.font=`${size*S}px ${css}`;const rtl=/[֐-ࣿ]/.test(text);
+      const lines=text.split('\n').flatMap(l=>wrap(l,t=>x.measureText(t).width/S));
+      for(let p=0;p<lines.length;p+=perPage){status(`Drawing page ${p/perPage+1} of ${Math.ceil(lines.length/perPage)}…`);
+        x.fillStyle='#fff';x.fillRect(0,0,c.width,c.height);x.fillStyle='#000';x.font=`${size*S}px ${css}`;x.textBaseline='alphabetic';
+        x.direction=rtl?'rtl':'ltr';x.textAlign=rtl?'right':'left';
+        lines.slice(p,p+perPage).forEach((l,i)=>x.fillText(l,(rtl?W-M:M)*S,(M+size+i*lh)*S));
+        const img=await doc.embedPng(await (await toBlob(c,'image/png')).arrayBuffer());doc.addPage([W,H]).drawImage(img,{x:0,y:0,width:W,height:H})}
+      c.width=c.height=0}
+    addOut(new Blob([await doc.save()],{type:'application/pdf'}),base(f.name)+'.pdf')}
+  if(pictured)setTimeout(()=>status('Done. Text that is not in Latin letters was drawn as page images, so it looks right but cannot be selected in the PDF.'),0);
+};
 RUN.heic2jpg=async function(){
   const q=$('#tq').value/100;
   for(const f of files){status('Converting '+f.name+'…');

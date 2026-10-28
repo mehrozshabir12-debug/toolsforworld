@@ -1,6 +1,6 @@
 {
 "https://toolsforworld.com/": [
-"98281852c6fba15b",
+"791b32d6315e4b99",
 "2026-10-29"
 ],
 "https://toolsforworld.com/about/": [
@@ -152,8 +152,12 @@
 "2026-10-28"
 ],
 "https://toolsforworld.com/heic-to-jpg/": [
-"f983dcc62c5cfb80",
-"2026-10-28"
+"092a7b6cb82754ed",
+"2026-10-29"
+],
+"https://toolsforworld.com/heic-to-pdf/": [
+"30e32eb0f22a21ae",
+"2026-10-29"
 ],
 "https://toolsforworld.com/image-to-text-arabic/": [
 "00b94c48734bfead",
@@ -194,6 +198,14 @@
 "https://toolsforworld.com/india-passport-photo/": [
 "89dbd7db5b8cfe8e",
 "2026-10-28"
+],
+"https://toolsforworld.com/jfif-to-jpg/": [
+"7d6f4438ea51dfbc",
+"2026-10-29"
+],
+"https://toolsforworld.com/jpeg-to-jpg/": [
+"48a2b6c551618094",
+"2026-10-29"
 ],
 "https://toolsforworld.com/jpg-to-pdf-under-100kb/": [
 "ebfde1c561f37a7b",
@@ -314,6 +326,10 @@
 "https://toolsforworld.com/terms/": [
 "72f71ea429abffb7",
 "2026-10-19"
+],
+"https://toolsforworld.com/txt-to-pdf/": [
+"02f62b3e669c48c4",
+"2026-10-29"
 ],
 "https://toolsforworld.com/uk-passport-photo/": [
 "ca0ebf9db61329c0",
