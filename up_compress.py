@@ -23,7 +23,9 @@ P["compress-image-to-50kb"] = ('''<h2>Why 50 KB is the most common photo limit</
 <p>A typical phone photo is 2–5 MB, about 40 to 100 times too big. The tool first lowers JPG quality, which removes detail you can't see, and only reduces the pixel size if quality alone isn't enough. A cropped face photo usually reaches 50 KB while still around 600 pixels wide.</p>''',
 [("Is 50 KB enough for a passport-size photo?", "Yes. A passport-size face photo looks sharp at 50 KB on screen and when printed at 3.5 × 4.5 cm.")])
 
-P["compress-image-to-100kb"] = ('''<h2>Photos for job portals and visa forms</h2>
+P["compress-image-to-100kb"] = ('''<h2>100 KB on a phone, step by step</h2>
+<p>On Android and iPhone alike, choose the photo straight from your gallery, wait for the size to appear under the file name, and download. The new file is saved next to your other downloads, usually named with "compressed" added, so you can tell it apart from the original when the form asks you to pick a file.</p>
+<h2>Photos for job portals and visa forms</h2>
 <p>100 KB is a typical limit on job sites, embassy forms and university applications. For a face photo it's comfortable: you'll usually keep 800–1000 pixels on the long side with no visible loss. It gets tight with whole-page document photos, like a bank statement or certificate photographed with a phone, where small print needs pixels.</p>
 <p>For documents, flatten the page, photograph it straight from above in good light and crop to the edges of the paper. A sharp, well-lit document photo at 100 KB is easier to read than a blurry one at 1 MB.</p>''',
 [("How many KB is a normal phone photo?", "Usually 2–6 MB, which is 2,000–6,000 KB. Getting to 100 KB means making it 20 to 60 times smaller, which the tool does automatically.")])
@@ -105,7 +107,9 @@ P["jpg-to-pdf-under-100kb"] = ('''<h2>Photos to one small PDF in a single step</
 <p>At this size, one or two pages work best: the front and back of an ID card, a single certificate or a fee receipt. If you add more pages, each one gets less space and small text gets harder to read.</p>''',
 [("Should I crop the photos first?", "Yes. Crop each photo to the edges of the document. The table and background around the paper take up space the text could use.")])
 
-P["jpg-to-pdf-under-200kb"] = ('''<h2>Several document photos in one 200 KB PDF</h2>
+P["jpg-to-pdf-under-200kb"] = ('''<h2>Naming the PDF for the portal</h2>
+<p>Portals often show uploaded files only by name, and reviewers see dozens. Rename the downloaded PDF to say what it is, for example <code>marksheets-2025.pdf</code> or <code>id-card-front-back.pdf</code>, and avoid spaces and special characters, which some older upload systems reject.</p>
+<h2>Several document photos in one 200 KB PDF</h2>
 <p>200 KB is a practical limit for a short set of document photos: three or four pages such as mark sheets, a certificate and an ID card. The page order follows the order in the list, so put the most important page first; reviewers often only look at page one.</p>
 <p>Photograph every page the same way, flat, from straight above and with the same light. Pages that are evenly lit look alike after compression and are much easier to read than a mix of bright and dark photos.</p>''',
 [("Can I mix JPG and PNG photos in one PDF?", "Yes. Add both; each is placed on its own page, and the PDF is still made under 200 KB.")])

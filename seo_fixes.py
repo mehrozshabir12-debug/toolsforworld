@@ -2,6 +2,16 @@
 Adds worked examples people actually search for. Every number below was checked by hand."""
 
 EXTRA = {
+    "heic-to-pdf": ('''<h2>Stop your iPhone saving HEIC (optional)</h2>
+<p>If you often need JPG or PDF files, you can make the camera save JPG from now on: open <b>Settings → Camera → Formats</b> and choose <b>Most Compatible</b>. Photos take a little more storage, but every website and Windows PC opens them. Photos you already took stay in HEIC, which is what this converter is for.</p>
+<h2>Sending documents from an iPhone to an office</h2>
+<p>Offices, banks and schools often ask for "one PDF" of a document you photographed, such as a signed form or several pages of a contract. Add the HEIC photos in page order, choose A4 or Letter so the pages print at a normal size, and send the single PDF. The receiver doesn't need an Apple device to open it.</p>''',
+        [("Does converting HEIC to PDF lower the quality?", "Each photo is converted to a high-quality JPG inside the PDF, so the difference is very hard to see. Only if you set a maximum PDF size are the photos compressed further to fit.")]),
+    "webp-to-png": ('''<h2>Animated WebP files</h2>
+<p>Some WebP files are short animations, like GIFs. PNG can only hold a single picture, so converting an animated WebP gives you the first frame as a still image. To keep the animation, you need a GIF or video converter instead.</p>
+<h2>Editing the converted PNG</h2>
+<p>PNG opens in every editor, including Paint, Photoshop, GIMP, Canva and PowerPoint. Because PNG is lossless, you can edit and save it many times without the picture getting worse, which makes it a good working copy. When the design is finished, export a JPG or WebP if you need a smaller file for the web.</p>''',
+        [("Why is my PNG bigger than the WebP?", "WebP compresses photos much more tightly than PNG, which keeps every pixel exactly. The PNG is larger but has the same picture, with transparency kept.")]),
     "percentage-calculator": ('''<h2>Reverse percentages: finding the original number</h2>
 <p>When you know the result <i>after</i> a change, divide instead of subtracting. A price that is 120 after a 20% rise was 120 ÷ 1.2 = <b>100</b>, not 96. A salary of 1,700 after a 15% cut was 1,700 ÷ 0.85 = <b>2,000</b>.</p>
 <p>The same idea answers "45 is 30% of what?": 45 ÷ 0.30 = <b>150</b>.</p>
