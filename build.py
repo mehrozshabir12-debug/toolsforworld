@@ -321,7 +321,7 @@ def build():
             fam = [x for x in T if x.get("parent") == par["slug"]]
             i = fam.index(t)
             sibs = fam[i + 1:] + fam[:i]   # the next pages in the family, wrapping round, so every page gets links
-            related = [par] + sibs[:5] + [BY[x] for x in RELATED.get(par["slug"], [])[:2] if x in BY]
+            related = [par] + sibs[:3] + [BY[x] for x in RELATED.get(par["slug"], [])[:1] if x in BY]
         else:
             related = [BY[x] for x in RELATED.get(t["slug"], []) if x in BY] or \
                       [x for x in T if x["group"] == t["group"] and x["slug"] != t["slug"] and not x.get("parent")][:4]
@@ -338,8 +338,8 @@ def build():
 {chips(r, kids, "Popular presets") if kids else ""}
 {retire.preset_buttons(t["slug"], PRESET_LABEL.get(t["slug"], "More presets"))}
 {ui}
-<div class="how">{t["body"]}{guide_links(r, t, par)}{f'<h2>Questions</h2><div class="faq">{faq}</div>' if faq else ""}</div>
-{chips(r, related, "Related tools") if par else f'<div class="related"><div class="sect">More {group_name.lower()}</div>{cards(r, related)}</div>'}</section>'''
+<div class="how">{t["body"]}{"" if t.get("deduped") else guide_links(r, t, par)}{f'<h2>Questions</h2><div class="faq">{faq}</div>' if faq else ""}</div>
+{chips(r, related, "Related tools" if par else "More " + group_name.lower())}</section>'''
         canon = BASE + t["slug"] + "/"
         # No WebApplication/SoftwareApplication item: Google's software-app rich result requires aggregateRating or review,
         # and the site has no genuine ratings to show (invented ones break Google's policy). Semrush flagged all 77 as errors.
@@ -534,7 +534,10 @@ def build():
         gl.append(f'<li><a href="{g["slug"]}/"><b>{g["h1"]}</b></a><br>{g["desc"]}</li>')
     write("guides/index.html", page("../", "Guides – Photo, PDF and Image Size Help | Tools for World",
           "Practical guides to passport photo sizes, compressing photos and PDFs for online forms, and social media image sizes.",
-          BASE + "guides/", f'<section class="bench how" style="max-width:75ch"><h1>Guides</h1><p class="lead">Practical, step-by-step help for the jobs our tools do: photo sizes for applications, file-size limits on forms and image sizes for social media.</p><ul>{"".join(gl)}</ul></section>'))
+          BASE + "guides/", f'<section class="bench how" style="max-width:75ch"><h1>Guides</h1><p class="lead">Practical, step-by-step help for the jobs our tools do: photo sizes for applications, file-size limits on forms and image sizes for social media.</p><ul>{"".join(gl)}</ul>'
+          '<h2>How these guides are written</h2><p>Each guide starts from a question people send us or search for, such as why a portal rejects a photo that looks fine, '
+          'or how many pages fit into a 200 KB PDF. Official sizes are taken from government and platform help pages, which are linked inside each guide, '
+          'and every guide shows the date it was last checked. If a rule has changed since then, please tell us through the contact page and we will update it.</p></section>'))
     urls.append(BASE + "guides/")
 
     write("404.html", page(BASE, "Page not found – Tools for World", "Page not found.", None, f'<section class="bench"><h1>Page not found</h1><p class="lead">This page does not exist. <a href="{BASE}">See all tools</a>.</p></section>'))

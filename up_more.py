@@ -26,10 +26,6 @@ MORE["png-to-jpg"] = ('''<h2>When to keep PNG instead</h2>
 <p>JPG is the right choice for photos and anything a form or website asks for as JPG. Keep PNG for logos, icons and images with transparent backgrounds, because JPG has no transparency: those areas become white. Screenshots full of small text also stay crisper as PNG, though JPG at high quality is usually good enough and much smaller.</p>''',
 [("Why is my JPG smaller than the PNG?", "JPG uses lossy compression, which drops detail the eye barely notices. A PNG photo of 5 MB often becomes a JPG of under 1 MB.")])
 
-MORE["jpg-to-pdf"] = ('''<h2>Making a tidy PDF from phone photos</h2>
-<p>Photograph each page flat and from straight above, and crop away the table before adding the photos. Put the pages in order with the arrows, choose A4 or Letter so the PDF prints at a normal size, and add a small margin if the pages will be printed and filed. The PDF opens on any phone, computer or printer, unlike a set of separate photos.</p>''',
-[("Is there a limit on the number of photos?", "There is no set limit. Very large batches depend on your device's memory; for 100+ photos, make two PDFs and merge them with Merge PDF.")])
-
 MORE["compress-image"] = ('''<h2>Compress by quality, or to an exact size</h2>
 <p>There are two ways to use this tool. Leave the target empty and choose a quality to shrink photos while keeping them looking the same, which is good for websites and sharing. Or type a target such as 50 KB, and each photo is made just under that size, which is what upload forms need. Both work on several photos at once.</p>''',
 [])

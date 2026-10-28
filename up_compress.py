@@ -99,7 +99,7 @@ P["compress-pdf-to-5mb"] = ('''<h2>5 MB for big documents</h2>
 <p>A 5 MB limit is common in email systems, learning platforms such as school and university assignment portals, and some legal and insurance submission systems. It suits long scanned documents of 30–60 pages, or reports full of photos.</p>
 <p>Scanned assignments: phone scanning apps often save each page as a large colour image, so a 20-page handwritten assignment can reach 40 MB. Compressing to 5 MB keeps the handwriting easy to read. Check pages written in pencil, which are lighter and suffer first.</p>
 <p>If one PDF is still too big after compressing, split it into two parts with <a href="../split-pdf/">Split PDF</a> and upload "Part 1" and "Part 2" if the system allows several files.</p>''',
-[("Is 5 MB small enough for email?", "Yes. Most email providers accept attachments of 20–25 MB, so a 5 MB PDF sends easily and downloads quickly.")])
+[("Can a 60-page scan fit in 5 MB?", "Usually, if it's in greyscale. Colour scans of that length may need splitting into two files.")])
 
 # ---------------- JPG to PDF under <size> ----------------
 P["jpg-to-pdf-under-100kb"] = ('''<h2>Photos to one small PDF in a single step</h2>
