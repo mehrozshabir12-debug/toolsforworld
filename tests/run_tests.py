@@ -25,7 +25,7 @@ def make_samples():
     im.save(f"{S}/photo.jpg", quality=92); im.save(f"{S}/photo.png"); im.save(f"{S}/photo.webp")
     import shutil; shutil.copy(f"{S}/photo.jpg", f"{S}/photo.jfif"); shutil.copy(f"{S}/photo.jpg", f"{S}/photo.jpeg")
     open(f"{S}/notes.txt", "w", encoding="utf-8").write("Tools for World sample paragraph.\n\n" + "A long line that keeps going so it has to wrap onto the next line of the PDF page. " * 6 + "\n" + "\n".join(f"Line {i}" for i in range(1, 121)))
-    open(f"{S}/urdu.txt", "w", encoding="utf-8").write("یہ ایک نمونہ ہے\nTools for World\n")
+    open(f"{S}/urdu.txt", "w", encoding="utf-8").write("یہ ایک نمونہ ہے۔ ٹولز فار ورلڈ مفت آن لائن ٹولز۔\n" * 40 + "Tools for World\n")
     try:
         import pillow_heif
         pillow_heif.register_heif_opener(); im.save(f"{S}/photo.heic")
