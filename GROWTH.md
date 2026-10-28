@@ -88,3 +88,5 @@ Sitemap `lastmod` comes from `lastmod.json` (content hash per page); IndexNow se
 - GSC (28 d): resize pages show for many odd sizes people type ("3000 x 400", "700*500", "600*125", "500 x 1550") at positions 2–12, but 0 clicks: the snippet only says the preset size.
 - Change: meta descriptions + lead + 1 FAQ on every resize-image-to-* page now say any custom width/height works (descriptions only, titles unchanged).
 - Check on 8 Nov: CTR of resize-image-to-* pages vs. 28 days before.
+
+- 2026-10-29: Semrush site audit fixes live: removed rating-less WebApplication schema (77 structured-data errors; no fake ratings), fixed heic2any licence link, unique H1s on About + one guide, extra worked examples on percentage/discount calculators, more internal links to TXT to PDF and the file-size guide, added /llms.txt. Not changed: HSTS (owner's Cloudflare setting), minify, text/HTML ratio. Ahrefs audit 28 Oct: health 100, AI score 97, 0 errors.
