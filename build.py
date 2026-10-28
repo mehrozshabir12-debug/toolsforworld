@@ -109,6 +109,19 @@ POPULAR = ["pdf-to-word", "compress-image-to-100kb", "compress-pdf", "remove-bac
 # Google AdSense publisher ID, e.g. "ca-pub-1234567890123456". Empty = no ad code on the site.
 ADSENSE_CLIENT = "ca-pub-3864792630233896"
 GA_ID = "G-VCVTPZQZKP"  # Google Analytics 4
+# Preset pages carry no ad code until AdSense approves the site (AdSense: no ad code on auto-generated pages).
+# Google's consent message comes with the ad script, so on those pages analytics defaults to "denied"
+# for visitors in the EEA, UK and Switzerland (consent mode: cookieless pings only).
+EEA = ["AT","BE","BG","HR","CY","CZ","DK","EE","FI","FR","DE","GR","HU","IS","IE","IT","LV","LI","LT","LU","MT","NL","NO","PL","PT","RO","SK","SI","ES","SE","GB","CH"]
+TEMPLATE_PREFIX = ("compress-image-to-", "compress-pdf-to-", "resize-image-to-", "image-to-text-", "jpg-to-pdf-under-")
+TEMPLATE_PARENT = ("passport-photo-maker",)   # country pages share one template
+
+
+def is_template(t):
+    return t["slug"].startswith(TEMPLATE_PREFIX) or t.get("parent") in TEMPLATE_PARENT
+
+
+NOAD_CONSENT = "gtag('consent','default',{analytics_storage:'denied',ad_storage:'denied',ad_user_data:'denied',ad_personalization:'denied',region:" + json.dumps(EEA) + "});"
 
 GROUPS = [("pdf", "PDF & document tools"), ("img", "Image tools"), ("util", "Text & everyday tools"), ("media", "Audio & video")]
 NAV = {"pdf": "PDF", "img": "Image", "util": "Utilities", "media": "Audio"}
@@ -142,7 +155,7 @@ def fit_desc(d):
     return cut[:end + 1] if end > 80 else cut[:cut.rfind(" ")].rstrip(",;:") + "…"
 
 
-def page(rel_root, title, desc, canon, body, scripts="", body_attr="", jsonld=None, active="", keywords=""):
+def page(rel_root, title, desc, canon, body, scripts="", body_attr="", jsonld=None, active="", keywords="", ads=True):
     title, desc = fit_title(title), fit_desc(desc)
     nav = "".join(f'<a href="{rel_root}#{g}"{" aria-current=true" if active == g else ""}>{NAV[g]}</a>' for g, l in GROUPS)
     ld = "".join(f'<script type="application/ld+json">{json.dumps(j, ensure_ascii=False)}</script>' for j in (jsonld or []))
@@ -150,7 +163,7 @@ def page(rel_root, title, desc, canon, body, scripts="", body_attr="", jsonld=No
 <html lang="en">
 <head>
 <meta charset="utf-8">
-<!-- Google tag (gtag.js): only real visitors on the live site, never test browsers or local copies --><script>window.dataLayer=window.dataLayer||[];function gtag(){{dataLayer.push(arguments);}}if(location.hostname==='toolsforworld.com'&&!navigator.webdriver){{var g=document.createElement('script');g.async=true;g.src='https://www.googletagmanager.com/gtag/js?id={GA_ID}';document.head.appendChild(g);gtag('js',new Date());gtag('config','{GA_ID}');}}</script>
+<!-- Google tag (gtag.js): only real visitors on the live site, never test browsers or local copies --><script>window.dataLayer=window.dataLayer||[];function gtag(){{dataLayer.push(arguments);}}if(location.hostname==='toolsforworld.com'&&!navigator.webdriver){{var g=document.createElement('script');g.async=true;g.src='https://www.googletagmanager.com/gtag/js?id={GA_ID}';document.head.appendChild(g);{NOAD_CONSENT if not ads else ''}gtag('js',new Date());gtag('config','{GA_ID}');}}</script>
 <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
 <meta http-equiv="Content-Security-Policy" content="object-src 'none'; base-uri 'self'; form-action 'self'; upgrade-insecure-requests">
 <meta name="referrer" content="strict-origin-when-cross-origin">
@@ -159,7 +172,7 @@ def page(rel_root, title, desc, canon, body, scripts="", body_attr="", jsonld=No
 {f'<link rel="canonical" href="{canon}">' if canon else '<meta name="robots" content="noindex">'}
 <meta property="og:title" content="{html.escape(title)}"><meta property="og:description" content="{html.escape(desc)}">{f'<meta property="og:url" content="{canon}">' if canon else ""}<meta property="og:type" content="website"><meta property="og:site_name" content="Tools for World"><meta property="og:image" content="{BASE}og-image.png"><meta name="twitter:card" content="summary_large_image">
 <link rel="icon" href="https://toolsforworld.com/favicon.ico" sizes="48x48"><link rel="icon" href="https://toolsforworld.com/favicon-96.png" type="image/png" sizes="96x96"><link rel="icon" href="https://toolsforworld.com/favicon-192.png" type="image/png" sizes="192x192"><link rel="icon" href="https://toolsforworld.com/favicon.svg" type="image/svg+xml"><link rel="apple-touch-icon" href="https://toolsforworld.com/apple-touch-icon.png"><link rel="manifest" href="https://toolsforworld.com/site.webmanifest"><meta name="theme-color" content="#0d7a55">
-{(f'<meta name="google-adsense-account" content="{ADSENSE_CLIENT}"><script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client={ADSENSE_CLIENT}" crossorigin="anonymous"></script>') if ADSENSE_CLIENT else ""}
+{(f'<meta name="google-adsense-account" content="{ADSENSE_CLIENT}">' + (f'<script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client={ADSENSE_CLIENT}" crossorigin="anonymous"></script>' if ads else "")) if ADSENSE_CLIENT else ""}
 <link rel="preconnect" href="https://fonts.googleapis.com"><link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link rel="preload" as="style" href="{FONTS}"><link rel="stylesheet" href="{FONTS}" media="print" onload="this.media='all'"><noscript><link rel="stylesheet" href="{FONTS}"></noscript>
 <link rel="stylesheet" href="{rel_root}assets/style.css?v={_v("style.css")}">
@@ -305,7 +318,7 @@ def build():
         if t.get("faq"):
             ld.append({"@context": "https://schema.org", "@type": "FAQPage", "mainEntity": [
                 {"@type": "Question", "name": q, "acceptedAnswer": {"@type": "Answer", "text": a}} for q, a in t["faq"]]})
-        write(f'{t["slug"]}/index.html', page(r, t["title"], t["desc"], canon, body, scripts, attr, ld, t["group"]))
+        write(f'{t["slug"]}/index.html', page(r, t["title"], t["desc"], canon, body, scripts, attr, ld, t["group"], ads=not is_template(t)))
         urls.append(canon)
 
     # ---- home: tool grid with category filter (each tool has its own colour and icon) ----
