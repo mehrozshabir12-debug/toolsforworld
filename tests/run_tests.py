@@ -59,7 +59,7 @@ def make_samples():
 
 
 FILE_TESTS = [  # slug, sample, timeout s, extra setup
-    ("compress-image", "photo.jpg", 30, None), ("compress-image-to-50kb", "photo.jpg", 60, None), ("resize-image-to-1080x1080", "photo.jpg", 30, None), ("resize-image", "photo.jpg", 30, ("#rw", "800")),
+    ("compress-image", "photo.jpg", 30, None), ("compress-image-to-50kb", "photo.jpg", 60, None), ("resize-image-to-1080x1920", "photo.jpg", 30, None), ("resize-image", "photo.jpg", 30, ("#rw", "800")),
     ("png-to-jpg", "photo.png", 30, None), ("jpg-to-png", "photo.jpg", 30, None), ("webp-to-jpg", "photo.webp", 30, None),
     ("heic-to-jpg", "photo.heic", 90, None), ("passport-photo-maker", "photo.jpg", 30, None),
     ("jpg-to-pdf", "photo.jpg", 30, None), ("jpg-to-pdf-under-200kb", "photo.jpg", 90, None), ("merge-pdf", ["doc.pdf", "doc2.pdf"], 60, None),
@@ -67,7 +67,7 @@ FILE_TESTS = [  # slug, sample, timeout s, extra setup
     ("pdf-to-word", "doc.pdf", 90, None), ("word-to-pdf", "doc.docx", 120, None), ("image-to-text", "photo.png", 240, None),
     ("mp4-to-mp3", "video.mp4", 120, None), ("remove-background", "photo.jpg", 420, None),
     ("compress-pdf-to-500kb", "scan.pdf", 300, None), ("compress-image-to-1mb", "photo.png", 60, None),
-    ("us-passport-photo", "photo.jpg", 30, None), ("image-to-text-spanish", "photo.png", 240, None), ("resize-image-to-1080x1350", "photo.jpg", 30, None), ("canada-passport-photo", "photo.jpg", 30, None),
+    ("us-passport-photo", "photo.jpg", 30, None), ("image-to-text-french", "photo.png", 240, None), ("resize-image-to-1500x500", "photo.jpg", 30, None), ("canada-passport-photo", "photo.jpg", 30, None),
 ]
 
 

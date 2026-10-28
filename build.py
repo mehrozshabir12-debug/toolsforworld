@@ -70,6 +70,8 @@ import longtail
 longtail.enrich(T)
 import striking
 striking.enrich(T)
+import retire
+retire.apply(T)   # low-demand preset pages folded into their main tool (see retire.py)
 BY = {t['slug']: t for t in T}
 
 # Hand-picked "related tools" for each main tool (what people usually need next)
@@ -83,14 +85,14 @@ RELATED = {
     "pdf-to-jpg": ["compress-image", "image-to-text", "split-pdf", "jpg-to-pdf"],
     "image-to-text": ["pdf-to-word", "pdf-to-jpg", "word-counter", "image-to-text-urdu"],
     "compress-image": ["resize-image", "compress-image-to-100kb", "jpg-to-pdf", "heic-to-jpg"],
-    "resize-image": ["compress-image", "passport-photo-maker", "remove-background", "resize-image-to-1080x1080"],
+    "resize-image": ["compress-image", "passport-photo-maker", "remove-background", "resize-image-to-1080x1920"],
     "remove-background": ["passport-photo-maker", "resize-image", "compress-image", "png-to-jpg", "jpg-to-png"],
     "png-to-jpg": ["jpg-to-png", "webp-to-jpg", "compress-image", "heic-to-jpg"],
     "jpg-to-png": ["png-to-jpg", "remove-background", "compress-image", "webp-to-jpg"],
     "webp-to-jpg": ["png-to-jpg", "heic-to-jpg", "compress-image", "resize-image", "mp4-to-mp3"],
     "heic-to-jpg": ["compress-image", "jpg-to-pdf", "webp-to-jpg", "resize-image", "mp4-to-mp3"],
     "passport-photo-maker": ["remove-background", "compress-image-to-50kb", "resize-image", "us-passport-photo"],
-    "qr-code-generator": ["wifi-qr-code-generator", "whatsapp-qr-code-generator", "password-generator", "word-counter"],
+    "qr-code-generator": ["wifi-qr-code-generator", "password-generator", "word-counter", "character-counter"],
     "word-counter": ["character-counter", "image-to-text", "password-generator", "percentage-calculator"],
     "password-generator": ["qr-code-generator", "word-counter", "character-counter", "age-calculator"],
     "age-calculator": ["percentage-calculator", "discount-calculator", "word-counter", "password-generator"],
@@ -216,7 +218,12 @@ def page_url(rel_path):
     return BASE + ("" if rel_path == "index.html" else rel_path[: -len("index.html")])
 
 
+PRESET_LABEL = {"resize-image": "More sizes (one click)", "image-to-text": "More languages (one click)", "qr-code-generator": "More presets (one click)"}
+
+
 def write(rel_path, content):
+    if rel_path.endswith(".html"):
+        content = retire.rewrite_links(content)
     if rel_path.endswith("index.html") and not PREVIEW:
         import hashlib
         url = page_url(rel_path)
@@ -286,6 +293,7 @@ def build():
         body = f'''<p class="crumbs"><a href="{r}">Home</a> › <a href="{r}#{t["group"]}">{group_name}</a>{f' › <a href="{r}{par["slug"]}/">{par["name"]}</a>' if par else ""}</p>
 <section class="bench"><h1>{t["h1"]}</h1><p class="lead">{t["lead"]}</p>
 {chips(r, kids, "Popular presets") if kids else ""}
+{retire.preset_buttons(t["slug"], PRESET_LABEL.get(t["slug"], "More presets"))}
 {ui}
 <div class="how">{t["body"]}{guide_links(r, t, par)}{f'<h2>Questions</h2><div class="faq">{faq}</div>' if faq else ""}</div>
 <div class="related"><div class="sect">{"Related tools" if par else "More " + group_name.lower()}</div>{cards(r, related)}</div></section>'''
@@ -478,6 +486,9 @@ def build():
     if not PREVIEW:
         live = set(urls)
         json.dump({u: v for u, v in sorted(LASTMOD.items()) if u in live}, open(LASTMOD_FILE, "w"), indent=0)
+    for slug in retire.GONE:   # redirect pages in the old folders (written directly: no lastmod, no sitemap)
+        os.makedirs(os.path.join(ROOT, slug), exist_ok=True)
+        open(os.path.join(ROOT, slug, "index.html"), "w", encoding="utf-8").write(retire.stub(BASE, slug))
     write("robots.txt", f"User-agent: *\nAllow: /\nSitemap: {BASE}sitemap.xml\n")
     write("favicon.svg", '<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 64 64"><circle cx="32" cy="32" r="31" fill="#0d7a55"/><g fill="none" stroke="#fff" stroke-width="3.6"><circle cx="32" cy="32" r="19"/><ellipse cx="32" cy="32" rx="8.5" ry="19"/><path d="M13.6 26h36.8M13.6 38h36.8"/></g></svg>')
     if ADSENSE_CLIENT:

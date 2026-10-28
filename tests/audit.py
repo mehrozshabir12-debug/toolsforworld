@@ -186,7 +186,7 @@ CASES = [
     ("compress-empty", "compress-image", ["empty.jpg"], "err", {}, [], 60),
     ("compress-heic-wrong-tool", "compress-image", ["photo.heic"], "err_or_reject", {}, [], 60),
     ("compress-pdf-wrong-type", "compress-image", ["doc.pdf"], "reject", {}, [], 30),
-    ("resize-exact-1080", "resize-image-to-1080x1080", ["photo.jpg"], "ok", {}, [(0, "image", {"w": 1080, "h": 1080})], 60),
+    ("resize-exact-1080", "resize-image-to-1080x1920", ["photo.jpg"], "ok", {}, [(0, "image", {"w": 1080, "h": 1920})], 60),
     ("resize-exact-pad", "resize-image-to-1920x1080", ["portrait.jpg"], "ok", {"#rf": "pad"}, [(0, "image", {"w": 1920, "h": 1080})], 60),
     ("resize-width-only", "resize-image", ["photo.jpg"], "ok", {"#rw": "800"}, [(0, "image", {"w": 800, "h": 500})], 60),
     ("resize-percent-400-huge", "resize-image", ["huge-48mp.jpg"], "ok_or_err", {"#rm": "pc", "#rp": "400"}, [], 240),
