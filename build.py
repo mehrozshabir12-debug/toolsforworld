@@ -74,6 +74,10 @@ import seo_fixes
 seo_fixes.enrich(T)
 import retire
 retire.apply(T)   # low-demand preset pages folded into their main tool (see retire.py)
+import dedupe
+dedupe.apply(T)   # drop templated sections/FAQs repeated across preset siblings (see dedupe.py)
+import unique_presets
+unique_presets.enrich(T)   # hand-written content per preset page (see unique_presets.py)
 BY = {t['slug']: t for t in T}
 
 # Hand-picked "related tools" for each main tool (what people usually need next)
@@ -335,7 +339,7 @@ def build():
 {retire.preset_buttons(t["slug"], PRESET_LABEL.get(t["slug"], "More presets"))}
 {ui}
 <div class="how">{t["body"]}{guide_links(r, t, par)}{f'<h2>Questions</h2><div class="faq">{faq}</div>' if faq else ""}</div>
-<div class="related"><div class="sect">{"Related tools" if par else "More " + group_name.lower()}</div>{cards(r, related)}</div></section>'''
+{chips(r, related, "Related tools") if par else f'<div class="related"><div class="sect">More {group_name.lower()}</div>{cards(r, related)}</div>'}</section>'''
         canon = BASE + t["slug"] + "/"
         # No WebApplication/SoftwareApplication item: Google's software-app rich result requires aggregateRating or review,
         # and the site has no genuine ratings to show (invented ones break Google's policy). Semrush flagged all 77 as errors.
