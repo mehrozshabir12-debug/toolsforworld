@@ -66,6 +66,7 @@ FILE_TESTS = [  # slug, sample, timeout s, extra setup
     ("split-pdf", "doc.pdf", 60, ("#sr", "1-2")), ("pdf-to-jpg", "doc.pdf", 90, None), ("compress-pdf", "scan.pdf", 180, None),
     ("pdf-to-word", "doc.pdf", 90, None), ("word-to-pdf", "doc.docx", 120, None), ("image-to-text", "photo.png", 240, None),
     ("mp4-to-mp3", "video.mp4", 120, None), ("remove-background", "photo.jpg", 420, None),
+    ("png-to-pdf", "photo.png", 30, None), ("pdf-to-png", "doc.pdf", 90, None), ("webp-to-png", "photo.webp", 30, None), ("video-to-mp3", "video.mp4", 120, None),
     ("compress-pdf-to-500kb", "scan.pdf", 300, None), ("compress-image-to-1mb", "photo.png", 60, None),
     ("us-passport-photo", "photo.jpg", 30, None), ("image-to-text-french", "photo.png", 240, None), ("resize-image-to-1500x500", "photo.jpg", 30, None), ("canada-passport-photo", "photo.jpg", 30, None),
 ]
@@ -131,6 +132,10 @@ async def main():
             txt = await pg.inner_text(sel); checks[slug] = {"text": txt.replace("\n", " ")[:120], "ok": bool(txt.strip())}
         await pg.goto(BASE + "percentage-calculator/"); await pg.wait_for_timeout(300)
         r1 = await pg.inner_text("#r1"); checks["percentage-calculator"] = {"r1": r1, "ok": r1 == "30"}
+        await pg.goto(BASE + "date-calculator/"); await pg.wait_for_timeout(300)
+        await pg.fill("#ds", "2026-03-01"); await pg.fill("#de", "2026-03-31"); await pg.wait_for_timeout(200)
+        dt = await pg.inner_text("#out-total"); await pg.fill("#da", "2026-01-31"); await pg.select_option("#du", "m"); await pg.fill("#dn", "1"); await pg.wait_for_timeout(200)
+        da = await pg.inner_text("#r-add"); checks["date-calculator"] = {"between": dt.split("\n")[0], "add": da.split("\n")[-1], "ok": dt.startswith("30 days") and da.strip().endswith("2026-02-28")}
         await pg.goto(BASE + "discount-calculator/"); await pg.wait_for_timeout(300)
         r5 = await pg.inner_text("#r5"); checks["discount-calculator"] = {"r5": r5, "ok": r5 == "80"}
         await pg.goto(BASE + "character-counter/"); await pg.wait_for_timeout(300)

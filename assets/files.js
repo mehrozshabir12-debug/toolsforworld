@@ -29,10 +29,12 @@ const TOOLS={
  merge:{accept:'application/pdf',exts:['pdf'],multi:true,go:'Merge PDFs',libs:['pdflib'],fmt:'PDF',warn:200},
  split:{accept:'application/pdf',exts:['pdf'],multi:false,go:'Split PDF',libs:['pdflib'],fmt:'PDF',warn:200},
  pdf2jpg:{accept:'application/pdf',exts:['pdf'],multi:false,go:'Convert to JPG',libs:['pdfjs'],fmt:'PDF',warn:150},
+ pdf2png:{accept:'application/pdf',exts:['pdf'],multi:false,go:'Convert to PNG',libs:['pdfjs'],fmt:'PDF',warn:150},
  word2pdf:{accept:'application/vnd.openxmlformats-officedocument.wordprocessingml.document,.docx',exts:['docx'],multi:false,go:'Convert to PDF',libs:['mammoth','h2pdf'],fmt:'Word .docx',warn:40},
  png2jpg:{accept:'image/png',exts:['png'],multi:true,go:'Convert to JPG',fmt:'PNG',warn:40},
  jpg2png:{accept:'image/jpeg',exts:['jpg','jpeg','jfif'],multi:true,go:'Convert to PNG',fmt:'JPG / JPEG',warn:40},
  webp2jpg:{accept:'image/webp',exts:['webp'],multi:true,go:'Convert to JPG',fmt:'WebP',warn:40},
+ webp2png:{accept:'image/webp',exts:['webp'],multi:true,go:'Convert to PNG',fmt:'WebP',warn:40},
  heic2jpg:{accept:'image/heic,image/heif,.heic,.heif',exts:['heic','heif'],multi:true,go:'Convert to JPG',libs:['heic'],fmt:'HEIC / HEIF (iPhone photos)',warn:40},
  pdfcompress:{accept:'application/pdf',exts:['pdf'],multi:false,go:'Compress PDF',libs:['pdflib','pdfjs'],fmt:'PDF',warn:150},
  ocr:{accept:'image/*',exts:IMG_EXT,multi:false,go:'Extract text',libs:['tess'],fmt:'JPG, PNG, WebP, BMP',warn:30},
@@ -125,7 +127,8 @@ function renderOpts(){
    word2pdf:`<div class="row"><label>Page <select id="wp"><option value="a4">A4</option><option value="letter">Letter</option><option value="legal">Legal</option></select></label><label>Orientation <select id="wo"><option value="portrait">Portrait</option><option value="landscape">Landscape</option></select></label></div><p class="note">Best for simple documents (text, headings, lists, small tables, pictures). Complex layouts may look slightly different.</p>`,
    merge:'',
    split:`<div class="row"><label><input type="radio" name="sm" value="range" checked> Pages</label><input type="text" id="sr" placeholder="e.g. 1-3, 5, 8-10" aria-label="Pages to extract"><label><input type="radio" name="sm" value="each"> Every page as a separate PDF</label></div>`,
-   pdf2jpg:`<div class="row"><label>Quality <select id="dq"><option value="1.5">Normal</option><option value="2" selected>High</option><option value="3">Very high</option></select></label></div>`
+   pdf2jpg:`<div class="row"><label>Quality <select id="dq"><option value="1.5">Normal</option><option value="2" selected>High</option><option value="3">Very high</option></select></label></div>`,
+   pdf2png:`<div class="row"><label>Quality <select id="dq"><option value="1.5">Normal</option><option value="2" selected>High</option><option value="3">Very high</option></select></label><label><input type="checkbox" id="dt"> Transparent background</label></div><p class="note">PNG keeps text and lines pixel-sharp. Files are larger than JPG.</p>`
   }[cur]||(OPTX[cur]||'');
   if(cur==='compress'){const q=$('#q');q.oninput=()=>$('#qv').textContent=q.value+'%'}
   if(cur==='passport'){['ps','pz','px','py'].forEach(id=>$('#'+id).oninput=ppDraw)}
@@ -272,15 +275,18 @@ const RUN={
   if(!idx.length)throw new Error(`Enter pages between 1 and ${n}, like 1-3, 5.`);
   await make(idx,`${base(f.name)}-pages.pdf`);
  },
- async pdf2jpg(){
+ async pdf2jpg(){return pdfPages('image/jpeg')},
+ async pdf2png(){return pdfPages('image/png')}
+};
+async function pdfPages(type){
   pdfjsLib.GlobalWorkerOptions.workerSrc=PDFWORKER;
+  const png=type==='image/png',clear=png&&$('#dt')&&$('#dt').checked;
   const f=files[0],sc=+$('#dq').value;let pdf;
   try{pdf=await pdfjsLib.getDocument({data:await f.arrayBuffer()}).promise}catch(e){throw new Error('This PDF is password-protected or damaged.')}
   for(let p=1;p<=pdf.numPages;p++){status(`Page ${p} of ${pdf.numPages}…`);const pg=await pdf.getPage(p),vp=pg.getViewport({scale:sc});
-   const c=document.createElement('canvas');c.width=vp.width;c.height=vp.height;const x=c.getContext('2d');x.fillStyle='#fff';x.fillRect(0,0,c.width,c.height);
-   await pg.render({canvasContext:x,viewport:vp}).promise;addOut(await toBlob(c,'image/jpeg',.92),`${base(f.name)}-page-${p}.jpg`)}
- }
-};
+   const c=document.createElement('canvas');c.width=vp.width;c.height=vp.height;const x=c.getContext('2d');if(!clear){x.fillStyle='#fff';x.fillRect(0,0,c.width,c.height)}
+   await pg.render({canvasContext:x,viewport:vp,background:clear?'rgba(0,0,0,0)':undefined}).promise;addOut(await toBlob(c,type,.92),`${base(f.name)}-page-${p}.${png?'png':'jpg'}`)}
+}
 
 /* passport */
 let ppImg=null;
@@ -350,6 +356,7 @@ const OPTX={
  png2jpg:`<div class="row"><label>Quality <input type="range" id="tq" min="10" max="100" value="92"></label><span class="note">Transparent areas become white.</span></div>`,
  jpg2png:'',
  webp2jpg:`<div class="row"><label>Quality <input type="range" id="tq" min="10" max="100" value="92"></label></div>`,
+ webp2png:`<p class="note">Transparency in the WebP is kept. Animated WebP: only the first frame is saved.</p>`,
  heic2jpg:`<div class="row"><label>Quality <input type="range" id="tq" min="10" max="100" value="92"></label><span class="note">iPhone photos (.heic). Conversion can take a few seconds per photo.</span></div>`,
  pdfcompress:`<div class="row"><label>Level <select id="pc"><option value="150|0.75">Recommended (150 dpi)</option><option value="110|0.6" selected>Strong (110 dpi)</option><option value="200|0.85">Light (200 dpi)</option><option value="80|0.5">Extreme (80 dpi)</option></select></label><label>Target size <input type="number" id="ptkb" placeholder="Any" min="20" step="1"> KB</label></div><p class="note">Set a target (like 200) and the best level that fits under it is chosen for you. Best for scanned PDFs and PDFs full of photos. Pages are re-saved as images, so text can no longer be selected or searched.</p>`,
  ocr:`<div class="row"><label>Language <select id="ol"><option value="eng">English</option><option value="urd">Urdu</option><option value="eng+urd">English + Urdu</option><option value="ara">Arabic</option><option value="hin">Hindi</option><option value="spa">Spanish</option><option value="fra">French</option><option value="deu">German</option><option value="por">Portuguese</option><option value="ita">Italian</option><option value="rus">Russian</option><option value="tur">Turkish</option><option value="ben">Bengali</option><option value="ind">Indonesian</option><option value="chi_sim">Chinese (Simplified)</option></select></label></div><p class="note">The first run downloads the language data (about 10–20 MB). Clear, straight photos give the best results.</p><textarea id="ocrout" rows="10" style="width:100%;font:inherit;padding:10px;border-radius:10px;border:1px solid var(--line);background:var(--sunk);color:var(--fg)" placeholder="Text will appear here" hidden></textarea><p><button class="btn ghost" id="ocrcopy" type="button" hidden>Copy text</button></p>`,
@@ -361,7 +368,7 @@ const conv=type=>async function(){
   const q=($('#tq')||{value:92}).value/100;
   for(const f of files){const i=await loadImg(f);addOut(await toBlob(draw(i,i.naturalWidth,i.naturalHeight,type),type,q),base(f.name)+'.'+ext[type])}
 };
-RUN.png2jpg=conv('image/jpeg');RUN.jpg2png=conv('image/png');RUN.webp2jpg=conv('image/jpeg');
+RUN.png2jpg=conv('image/jpeg');RUN.jpg2png=conv('image/png');RUN.webp2jpg=conv('image/jpeg');RUN.webp2png=conv('image/png');
 
 RUN.heic2jpg=async function(){
   const q=$('#tq').value/100;

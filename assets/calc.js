@@ -119,6 +119,51 @@ CALC.qr = () => {
   live(run);
 };
 
+/* ---------------- Date calculator ---------------- */
+CALC.date = () => {
+  const D = v => { const m = /^(\d{4})-(\d{2})-(\d{2})$/.exec(v || ''); return m ? Date.UTC(+m[1], +m[2] - 1, +m[3]) : NaN; };
+  const iso = t => new Date(t).toISOString().slice(0, 10);
+  const long = t => new Date(t).toLocaleDateString('en-US', { weekday: 'long', year: 'numeric', month: 'long', day: 'numeric', timeZone: 'UTC' });
+  const DAY = 864e5, wd = t => new Date(t).getUTCDay();
+  const now = new Date(), today = Date.UTC(now.getFullYear(), now.getMonth(), now.getDate());
+  if (!$('#ds').value) $('#ds').value = iso(today);
+  if (!$('#de').value) $('#de').value = iso(Date.UTC(now.getFullYear(), 11, 31));
+  if (!$('#da').value) $('#da').value = iso(today);
+  const ymd = (a, b) => {   // full years, then months, then days (a <= b)
+    const A = new Date(a), B = new Date(b);
+    let y = B.getUTCFullYear() - A.getUTCFullYear(), m = B.getUTCMonth() - A.getUTCMonth(), d = B.getUTCDate() - A.getUTCDate();
+    if (d < 0) { m--; d += new Date(Date.UTC(B.getUTCFullYear(), B.getUTCMonth(), 0)).getUTCDate(); }
+    if (m < 0) { y--; m += 12; }
+    return [y, m, d];
+  };
+  const workdays = (a, b) => { let n = 0; for (let t = a; t < b; t += DAY) { const w = wd(t); if (w && w < 6) n++; } return n; };
+  const addMonths = (t, k) => { const x = new Date(t), y = x.getUTCFullYear(), m = x.getUTCMonth() + k, d = x.getUTCDate();
+    const last = new Date(Date.UTC(y, m + 1, 0)).getUTCDate(); return Date.UTC(y, m, Math.min(d, last)); };
+  const run = () => {
+    let a = D($('#ds').value), b = D($('#de').value);
+    if (isNaN(a) || isNaN(b)) { $('#out-total').innerHTML = '—<small>Pick both dates</small>'; $('#out-kv').innerHTML = ''; }
+    else {
+      const back = b < a; if (back) [a, b] = [b, a];
+      const inc = $('#dinc').checked, end = inc ? b + DAY : b, days = Math.round((end - a) / DAY);
+      const [y, m, d] = ymd(a, end), wk = Math.floor(days / 7), rest = days % 7;
+      const parts = [y && `${y} year${y > 1 ? 's' : ''}`, m && `${m} month${m > 1 ? 's' : ''}`, (d || (!y && !m)) && `${d} day${d === 1 ? '' : 's'}`].filter(Boolean).join(', ');
+      $('#out-total').innerHTML = `${fx(days, 0)} day${days === 1 ? '' : 's'}<small>${back ? 'The end date is before the start date, so the dates were swapped. ' : ''}${parts}${inc ? ' (end date included)' : ''}</small>`;
+      $('#out-kv').innerHTML = [['Weeks and days', `${fx(wk, 0)} wk ${rest} d`], ['Weekdays (Mon–Fri)', fx(workdays(a, end), 0)], ['Weekend days', fx(days - workdays(a, end), 0)],
+        ['Months (approx.)', fx(days / 30.4369, 1)], ['Hours', fx(days * 24, 0)], ['Minutes', fx(days * 1440, 0)]]
+        .map(([k, v]) => `<div><b>${v}</b><span>${k}</span></div>`).join('');
+    }
+    const s = D($('#da').value), n = Math.trunc(num('dn')) * ($('#dop').value === '-' ? -1 : 1), u = $('#du').value;
+    if (isNaN(s)) { $('#r-add').innerHTML = '—'; return; }
+    let r;
+    if (u === 'd') r = s + n * DAY; else if (u === 'w') r = s + n * 7 * DAY;
+    else if (u === 'm') r = addMonths(s, n); else if (u === 'y') r = addMonths(s, n * 12);
+    else { r = s; let left = Math.abs(n); const step = n < 0 ? -DAY : DAY; while (left > 0) { r += step; const w = wd(r); if (w && w < 6) left--; } }
+    $('#r-add').innerHTML = isFinite(r) && Math.abs(r) < 8.64e15 ? `${long(r)}<small>${iso(r)}</small>` : '—';
+  };
+  $$('[data-dq]').forEach(b => b.onclick = () => { const [op, k, u] = b.dataset.dq.split(' '); $('#dop').value = op; $('#dn').value = k; $('#du').value = u; run(); });
+  live(run);
+};
+
 const which = document.body.dataset.calc;
 for (const [sel, v] of Object.entries(window.PRESET || {})) { const e = $(sel); if (e) e.value = v; }
 if (CALC[which]) CALC[which]();

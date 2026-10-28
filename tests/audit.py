@@ -43,7 +43,7 @@ def make_samples():
     big.save(f"{S}/huge-48mp.jpg", quality=90); os.remove(f"{S}/tmp.png")
     # transparent PNG
     a = Image.new("RGBA", (800, 600), (0, 0, 0, 0)); ImageDraw.Draw(a).ellipse((100, 100, 700, 500), fill=(30, 140, 90, 255))
-    a.save(f"{S}/alpha.png")
+    a.save(f"{S}/alpha.png"); a.save(f"{S}/alpha.webp", lossless=True)
     # portrait person-like image for passport / bg removal
     p = Image.new("RGB", (900, 1200), (200, 210, 225)); d = ImageDraw.Draw(p)
     d.ellipse((300, 200, 600, 560), fill=(225, 185, 150)); d.rectangle((220, 560, 680, 1200), fill=(40, 60, 120))
@@ -119,6 +119,8 @@ def make_media():
     subprocess.run(ff + ["-f", "lavfi", "-i", "testsrc=size=160x120:rate=5", "-f", "lavfi", "-i", "sine=frequency=330:sample_rate=44100",
                          "-t", "600", "-c:v", "libx264", "-pix_fmt", "yuv420p", "-c:a", "aac", "-shortest", f"{S}/long-10min.mp4"], check=True)
     subprocess.run(ff + ["-f", "lavfi", "-i", "sine=frequency=500:sample_rate=44100", "-t", "5", "-c:a", "aac", f"{S}/audio.m4a"], check=True)
+    subprocess.run(ff + ["-i", f"{S}/video.mp4", "-c", "copy", f"{S}/video.mov"], check=True)   # iPhone-style MOV
+    subprocess.run(ff + ["-i", f"{S}/video.mp4", "-c:v", "libvpx", "-b:v", "300k", "-c:a", "libopus", f"{S}/video.webm"], check=True)   # screen-recorder WebM
 
 
 # ------------------------------------------------------------------ output validators
@@ -195,6 +197,8 @@ CASES = [
     ("png-to-jpg-alpha", "png-to-jpg", ["alpha.png"], "ok", {}, [(0, "image", {"fmt": "JPEG", "w": 800})], 60),
     ("jpg-to-png", "jpg-to-png", ["photo.jpg"], "ok", {}, [(0, "image", {"fmt": "PNG", "w": 1600})], 60),
     ("webp-to-jpg", "webp-to-jpg", ["photo.webp"], "ok", {}, [(0, "image", {"fmt": "JPEG"})], 60),
+    ("webp-to-png-alpha", "webp-to-png", ["alpha.webp"], "ok", {}, [(0, "image", {"fmt": "PNG", "w": 800, "alpha": True})], 60),
+    ("webp-to-png-wrong-type", "webp-to-png", ["photo.jpg"], "reject", {}, [], 30),
     ("heic-to-jpg", "heic-to-jpg", ["photo.heic"], "ok", {}, [(0, "image", {"fmt": "JPEG", "w": 1600})], 120),
     ("heic-corrupt", "heic-to-jpg", ["corrupt.jpg"], "reject", {}, [], 30),
     ("passport-uk", "uk-passport-photo", ["portrait.jpg"], "ok", {}, [(0, "image", {"w": 413, "h": 531}), (1, "image", {"w": 1800, "h": 1200})], 60),
@@ -217,6 +221,10 @@ CASES = [
     ("pdf-to-jpg", "pdf-to-jpg", ["doc.pdf"], "ok", {}, [(0, "image", {"fmt": "JPEG"})], 120),
     ("pdf-to-jpg-rotated", "pdf-to-jpg", ["rotated.pdf"], "ok", {}, [(0, "image", {})], 120),
     ("pdf-to-jpg-encrypted", "pdf-to-jpg", ["encrypted.pdf"], "err", {}, [], 60),
+    ("pdf-to-png", "pdf-to-png", ["doc.pdf"], "ok", {}, [(0, "image", {"fmt": "PNG"})], 120),
+    ("pdf-to-png-transparent", "pdf-to-png", ["doc.pdf"], "ok", {"#dt": True}, [(0, "image", {"fmt": "PNG", "alpha": True})], 120),
+    ("pdf-to-png-encrypted", "pdf-to-png", ["encrypted.pdf"], "err", {}, [], 60),
+    ("png-to-pdf-2", "png-to-pdf", ["alpha.png", "photo.png"], "ok", {}, [(0, "pdf", {"pages": 2})], 60),
     ("pdf-to-jpg-corrupt", "pdf-to-jpg", ["corrupt.pdf"], "err_or_ok", {}, [], 60),
     ("compress-pdf-scan", "compress-pdf", ["scan.pdf"], "ok", {}, [(0, "pdf", {"pages": 3, "check_last_page_not_blank": True})], 240),
     ("compress-pdf-to-200kb", "compress-pdf-to-200kb", ["scan.pdf"], "ok", {}, [(0, "pdf", {"pages": 3})], 400),
@@ -236,6 +244,8 @@ CASES = [
     ("mp4-to-mp3-10min", "mp4-to-mp3", ["long-10min.mp4"], "ok", {}, [(0, "mp3", {"dur": 600})], 600),
     ("m4a-to-mp3", "mp4-to-mp3", ["audio.m4a"], "ok", {}, [(0, "mp3", {"dur": 5})], 120),
     ("mp4-no-audio", "mp4-to-mp3", ["noaudio.mp4"], "err", {}, [], 120),
+    ("video-to-mp3-mov", "video-to-mp3", ["video.mov"], "ok", {}, [(0, "mp3", {"dur": 6})], 180),
+    ("video-to-mp3-webm", "video-to-mp3", ["video.webm"], "ok", {}, [(0, "mp3", {"dur": 6})], 180),
 ]
 VALIDATORS = {"image": v_image, "pdf": v_pdf, "docx": v_docx, "mp3": v_mp3, "text": v_text}
 ANALYTICS = ("cloudflareinsights.com", "googletagmanager.com", "google-analytics.com", "googlesyndication.com", "doubleclick.net", "google.com", "googleadservices.com",
@@ -269,6 +279,7 @@ async def run_case(ctx, case, mobile=False):
             for sel, v in setup.items():
                 el = pg.locator(sel)
                 if await el.evaluate("e => e.tagName") == "SELECT": await el.select_option(v)
+                elif await el.get_attribute("type") == "checkbox": await (el.check() if v else el.uncheck())
                 else: await el.fill(v)
             await pg.click("#go")
             await pg.wait_for_function("() => !document.querySelector('#go').disabled", timeout=tmo * 1000)

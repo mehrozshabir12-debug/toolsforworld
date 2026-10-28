@@ -63,16 +63,48 @@ def define(tool, F, N, SEL, RESULT, PDFLIB, PDFJS, MAMMOTH, H2PDF):
          title="JPG to PDF Converter – Images to PDF Free | Tools for World",
          desc="Convert JPG, PNG and WebP images to one PDF. Reorder pages and choose A4 or Letter. Free, private, works on phones.",
          h1="JPG to PDF converter", lead="Combine photos or scanned pages into a single PDF. Use the arrows to change the page order.",
-         body='''<h2>How to convert JPG to PDF</h2><ol><li>Choose one or more images.</li><li>Reorder them and pick a page size.</li><li>Press <b>Create PDF</b>.</li></ol><p>Great for receipts, ID copies, homework photos and scanned documents.</p>''',
-         faq=[("Can I add PNG files too?", "Yes, JPG, PNG and WebP all work.")])
+         body='''<h2>How to convert JPG to PDF</h2><ol><li>Choose one or more images.</li><li>Reorder them and pick a page size.</li><li>Press <b>Create PDF</b>.</li></ol><p>Great for receipts, ID copies, homework photos and scanned documents. Converting screenshots or graphics? See <a href="../png-to-pdf/">PNG to PDF</a>.</p>''',
+         faq=[("Can I add PNG files too?", "Yes, JPG, PNG and WebP all work. PNGs are added without re-compression.")])
 
+
+    tool(slug="png-to-pdf", group="pdf", icon="pdf", name="PNG to PDF", ftool="img2pdf", libs=PDFLIB,
+         card="Turn PNG screenshots and graphics into a PDF.",
+         title="PNG to PDF Converter – Convert PNG to PDF Free",
+         desc="Convert PNG to PDF online for free. Put one or many PNG images, screenshots or scans into a single PDF, lossless, with A4 or Letter pages. No upload.",
+         h1="PNG to PDF converter", lead="Convert one or many PNG images, screenshots and scans into a single PDF. PNGs go in without being re-compressed, so text and lines stay sharp. Nothing is uploaded.",
+         body='''<h2>How to convert PNG to PDF</h2><ol><li>Choose one or more PNG files (you can add JPG and WebP too).</li><li>Put the pages in order with the ▲ ▼ arrows.</li><li>Pick a page size (<b>A4</b>, <b>Letter</b> or <b>Same as image</b>) and a margin.</li><li>Press <b>Create PDF</b> and download <code>images.pdf</code>.</li></ol>
+<h2>Why PNG to PDF works well here</h2><p>PNG is a lossless format, which is why it's the usual format for screenshots, charts, diagrams, receipts saved from apps and scanned forms. This tool puts each PNG into the PDF as it is: the pixels are not re-saved as JPG, so small text, thin lines and flat colours keep their exact edges. Transparent areas show as white on the page, like on paper.</p>
+<h2>Common uses</h2><ul><li><b>Screenshots to one document</b>: a series of app screens, chat messages or error messages for a support ticket or a report.</li><li><b>Homework and notes</b>: phone scans saved as PNG, combined into one PDF for an online submission.</li><li><b>Receipts and invoices</b>: PNG receipts from banking or shopping apps, ready to attach to an expense claim.</li><li><b>Design proofs</b>: export artboards as PNG and send one PDF for review.</li></ul>
+<h2>Page size, margins and file size</h2><ul><li><b>A4</b> suits most countries; <b>Letter</b> suits the US and Canada. Wide images get a landscape page automatically.</li><li><b>Same as image</b> makes each page exactly the size of its picture, with no white border. Good for screenshots read on screen.</li><li>PNG files are large compared with JPG. If the PDF must stay under an upload limit, type it in <b>Max PDF size</b> (for example 500 KB). The images are then re-saved as JPG at the best quality that fits, which also turns transparent areas white.</li></ul>
+<p>Have photos rather than screenshots? <a href="../jpg-to-pdf/">JPG to PDF</a> is the same tool set up for camera photos. Need the opposite? Turn PDF pages into images with <a href="../pdf-to-png/">PDF to PNG</a>.</p>''',
+         faq=[("Is PNG to PDF free?", "Yes, with no limits, sign-up or watermark."),
+              ("Will my PNG lose quality in the PDF?", "No. Without a size limit, PNGs are embedded losslessly, exactly as they are. Only when you set a Max PDF size are they re-saved as JPG to fit."),
+              ("Can I combine several PNG files into one PDF?", "Yes. Choose them all at once, reorder them with the arrows, and they become one PDF with one image per page."),
+              ("What happens to transparent backgrounds?", "Transparent areas appear white on the PDF page."),
+              ("Are my images uploaded?", "No. The PDF is made inside your browser, so the files never leave your device."),
+              ("Can I convert PNG to PDF on iPhone or Android?", "Yes. Open this page in Safari or Chrome, choose the images from Photos or Files, and download the PDF.")])
     tool(slug="pdf-to-jpg", group="pdf", icon="pdf", name="PDF to JPG", ftool="pdf2jpg", libs=PDFJS,
          card="Save every PDF page as an image.",
          title="PDF to JPG – Convert PDF Pages to Images Free | Tools for World",
          desc="Convert each page of a PDF into a high-quality JPG image. Free, no upload.",
          h1="PDF to JPG converter", lead="Convert each page of a PDF into a high-quality JPG image.",
-         body='''<h2>How to convert PDF to JPG</h2><ol><li>Choose a PDF.</li><li>Pick the quality.</li><li>Press <b>Convert to JPG</b> and save the pages you need.</li></ol>''', faq=[])
+         body='''<h2>How to convert PDF to JPG</h2><ol><li>Choose a PDF.</li><li>Pick the quality.</li><li>Press <b>Convert to JPG</b> and save the pages you need.</li></ol><p>Pages full of text, tables or diagrams? <a href="../pdf-to-png/">PDF to PNG</a> keeps letters sharper and can remove the white background.</p>''', faq=[])
 
+
+    tool(slug="pdf-to-png", group="pdf", icon="pdf", name="PDF to PNG", ftool="pdf2png", libs=PDFJS,
+         card="Save every PDF page as a sharp PNG image.",
+         title="PDF to PNG Converter – Convert PDF to PNG Free",
+         desc="Convert PDF to PNG online for free. Save every page as a sharp, lossless PNG image, with an optional transparent background. Works in your browser, no upload.",
+         h1="PDF to PNG converter", lead="Turn every page of a PDF into a lossless PNG image. Text, lines and diagrams stay crisp, and the file never leaves your device.",
+         body='''<h2>How to convert PDF to PNG</h2><ol><li>Choose a PDF file.</li><li>Pick the quality: <b>High</b> suits most uses; <b>Very high</b> is best for printing and zooming in.</li><li>Tick <b>Transparent background</b> if you want the white page removed (useful for logos and signatures saved as PDF).</li><li>Press <b>Convert to PNG</b>, then save the pages you need or all of them as one ZIP.</li></ol>
+<h2>PDF to PNG or PDF to JPG?</h2><p>Choose <b>PNG</b> for pages with text, tables, charts, slides, line drawings and logos. PNG is lossless, so letters keep clean edges with no blurry "halo" around them, and it can keep a transparent background. Choose <a href="../pdf-to-jpg/">PDF to JPG</a> for pages that are mainly photos, or when you need small files: a JPG of a photo page is often several times smaller than a PNG.</p>
+<h2>Which quality should I pick?</h2><ul><li><b>Normal</b> (about 108 dpi): light files for chat apps and quick previews.</li><li><b>High</b> (about 144 dpi): sharp on phones and laptop screens. The best default.</li><li><b>Very high</b> (about 216 dpi): for printing, presentations on large screens, or running the image through <a href="../image-to-text/">OCR</a>.</li></ul>
+<h2>Good to know</h2><ul><li>Each page becomes its own PNG, named after the PDF and the page number, for example <code>report-page-3.png</code>.</li><li>Need only a few pages? Extract them first with <a href="../split-pdf/">Split PDF</a>, then convert that smaller file.</li><li>Password-protected PDFs must be opened and saved without the password first.</li><li>Long PDFs with hundreds of pages work, but they take longer and use more memory on phones.</li></ul>''',
+         faq=[("Is PDF to PNG free?", "Yes. There is no page limit, sign-up or watermark."),
+              ("Is my PDF uploaded to a server?", "No. The pages are drawn by your browser on your own device."),
+              ("Can I get a PNG with a transparent background?", "Yes. Tick Transparent background before converting. Areas the PDF leaves empty become transparent; white shapes drawn in the PDF stay white."),
+              ("Why are PNG files bigger than JPG?", "PNG keeps every pixel exactly (lossless). That is ideal for text and graphics, but photos come out larger than JPG. Use PDF to JPG when file size matters more."),
+              ("Can I convert all pages at once?", "Yes. Every page is converted, and you can download them one by one or all together as a ZIP file.")])
     tool(slug="image-to-text", group="pdf", icon="text", name="Image to Text (OCR)", ftool="ocr", libs=TESS,
          card="Copy text from a photo or screenshot.",
          title="Image to Text (OCR) – Extract Text from Images Free | Tools for World",
@@ -115,16 +147,16 @@ def define(tool, F, N, SEL, RESULT, PDFLIB, PDFJS, MAMMOTH, H2PDF):
 
     tool(slug="png-to-jpg", group="img", icon="img", name="PNG to JPG", ftool="png2jpg", libs="",
          card="Convert PNG images to JPG.",
-         title="PNG to JPG Converter – Free & Private | Tools for World",
-         desc="Convert PNG to JPG online for free. Batch convert many images at once, no upload.",
-         h1="PNG to JPG converter", lead="Convert PNG images to smaller JPG files. Transparent areas become white.",
+         title="PNG to JPG Converter – Convert PNG to JPG Free",
+         desc="Convert PNG to JPG online for free. Batch convert many PNG images at once, pick the quality, and turn transparent areas white. No upload, works on phones.",
+         h1="PNG to JPG converter", lead="Convert PNG images to JPG in one click: smaller files that every website, form and app accepts. Transparent areas become white, and many files can be converted at once.",
          body='<h2>Why convert PNG to JPG?</h2><p>JPG files are much smaller for photos, and every website and form accepts them.</p>', faq=[])
 
     tool(slug="jpg-to-png", group="img", icon="img", name="JPG to PNG", ftool="jpg2png", libs="",
          card="Convert JPG images to PNG.",
-         title="JPG to PNG Converter – Free & Private | Tools for World",
-         desc="Convert JPG to PNG online for free. Batch convert images in your browser, no upload.",
-         h1="JPG to PNG converter", lead="Convert JPG photos to lossless PNG files.",
+         title="JPG to PNG Converter – Convert JPG to PNG Free",
+         desc="Convert JPG to PNG online for free. Batch convert JPG and JPEG photos to lossless PNG in your browser, then download one by one or as a ZIP. No upload.",
+         h1="JPG to PNG converter", lead="Convert JPG and JPEG photos to lossless PNG files, one or many at once. Nothing is uploaded.",
          body='<h2>When to use PNG</h2><p>PNG is lossless, so it suits screenshots, graphics and images you will edit again. It does not make a JPG sharper, and the file will be larger.</p>', faq=[])
 
     tool(slug="webp-to-jpg", group="img", icon="img", name="WebP to JPG", ftool="webp2jpg", libs="",
@@ -132,8 +164,23 @@ def define(tool, F, N, SEL, RESULT, PDFLIB, PDFJS, MAMMOTH, H2PDF):
          title="WebP to JPG Converter – Free & Private | Tools for World",
          desc="Convert WebP images to JPG for free. Open images saved from websites in any app. No upload.",
          h1="WebP to JPG converter", lead="Convert WebP images, often saved from websites, to JPG so they open everywhere.",
-         body='<h2>What is WebP?</h2><p>WebP is a modern image format used by many websites. Some apps and forms do not accept it, so converting to JPG is the easy fix.</p>', faq=[])
+         body='<h2>What is WebP?</h2><p>WebP is a modern image format used by many websites. Some apps and forms do not accept it, so converting to JPG is the easy fix. Image with a transparent background, like a logo or sticker? Use <a href="../webp-to-png/">WebP to PNG</a> to keep the transparency.</p>', faq=[])
 
+
+    tool(slug="webp-to-png", group="img", icon="img", name="WebP to PNG", ftool="webp2png", libs="",
+         card="Convert WebP images to PNG, keeping transparency.",
+         title="WebP to PNG Converter – Convert WebP to PNG Free",
+         desc="Convert WebP to PNG online for free. Keeps transparent backgrounds, converts many files at once and runs in your browser with no upload.",
+         h1="WebP to PNG converter", lead="Convert WebP images to PNG so they open in any app, with transparent backgrounds kept. Convert many files at once, without uploading them.",
+         body='''<h2>How to convert WebP to PNG</h2><ol><li>Choose one or more <code>.webp</code> files.</li><li>Press <b>Convert to PNG</b>.</li><li>Download each PNG, or all of them as one ZIP.</li></ol>
+<h2>WebP to PNG or WebP to JPG?</h2><p>Pick <b>PNG</b> when the image has a transparent background (logos, stickers, icons, product cut-outs), or when it is a graphic with text, flat colours and sharp edges. PNG keeps the transparency and does not add JPG blur. Pick <a href="../webp-to-jpg/">WebP to JPG</a> for ordinary photos: the files are much smaller and transparent areas become white.</p>
+<h2>Why WebP files cause trouble</h2><p>Websites use WebP because it makes pages load faster. When you save an image from a browser, it often arrives as <code>.webp</code>. Many older photo editors, some versions of Microsoft Office, printers, marketplaces and upload forms still don't accept it, while PNG opens everywhere.</p>
+<h2>Good to know</h2><ul><li>The PNG has the same width and height as the WebP; nothing is cropped or resized.</li><li>Converting can't add detail that the WebP never had, so a blurry WebP stays blurry.</li><li>PNG files are usually bigger than the WebP. Need them smaller for an upload? Use the <a href="../compress-image/">Image Compressor</a>.</li><li>Animated WebP: only the first frame is saved, because a PNG holds a single image.</li></ul>''',
+         faq=[("Does WebP to PNG keep transparency?", "Yes. Transparent areas in the WebP stay transparent in the PNG."),
+              ("Is the conversion lossless?", "Saving as PNG adds no extra loss. The PNG shows exactly what the WebP shows."),
+              ("Can I convert many WebP files at once?", "Yes. Choose several files and download them one by one or as a ZIP."),
+              ("Are my images uploaded?", "No. The conversion happens in your browser, on your device."),
+              ("Why is the PNG bigger than the WebP?", "WebP compresses very efficiently, and PNG stores every pixel exactly, so the PNG is usually larger. That is normal.")])
     tool(slug="heic-to-jpg", group="img", icon="img", name="HEIC to JPG", ftool="heic2jpg", libs=HEIC,
          card="Convert iPhone HEIC photos to JPG.",
          title="HEIC to JPG Converter Free – iPhone HEIC to JPEG",
@@ -198,9 +245,34 @@ def define(tool, F, N, SEL, RESULT, PDFLIB, PDFJS, MAMMOTH, H2PDF):
          desc="Calculate your exact age in years, months and days from your date of birth. Also see total days, weeks and your next birthday.",
          h1="Age calculator", lead="Enter a date of birth to get the exact age in years, months and days, and the countdown to the next birthday.",
          ui=f'''<div class="calc"><div class="fields">{F("Date of birth", '<input type="date" id="adob" value="2000-01-15">')}{F("Age on this date", '<input type="date" id="ato">', "Today by default")}</div>{RESULT(kv=True, note=False)}</div>''',
-         body='''<h2>How age is calculated</h2><p>Full years are counted first, then whole months, then the remaining days. That's the method used for forms and official documents. Total days include leap days.</p>''',
+         body='''<h2>How age is calculated</h2><p>Full years are counted first, then whole months, then the remaining days. That's the method used for forms and official documents. Total days include leap days.</p><p>Need the days between any two dates, or a date 30 or 90 days from now? Use the <a href="../date-calculator/">Date Calculator</a>.</p>''',
          faq=[("How do I find my age on a past or future date?", "Change the “Age on this date” field to any date.")])
 
+
+    tool(slug="date-calculator", group="util", icon="calc", name="Date Calculator", calc="date", libs="",
+         card="Days between dates, or add and subtract days.",
+         title="Date Calculator – Days Between Dates & Add Days | Tools for World",
+         desc="Free date calculator: count the days between two dates (with weekdays and weeks), or add and subtract days, weeks, months, years or business days from a date.",
+         h1="Date calculator", lead="Count the days between two dates, or add and subtract days, weeks, months or business days. Results update as you type.",
+         ui=f'''<div class="calc"><h2 style="margin-top:0">Days between two dates</h2>
+<div class="fields">{F("Start date", '<input type="date" id="ds">')}{F("End date", '<input type="date" id="de">')}</div>
+<div class="row"><label class="check"><input type="checkbox" id="dinc"> Include the end date (count both days)</label></div>
+{RESULT(kv=True, note=False)}
+<h2>Add or subtract from a date</h2>
+<div class="fields">{F("Start date", '<input type="date" id="da">')}{F("Add or subtract", SEL("dop", [("+", "Add (+)"), ("-", "Subtract (−)")], "+"))}{F("Amount", '<input type="number" id="dn" value="30" step="1" inputmode="numeric">')}{F("Unit", SEL("du", [("d", "Days"), ("w", "Weeks"), ("m", "Months"), ("y", "Years"), ("b", "Business days (Mon–Fri)")], "d"))}</div>
+<div class="row" style="gap:8px"><button class="btn ghost" type="button" data-dq="+ 30 d">+30 days</button><button class="btn ghost" type="button" data-dq="+ 90 d">+90 days</button><button class="btn ghost" type="button" data-dq="+ 6 m">+6 months</button><button class="btn ghost" type="button" data-dq="+ 10 b">+10 business days</button><button class="btn ghost" type="button" data-dq="- 1 y">−1 year</button></div>
+<div class="result" aria-live="polite"><div class="big" id="r-add"></div></div></div>''',
+         body='''<h2>How to count the days between two dates</h2><ol><li>Pick the start date and the end date.</li><li>Read the total days, plus the same span in years, months and days, weeks, weekdays and weekend days.</li><li>Tick <b>Include the end date</b> when both days count, for example for a hotel stay counted in days, a leave request or an event that runs from the 1st to the 5th (5 days, not 4).</li></ol>
+<h2>How to add or subtract days from a date</h2><ol><li>Pick the start date.</li><li>Choose Add or Subtract, type the amount and choose days, weeks, months, years or business days.</li><li>The result shows the date and its weekday, for example "30 days from today" or "90 days before a deadline".</li></ol>
+<h2>How the counting works</h2><ul><li><b>Days between</b> counts calendar days from the start date up to the end date. The start date counts and the end date doesn't, unless you tick the box. 1 March to 2 March is 1 day.</li><li><b>Weekdays</b> are Monday to Friday. Public holidays are not removed, because they differ by country and region.</li><li><b>Adding months</b> keeps the same day number. If that day doesn't exist (31 January + 1 month), the result is the last day of the month (28 or 29 February).</li><li><b>Business days</b> skip Saturdays and Sundays. Adding 10 business days to a Friday lands on the Friday two weeks later.</li><li>Leap years are included, and daylight-saving changes don't shift the result by a day.</li></ul>
+<h2>Everyday examples</h2><ul><li><b>Deadlines</b>: a contract says payment is due 30 days after the invoice date.</li><li><b>Visas and travel</b>: count how many days you'll stay, or the date 90 days after you arrive.</li><li><b>Notice periods</b>: find the last working day after four weeks' notice.</li><li><b>Pregnancy and baby milestones</b>: count weeks from a date.</li><li><b>Countdowns</b>: days left until an exam, a wedding or the end of the year.</li></ul>
+<p>Want someone's exact age from a date of birth? Use the <a href="../age-calculator/">Age Calculator</a>.</p>''',
+         faq=[("How many days are there between two dates?", "Pick both dates above. The count starts on the start date and stops before the end date; tick Include the end date to count both days."),
+              ("Does it count weekends and holidays?", "The total counts every calendar day. It also shows weekdays (Monday to Friday) and weekend days separately. Public holidays are not removed."),
+              ("What is 30, 60 or 90 days from today?", "Use Add or subtract: the start date is today by default, so choose Add, type the number of days and read the date."),
+              ("How are business days added?", "Saturdays and Sundays are skipped. For example, 5 business days after a Monday is the next Monday."),
+              ("What happens when I add a month to 31 January?", "The result is the last day of February (28 or 29), because February has no 31st."),
+              ("Is anything I type saved?", "No. The dates are calculated in your browser and not stored.")])
     tool(slug="percentage-calculator", group="util", icon="calc", name="Percentage Calculator", calc="pct", libs="",
          card="Percent of, percent change and discounts.",
          title="Percentage Calculator – Percent of a Number, % Change | Tools for World",
@@ -223,9 +295,26 @@ def define(tool, F, N, SEL, RESULT, PDFLIB, PDFJS, MAMMOTH, H2PDF):
          desc="Convert MP4 videos to MP3 audio for free. Extract sound from MP4, MOV and WebM files in your browser, no upload.",
          h1="MP4 to MP3 converter", lead="Extract the audio from a video file and save it as MP3. The file stays on your device.",
          body='''<h2>How to convert MP4 to MP3</h2><ol><li>Choose a video (MP4, MOV, WebM).</li><li>Pick the quality: 192 kbps suits most music and speech.</li><li>Press <b>Convert to MP3</b>.</li></ol>
-<div class="warnbox">Only convert videos you own or have permission to use. Downloading from YouTube is not supported.</div>''',
+<div class="warnbox">Only convert videos you own or have permission to use. Downloading from YouTube is not supported.</div><p>Have a MOV, WebM, MKV or 3GP file? See <a href="../video-to-mp3/">Video to MP3</a> for every format that works.</p>''',
          faq=[("Is there a size limit?", "No fixed limit, but very long videos need a lot of memory and can fail on phones. Use a computer for videos over about 200 MB.")])
 
+
+    tool(slug="video-to-mp3", group="media", icon="music", name="Video to MP3", ftool="mp4mp3", libs=LAME,
+         card="Extract audio from MOV, WebM, MKV and other videos.",
+         title="Video to MP3 Converter – Extract Audio from Any Video",
+         desc="Convert video to MP3 online for free: extract the audio from MOV, MP4, WebM, MKV, M4V and 3GP files, or turn WAV and M4A into MP3. In your browser, no upload.",
+         h1="Video to MP3 converter", lead="Extract the sound from a video file and save it as MP3: MOV from an iPhone, WebM from a screen recorder, MKV, MP4 and more. The file stays on your device.",
+         body='''<h2>How to convert a video to MP3</h2><ol><li>Choose a video from your computer or phone.</li><li>Pick the quality: <b>128 kbps</b> for talks and lectures, <b>192 kbps</b> for most uses, <b>320 kbps</b> for music.</li><li>Press <b>Convert to MP3</b> and download the audio.</li></ol>
+<h2>Which files work?</h2><p>Any video or audio file that your browser can play: MP4, MOV (iPhone and Mac), M4V, WebM (most screen recorders and browser recordings), 3GP (older Android phones) and many MKV files in Chrome and Edge. Audio files such as WAV, M4A, AAC and OGG can be turned into MP3 too. If a file won't convert in one browser, try Chrome on a computer.</p>
+<h2>What people use it for</h2><ul><li><b>Lectures and meetings</b>: keep only the audio of a recorded class or Zoom call, to listen to on the go or send for transcription.</li><li><b>Interviews and podcasts</b>: pull the sound from a camera or phone recording to edit it in an audio app.</li><li><b>Your own music and voice-overs</b>: save the soundtrack of a video you made.</li><li><b>Smaller files</b>: one hour of speech at 128 kbps is about 58 MB, much smaller than the video.</li></ul>
+<h2>Good to know</h2><ul><li>The MP3 has the same length as the video. Mono videos stay mono; stereo stays stereo.</li><li>Very long videos (over about an hour) need a lot of memory and work best on a computer.</li><li>A video with no sound track can't give an MP3.</li></ul>
+<div class="warnbox">Only convert videos you made yourself or have permission to use. Downloading from YouTube or other streaming sites is not supported.</div>
+<p>Converting MP4 files only? The <a href="../mp4-to-mp3/">MP4 to MP3 converter</a> has tips just for MP4.</p>''',
+         faq=[("Is video to MP3 free?", "Yes. There is no limit, sign-up or watermark."),
+              ("Is my video uploaded?", "No. The audio is extracted and encoded inside your browser, so the file never leaves your device."),
+              ("Can I convert MOV or WebM to MP3?", "Yes. MOV, WebM, MP4 and M4V work in modern browsers, and many MKV files work in Chrome and Edge. If one browser can't read a file, try Chrome on a computer."),
+              ("Which bitrate should I choose?", "128 kbps is fine for speech, 192 kbps suits most audio, and 320 kbps is the best MP3 quality for music."),
+              ("Can I convert a YouTube link?", "No. The tool only converts files you already have on your device, such as your own recordings.")])
 
 # ================= SEO landing pages (presets of the main tools) =================
 LANDING = []
