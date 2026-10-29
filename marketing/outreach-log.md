@@ -982,3 +982,191 @@ The Tools for World team
 https://toolsforworld.com
 
 If you'd rather not hear from us again, just reply and let us know.
+
+## Ready to send (2026-10-29)
+
+Gmail check 29 Oct (cloud run): nothing sent from hello@ since 25 Oct; the 2026-10-25 list above is still "Ready to send" (not yet approved) and YSU (Joy Christiansen Erb) is still approved but not sent. No human replies, no bounces, no opt-out requests. Only messages to hello@ since 25 Oct: the Waterloo auto-reply (already logged) and vendor pitches (BacklinkLog, SellWithBoost, StartupSubmitHQ), not answered. No backlink targets today (university targets only).
+
+| # | Name | University | Country | Email | Source page | Why |
+|---|---|---|---|---|---|---|
+| 1 | Josephine Hischke, contact for portfolio submission and aptitude test, Fakultät Gestaltung (BA Innenarchitektur) | Hochschule Wismar | Germany | josephine.hischke@hs-wismar.de | https://fg.hs-wismar.de/storages/hs-wismar/_FG/Studiengaenge/Innenarchitektur/Bachelor_Innenarchitektur/2025_10_22_IA_BA_Tipps_Mappe_gestaltungwismar.pdf ("Bei Fragen bezüglich der Mappenabgabe ... ist Josephine Hischke an der Fakultät Gestaltung der Hochschule Wismar Ihre Ansprechpartnerin." / "josephine.hischke@hs-wismar.de"), Stand 10.2025 | Interior architecture portfolio as one PDF, max. 10 MB |
+| 2 | Tatjana Van Overloop, student and programme secretariat, Visual Design (Campus Sint-Lucas Gent) | LUCA School of Arts | Belgium | tatjana.vanoverloop@luca-arts.be | https://luca-arts.be/sites/default/files/briefing_visual_design.pdf ("... contact op te nemen via het volgende e-mailadres: tatjana.vanoverloop@luca-arts.be") | Admission briefing: "Design Shortlist" as PDF, max 50 MB upload; links smallpdf to shrink files |
+| 3 | Faculty of Arts portfolio team, BA (Hons) Architecture | University of Plymouth | UK | artsportfolio@plymouth.ac.uk | https://plymouth.ac.uk/courses/undergraduate/ba-architecture/ba-hons-architecture-applicant-portfolio-advice ("Email: artsportfolio@plymouth.ac.uk.") | Portfolio PDF "less than 20MB", photos/scans of work; questions inbox (upload is via portal) |
+| 4 | Kaija Põder, Senior Specialist, Academic Affairs (international admissions) | Estonian Academy of Arts (EKA) | Estonia | kaija.poder@artun.ee | https://www.artun.ee/en/home/?p=5669 (Admissions 2026/27 contact block: "kaija.poder@artun.ee") | MA portfolios as PDF with limits of 12-60 MB per programme, uploaded to DreamApply |
+| 5 | Shannon Criss, architecture portfolio contact, Architecture Department | University of Kansas | USA | scriss@ku.edu | https://arcd.ku.edu/architecture-department-portfolio-and-studio-documentation-requirements ("... for architecture students: DM Shannon Criss in MS TEAMS (or email at scriss@ku.edu) ...") | Studio-advancement portfolio, single PDF max 250MB, letter portrait |
+| 6 | IST eClass Support | University of Alberta | Canada | eclass@ualberta.ca | https://support.eclass.ualberta.ca/Knowledgebase/Article/View/467/10/submitting-assignments-for-students ("Email: eclass@ualberta.ca"), last modified 19 Aug 2025 | Student guide: submit as PDF, source file under 5MB, "Photo to PDF conversions often cause the file size to bloat" |
+| 7 | Library thesis (ETD) support, Ms. Mutali Lithole | University of Johannesburg | South Africa | mlithole@uj.ac.za | https://www.uj.ac.za/wp-content/uploads/2025/01/uj-etd-submission-guidelines.pdf ("Contact us for further assistance ... Ms. Mutali Lithole Email: mlithole@uj.ac.za") | ETD must be a single PDF, max 25MB |
+| 8 | C.H. Mohammed Koya Library | University of Calicut | India | ul@uoc.ac.in | https://library.uoc.ac.in/en/checklist-for-submission-of-phd-thesis-to-the-library (Contact Us: "Email: ul@uoc.ac.in") | PhD thesis PDF max 15MB, split into chapters under 2MB each |
+| 9 | Graduate School office (thesis submission guidance) | Sangmyung University | South Korea | grad@smu.ac.kr | https://hss.smu.ac.kr/enggrad/thesis/submitthesis.do (footer: "MAIL. grad@smu.ac.kr") | Upload may fail over 20MB; advises converting BMP images to JPG or splitting the file |
+
+Considered and left out today: MBZUAI Library (no size limit stated), VUW Library (1 GB limit, weak fit), VIU CIEL (email on a different page from the guidance, second Canadian), FAMU Prague / Rzeszów / UNI Peru / UFMG / RMUTT / Universiti Malaya (email is the submission inbox), HKB Bern (role not stated), Aarhus, AHO, UiB, VIA, Kolding, SHU, Manitoba (general inboxes only), UMPRUM, PoliTo, Polimi, Málaga, Sevilla, PK Kraków, ASP Łódź, TU Wien, UPR Río Piedras, Massey, UTS, Auckland, UQ, UWA, Deakin, UMD, Purdue, UNN, UMT, AUC, Dhofar, UM Malang (no email on page), UGR, UC Chile, USM Chile, SLIIT, Makerere (pages too old), AUB, UFS, Guelph, XMU Malaysia, NTU Taiwan (weak fit, kept as possible backups).
+
+### 1. Josephine Hischke (Hochschule Wismar) – josephine.hischke@hs-wismar.de
+Subject: A free tool for the 10 MB Innenarchitektur portfolio PDF
+
+Hello Ms Hischke,
+
+We came across the portfolio tips for the BA Innenarchitektur at the Fakultät Gestaltung, where you are named as the contact for portfolio submission. Combining drawings, sketches and model photos into one PDF of no more than 10 MB is often the hardest technical step for applicants.
+
+Tools for World is a free website that merges files into one PDF and compresses PDFs and images, all inside the browser, so the applicant's work never leaves their own computer. No sign-up, no cost:
+
+https://toolsforworld.com/merge-pdf/
+https://toolsforworld.com/compress-pdf/
+
+If you think it would help, you're welcome to share it with applicants before the April deadline. Thank you for your time.
+
+The Tools for World team
+https://toolsforworld.com
+
+If you'd rather not hear from us again, just reply and let us know.
+
+### 2. Tatjana Van Overloop (LUCA School of Arts) – tatjana.vanoverloop@luca-arts.be
+Subject: A no-upload option for shrinking Visual Design admission files
+
+Hello Tatjana,
+
+We read the admission briefing for Visual Design at Campus Sint-Lucas Gent. It's helpful that it reminds applicants to check the 50 MB limit and points them to an online tool to make files smaller.
+
+One concern with many online compressors is that the applicant's work is uploaded to an outside server. Tools for World is a free PDF and image compressor that runs inside the browser, so the files never leave the applicant's own computer. No sign-up, no cost:
+
+https://toolsforworld.com/compress-pdf/
+https://toolsforworld.com/compress-image/
+
+If it seems useful, you're welcome to mention it in a future briefing or share it with applicants. Thank you for your time.
+
+The Tools for World team
+https://toolsforworld.com
+
+If you'd rather not hear from us again, just reply and let us know.
+
+### 3. University of Plymouth Faculty of Arts portfolio team – artsportfolio@plymouth.ac.uk
+Subject: A free tool for the 20MB architecture portfolio limit
+
+Hello,
+
+We read the applicant portfolio advice for BA (Hons) Architecture. Keeping a PDF of scans and photographs of 3D work under 20MB is exactly where many applicants struggle, and some end up uploading their portfolios to unknown converter sites to shrink them.
+
+Tools for World is a free website that compresses images and PDFs and combines photos into one PDF, all inside the browser, so the applicant's work stays on their own computer and is never uploaded. No sign-up, no cost:
+
+https://toolsforworld.com/compress-pdf/
+https://toolsforworld.com/jpg-to-pdf/
+
+If you think it would help, you're welcome to share it with applicants. Thank you for your time.
+
+The Tools for World team
+https://toolsforworld.com
+
+If you'd rather not hear from us again, just reply and let us know.
+
+### 4. Kaija Põder (Estonian Academy of Arts) – kaija.poder@artun.ee
+Subject: A free tool for the MA portfolio PDF limits
+
+Hello Kaija,
+
+We read the Admissions 2026/27 page for EKA's international programmes. Each programme sets its own portfolio limit, from 12 MB for Urban Studies to 20 MB for Interaction Design and 60 MB for Graphic Design, and getting an image-heavy portfolio under the right size can be tricky for applicants.
+
+Tools for World is a free PDF and image compressor that runs inside the browser, so the applicant's portfolio stays on their own computer and is never uploaded. No sign-up, no cost:
+
+https://toolsforworld.com/compress-pdf/
+
+If it seems useful, you're welcome to share it with applicants before the March DreamApply deadline. Thank you for your time.
+
+The Tools for World team
+https://toolsforworld.com
+
+If you'd rather not hear from us again, just reply and let us know.
+
+### 5. Shannon Criss (University of Kansas) – scriss@ku.edu
+Subject: A free tool for assembling the ARCH portfolio PDF
+
+Hello Professor Criss,
+
+We came across the Architecture Department's portfolio and studio documentation requirements, where you are listed as the contact for architecture students. Assembling a semester of studio work into a single letter-size PDF is a step many students find fiddly, especially when drawings and model photos come from different sources.
+
+Tools for World is a free website that merges files into one PDF, turns photos into PDF pages and compresses the result, all inside the browser, so the students' work never leaves their own computer. No sign-up, no cost:
+
+https://toolsforworld.com/merge-pdf/
+https://toolsforworld.com/jpg-to-pdf/
+
+If you think it would help, you're welcome to share it with students before the next portfolio deadline. Thank you for your time.
+
+The Tools for World team
+https://toolsforworld.com
+
+If you'd rather not hear from us again, just reply and let us know.
+
+### 6. University of Alberta IST eClass Support – eclass@ualberta.ca
+Subject: A free tool for the photo-to-PDF file size problem in eClass
+
+Hello eClass Support team,
+
+We read your article on submitting assignments in eClass. The note that photo-to-PDF conversions often bloat the file, and that the process only works for source files under 5MB, describes a problem students run into all the time.
+
+Tools for World is a free website that turns photos into a PDF and compresses PDFs to a target size, all inside the browser. The student's work stays on their own phone or computer and is never uploaded. No sign-up, no cost:
+
+https://toolsforworld.com/jpg-to-pdf/
+https://toolsforworld.com/compress-pdf-to-5mb/
+
+If it seems useful, you're welcome to add it to the article or share it with instructors. Thank you for your time.
+
+The Tools for World team
+https://toolsforworld.com
+
+If you'd rather not hear from us again, just reply and let us know.
+
+### 7. University of Johannesburg Library, ETD support – mlithole@uj.ac.za
+Subject: A free tool for the single-PDF, 25MB ETD rule
+
+Hello Ms Lithole,
+
+We read the UJ guidelines for submitting electronic theses and dissertations, where you are listed as a contact for assistance. The rules are clear: one single PDF, no password, and no more than 25MB. For theses with many scanned pages or images, getting there can be hard for students.
+
+Tools for World is a free website that merges files into one PDF and compresses PDFs, all inside the browser, so the student's thesis never leaves their own computer. No sign-up, no cost:
+
+https://toolsforworld.com/merge-pdf/
+https://toolsforworld.com/compress-pdf/
+
+If you think it would help, you're welcome to share it with postgraduate students. Thank you for your time.
+
+The Tools for World team
+https://toolsforworld.com
+
+If you'd rather not hear from us again, just reply and let us know.
+
+### 8. University of Calicut, C.H. Mohammed Koya Library – ul@uoc.ac.in
+Subject: A free tool for splitting PhD theses into 2MB chapter files
+
+Hello Library team,
+
+We read your checklist for submitting a PhD thesis to the library. The full PDF must stay under 15MB and each chapter file under 2MB, which means research scholars have to both split and compress their thesis.
+
+Tools for World is a free website that splits PDFs and compresses them to a target size, all inside the browser, so the thesis never leaves the scholar's own computer. No sign-up, no cost:
+
+https://toolsforworld.com/split-pdf/
+https://toolsforworld.com/compress-pdf-to-2mb/
+
+If it seems useful, you're welcome to share it with research scholars. Thank you for your time.
+
+The Tools for World team
+https://toolsforworld.com
+
+If you'd rather not hear from us again, just reply and let us know.
+
+### 9. Sangmyung University Graduate School – grad@smu.ac.kr
+Subject: A free tool for the 20MB thesis upload limit
+
+Hello,
+
+We read the Graduate School's English page on thesis submission. It explains that uploads may fail above 20MB and suggests converting BMP images to JPG, which is very practical advice for students with image-heavy theses.
+
+Tools for World is a free website that converts and compresses images and compresses PDFs, all inside the browser, so the student's thesis never leaves their own computer. No sign-up, no cost:
+
+https://toolsforworld.com/compress-pdf/
+https://toolsforworld.com/compress-image/
+
+If you think it would help, you're welcome to share it with graduate students. Thank you for your time.
+
+The Tools for World team
+https://toolsforworld.com
+
+If you'd rather not hear from us again, just reply and let us know.
