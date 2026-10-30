@@ -1170,3 +1170,132 @@ The Tools for World team
 https://toolsforworld.com
 
 If you'd rather not hear from us again, just reply and let us know.
+
+## Ready to send (2026-10-30)
+
+Gmail check 30 Oct (cloud run): NOT done. The Gmail connector needs to be reconnected (its sign-in expired), so replies to hello@ could not be checked this run. Nothing new marked from replies. Still pending from earlier runs: the 2026-10-25 list (8) and the 2026-10-29 list (9) are "Ready to send" (not yet approved); YSU (Joy Christiansen Erb) is approved but not sent. No backlink targets today (university targets only).
+
+| # | Name | University | Country | Email | Source page | Why |
+|---|---|---|---|---|---|---|
+| 1 | Dr Caroline Erolin, Reader, programme lead MSc Medical Art (Centre for Anatomy and Human Identification) | University of Dundee | UK (Scotland) | c.d.erolin@dundee.ac.uk | https://www.dundee.ac.uk/postgraduate/medical-art-pgdip/portfolio ("Any questions?" / "Portfolio guidance": c.d.erolin@dundee.ac.uk, Cloudflare-protected link decoded); same address under "Email" on her profile https://dundee.ac.uk/people/caroline-erolin (Reader; "programme lead for the MSc in Medical Art") | Medical Art PGDip portfolio: "one PDF document with up to 15 pages of work", "No more than 50MB", entry Sept 2027 |
+| 2 | School of Architecture office | Dalhousie University | Canada | arch.office@dal.ca | https://dal.ca/faculty/architecture-planning/school-of-architecture/programs/undergrad-application.html ("If you have a question or a problem uploading a file, please contact the Architecture office: arch.office@dal.ca.") | BEDS portfolio "in a single multi-page PDF, max. 20 MB"; page tells applicants to "adjust the resolution of your images first" |
+| 3 | IMD General Office, BComm (Hons) Interactive Media Publishing | Hong Kong Baptist University | Hong Kong | imd-imp@hkbu.edu.hk | https://imd.hkbu.edu.hk/content/dam/gda-assets/interative-media-publishing/IMP-Submission-Guidelines.pdf ("please contact IMD General Office at imd-imp@hkbu.edu.hk.") | Portfolio and letter of intent "merged into ONE PDF file", "kept below 50MB" |
+| 4 | OPEN FAU team (publication repository), University Library | Friedrich-Alexander-Universität Erlangen-Nürnberg (FAU) | Germany | ub-repo@fau.de (published as "ub-repo(at)fau.de") | https://ub.fau.de/en/faq/are-there-any-technical-specifications-for-my-file/ ("If you encounter technical difficulties uploading your documents, please complete the form ... and email your files to ub-repo(at)fau.de.") | Theses/publications as PDF/A; "The size of the file should be as small as possible. The system only accepts uploads of files of up to 60 MB." |
+| 5 | Kristoffer Sjolund, instructor, ME 1670 Introduction to Engineering Graphics and Design (Fall 2026) | Georgia Institute of Technology | USA | ksjolund3@gatech.edu | https://syllabus.gatech.edu/sites/default/files/2026-08/ME1670%20Syllabus%20Fall%202026_H_V1.pdf (Instructor: "Mr. Kristoffer Sjolund", "ksjolund3@gatech.edu") | "Sketch scans, Solidworks drawings, and written documents must be submitted as PDFs"; .heic and other formats get a 0 |
+| 6 | Manchester School of Architecture admissions (portfolio queries) | The University of Manchester | UK | msa.portfolios@manchester.ac.uk | https://www.humanities.manchester.ac.uk/architecture/study/digital-portfolio/ ("If you have any questions or difficulties putting together or uploading your portfolio, please contact msa.portfolios@manchester.ac.uk.") | BA Architecture portfolio: statement + 10-12 images of artwork as a single PDF, "maximum pdf file size ... 20mb" |
+
+Considered and left out today: Carleton M.Arch (no size limit, second Canadian), Georgia Tech Architecture (no email), UF SA+AH and UIC Architecture (no email), Sheffield architecture (no email), SETU Wexford (submission inbox, cycle closed), NCAD (asks applicants NOT to compress), London Met (2017 page, no email), DJCAD foundation (second Dundee target today), PUT Poznań, Willamette, Dundee app-support (general/unclear-role inboxes only), MIA Malaysia (private college, 2023 doc), Pforzheim and Lund DAEF (old cycles, no email), PolyU (already contacted), CityU SCM (2015 doc), NAFA, Edge Hill animation, OSU CEAT, UV Xalapa (submission inboxes), Mount Holyoke EdTech (says limits are sufficient), FAU Florida, Newcastle AU, Wesleyan, CUNY GC (no email), ANU ARIES (staff research system), KCL NMPC ePortfolio (no file guidance), Sabancı (job posting), Bilgi, Yaşar (no email/rules), CUHK SCS (login page), UM Macau, UMT, SOU (no email), NBU CDOE (2021 doc), Málaga (no email).
+
+### 1. Dr Caroline Erolin (University of Dundee) – c.d.erolin@dundee.ac.uk
+Subject: A free tool for the 50MB Medical Art portfolio PDF
+
+Hello Dr Erolin,
+
+We came across the portfolio page for the Medical Art PGDip, where you are the contact for portfolio guidance. Bringing up to 15 pages of drawings, digital work and photographed pieces into one PDF under 50MB is a step some applicants find tricky, and many end up using unknown converter sites to get there.
+
+Tools for World is a free website that turns images into PDF pages and compresses PDFs and images, all inside the browser, so the applicant's artwork never leaves their own computer. No sign-up, no cost:
+
+https://toolsforworld.com/jpg-to-pdf/
+https://toolsforworld.com/compress-pdf/
+
+If you think it would help, you're welcome to share it with applicants or students. Thank you for your time.
+
+The Tools for World team
+https://toolsforworld.com
+
+If you'd rather not hear from us again, just reply and let us know.
+
+### 2. Dalhousie University School of Architecture office – arch.office@dal.ca
+Subject: A free tool for the 20 MB BEDS portfolio PDF
+
+Hello,
+
+We read the undergraduate application page for the School of Architecture. The advice to adjust image resolution first, so the single portfolio PDF stays under 20 MB, is exactly right, though it is the step many applicants aren't sure how to do.
+
+Tools for World is a free website that resizes and compresses images and compresses PDFs, all inside the browser, so the applicant's drawings and photos never leave their own computer. No sign-up, no cost:
+
+https://toolsforworld.com/compress-image/
+https://toolsforworld.com/compress-pdf/
+
+If it seems useful, you're welcome to point applicants to it when they ask about upload problems. Thank you for your time.
+
+The Tools for World team
+https://toolsforworld.com
+
+If you'd rather not hear from us again, just reply and let us know.
+
+### 3. HKBU IMD General Office – imd-imp@hkbu.edu.hk
+Subject: A free tool for merging the IMP portfolio into one PDF
+
+Hello IMD General Office team,
+
+We read the submission guidelines for the Interactive Media Publishing programme. Merging the portfolio and the letter of intent into one PDF and keeping it below 50MB is a clear rule, but it is often where applicants get stuck, especially with image-heavy projects.
+
+Tools for World is a free website that merges files into one PDF and compresses PDFs, all inside the browser, so the applicant's work stays on their own computer and is never uploaded. No sign-up, no cost:
+
+https://toolsforworld.com/merge-pdf/
+https://toolsforworld.com/compress-pdf/
+
+If you think it would help, you're welcome to share it with applicants. Thank you for your time.
+
+The Tools for World team
+https://toolsforworld.com
+
+If you'd rather not hear from us again, just reply and let us know.
+
+### 4. OPEN FAU team, FAU University Library – ub-repo@fau.de
+Subject: A free tool for keeping thesis files under the 60 MB upload limit
+
+Hello OPEN FAU team,
+
+We read your FAQ on technical specifications for publication files. The note that files should be as small as possible, with uploads limited to 60 MB, matters most for theses full of photos, scans and figures.
+
+Tools for World is a free website that resizes and compresses images inside the browser, so authors can shrink their figures before building the final PDF. Nothing is uploaded: the files stay on the author's own computer. No sign-up, no cost:
+
+https://toolsforworld.com/compress-image/
+https://toolsforworld.com/resize-image/
+
+If it seems useful, you're welcome to mention it to students who ask about large files. Thank you for your time.
+
+The Tools for World team
+https://toolsforworld.com
+
+If you'd rather not hear from us again, just reply and let us know.
+
+### 5. Kristoffer Sjolund (Georgia Tech) – ksjolund3@gatech.edu
+Subject: A free way for ME 1670 students to turn sketch photos into PDFs
+
+Hello Mr. Sjolund,
+
+We came across the Fall 2026 syllabus for ME 1670 Introduction to Engineering Graphics and Design. Since sketch scans must be submitted as PDFs and files like .heic can end up with a zero, some students may need a quick way to turn phone photos of their sketches into a proper PDF.
+
+Tools for World is a free website that converts HEIC or JPG photos into one PDF, all inside the browser, so the students' work never leaves their own phone or computer. No sign-up, no cost:
+
+https://toolsforworld.com/heic-to-pdf/
+https://toolsforworld.com/jpg-to-pdf/
+
+If it seems useful, feel free to share it with your students or add it to the course resources. Thank you for your time.
+
+The Tools for World team
+https://toolsforworld.com
+
+If you'd rather not hear from us again, just reply and let us know.
+
+### 6. Manchester School of Architecture admissions – msa.portfolios@manchester.ac.uk
+Subject: A free tool for the 20mb BA Architecture portfolio PDF
+
+Hello,
+
+We read the digital portfolio page for BA Architecture. Putting a statement and 10 to 12 images of artwork into one PDF under 20mb is simple on paper, but full-size photos of drawings and models quickly push the file over the limit.
+
+Tools for World is a free website that turns images into one PDF and compresses PDFs and images, all inside the browser, so the applicant's work never leaves their own computer. No sign-up, no cost:
+
+https://toolsforworld.com/jpg-to-pdf/
+https://toolsforworld.com/compress-pdf/
+
+If you think it would help, you're welcome to share it with applicants who contact you about their portfolios. Thank you for your time.
+
+The Tools for World team
+https://toolsforworld.com
+
+If you'd rather not hear from us again, just reply and let us know.
