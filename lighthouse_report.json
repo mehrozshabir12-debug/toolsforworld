@@ -1,0 +1,218 @@
+{
+ "local:mobile:/": {
+  "performance": 100,
+  "accessibility": 100,
+  "best-practices": 96,
+  "seo": 100,
+  "LCP_s": 1.08,
+  "CLS": 0,
+  "TBT_ms": 0,
+  "FCP_s": 0.99,
+  "bytes_kb": 184,
+  "weak_audits": [
+   "errors-in-console",
+   "td-has-header",
+   "uses-long-cache-ttl",
+   "unused-css-rules",
+   "uses-text-compression"
+  ]
+ },
+ "local:mobile:/pdf-to-word/": {
+  "performance": 100,
+  "accessibility": 100,
+  "best-practices": 96,
+  "seo": 100,
+  "LCP_s": 1.07,
+  "CLS": 0.0,
+  "TBT_ms": 0,
+  "FCP_s": 1.07,
+  "bytes_kb": 215,
+  "weak_audits": [
+   "errors-in-console",
+   "uses-long-cache-ttl",
+   "unused-css-rules",
+   "unused-javascript",
+   "uses-text-compression"
+  ]
+ },
+ "local:mobile:/compress-image/": {
+  "performance": 100,
+  "accessibility": 100,
+  "best-practices": 96,
+  "seo": 100,
+  "LCP_s": 1.53,
+  "CLS": 0,
+  "TBT_ms": 0,
+  "FCP_s": 1.53,
+  "bytes_kb": 217,
+  "weak_audits": [
+   "errors-in-console",
+   "uses-long-cache-ttl",
+   "unused-css-rules",
+   "unused-javascript",
+   "uses-text-compression"
+  ]
+ },
+ "local:mobile:/remove-background/": {
+  "performance": 100,
+  "accessibility": 100,
+  "best-practices": 96,
+  "seo": 100,
+  "LCP_s": 1.53,
+  "CLS": 0.0,
+  "TBT_ms": 0,
+  "FCP_s": 1.53,
+  "bytes_kb": 214,
+  "weak_audits": [
+   "errors-in-console",
+   "uses-long-cache-ttl",
+   "unused-css-rules",
+   "unused-javascript",
+   "uses-text-compression"
+  ]
+ },
+ "local:mobile:/word-counter/": {
+  "performance": 100,
+  "accessibility": 100,
+  "best-practices": 96,
+  "seo": 100,
+  "LCP_s": 0.92,
+  "CLS": 0.018,
+  "TBT_ms": 0,
+  "FCP_s": 0.92,
+  "bytes_kb": 175,
+  "weak_audits": [
+   "errors-in-console",
+   "uses-long-cache-ttl",
+   "unminified-javascript",
+   "unused-css-rules",
+   "uses-text-compression"
+  ]
+ },
+ "local:mobile:/compress-pdf-to-200kb/": {
+  "performance": 100,
+  "accessibility": 100,
+  "best-practices": 96,
+  "seo": 100,
+  "LCP_s": 1.53,
+  "CLS": 0.0,
+  "TBT_ms": 0,
+  "FCP_s": 1.53,
+  "bytes_kb": 214,
+  "weak_audits": [
+   "errors-in-console",
+   "uses-long-cache-ttl",
+   "unused-css-rules",
+   "unused-javascript",
+   "uses-text-compression"
+  ]
+ },
+ "local:desktop:/": {
+  "performance": 99,
+  "accessibility": 100,
+  "best-practices": 96,
+  "seo": 100,
+  "LCP_s": 0.75,
+  "CLS": 0,
+  "TBT_ms": 0,
+  "FCP_s": 0.75,
+  "bytes_kb": 185,
+  "weak_audits": [
+   "errors-in-console",
+   "td-has-header",
+   "uses-long-cache-ttl",
+   "unused-css-rules",
+   "uses-text-compression"
+  ]
+ },
+ "local:desktop:/pdf-to-word/": {
+  "performance": 100,
+  "accessibility": 100,
+  "best-practices": 96,
+  "seo": 100,
+  "LCP_s": 0.45,
+  "CLS": 0.0,
+  "TBT_ms": 0,
+  "FCP_s": 0.45,
+  "bytes_kb": 215,
+  "weak_audits": [
+   "errors-in-console",
+   "uses-long-cache-ttl",
+   "unused-css-rules",
+   "unused-javascript",
+   "uses-text-compression"
+  ]
+ },
+ "local:desktop:/compress-image/": {
+  "performance": 100,
+  "accessibility": 100,
+  "best-practices": 96,
+  "seo": 100,
+  "LCP_s": 0.43,
+  "CLS": 0,
+  "TBT_ms": 0,
+  "FCP_s": 0.43,
+  "bytes_kb": 217,
+  "weak_audits": [
+   "errors-in-console",
+   "uses-long-cache-ttl",
+   "unused-css-rules",
+   "unused-javascript",
+   "uses-text-compression"
+  ]
+ },
+ "local:desktop:/remove-background/": {
+  "performance": 100,
+  "accessibility": 100,
+  "best-practices": 96,
+  "seo": 100,
+  "LCP_s": 0.43,
+  "CLS": 0.0,
+  "TBT_ms": 0,
+  "FCP_s": 0.43,
+  "bytes_kb": 214,
+  "weak_audits": [
+   "errors-in-console",
+   "uses-long-cache-ttl",
+   "unused-css-rules",
+   "unused-javascript",
+   "uses-text-compression"
+  ]
+ },
+ "local:desktop:/word-counter/": {
+  "performance": 100,
+  "accessibility": 100,
+  "best-practices": 96,
+  "seo": 100,
+  "LCP_s": 0.43,
+  "CLS": 0.039,
+  "TBT_ms": 0,
+  "FCP_s": 0.43,
+  "bytes_kb": 176,
+  "weak_audits": [
+   "errors-in-console",
+   "uses-long-cache-ttl",
+   "unminified-javascript",
+   "unused-css-rules",
+   "uses-text-compression"
+  ]
+ },
+ "local:desktop:/compress-pdf-to-200kb/": {
+  "performance": 100,
+  "accessibility": 100,
+  "best-practices": 96,
+  "seo": 100,
+  "LCP_s": 0.43,
+  "CLS": 0.0,
+  "TBT_ms": 0,
+  "FCP_s": 0.43,
+  "bytes_kb": 214,
+  "weak_audits": [
+   "errors-in-console",
+   "uses-long-cache-ttl",
+   "unused-css-rules",
+   "unused-javascript",
+   "uses-text-compression"
+  ]
+ }
+}
