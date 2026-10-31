@@ -1299,3 +1299,133 @@ The Tools for World team
 https://toolsforworld.com
 
 If you'd rather not hear from us again, just reply and let us know.
+
+## Ready to send (2026-10-31)
+
+Gmail check 31 Oct (cloud run): NOT done. The Gmail connector needs to be reconnected (its sign-in has expired), so replies to hello@ could not be checked this run. Nothing new marked from replies. Still pending from earlier runs: the 2026-10-25 list (8), 2026-10-29 list (9) and 2026-10-30 list (6) are "Ready to send" (not yet approved); YSU (Joy Christiansen Erb) is approved but not sent. No backlink targets today (university targets only).
+
+| # | Name | University | Country | Email | Source page | Why |
+|---|---|---|---|---|---|---|
+| 1 | Academic Services (master's thesis digital deposit), Barcelona School of Civil Engineering (Camins) | Universitat Politècnica de Catalunya (UPC) | Spain | masters.camins@upc.edu | https://camins.upc.edu/en/apply/thesis-deposit (under "Send an e-mail to the Academic Services" for a "Digital Deposit Incident") | Thesis "1 file, maximum 40 MB (pdf format)"; summary images "maximum size of 10 MB"; plans from DIN A0 to A4 |
+| 2 | Mag.a Elisabeth Egger-Mann, admission and portfolio contact, BA Grafik-Design und Fotografie | Kunstuniversität Linz | Austria | elisabeth.egger-mann@kunstuni-linz.at | https://www.kunstuni-linz.at/fileadmin/media/institute/medien/abteilungen/grafik_design_fotografie/bachelorstudium/BA_ZULA_2026_Klausuraufgabe.pdf ("Bei Fragen zum Aufnahmeverfahren oder Portfolio wenden Sie sich bitte an: Mag.a Elisabeth Egger-Mann ... elisabeth.egger-mann@kunstuni-linz.at"); also on https://openday.kunstuni-linz.at/en/studienrichtung/grafik-design-und-fotografie/ | Admission 2026/27: portfolio of up to 25 works uploaded as PDF ("Nachname_Vorname_GDF_portfolio.pdf"); no MB limit stated |
+| 3 | International Program office, Faculty of Communication Arts | Chulalongkorn University | Thailand | inter.commarts@chula.ac.th | https://www.inter.commarts.chula.ac.th/admissions-ba (contact block: "Email: inter.commarts@chula.ac.th") | BA E-Portfolio: "The maximum file size is10 MB", uploaded with the application form |
+| 4 | Tun Dr Lim Chong Eu Library (Turnitin guidance) | Wawasan Open University (distance learning) | Malaysia | library@wou.edu.my | https://lib.wou.edu.my/cgi-bin/koha/opac-page.pl?page_id=23 (page contact block: "library@wou.edu.my") | "Turnitin only accepts document size limit of not more than 20 MB"; open to WOU staff, tutors and students |
+| 5 | PPGDg office (coordinator Prof. Dr. Denilson Moreira Santos), Master's in Design | Universidade Federal do Maranhão (UFMA) | Brazil | ppgdg.ccet@ufma.br | https://www.ppgdg.ufma.br/wp-content/uploads/2026/01/EDITAL-SELETIVO-PPGDg-DESIGN-2026.pdf ("Outras informações poderão ser obtidas pelo e-mail do PPGDg: ppgdg.ccet@ufma.br."), signed 08 Jan 2026 | Scanned documents "em formato PDF, e cada documento não deve ultrapassar 5Mb" |
+| 6 | Maestría en Diseño y Comunicación Visual admissions (Posgrado en Artes y Diseño) | UNAM | Mexico | ingreso.disenoycomunicacionvisual@posgrado.unam.mx | https://posgrado.unam.mx/artesydiseno/documentos/instructivo-20261-mae_536397576.pdf (under "Aclaraciones y dudas" and "Informes generales – Correos electrónicos") | Portfolio of 15-20 images as PDF "que no sobrepase 20 Megabytes"; photo jpg/png max 1.5 MB |
+
+Considered and left out today: Helsinki E-thesis (PDF/A rule only, no size issue), UCD APEP (school inbox, no MB figure), IUB Bangladesh library (Turnitin page mostly for faculty accounts), Waikato Research Commons (no size rule), Rwanda repository (submission inbox, no rule), ZHdK (no email), OsloMet film (role unconfirmed), Rietveld, AvB, SDU, Royal Danish Academy, Galway, Koç (generic inboxes), Tampere (second Finnish), Limerick, AAU, Óbuda, ASP Katowice, Hanken, Maynooth, USI, IPLeiria, KNUST, Otago, Lincoln, UC Canterbury, UCN, UFC, Externado, Uniagraria (no email on page), IADT, ATU Galway, Otago Polytechnic, Busitema, U. de Chile, U. Central, UTPL, U. of Ghana (submission inboxes), Khalifa (2019, marketing inbox), AUS, KAUST, HBKU, QU, KFUPM, Sunway, UiTM, Colombo, IIT Indore, METU, MUIC, RMIT Vietnam, NUST, MMU, Taylor's, NTHU, UCR Costa Rica (no file rule or no email).
+
+### 1. UPC Camins Academic Services – masters.camins@upc.edu
+Subject: A free tool for the 40 MB thesis deposit limit
+
+Hello,
+
+We read the thesis deposit page for the Barcelona School of Civil Engineering. With plans anywhere from DIN A0 to A4, fitting the thesis into one PDF of 40 MB, plus summary images under 10 MB, is a step where many students get stuck, and some end up uploading their work to unknown converter sites.
+
+Tools for World is a free website that compresses PDFs and images inside the browser, so the student's thesis files never leave their own computer. No sign-up, no cost:
+
+https://toolsforworld.com/compress-pdf/
+https://toolsforworld.com/compress-image/
+
+If it seems useful, you're welcome to mention it to students who contact you about deposit problems. Thank you for your time.
+
+The Tools for World team
+https://toolsforworld.com
+
+If you'd rather not hear from us again, just reply and let us know.
+
+### 2. Elisabeth Egger-Mann (Kunstuniversität Linz) – elisabeth.egger-mann@kunstuni-linz.at
+Subject: A free tool for preparing the Grafik-Design und Fotografie portfolio PDF
+
+Hello Ms Egger-Mann,
+
+We came across the 2026/27 admission task for the BA Grafik-Design und Fotografie, where you are named as the contact for questions about the portfolio. Bringing up to 25 works, many of them photographs, into one PDF for upload is often the most technical part for applicants, and some turn to unknown converter sites to do it.
+
+Tools for World is a free website that turns images into one PDF, merges PDFs and compresses files, all inside the browser, so the applicant's work never leaves their own computer. No sign-up, no cost:
+
+https://toolsforworld.com/jpg-to-pdf/
+https://toolsforworld.com/compress-pdf/
+
+If you think it would help, you're welcome to share it with applicants. Thank you for your time.
+
+The Tools for World team
+https://toolsforworld.com
+
+If you'd rather not hear from us again, just reply and let us know.
+
+### 3. Chulalongkorn Communication Arts International Program – inter.commarts@chula.ac.th
+Subject: A free tool for the 10 MB E-Portfolio limit
+
+Hello,
+
+We read the BA admissions page of the Faculty of Communication Arts. Fitting a personal statement, original communication works and certificates into one E-Portfolio of no more than 10 MB is a step where many applicants get stuck, especially with image-heavy work.
+
+Tools for World is a free website that combines images into a PDF and compresses PDFs and images, all inside the browser, so the applicant's files never leave their own computer. No sign-up, no cost:
+
+https://toolsforworld.com/jpg-to-pdf/
+https://toolsforworld.com/compress-pdf/
+
+If it seems useful, you're welcome to point applicants to it when they ask about file size. Thank you for your time.
+
+The Tools for World team
+https://toolsforworld.com
+
+If you'd rather not hear from us again, just reply and let us know.
+
+### 4. Wawasan Open University Library – library@wou.edu.my
+Subject: A free tool for keeping Turnitin files under 20 MB
+
+Hello WOU Library team,
+
+We read your Turnitin guide, which notes that documents must be no larger than 20 MB. For distance learners whose assignments include scanned pages or photos, that limit is easy to go over, and many students end up uploading their work to unknown converter sites to shrink it.
+
+Tools for World is a free website that compresses PDFs and images inside the browser, so the student's assignment never leaves their own computer. No sign-up, no cost:
+
+https://toolsforworld.com/compress-pdf/
+https://toolsforworld.com/compress-image/
+
+If it seems useful, you're welcome to add it to the guide or share it with students. Thank you for your time.
+
+The Tools for World team
+https://toolsforworld.com
+
+If you'd rather not hear from us again, just reply and let us know.
+
+### 5. UFMA PPGDg (Master's in Design) – ppgdg.ccet@ufma.br
+Subject: A free tool for the 5MB document limit in the PPGDg selection
+
+Hello,
+
+We read the 2026 selection call for the Master's in Design (PPGDg), which asks for scanned documents in PDF with each file no larger than 5MB. Phone scans often come out much bigger than that, and applicants sometimes end up using unknown converter sites to shrink them.
+
+Tools for World is a free website that turns photos into PDF and compresses PDFs to a target size, all inside the browser, so the applicant's documents never leave their own computer. No sign-up, no cost:
+
+https://toolsforworld.com/compress-pdf-to-5mb/
+https://toolsforworld.com/jpg-to-pdf/
+
+If it seems useful, you're welcome to point applicants to it in a future call. Thank you for your time.
+
+The Tools for World team
+https://toolsforworld.com
+
+If you'd rather not hear from us again, just reply and let us know.
+
+### 6. UNAM Maestría en Diseño y Comunicación Visual – ingreso.disenoycomunicacionvisual@posgrado.unam.mx
+Subject: A free tool for the 20 MB portfolio PDF
+
+Hello,
+
+We read the admission instructions for the Maestría en Diseño y Comunicación Visual. A portfolio of 15 to 20 images in one PDF under 20 MB, plus a photo under 1.5 MB, is clear, but it is often where applicants get stuck, and some upload their work to unknown converter sites to make it fit.
+
+Tools for World is a free website that turns images into one PDF and compresses PDFs and images, all inside the browser, so the applicant's work never leaves their own computer. No sign-up, no cost:
+
+https://toolsforworld.com/jpg-to-pdf/
+https://toolsforworld.com/compress-pdf/
+https://toolsforworld.com/compress-image/
+
+If it seems useful, you're welcome to share it with applicants. Thank you for your time.
+
+The Tools for World team
+https://toolsforworld.com
+
+If you'd rather not hear from us again, just reply and let us know.
