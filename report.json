@@ -1,0 +1,428 @@
+{
+ "compress-image": {
+  "ok": true,
+  "status": "Done. photo.jpg: 127 KB \u2192 71 KB",
+  "out": "photo-compressed.jpg | 71 KB | Download",
+  "download_bytes": 72261,
+  "page_errors": [
+   "console: Access to XMLHttpRequest at 'https://cloudflareinsights.com/cdn-cgi/rum' from origin 'http://localhost:8000' has been blocked by CORS policy: Response to preflight request doesn't pass access control ",
+   "console: Failed to load resource: net::ERR_FAILED"
+  ],
+  "seconds": 1.5
+ },
+ "compress-image-to-50kb": {
+  "ok": true,
+  "status": "Done. photo.jpg: 127 KB \u2192 49 KB (target 50 KB, 1600\u00d71000)",
+  "out": "photo-compressed.jpg | 49 KB | Download",
+  "download_bytes": 50199,
+  "page_errors": [
+   "console: Access to XMLHttpRequest at 'https://cloudflareinsights.com/cdn-cgi/rum' from origin 'http://localhost:8000' has been blocked by CORS policy: Response to preflight request doesn't pass access control ",
+   "console: Failed to load resource: net::ERR_FAILED"
+  ],
+  "seconds": 1.6
+ },
+ "resize-image-to-1080x1920": {
+  "ok": true,
+  "status": "Done. Your files are ready below.",
+  "out": "photo-1080x1920.jpg | 103 KB | Download",
+  "download_bytes": 105628,
+  "page_errors": [
+   "console: Access to XMLHttpRequest at 'https://cloudflareinsights.com/cdn-cgi/rum' from origin 'http://localhost:8000' has been blocked by CORS policy: Response to preflight request doesn't pass access control ",
+   "console: Failed to load resource: net::ERR_FAILED"
+  ],
+  "seconds": 1.3
+ },
+ "resize-image": {
+  "ok": true,
+  "status": "Done. Your files are ready below.",
+  "out": "photo-800x500.jpg | 49 KB | Download",
+  "download_bytes": 49919,
+  "page_errors": [
+   "console: Access to XMLHttpRequest at 'https://cloudflareinsights.com/cdn-cgi/rum' from origin 'http://localhost:8000' has been blocked by CORS policy: Response to preflight request doesn't pass access control ",
+   "console: Failed to load resource: net::ERR_FAILED"
+  ],
+  "seconds": 1.3
+ },
+ "png-to-jpg": {
+  "ok": true,
+  "status": "Done. Your files are ready below.",
+  "out": "photo.jpg | 94 KB | Download",
+  "download_bytes": 96228,
+  "page_errors": [
+   "console: Access to XMLHttpRequest at 'https://cloudflareinsights.com/cdn-cgi/rum' from origin 'http://localhost:8000' has been blocked by CORS policy: Response to preflight request doesn't pass access control ",
+   "console: Failed to load resource: net::ERR_FAILED"
+  ],
+  "seconds": 1.3
+ },
+ "jpg-to-png": {
+  "ok": true,
+  "status": "Done. Your files are ready below.",
+  "out": "photo.png | 180 KB | Download",
+  "download_bytes": 184537,
+  "page_errors": [
+   "console: Access to XMLHttpRequest at 'https://cloudflareinsights.com/cdn-cgi/rum' from origin 'http://localhost:8000' has been blocked by CORS policy: Response to preflight request doesn't pass access control ",
+   "console: Failed to load resource: net::ERR_FAILED"
+  ],
+  "seconds": 1.3
+ },
+ "webp-to-jpg": {
+  "ok": true,
+  "status": "Done. Your files are ready below.",
+  "out": "photo.jpg | 111 KB | Download",
+  "download_bytes": 113934,
+  "page_errors": [
+   "console: Access to XMLHttpRequest at 'https://cloudflareinsights.com/cdn-cgi/rum' from origin 'http://localhost:8000' has been blocked by CORS policy: Response to preflight request doesn't pass access control ",
+   "console: Failed to load resource: net::ERR_FAILED"
+  ],
+  "seconds": 1.3
+ },
+ "heic-to-jpg": {
+  "ok": true,
+  "status": "Done. Your files are ready below.",
+  "out": "photo.jpg | 98 KB | Download",
+  "download_bytes": 100013,
+  "page_errors": [
+   "console: Access to XMLHttpRequest at 'https://cloudflareinsights.com/cdn-cgi/rum' from origin 'http://localhost:8000' has been blocked by CORS policy: Response to preflight request doesn't pass access control ",
+   "console: Failed to load resource: net::ERR_FAILED"
+  ],
+  "seconds": 1.5
+ },
+ "passport-photo-maker": {
+  "ok": true,
+  "status": "Done. Your files are ready below.",
+  "out": "passport-photo.jpg | 33 KB | Download | passport-sheet-4x6.jpg | 220 KB | Download | Download all (2 files, .zip)",
+  "download_bytes": 33517,
+  "page_errors": [
+   "console: Access to XMLHttpRequest at 'https://cloudflareinsights.com/cdn-cgi/rum' from origin 'http://localhost:8000' has been blocked by CORS policy: Response to preflight request doesn't pass access control ",
+   "console: Failed to load resource: net::ERR_FAILED"
+  ],
+  "seconds": 1.3
+ },
+ "jpg-to-pdf": {
+  "ok": true,
+  "status": "Done. Your files are ready below.",
+  "out": "images.pdf | 128 KB | Download",
+  "download_bytes": 131423,
+  "page_errors": [
+   "console: Access to XMLHttpRequest at 'https://cloudflareinsights.com/cdn-cgi/rum' from origin 'http://localhost:8000' has been blocked by CORS policy: Response to preflight request doesn't pass access control ",
+   "console: Failed to load resource: net::ERR_FAILED"
+  ],
+  "seconds": 1.3
+ },
+ "jpg-to-pdf-under-200kb": {
+  "ok": true,
+  "status": "Done. PDF is 128 KB, already under 200 KB at full quality.",
+  "out": "images.pdf | 128 KB | Download",
+  "download_bytes": 131424,
+  "page_errors": [
+   "console: Access to XMLHttpRequest at 'https://cloudflareinsights.com/cdn-cgi/rum' from origin 'http://localhost:8000' has been blocked by CORS policy: Response to preflight request doesn't pass access control ",
+   "console: Failed to load resource: net::ERR_FAILED"
+  ],
+  "seconds": 1.3
+ },
+ "merge-pdf": {
+  "ok": true,
+  "status": "Done. Your files are ready below.",
+  "out": "merged.pdf | 258 KB | Download",
+  "download_bytes": 264039,
+  "page_errors": [
+   "console: Access to XMLHttpRequest at 'https://cloudflareinsights.com/cdn-cgi/rum' from origin 'http://localhost:8000' has been blocked by CORS policy: Response to preflight request doesn't pass access control ",
+   "console: Failed to load resource: net::ERR_FAILED"
+  ],
+  "seconds": 1.6
+ },
+ "split-pdf": {
+  "ok": true,
+  "status": "Done. Your files are ready below.",
+  "out": "doc-pages.pdf | 129 KB | Download",
+  "download_bytes": 132176,
+  "page_errors": [
+   "console: Access to XMLHttpRequest at 'https://cloudflareinsights.com/cdn-cgi/rum' from origin 'http://localhost:8000' has been blocked by CORS policy: Response to preflight request doesn't pass access control ",
+   "console: Failed to load resource: net::ERR_FAILED"
+  ],
+  "seconds": 1.5
+ },
+ "pdf-to-jpg": {
+  "ok": true,
+  "status": "Done. Your files are ready below.",
+  "out": "doc-page-1.jpg | 130 KB | Download | doc-page-2.jpg | 130 KB | Download | doc-page-3.jpg | 130 KB | Download | Download all (3 files, .zip)",
+  "download_bytes": 132703,
+  "page_errors": [
+   "console: Access to XMLHttpRequest at 'https://cloudflareinsights.com/cdn-cgi/rum' from origin 'http://localhost:8000' has been blocked by CORS policy: Response to preflight request doesn't pass access control ",
+   "console: Failed to load resource: net::ERR_FAILED"
+  ],
+  "seconds": 1.6
+ },
+ "compress-pdf": {
+  "ok": true,
+  "status": "1.52 MB \u2192 534 KB (66% smaller)",
+  "out": "scan-compressed.pdf | 534 KB | Download",
+  "download_bytes": 546931,
+  "page_errors": [
+   "console: Access to XMLHttpRequest at 'https://cloudflareinsights.com/cdn-cgi/rum' from origin 'http://localhost:8000' has been blocked by CORS policy: Response to preflight request doesn't pass access control ",
+   "console: Failed to load resource: net::ERR_FAILED"
+  ],
+  "seconds": 2.0
+ },
+ "pdf-to-word": {
+  "ok": true,
+  "status": "Done. Your files are ready below.",
+  "out": "doc.docx | 4 KB | Download",
+  "download_bytes": 4255,
+  "docx_has_text": true,
+  "page_errors": [
+   "console: Access to XMLHttpRequest at 'https://cloudflareinsights.com/cdn-cgi/rum' from origin 'http://localhost:8000' has been blocked by CORS policy: Response to preflight request doesn't pass access control ",
+   "console: Failed to load resource: net::ERR_FAILED"
+  ],
+  "seconds": 1.4
+ },
+ "word-to-pdf": {
+  "ok": true,
+  "status": "Done. Your files are ready below.",
+  "out": "doc.pdf | 100 KB | Download",
+  "download_bytes": 102021,
+  "page_errors": [
+   "console: Access to XMLHttpRequest at 'https://cloudflareinsights.com/cdn-cgi/rum' from origin 'http://localhost:8000' has been blocked by CORS policy: Response to preflight request doesn't pass access control ",
+   "console: Failed to load resource: net::ERR_FAILED"
+  ],
+  "seconds": 1.6
+ },
+ "image-to-text": {
+  "ok": true,
+  "status": "Done. Your files are ready below.",
+  "out": "photo.txt | 0 KB | Download",
+  "download_bytes": 36,
+  "ocr_text": "Tools for World \u00ae\nFree online tools",
+  "page_errors": [
+   "console: Access to XMLHttpRequest at 'https://cloudflareinsights.com/cdn-cgi/rum' from origin 'http://localhost:8000' has been blocked by CORS policy: Response to preflight request doesn't pass access control ",
+   "console: Failed to load resource: net::ERR_FAILED"
+  ],
+  "seconds": 1.9
+ },
+ "mp4-to-mp3": {
+  "ok": true,
+  "status": "Done. Your files are ready below.",
+  "out": "video.mp3 | 141 KB | Download",
+  "download_bytes": 144822,
+  "page_errors": [
+   "console: Access to XMLHttpRequest at 'https://cloudflareinsights.com/cdn-cgi/rum' from origin 'http://localhost:8000' has been blocked by CORS policy: Response to preflight request doesn't pass access control ",
+   "console: Failed to load resource: net::ERR_FAILED"
+  ],
+  "seconds": 1.5
+ },
+ "remove-background": {
+  "ok": true,
+  "status": "Done. Your files are ready below.",
+  "out": "photo-no-background.png | 185 KB | Download",
+  "download_bytes": 189906,
+  "page_errors": [
+   "console: Access to XMLHttpRequest at 'https://cloudflareinsights.com/cdn-cgi/rum' from origin 'http://localhost:8000' has been blocked by CORS policy: Response to preflight request doesn't pass access control ",
+   "console: Failed to load resource: net::ERR_FAILED",
+   "console: env.wasm.numThreads is set to 4, but this will not work unless you enable crossOriginIsolated mode. See https://web.dev/cross-origin-isolation-guide/ for more info.",
+   "console: WebAssembly multi-threading is not supported in the current environment. Falling back to single-threading."
+  ],
+  "seconds": 12.6
+ },
+ "jfif-to-jpg": {
+  "ok": true,
+  "status": "Done. Your files are ready below.",
+  "out": "photo.jpg | 127 KB | Download",
+  "download_bytes": 130441,
+  "page_errors": [
+   "console: Access to XMLHttpRequest at 'https://cloudflareinsights.com/cdn-cgi/rum' from origin 'http://localhost:8000' has been blocked by CORS policy: Response to preflight request doesn't pass access control ",
+   "console: Failed to load resource: net::ERR_FAILED"
+  ],
+  "seconds": 1.3
+ },
+ "jpeg-to-jpg": {
+  "ok": true,
+  "status": "Done. Your files are ready below.",
+  "out": "photo.jpg | 127 KB | Download",
+  "download_bytes": 130441,
+  "page_errors": [
+   "console: Access to XMLHttpRequest at 'https://cloudflareinsights.com/cdn-cgi/rum' from origin 'http://localhost:8000' has been blocked by CORS policy: Response to preflight request doesn't pass access control ",
+   "console: Failed to load resource: net::ERR_FAILED"
+  ],
+  "seconds": 1.3
+ },
+ "txt-to-pdf": {
+  "ok": true,
+  "status": "Done. Your files are ready below.",
+  "out": "notes.pdf | 4 KB | Download",
+  "download_bytes": 4129,
+  "page_errors": [
+   "console: Access to XMLHttpRequest at 'https://cloudflareinsights.com/cdn-cgi/rum' from origin 'http://localhost:8000' has been blocked by CORS policy: Response to preflight request doesn't pass access control ",
+   "console: Failed to load resource: net::ERR_FAILED"
+  ],
+  "seconds": 1.3
+ },
+ "heic-to-pdf": {
+  "ok": true,
+  "status": "Done. Your files are ready below.",
+  "out": "images.pdf | 99 KB | Download",
+  "download_bytes": 100997,
+  "page_errors": [
+   "console: Access to XMLHttpRequest at 'https://cloudflareinsights.com/cdn-cgi/rum' from origin 'http://localhost:8000' has been blocked by CORS policy: Response to preflight request doesn't pass access control ",
+   "console: Failed to load resource: net::ERR_FAILED"
+  ],
+  "seconds": 1.5
+ },
+ "png-to-pdf": {
+  "ok": true,
+  "status": "Done. Your files are ready below.",
+  "out": "images.pdf | 35 KB | Download",
+  "download_bytes": 35388,
+  "page_errors": [
+   "console: Access to XMLHttpRequest at 'https://cloudflareinsights.com/cdn-cgi/rum' from origin 'http://localhost:8000' has been blocked by CORS policy: Response to preflight request doesn't pass access control ",
+   "console: Failed to load resource: net::ERR_FAILED"
+  ],
+  "seconds": 1.4
+ },
+ "pdf-to-png": {
+  "ok": true,
+  "status": "Done. Your files are ready below.",
+  "out": "doc-page-1.png | 99 KB | Download | doc-page-2.png | 99 KB | Download | doc-page-3.png | 99 KB | Download | Download all (3 files, .zip)",
+  "download_bytes": 101123,
+  "page_errors": [
+   "console: Access to XMLHttpRequest at 'https://cloudflareinsights.com/cdn-cgi/rum' from origin 'http://localhost:8000' has been blocked by CORS policy: Response to preflight request doesn't pass access control ",
+   "console: Failed to load resource: net::ERR_FAILED"
+  ],
+  "seconds": 1.6
+ },
+ "webp-to-png": {
+  "ok": true,
+  "status": "Done. Your files are ready below.",
+  "out": "photo.png | 220 KB | Download",
+  "download_bytes": 225254,
+  "page_errors": [
+   "console: Access to XMLHttpRequest at 'https://cloudflareinsights.com/cdn-cgi/rum' from origin 'http://localhost:8000' has been blocked by CORS policy: Response to preflight request doesn't pass access control ",
+   "console: Failed to load resource: net::ERR_FAILED"
+  ],
+  "seconds": 1.3
+ },
+ "video-to-mp3": {
+  "ok": true,
+  "status": "Done. Your files are ready below.",
+  "out": "video.mp3 | 141 KB | Download",
+  "download_bytes": 144822,
+  "page_errors": [
+   "console: Access to XMLHttpRequest at 'https://cloudflareinsights.com/cdn-cgi/rum' from origin 'http://localhost:8000' has been blocked by CORS policy: Response to preflight request doesn't pass access control ",
+   "console: Failed to load resource: net::ERR_FAILED"
+  ],
+  "seconds": 1.5
+ },
+ "compress-pdf-to-500kb": {
+  "ok": true,
+  "status": "1.52 MB \u2192 427 KB (73% smaller)",
+  "out": "scan-compressed.pdf | 427 KB | Download",
+  "download_bytes": 437171,
+  "page_errors": [
+   "console: Access to XMLHttpRequest at 'https://cloudflareinsights.com/cdn-cgi/rum' from origin 'http://localhost:8000' has been blocked by CORS policy: Response to preflight request doesn't pass access control ",
+   "console: Failed to load resource: net::ERR_FAILED"
+  ],
+  "seconds": 2.3
+ },
+ "compress-image-to-1mb": {
+  "ok": true,
+  "status": "Done. photo.png is already 24 KB: compressing would make it bigger, so the original is kept.",
+  "out": "photo.png | 24 KB | Download",
+  "download_bytes": 24698,
+  "page_errors": [
+   "console: Access to XMLHttpRequest at 'https://cloudflareinsights.com/cdn-cgi/rum' from origin 'http://localhost:8000' has been blocked by CORS policy: Response to preflight request doesn't pass access control ",
+   "console: Failed to load resource: net::ERR_FAILED"
+  ],
+  "seconds": 1.4
+ },
+ "us-passport-photo": {
+  "ok": true,
+  "status": "Done. Your files are ready below.",
+  "out": "passport-photo.jpg | 48 KB | Download | passport-sheet-4x6.jpg | 304 KB | Download | Download all (2 files, .zip)",
+  "download_bytes": 48995,
+  "page_errors": [
+   "console: Access to XMLHttpRequest at 'https://cloudflareinsights.com/cdn-cgi/rum' from origin 'http://localhost:8000' has been blocked by CORS policy: Response to preflight request doesn't pass access control ",
+   "console: Failed to load resource: net::ERR_FAILED"
+  ],
+  "seconds": 1.3
+ },
+ "image-to-text-french": {
+  "ok": true,
+  "status": "Done. Your files are ready below.",
+  "out": "photo.txt | 0 KB | Download",
+  "download_bytes": 35,
+  "ocr_text": "Tools for World @\nFree online tools",
+  "page_errors": [
+   "console: Access to XMLHttpRequest at 'https://cloudflareinsights.com/cdn-cgi/rum' from origin 'http://localhost:8000' has been blocked by CORS policy: Response to preflight request doesn't pass access control ",
+   "console: Failed to load resource: net::ERR_FAILED"
+  ],
+  "seconds": 1.7
+ },
+ "resize-image-to-1500x500": {
+  "ok": true,
+  "status": "Done. Your files are ready below.",
+  "out": "photo-1500x500.jpg | 57 KB | Download",
+  "download_bytes": 57875,
+  "page_errors": [
+   "console: Access to XMLHttpRequest at 'https://cloudflareinsights.com/cdn-cgi/rum' from origin 'http://localhost:8000' has been blocked by CORS policy: Response to preflight request doesn't pass access control ",
+   "console: Failed to load resource: net::ERR_FAILED"
+  ],
+  "seconds": 1.3
+ },
+ "canada-passport-photo": {
+  "ok": true,
+  "status": "Done. 4 photos of this size fit on a 4\u00d76 sheet.",
+  "out": "passport-photo.jpg | 52 KB | Download",
+  "download_bytes": 53494,
+  "page_errors": [
+   "console: Access to XMLHttpRequest at 'https://cloudflareinsights.com/cdn-cgi/rum' from origin 'http://localhost:8000' has been blocked by CORS policy: Response to preflight request doesn't pass access control ",
+   "console: Failed to load resource: net::ERR_FAILED"
+  ],
+  "seconds": 1.3
+ },
+ "qr-code-generator": {
+  "info": "495 \u00d7 495 px",
+  "dark_pixels": 71775,
+  "ok": true,
+  "page_errors": []
+ },
+ "word-counter": {
+  "text": "27 Words 148 Characters 122 Characters (no spaces) 2 Sentences 1 Paragraphs < 1 min Reading time < 1 min Speaking time",
+  "ok": true,
+  "page_errors": []
+ },
+ "age-calculator": {
+  "text": "26 years, 9 months, 16 days Born on a Saturday",
+  "ok": true,
+  "page_errors": []
+ },
+ "password-generator": {
+  "text": "Very strong \u00b7 about 103 bits of entropy",
+  "ok": true,
+  "page_errors": []
+ },
+ "percentage-calculator": {
+  "r1": "30",
+  "ok": true,
+  "page_errors": []
+ },
+ "date-calculator": {
+  "between": "30 days",
+  "add": "2026-02-28",
+  "ok": true,
+  "page_errors": []
+ },
+ "discount-calculator": {
+  "r5": "80",
+  "ok": true,
+  "page_errors": []
+ },
+ "character-counter": {
+  "text": "27 Words 148 Characters 122 Characters (no spaces) 2 Sentences 1 Paragraphs < 1 ",
+  "ok": true,
+  "page_errors": []
+ },
+ "_summary": {
+  "passed": 42,
+  "total": 42,
+  "time": "2026-10-31 08:09 UTC"
+ }
+}
