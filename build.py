@@ -78,6 +78,8 @@ import dedupe
 dedupe.apply(T)   # drop templated sections/FAQs repeated across preset siblings (see dedupe.py)
 import unique_presets
 unique_presets.enrich(T)   # hand-written content per preset page (see unique_presets.py)
+import up_serp
+up_serp.enrich(T)   # SERP-driven titles and size facts (see up_serp.py)
 BY = {t['slug']: t for t in T}
 
 # Hand-picked "related tools" for each main tool (what people usually need next)
