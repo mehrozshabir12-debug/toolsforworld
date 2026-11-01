@@ -1,4 +1,5 @@
 /* Tools for World file tools: everything runs in the browser, files never leave the device. */
+// Security: every pdfjsLib.getDocument call passes isEvalSupported:false (mitigates CVE-2024-4367 in pdf.js 3.11.174; owner asked 1 Nov 2026).
 const $=s=>document.querySelector(s);
 const I={pdf:'<svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M14 3H6a2 2 0 0 0-2 2v14a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V9z"/><path d="M14 3v6h6"/></svg>'};
 /* Libraries load only when a tool needs them (pinned versions + Subresource Integrity). */
@@ -285,7 +286,7 @@ async function pdfPages(type){
   pdfjsLib.GlobalWorkerOptions.workerSrc=PDFWORKER;
   const png=type==='image/png',clear=png&&$('#dt')&&$('#dt').checked;
   const f=files[0],sc=+$('#dq').value;let pdf;
-  try{pdf=await pdfjsLib.getDocument({data:await f.arrayBuffer()}).promise}catch(e){throw new Error('This PDF is password-protected or damaged.')}
+  try{pdf=await pdfjsLib.getDocument({data:await f.arrayBuffer(),isEvalSupported:false}).promise}catch(e){throw new Error('This PDF is password-protected or damaged.')}
   for(let p=1;p<=pdf.numPages;p++){status(`Page ${p} of ${pdf.numPages}…`);const pg=await pdf.getPage(p),vp=pg.getViewport({scale:sc});
    const c=document.createElement('canvas');c.width=vp.width;c.height=vp.height;const x=c.getContext('2d');if(!clear){x.fillStyle='#fff';x.fillRect(0,0,c.width,c.height)}
    await pg.render({canvasContext:x,viewport:vp,background:clear?'rgba(0,0,0,0)':undefined}).promise;addOut(await toBlob(c,type,.92),`${base(f.name)}-page-${p}.${png?'png':'jpg'}`)}
@@ -433,7 +434,7 @@ RUN.heic2jpg=async function(){
 RUN.pdfcompress=async function(){
   pdfjsLib.GlobalWorkerOptions.workerSrc=PDFWORKER;
   const f=files[0],target=(+($('#ptkb')||{}).value||0)*1024;
-  let pdf;try{pdf=await pdfjsLib.getDocument({data:await f.arrayBuffer()}).promise}catch(e){throw new Error('This PDF is password-protected or damaged.')}
+  let pdf;try{pdf=await pdfjsLib.getDocument({data:await f.arrayBuffer(),isEvalSupported:false}).promise}catch(e){throw new Error('This PDF is password-protected or damaged.')}
   const {PDFDocument}=PDFLib;
   const build=async(dpi,q,label)=>{const doc=await PDFDocument.create();
     for(let p=1;p<=pdf.numPages;p++){status(`${label}page ${p} of ${pdf.numPages}…`);
@@ -497,7 +498,7 @@ RUN.mp4mp3=async function(){
 const xesc=s=>s.replace(/[&<>]/g,c=>({'&':'&amp;','<':'&lt;','>':'&gt;'}[c])).replace(/[\u0000-\u0008\u000B\u000C\u000E-\u001F]/g,'');
 RUN.pdf2word=async function(){
   pdfjsLib.GlobalWorkerOptions.workerSrc=PDFWORKER;
-  const f=files[0];let pdf;try{pdf=await pdfjsLib.getDocument({data:await f.arrayBuffer()}).promise}catch(e){throw new Error('This PDF is password-protected or damaged.')}
+  const f=files[0];let pdf;try{pdf=await pdfjsLib.getDocument({data:await f.arrayBuffer(),isEvalSupported:false}).promise}catch(e){throw new Error('This PDF is password-protected or damaged.')}
   let body='',chars=0;
   for(let p=1;p<=pdf.numPages;p++){status(`Reading page ${p} of ${pdf.numPages}…`);
     const tc=await (await pdf.getPage(p)).getTextContent();
