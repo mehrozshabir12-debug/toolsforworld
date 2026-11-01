@@ -1429,3 +1429,154 @@ The Tools for World team
 https://toolsforworld.com
 
 If you'd rather not hear from us again, just reply and let us know.
+
+## Ready to send (2026-11-01)
+
+Gmail check 1 Nov (cloud run): NOT done. The Gmail connector still needs to be reconnected (sign-in expired), so replies to hello@ could not be checked this run. Nothing new marked from replies. Still pending from earlier runs: the 2026-10-25 (8), 2026-10-29 (9), 2026-10-30 (6) and 2026-10-31 (6) lists are "Ready to send" (not yet approved); YSU (Joy Christiansen Erb) is approved but not sent. No backlink targets today (university targets only). Every address below was re-checked on the source page on 1 Nov.
+
+| # | Name | University | Country | Email | Source page | Why |
+|---|---|---|---|---|---|---|
+| 1 | Francisco Javier Torres Franquis, Profesor Coordinador, "Técnicas y Procedimientos en el Diseño Gráfico y la Imagen II" (Grado en Diseño, Bellas Artes) | Universidad de La Laguna (ULL) | Spain | fjtorres@ull.edu.es | https://www.ull.es/apps/guias/guias/print_guide/42039/ ("Correo electrónico: fjtorres@ull.edu.es"), course guide 2025-26 | All projects and reports handed in "en formato digital pdf, como entrega de tarea en el aula virtual"; syllabus covers scanning and file formats/resolution |
+| 2 | Joe Miles, Course Leader BA (Hons) Photography | Birmingham City University | UK | joe.miles@bcu.ac.uk | https://www.bcu.ac.uk/games-film-animation/about-us/team/joe-miles ("Email: joe.miles@bcu.ac.uk"); rule at https://www.bcu.ac.uk/games-film-animation/fast-track/portfolio-guidance | Photography portfolio as one PDF, "no more than around 10MB. Please compress your file if it exceeds the limit." |
+| 3 | PD Dr. habil. Benjamin Dreer-Göthe, Scientific Manager and Student Counselor MEd, Erfurt School of Education | Universität Erfurt | Germany | benjamin.dreer-goethe@uni-erfurt.de | https://www.uni-erfurt.de/en/ese/ese/team/scientific-manager (his profile; contact block "benjamin.dreer-goethe@uni-erfurt.de"); rule at https://www.uni-erfurt.de/en/ese/studies/masters-thesis/submission-and-deadlines (last update 23.09.2026; that page lists him as benjamin.dreer@uni-erfurt.de for extension requests) | MEd thesis PDF "must not exceed a size of 20 MB"; page points to Acrobat "Optimise PDF" |
+| 4 | Michael Foellmer, Coordinator, Undergraduate Academic Affairs, School of Art & Design | University of Illinois Urbana-Champaign | USA | foellme1@illinois.edu | https://art.illinois.edu/programs-and-applying/admissions-funding/apply-to-an-undergraduate-program/intercollege-transfer-students/ ("If you encounter problems with the form or have questions, contact Michael Foellmer at foellme1@illinois.edu"); role at https://art.illinois.edu/people/profiles/michael-foellmer-2/ | Transfer portfolio: 10 JPEGs, 1000-1500 px, "Individual image files should not exceed 500 KB" (Spring/Fall 2027) |
+| 5 | Thomas Robert Brown, Instructional Associate Professor of Visual Communication, COMM 2331 Photography | Texas A&M International University | USA | thomas.brown@tamiu.edu | https://catalog.tamiu.edu/syllabi/2026-fall/comm-2331-162-19435/syllabi-202710-comm-2331-162-19435.pdf ("Email: thomas.brown@tamiu.edu"), Fall 2026 | Written work as .DOC/.DOCX/.PDF ("Do NOT use Pages format"); photos turned in as .JPG |
+| 6 | Department of Creative Studies (BFA portfolio enquiries), Faculty of Creative and Critical Studies | University of British Columbia, Okanagan | Canada | creativestudies.ubco@ubc.ca | https://fccs.ok.ubc.ca/degrees-programs/undergraduate-programs/fine-arts/portfolio/ ("For inquiries regarding portfolio requirements, please contact the UBC Department of Creative Studies at creativestudies.ubco@ubc.ca.") | BFA portfolio merged into one PDF, "not larger than 5MB", images max 1000 px long side (portfolios go via online form, not this inbox) |
+| 7 | LMS Support, Learning Technologies (IST) | Lahore University of Management Sciences (LUMS) | Pakistan | elearning@lums.edu.pk | https://ist.lums.edu.pk/sites/default/files/2026-02/LMS%20Storage%20Issue.pdf ("Email LMS Support (elearning@lums.edu.pk) if:"); remit at https://ist.lums.edu.pk/node/19452 | Guide for instructors, TAs and students: "Files above 20 MB will fail"; only fixes offered are ZIP or WebDAV |
+
+Considered and left out today: Erfurt/ULL backups (Marta Madrid Manrique, two different addresses), UNSW Scholarships (not a teaching team), NWU CTL (2020-era page, no limit), York AMPD Computing (ticket inbox, undated), Leeds DES, Durham DCAD, Teesside, Edinburgh ILTS, Malta, ITU Copenhagen, John Cabot, UAntwerp, Koblenz, Maastricht, Bamberg, TUM, LMU, TU Dortmund, Charles Univ., AHK, UCM, TU Delft, UiO, NLA, FHNW, Angewandte, Akademie Wien IKA (cycle closed; backup for 2027/28), HDK-Valand, UPJP2, PK Kraków, UNM (chair retiring), Portland State, FHSU, Gulf Coast, Western Ontario, uOttawa, Carleton, Windsor, Iowa, Emily Carr, USP, Algoma, Calgary, UFRGS, UADY, BUAP, CUHK Arch, Western Sydney, UNILAG, CIU, KMTC, Haifa, HUJI, UM Palembang, Unitec, Swinburne Sarawak, HKUST, Griffith, UTokyo, Ewha, SUSS, Ajman, CUD, BUE, DLSU, NSU, Boğaziçi, USIU, Embu, CPUT (no email, no rule, old page, or generic inbox).
+
+### 1. Francisco Javier Torres Franquis (Universidad de La Laguna) – fjtorres@ull.edu.es
+Subject: A free tool for preparing the PDF hand-ins in Técnicas y Procedimientos II
+
+Hello Professor Torres,
+
+We came across the 2025-26 guide for Técnicas y Procedimientos en el Diseño Gráfico y la Imagen II, where every project and report is handed in both on paper and as a PDF in the aula virtual. Since the course also covers scanning originals and resolution, you will know how quickly scanned work turns into large PDFs, and many students end up uploading their projects to unknown converter sites to combine or shrink them.
+
+Tools for World is a free website that turns scans and images into one PDF and compresses PDFs, all inside the browser, so the student's files never leave their own computer. No sign-up, no cost:
+
+https://toolsforworld.com/jpg-to-pdf/
+https://toolsforworld.com/compress-pdf/
+
+If you think it would help, you're welcome to share it with your students or add it to the course resources. Thank you for your time.
+
+The Tools for World team
+https://toolsforworld.com
+
+If you'd rather not hear from us again, just reply and let us know.
+
+### 2. Joe Miles (Birmingham City University) – joe.miles@bcu.ac.uk
+Subject: A free tool for the 10MB Photography portfolio PDF
+
+Hello Joe,
+
+We read BCU's portfolio guidance for BA (Hons) Photography, which asks for one PDF of around 10MB and tells applicants to compress the file if it is bigger. With full-resolution photographs that is often the hardest step, and many applicants end up uploading their images to unknown converter sites to get under the limit.
+
+Tools for World is a free website that compresses images, turns photos into one PDF and compresses PDFs, all inside the browser, so the photographs never leave the applicant's own computer. No sign-up, no cost:
+
+https://toolsforworld.com/compress-pdf/
+https://toolsforworld.com/compress-image/
+https://toolsforworld.com/jpg-to-pdf/
+
+If you think it would help, you're welcome to share it with applicants or students. Thank you for your time.
+
+The Tools for World team
+https://toolsforworld.com
+
+If you'd rather not hear from us again, just reply and let us know.
+
+### 3. Benjamin Dreer-Göthe (Universität Erfurt) – benjamin.dreer-goethe@uni-erfurt.de
+Subject: A free tool for the 20 MB master's thesis PDF limit
+
+Hello Dr. Dreer-Göthe,
+
+We read the Erfurt School of Education page on master's thesis submission, which sets a 20 MB limit for the thesis PDF and suggests Acrobat's "Optimise PDF" to reduce it. Not every MEd student has the paid version of Acrobat, and some end up uploading their thesis to unknown converter sites to make it fit.
+
+Tools for World is a free website that compresses PDFs inside the browser, so the thesis never leaves the student's own computer. No sign-up, no cost:
+
+https://toolsforworld.com/compress-pdf/
+
+If it seems useful, you're welcome to mention it to students you advise or add it to the submission page. Thank you for your time.
+
+The Tools for World team
+https://toolsforworld.com
+
+If you'd rather not hear from us again, just reply and let us know.
+
+### 4. Michael Foellmer (University of Illinois Urbana-Champaign) – foellme1@illinois.edu
+Subject: A free tool for the 500 KB portfolio image limit
+
+Hello Michael,
+
+We read the School of Art & Design page for intercollege transfer students, which asks for 10 JPEG images between 1000 and 1500 pixels, each no larger than 500 KB, and suggests an image editor such as Photoshop to get there. Students without Photoshop often struggle with this step, and some upload their artwork photos to unknown converter sites.
+
+Tools for World is a free website that resizes images and compresses them to a target size, all inside the browser, so the student's images never leave their own computer. No sign-up, no cost:
+
+https://toolsforworld.com/compress-image-to-500kb/
+https://toolsforworld.com/resize-image/
+
+If you think it would help, you're welcome to point students to it when they ask about the portfolio. Thank you for your time.
+
+The Tools for World team
+https://toolsforworld.com
+
+If you'd rather not hear from us again, just reply and let us know.
+
+### 5. Thomas Robert Brown (Texas A&M International University) – thomas.brown@tamiu.edu
+Subject: A free file tool for COMM 2331 Photography students
+
+Hello Professor Brown,
+
+We came across your Fall 2026 syllabus for COMM 2331 Photography, which asks for written work as DOC, DOCX or PDF (not Pages) and photographs as JPG. Students working from phones or their own laptops often have iPhone HEIC photos or files in the wrong format, and many end up uploading their assignments to unknown converter sites to fix them.
+
+Tools for World is a free website that converts HEIC photos to JPG, Word files to PDF, and compresses images, all inside the browser, so the student's files never leave their own computer. No sign-up, no cost:
+
+https://toolsforworld.com/heic-to-jpg/
+https://toolsforworld.com/word-to-pdf/
+https://toolsforworld.com/compress-image/
+
+If you think it would help, you're welcome to share it with your students. Thank you for your time.
+
+The Tools for World team
+https://toolsforworld.com
+
+If you'd rather not hear from us again, just reply and let us know.
+
+### 6. UBC Okanagan Department of Creative Studies – creativestudies.ubco@ubc.ca
+Subject: A free tool for the 5MB BFA portfolio PDF
+
+Hello,
+
+We read the BFA Portfolio Submission page, which asks applicants to merge their images and letter of intent into one PDF no larger than 5MB, with images resized to 1000 px on the long side. That combination of merging, resizing and compressing is where many applicants get stuck, and some upload their artwork to unknown converter sites to manage it.
+
+Tools for World is a free website that resizes images, merges PDFs and compresses PDFs to a target size, all inside the browser, so the applicant's work never leaves their own computer. No sign-up, no cost:
+
+https://toolsforworld.com/resize-image/
+https://toolsforworld.com/merge-pdf/
+https://toolsforworld.com/compress-pdf-to-5mb/
+
+If it seems useful, you're welcome to point applicants to it when they ask about the portfolio. Thank you for your time.
+
+The Tools for World team
+https://toolsforworld.com
+
+If you'd rather not hear from us again, just reply and let us know.
+
+### 7. LUMS LMS Support – elearning@lums.edu.pk
+Subject: A free tool for keeping LMS uploads under 20 MB
+
+Hello LMS Support team,
+
+We read your LMS Storage Issue guide, which notes that files above 20 MB will fail and suggests ZIP or WebDAV for larger files. For students uploading scanned assignments or image-heavy PDFs, shrinking the file itself is often the simpler fix, but many end up using unknown converter sites to do it.
+
+Tools for World is a free website that compresses PDFs and images inside the browser, so the student's files never leave their own computer. No sign-up, no cost:
+
+https://toolsforworld.com/compress-pdf/
+https://toolsforworld.com/compress-image/
+
+If it seems useful, you're welcome to add it to the guide or share it with students and instructors. Thank you for your time.
+
+The Tools for World team
+https://toolsforworld.com
+
+If you'd rather not hear from us again, just reply and let us know.
