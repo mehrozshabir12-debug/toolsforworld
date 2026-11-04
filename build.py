@@ -460,7 +460,7 @@ def build():
                                       "sameAs": ["https://www.producthunt.com/products/tools-for-world", "https://www.saashub.com/tools-for-world"]}], keywords=BRAND_KEYWORDS))
 
     info = {
-        "about": ("About Tools for World – Free, Private Browser Tools", "Tools for World makes free, simple and private online tools for everyday tasks.",
+        "about": ("About Tools for World – Free, Private Browser Tools", "Tools for World makes free, private online tools for PDFs, images and calculators. Learn who builds it and how your files stay on your device.",
                   '''<h1>Who makes Tools for World, and why</h1><p>Tools for World is a free collection of everyday online tools: PDF and Word converters, image compressors and converters, a background remover, OCR in many languages, passport photo makers, a QR code generator, a password generator and simple calculators.</p>
 <h2>Why we built it</h2><p>Most people meet these tasks at awkward moments: a job portal wants a photo under 50 KB, a visa form wants a PDF under 300 KB, or a scanned letter needs to become editable text. Many sites that do this ask you to sign up, add watermarks, or upload private documents to unknown servers. Tools for World was built to do these jobs quickly, for free, without any of that.</p>
 <h2>Who makes it</h2><p>Tools for World is an independent project built and maintained by <b>Mehroz Shabir</b>. Every tool is designed, written and tested by hand, and new tools are added based on what visitors ask for.</p>
@@ -489,7 +489,7 @@ def build():
 <h2>Advertising and other websites</h2><p>The site may show ads served by Google AdSense and links to other websites. We don't control those sites or ads and aren't responsible for their content. How ads and cookies work is explained in our <a href="../privacy/">privacy policy</a>.</p>
 <h2>Our content</h2><p>The text, guides and design of this site belong to Tools for World. You're welcome to link to any page. The open-source libraries that power some tools keep their own licences, listed on the <a href="../credits/">credits page</a>.</p>
 <h2>Changes</h2><p>We may change or remove tools and these terms at any time. The date at the top shows when they last changed. Questions: see our <a href="../contact/">contact page</a>.</p>'''),
-        "credits": ("Open-Source Credits – Tools for World", "The open-source libraries and fonts that power Tools for World, with their licences.",
+        "credits": ("Open-Source Credits – Tools for World", "The open-source libraries and fonts that power Tools for World's free PDF, image and text tools, with a link to each project and its licence.",
                     '''<h1>Open-source credits</h1><p>Tools for World is built on excellent open-source software. Thank you to everyone who makes these projects. Each library is used unmodified and is loaded from a public CDN; follow the links for the source code and full licence text.</p>
 <div class="scroll"><table class="t"><thead><tr><th>Project</th><th>Used for</th><th>Licence</th></tr></thead><tbody>
 <tr><td><a href="https://github.com/mozilla/pdf.js">PDF.js</a> (Mozilla)</td><td>Reading PDFs: PDF to Word, PDF to JPG, compress PDF</td><td><a href="https://github.com/mozilla/pdf.js/blob/master/LICENSE">Apache-2.0</a></td></tr>
@@ -507,7 +507,7 @@ def build():
 </tbody></table></div>
 <p>Trademarks and product names mentioned on this site belong to their owners. Tools for World is an independent project and is not affiliated with any government office or with the projects above.</p>
 <p>Spotted a missing credit? Please tell us via the <a href="../contact/">contact page</a>.</p>'''),
-        "contact": ("Contact Tools for World – Bugs, Ideas and Questions", "Contact Tools for World to report a bug, suggest a new free tool or ask a question about privacy.",
+        "contact": ("Contact Tools for World – Bugs, Ideas and Questions", "Contact Tools for World to report a bug, suggest a new free tool or ask a question about privacy. We reply within a few working days.",
                     '''<h1>Contact</h1><p>Found a bug, or want a new tool? We would love to hear from you.</p><p>Email: <b>hello@toolsforworld.com</b>. We read every message and usually reply within a few working days.</p>
 <h2>Reporting a problem</h2><p>Tell us which tool you used, your device and browser (for example “iPhone, Safari” or “Windows, Chrome”), and what happened. A screenshot of any error message helps a lot. Please don't send us private documents: our tools never need your files, because everything runs in your browser.</p>
 <h2>Suggesting a tool</h2><p>Describe the job you are trying to do, for example “I need to turn a photo into a 35 × 45 mm print with a blue background”. If a form or website asks for a specific size or format, include its exact wording.</p>

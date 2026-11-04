@@ -118,7 +118,7 @@ def define(tool, F, N, SEL, RESULT, PDFLIB, PDFJS, MAMMOTH, H2PDF):
     tool(slug="pdf-to-jpg", group="pdf", icon="pdf", name="PDF to JPG", ftool="pdf2jpg", libs=PDFJS,
          card="Save every PDF page as an image.",
          title="PDF to JPG – Convert PDF Pages to Images Free | Tools for World",
-         desc="Convert each page of a PDF into a high-quality JPG image. Free, no upload.",
+         desc="Convert every page of a PDF into a high-quality JPG image, then download them one by one or all as a ZIP. Free, and the file never leaves your device.",
          h1="PDF to JPG converter", lead="Convert each page of a PDF into a high-quality JPG image.",
          body='''<h2>How to convert PDF to JPG</h2><ol><li>Choose a PDF.</li><li>Pick the quality.</li><li>Press <b>Convert to JPG</b> and save the pages you need.</li></ol><p>Pages full of text, tables or diagrams? <a href="../pdf-to-png/">PDF to PNG</a> keeps letters sharper and can remove the white background.</p>''', faq=[])
 
@@ -194,7 +194,7 @@ def define(tool, F, N, SEL, RESULT, PDFLIB, PDFJS, MAMMOTH, H2PDF):
     tool(slug="webp-to-jpg", group="img", icon="img", name="WebP to JPG", ftool="webp2jpg", libs="",
          card="Convert WebP images to JPG.",
          title="WebP to JPG Converter – Free & Private | Tools for World",
-         desc="Convert WebP images to JPG for free. Open images saved from websites in any app. No upload.",
+         desc="Convert WebP images to JPG for free, so pictures saved from websites open in any app, editor or upload form. Works in your browser, with no upload.",
          h1="WebP to JPG converter", lead="Convert WebP images, often saved from websites, to JPG so they open everywhere.",
          body='<h2>What is WebP?</h2><p>WebP is a modern image format used by many websites. Some apps and forms do not accept it, so converting to JPG is the easy fix. Image with a transparent background, like a logo or sticker? Use <a href="../webp-to-png/">WebP to PNG</a> to keep the transparency.</p>', faq=[])
 
