@@ -80,6 +80,8 @@ import unique_presets
 unique_presets.enrich(T)   # hand-written content per preset page (see unique_presets.py)
 import up_serp
 up_serp.enrich(T)   # SERP-driven titles and size facts (see up_serp.py)
+import up_bing
+up_bing.enrich(T)   # Bing-driven titles/descriptions (see up_bing.py)
 BY = {t['slug']: t for t in T}
 
 # Hand-picked "related tools" for each main tool (what people usually need next)
