@@ -1580,3 +1580,132 @@ The Tools for World team
 https://toolsforworld.com
 
 If you'd rather not hear from us again, just reply and let us know.
+
+## Ready to send (2026-11-05)
+
+Gmail check 5 Nov (cloud run): connector working again. Nothing sent from hello@ since 25 Oct. No human replies from any outreach target, no bounces, no opt-out requests. Only new message to hello@: another vendor pitch (david@withauspia.com, "Searches around Tools for World"), not answered. Still pending from earlier runs: the 2026-10-25 (8), 2026-10-29 (9), 2026-10-30 (6), 2026-10-31 (6) and 2026-11-01 (7) lists are "Ready to send" (not yet approved); YSU (Joy Christiansen Erb) is approved but not sent. No backlink targets today (university targets only).
+
+| # | Name | University | Country | Email | Source page | Why |
+|---|---|---|---|---|---|---|
+| 1 | Prof. Rosario Antoci, lecturer, "Fotografia per l'arte" (Diploma Accademico di II livello, Pittura / Fotografia) | Accademia di Belle Arti di Catania | Italy | rosarioantoci@abacatania.it | https://www.abacatania.it/wp-content/uploads/2020/12/syllabus-e-calendario-revisioni-_2025_26.pdf ("Posta elettronica istituzionale (PEO): rosarioantoci@abacatania.it"), a.a. 2025-26 | Final project must be a "File in pdf contenente il portfolio fotografico"; 2025-26 theme "Confini" |
+| 2 | Susanna Giouvanoudi, Librarian, Bissell Library | American College of Thessaloniki (Anatolia College) | Greece | giouvan@act.edu | https://anatolia.libguides.com/submitting-thesis ("If you need any help, contact your Librarian" / "giouvan@act.edu" / "Susanna Giouvanoudi - Librarian") | Senior thesis uploaded via a form; "If you happen to have a larger than 10MB file please send it to bissell@act.edu" |
+| 3 | Mgr. Veronika Kolínová, University Library (final theses enquiries) | University of Pardubice | Czech Republic | veronika.kolinova@upce.cz | https://knihovna.upce.cz/en/knihovna/final-theses ("For general enquiries regarding final theses, please contact: Mgr. Veronika Kolínová veronika.kolinova@upce.cz") | Thesis full text as PDF/A in IS/STAG; "50 MB for all other faculties" |
+| 4 | University Library (Perpustakaan UAD), thesis self-upload service | Universitas Ahmad Dahlan | Indonesia | perpustakaan@uad.ac.id (published as "perpustakaan[at]uad.ac.id") | https://perpustakaan.uad.ac.id/prosedur-unggah-mandiri/ (KONTAK KAMI block) | Skripsi/tesis uploaded one PDF per chapter; "Maksimal file (per unggahan) adalah 2MB" |
+| 5 | Institutional repository team, Biblioteca Comunitária (SIBi) | Universidade Federal de São Carlos (UFSCar) | Brazil | ri.bco@ufscar.br | https://www.sibi.ufscar.br/arquivos/20260301-manual-de-autodeposito-de-trabalhos-de-conclusao-de-curso-lato-sensu-tcr.pdf ("Caso tenha dúvida, encaminhe mensagem ... Biblioteca Comunitária - Campus São Carlos (ri.bco@ufscar.br)"), 2nd version 17/06/2026 | TCC/TCR self-deposit: PDF/A, "preferencialmente com até 50 MB" |
+| 6 | Prof. Leslie Boyd, BFA in Art portfolio contact, Department of Art | Metropolitan State University of Denver | USA | lboyd24@msudenver.edu | https://www.msudenver.edu/art/resources/portfolio-requirements-bfa-in-art ("Contact Professor leslie boyd with any Portfolio questions", Cloudflare-protected mailto decoded; check in browser before sending); rules in https://www.msudenver.edu/wp-content/uploads/2026/06/BFA-Portfolio-Review-Guidelines-Art-Fall2026.pdf | Portfolio images "Under 5mb each", multi-view works "saved as multi-page PDF files"; reviews every semester |
+
+Considered and left out today: Rīga Stradiņš Univ. (contact's role only on a 2022 wiki page), TNNUA Taiwan Moodle support (100MB limit, weak fit), Kansai Univ. thesis manual (undated template, mailing list), UnADM photo contest (contest team, not teaching/library), Genova, Cagliari, Uniroma3, UniTS, Unich, ArtEZ, Minerva, WUR, USN, Uniarts Helsinki, LHÍ, Vilnius Academy of Arts, LMA, UL ALUO, UNG, UAP Poznań, SLU Opava, ELTE, CEU, AUBG, UCLouvain, IHU, MIC, Unifr, Montpellier, IPCB, FA ULisboa, ESCS, Izmir Econ., Wits, UWC, Mount Kenya, OU Mauritius, Africa Univ., KTU Ghana, Shih Hsin, Tatung, Pusan, Chungnam, Marmara, Bilkent, IISER Mohali, JUIT, Jamia, AIOU, Zayed, Wollongong, Tabor, Charles Sturt, ULAB, BRAC, UMS, Okayama, Tottori, Tsurumi, Waseda, Rikkyo, Hyupsung, NEU Vietnam, STOU, UNAIR, Kyoto Univ. of the Arts, UTech Jamaica, Uniandes, EAFIT, Univalle, UDES, ITAM, Udelar, Inter PR Guayama, UWI, Javeriana, Anáhuac, UNSA, UASLP, UCN, UAM Xochimilco, Finis Terrae, U. de Medellín, UAzuay, ORT Uruguay, UNTumbes, Palermo, PUCP, UCSC Chile, UPC Peru (no email, no rule, old page, submission or generic inbox, or weak fit).
+
+### 1. Prof. Rosario Antoci (Accademia di Belle Arti di Catania) – rosarioantoci@abacatania.it
+Subject: A free tool for Fotografia per l'arte portfolio PDFs
+
+Hello Professor Antoci,
+
+We came across the 2025-26 syllabus for Fotografia per l'arte, where the final project is a PDF of the photographic portfolio with a synopsis, on this year's theme "Confini". Putting full-resolution photographs into one PDF often produces a very large file, and many students end up uploading their images to unknown converter sites to shrink or combine them.
+
+Tools for World is a free website that turns a set of photos into one PDF, compresses images and compresses PDFs, all inside the browser, so the photographs never leave the student's own computer. No sign-up, no cost:
+
+https://toolsforworld.com/jpg-to-pdf/
+https://toolsforworld.com/compress-image/
+
+If you think it would help, you're welcome to share it with your students. Thank you for your time.
+
+The Tools for World team
+https://toolsforworld.com
+
+If you'd rather not hear from us again, just reply and let us know.
+
+### 2. Susanna Giouvanoudi (American College of Thessaloniki) – giouvan@act.edu
+Subject: A free way for seniors to keep thesis PDFs under 10MB
+
+Hello Ms. Giouvanoudi,
+
+We read the Bissell Library guide on submitting the senior thesis, which asks students to email the file separately if it is larger than 10MB. A thesis with photos, charts or scanned pages easily goes over that, and students who try to shrink it often end up uploading their thesis to an unknown converter site.
+
+Tools for World is a free website that compresses PDFs and images inside the browser, so the student's thesis never leaves their own computer. No sign-up, no cost:
+
+https://toolsforworld.com/compress-pdf/
+https://toolsforworld.com/compress-image/
+
+If it seems useful, you're welcome to add it to the guide or mention it to students. Thank you for your time.
+
+The Tools for World team
+https://toolsforworld.com
+
+If you'd rather not hear from us again, just reply and let us know.
+
+### 3. Mgr. Veronika Kolínová (University of Pardubice) – veronika.kolinova@upce.cz
+Subject: A free in-browser tool for the 50 MB thesis upload limit
+
+Hello Ms. Kolínová,
+
+We read the University Library's page on final theses, which notes the 50 MB limit for most faculties and the PDF/A requirement in IS/STAG. Image-heavy theses, for example with photos or scanned appendices, can go over the limit, and students often turn to unknown converter sites to make the file smaller.
+
+Tools for World is a free website that compresses images and PDFs inside the browser, so the student's thesis files never leave their own computer. No sign-up, no cost. Shrinking the images before exporting to PDF/A is usually the safest route, and students should still check the PDF/A validation afterwards:
+
+https://toolsforworld.com/compress-image/
+https://toolsforworld.com/compress-pdf/
+
+If you think it would help, you're welcome to mention it to students or add it to the library's guidance. Thank you for your time.
+
+The Tools for World team
+https://toolsforworld.com
+
+If you'd rather not hear from us again, just reply and let us know.
+
+### 4. Perpustakaan UAD (Universitas Ahmad Dahlan) – perpustakaan@uad.ac.id
+Subject: A free tool for the 2MB per-chapter thesis upload
+
+Hello Perpustakaan UAD team,
+
+We read your "Prosedur Unggah Mandiri" page, which asks students to upload each chapter of the skripsi or tesis as a separate PDF of at most 2MB. Chapters with figures, photos or scanned signature pages often go over 2MB, and many students end up uploading their work to unknown converter sites to shrink it.
+
+Tools for World is a free website that compresses PDFs and images inside the browser, so the student's thesis never leaves their own computer. No sign-up, no cost:
+
+https://toolsforworld.com/compress-pdf/
+https://toolsforworld.com/compress-image/
+
+If it seems useful, you're welcome to share it with students or add it to the upload guide. Thank you for your time.
+
+The Tools for World team
+https://toolsforworld.com
+
+If you'd rather not hear from us again, just reply and let us know.
+
+### 5. UFSCar Biblioteca Comunitária, repository team – ri.bco@ufscar.br
+Subject: A free tool for keeping TCC deposits under 50 MB
+
+Hello RI UFSCar team,
+
+We read the 2026 self-deposit manual for Lato Sensu TCC/TCR, which asks for PDF/A files of preferably no more than 50 MB. Final projects with many photos or scanned pages can go well over that, and students often turn to unknown converter sites to reduce the file.
+
+Tools for World is a free website that compresses images and PDFs inside the browser, so the student's work never leaves their own computer. No sign-up, no cost. Reducing the images before exporting to PDF/A usually works best:
+
+https://toolsforworld.com/compress-image/
+https://toolsforworld.com/compress-pdf/
+
+If you think it would help, you're welcome to mention it to students alongside the manual. Thank you for your time.
+
+The Tools for World team
+https://toolsforworld.com
+
+If you'd rather not hear from us again, just reply and let us know.
+
+### 6. Prof. Leslie Boyd (MSU Denver) – lboyd24@msudenver.edu
+Subject: A free tool for BFA portfolio images under 5MB
+
+Hello Professor Boyd,
+
+We saw the BFA in Art portfolio requirements, where you're listed as the contact for portfolio questions. The guidelines ask for images under 5MB each at 2000 pixels on the longest side, and multi-view works as multi-page PDFs, which is a step many students find tricky, and some end up using unknown converter sites.
+
+Tools for World is a free website that resizes and compresses images and combines photos into one PDF, all inside the browser, so students' images never leave their own computer. No sign-up, no cost:
+
+https://toolsforworld.com/compress-image/
+https://toolsforworld.com/jpg-to-pdf/
+
+If you think it would help, you're welcome to share it with students before the Spring review. Thank you for your time.
+
+The Tools for World team
+https://toolsforworld.com
+
+If you'd rather not hear from us again, just reply and let us know.
