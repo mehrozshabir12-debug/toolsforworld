@@ -1709,3 +1709,111 @@ The Tools for World team
 https://toolsforworld.com
 
 If you'd rather not hear from us again, just reply and let us know.
+
+## Ready to send (2026-11-06)
+
+Gmail check 6 Nov (cloud run): connector working. Nothing sent from hello@ since 25 Oct, so no new replies were expected. No human replies from any outreach target, no bounces, no opt-out requests. Only new mail: vendor pitches (BabyLoveGrowth, Semrush) and newsletters, not answered. Still pending from earlier runs: the 2026-10-25 (8), 2026-10-29 (9), 2026-10-30 (6), 2026-10-31 (6), 2026-11-01 (7) and 2026-11-05 (6) lists are "Ready to send" (not yet approved); YSU (Joy Christiansen Erb) is approved but not sent. No backlink targets today (university targets only). Smaller list today on purpose (quality over quantity, large unapproved backlog).
+
+| # | Name | University | Country | Email | Source page | Why |
+|---|---|---|---|---|---|---|
+| 1 | IDEA programme office (B.Sc. Integrated Design in Emerging Architecture), Faculty of Architecture | Chiang Mai University | Thailand | idea.facmu@gmail.com (programme contact published on CMU's own admissions system: "Email: idea.facmu@gmail.com"; files are uploaded via CMU-IPAS, not to this address) | https://admission.reg.cmu.ac.th/ipas/main/index.php?action=pp&f=IDEA | CMU-IPAS 2027: portfolio "single PDF ... 15 - 30 pages", "must not exceed 16 MB"; SOP and reference letter each a single PDF, "must not exceed 1 MB" |
+| 2 | Educational Affairs Section, Faculty of Fine Arts | Tokyo University of the Arts (Geidai) | Japan | bijutsu.kyomu@ml.geidai.ac.jp ("Email: bijutsu.kyomu@ml.geidai.ac.jp (available in Japanese and English)") | https://admissions.geidai.ac.jp/en/wp-content/uploads/2025/09/Guidance-for-Prospective-Students-Master-course-2026-Academic-Year.pdf (listed at https://admissions.geidai.ac.jp/en/fine-arts/graduate/) | Master's 2026 guidance: Architecture portfolio "must not exceed 20 MB"; "one ID photo (up to 2 MB)" |
+| 3 | Sean Fitzpatrick, Instructor III, Mathematics & Statistics | University of Lethbridge | Canada | sean.fitzpatrick@uleth.ca (department faculty list) | https://sites.ulethbridge.ca/moodle-answers/?p=1079 (Teaching Centre guide he co-wrote, revised Oct 2025); email at https://www.ulethbridge.ca/node/23230 | Crowdmark guide: "The maximum is 12 MB for images, and 24 MB for PDF"; warns phone photos can exceed limits |
+| 4 | Jed Yang, Associate Professor of Mathematics and Computer Science | Bethel University (St. Paul, MN) | USA | jed-yang@bethel.edu ("Email: jed-yang@bethel.edu", faculty profile) | https://mathcs.bethel.edu/yang/hw.html ("Scanning Homework"); email at https://www.bethel.edu/academics/faculty/jed-yang | "Submit a single multi-page PDF. Do not submit photos or multiple PDFs." Fall 2026 courses listed on his homepage |
+| 5 | Chair of Prof. Dr. Marco Mansdörfer (German & European criminal law) | Saarland University | Germany | lehrstuhl.mansdoerfer@mx.uni-saarland.de (published as "lehrstuhl.mansdoerfer(at)mx.uni-saarland.de") | https://www.uni-saarland.de/lehrstuhl/mansdoerfer/richtiges-benennen-von-pdf-dateien.html; email at https://www.uni-saarland.de/lehrstuhl/mansdoerfer.html | Hausarbeiten as PDF via Moodle: "Bitte komprimieren Sie Ihre Datei ... max. 4 MB" (10 MB for the advanced coursework); names no tool |
+
+Considered and left out today: Edinburgh Napier graphic design (no email on page), UNC Charlotte GD (SlideRoom, admissions inbox, old dates), Western Carolina design (contact name and email don't match), UFV graphic design (no size rule), LMU MMRS PDF FAQ (redirects elsewhere), THWS Würzburg design (application inbox, cycle closed, second German), Sanyo-Onoda City Univ. IT (address for staff only), Ahmadu Bello, UCU Uganda, Tribhuvan, VNU-LIC, IUH, BNU Lahore, UMSU, Sharjah, Bahrain, JUST, Kyushu, TUAT, Tokyo Keizai, Aoyama Gakuin, Tohoku Fukushi, Yamanashi Gakuin, Tsukuba, UIW, Oregon Art-Tech, Rutgers, UNT, BGSU, Georgia State, Monash, Melbourne, UTas, QUT, Canisius, UFU, UNC Argentina, Brunel, UCL, Ulster, QUB, UWE, Bournemouth, RGU, LJMU, UWS, UCA, Navarra, Burgos, ULPGC, AMU Poznań, PW Warsaw, Padova, Uniba, Berlin International, Innsbruck, UL FA Ljubljana, Athens (no email, no rule, old page, submission or generic inbox, or weak fit).
+
+### 1. Chiang Mai University IDEA programme – idea.facmu@gmail.com
+Subject: A free, no-upload way for IDEA applicants to meet the 16 MB and 1 MB limits
+
+Hello IDEA programme team,
+
+We were reading the CMU-IPAS 2027 page for the Integrated Design in Emerging Architecture programme. With the portfolio carrying 35% of the selection score, and the rule that it must be a single PDF under 16 MB, getting a heavy image portfolio down to size without losing quality matters a lot. The 1 MB limit for the statement of purpose and the scanned reference letter can be just as tricky.
+
+Many applicants end up uploading their work and signed letters to unknown converter sites. Tools for World is a free website that compresses PDFs and images inside the browser, so the files never leave the applicant's own computer. No sign-up and no cost:
+
+https://toolsforworld.com/compress-pdf/
+https://toolsforworld.com/compress-pdf-to-1mb/
+
+If it seems useful, you're welcome to share it with applicants or students. Thank you for your time.
+
+The Tools for World team
+https://toolsforworld.com
+
+If you'd rather not hear from us again, just reply and let us know.
+
+### 2. Tokyo University of the Arts, Faculty of Fine Arts – bijutsu.kyomu@ml.geidai.ac.jp
+Subject: A free in-browser tool for the 20 MB portfolio and 2 MB ID photo limits
+
+Hello Educational Affairs Section,
+
+We read the Guidance for Prospective Students (Master's course, 2026 Academic Year) for the Graduate School of Fine Arts. For Architecture, the portfolio and short essay must each stay under 20 MB, and every applicant needs an ID photo of up to 2 MB. International applicants in particular often struggle to shrink large portfolio PDFs and photos to these limits.
+
+Tools for World is a free website that compresses PDFs and images and prepares ID photos inside the browser, so the files never leave the applicant's own computer. There's no sign-up and no cost:
+
+https://toolsforworld.com/compress-pdf/
+https://toolsforworld.com/passport-photo-maker/
+
+If it looks helpful, you're welcome to mention it to applicants or students. Thank you for your time.
+
+The Tools for World team
+https://toolsforworld.com
+
+If you'd rather not hear from us again, just reply and let us know.
+
+### 3. Sean Fitzpatrick (University of Lethbridge) – sean.fitzpatrick@uleth.ca
+Subject: A free helper for your Crowdmark scanning advice
+
+Hello Sean,
+
+We came across the Teaching Centre's "Student Advice for Submitting Work to Crowdmark", which credits you and Dr. Susan Findlay with the original document. The point that high-resolution phone photos can go over the 12 MB image and 24 MB PDF limits is one students run into all the time.
+
+In case it helps, Tools for World is a free website that shrinks photos and turns several page images into one PDF, all inside the browser, so students' work never leaves their own device. No sign-up, no cost:
+
+https://toolsforworld.com/compress-image/
+https://toolsforworld.com/jpg-to-pdf/
+
+If you think it would be useful, feel free to share it with your students or suggest it for the guide. Thanks for writing such practical advice.
+
+The Tools for World team
+https://toolsforworld.com
+
+If you'd rather not hear from us again, just reply and let us know.
+
+### 4. Jed Yang (Bethel University) – jed-yang@bethel.edu
+Subject: A backup option for "one multi-page PDF" homework
+
+Hello Professor Yang,
+
+We read your "Scanning Homework" page. Your rule of a single multi-page PDF, not photos or several files, makes grading much easier, and the scanning apps you recommend are the best route.
+
+For the occasional student who ends up with a handful of phone photos anyway, Tools for World is a free website that combines images into one PDF and compresses it, all inside the browser, so the homework is never uploaded to a server. No sign-up, no cost:
+
+https://toolsforworld.com/jpg-to-pdf/
+https://toolsforworld.com/compress-pdf/
+
+If it seems useful, you're welcome to add it to the page as a fallback. Thank you for your time.
+
+The Tools for World team
+https://toolsforworld.com
+
+If you'd rather not hear from us again, just reply and let us know.
+
+### 5. Chair of Prof. Dr. Marco Mansdörfer (Saarland University) – lehrstuhl.mansdoerfer@mx.uni-saarland.de
+Subject: A free way for students to compress Hausarbeiten to 4 MB
+
+Hello,
+
+We came across your chair's page on naming and submitting PDF files. It asks students to compress their Hausarbeit to a reasonable size, ideally no more than 4 MB (10 MB for the advanced criminal law coursework), before uploading it to Moodle, but students are often unsure how to do that without Acrobat.
+
+Tools for World is a free website that compresses PDFs inside the browser, so the student's coursework never leaves their own computer. That can matter for students who don't want to upload their work to an unknown converter site. No sign-up, no cost:
+
+https://toolsforworld.com/compress-pdf/
+
+If it seems useful, you're welcome to mention it on the page or to your students. Thank you for your time.
+
+The Tools for World team
+https://toolsforworld.com
+
+If you'd rather not hear from us again, just reply and let us know.
