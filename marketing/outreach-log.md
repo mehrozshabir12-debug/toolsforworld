@@ -1817,3 +1817,71 @@ The Tools for World team
 https://toolsforworld.com
 
 If you'd rather not hear from us again, just reply and let us know.
+
+## Ready to send (2026-11-07)
+
+Gmail check 7 Nov (cloud run): connector working. Nothing sent from hello@ since 25 Oct (all sent threads still have one message). No human replies from any outreach target, no bounces, no opt-out requests. New mail in the last 2 days was only newsletters, notifications and vendor promotions, nothing answered. Still pending from earlier runs: the 2026-10-25 (8), 2026-10-29 (9), 2026-10-30 (6), 2026-10-31 (6), 2026-11-01 (7), 2026-11-05 (6) and 2026-11-06 (5) lists are "Ready to send" (not yet approved); YSU (Joy Christiansen Erb) is approved but not sent. Short list today on purpose (quality over quantity, large unapproved backlog). No backlink targets.
+
+| # | Name | University | Country | Email | Source page | Why |
+|---|---|---|---|---|---|---|
+| 1 | Department of Design, BFA Graphic Design (first-year admissions) | SUNY New Paltz | USA | graphicdesign@newpaltz.edu ("Questions? Concerns? Go ahead and email us at" + Cloudflare-protected mailto, decoded from the page; check in browser before sending) | https://www.newpaltz.edu/fpa/design/graphic-design/admission/first-year-application-instructions/ | Portfolio of 10-15 works: "Images should be saved in JPEG or PDF format, and no more than 4 megabytes per file"; "We're not able to review ... incorrectly formatted files." Deadlines 1 Feb / 1 Mar for Fall |
+| 2 | Bachelor of Interior Design (Honours) portfolio help, Creative Studies | Algonquin College | Canada | interiordesign@algonquincollege.com ("Need Help? Send us an email: interiordesign@algonquincollege.com"; portfolios themselves go to design@algonquincollege.com) | https://www.algonquincollege.com/creative-studies/files/2026/02/BID_Portfolio_Quick-Guide_2025.pdf (posted Feb 2026) | "Prepare a single PDF (max 25 MB)"; checklist "PDF named correctly and under 25 MB"; sent as an email attachment |
+| 3 | Student Affairs Office (Studierendenservice), applicant/student ID pictures | Hochschule Esslingen (Esslingen University of Applied Sciences) | Germany | studierendenservice@hs-esslingen.de (contact box on the page) | https://www.hs-esslingen.de/en/study/application-and-enrolment/starting-your-studies/before-you-start/applicant-pictures (page also says "Apply now! for the summersemester 2027") | Student ID needs "a biometric passport photo (35mm x 45mm, scanned with at least 300 DPI, file format *.jpg or *.png)"; unsuitable photo means a new card "CHARGED A FEE" |
+
+Considered and left out today: Tufts Math 87 (Spring 2026 page, no email), Lee University COMM-250 (online photo course, but photos must keep camera metadata and there is no size limit, so our tools would not fit honestly), UT Dallas ARTS 2350 (Fall 2025 syllabus), EPOKA ARCH 409 (no file rules), Villanova (Jantzen pages, no email/date), Brock physics homework (no email/date), ARU Cambridge School of Art (admissions inboxes, no size limit), Univ. of Houston architecture (no email), Pécs MIK (2016 page, secretariat inbox), Umeå architecture (2023 page, admissions inbox), USQ nursing portfolio (empty page), Sheffield Hallam TEL (no email, staff page), Louisville Delphi (instructor course-size page, not student submissions), Oregon State Canvas KB (no email), Alicante (blocked).
+
+### 1. SUNY New Paltz Graphic Design – graphicdesign@newpaltz.edu
+Subject: A free way to keep portfolio images under 4 MB
+
+Hello,
+
+We were reading the first-year application instructions for the BFA in Graphic Design. The rule that each image or PDF must be no more than 4 megabytes is clear, but photos of artwork taken on a phone or camera are often several times that size, and applicants sometimes end up uploading their work to unknown converter sites to shrink it.
+
+Tools for World is a free website that compresses and resizes images and PDFs inside the browser, so the applicant's files never leave their own computer. No sign-up and no cost:
+
+https://toolsforworld.com/compress-image/
+https://toolsforworld.com/compress-pdf/
+
+If it seems useful, you're welcome to share it with applicants or students. Thank you for your time.
+
+The Tools for World team
+https://toolsforworld.com
+
+If you'd rather not hear from us again, just reply and let us know.
+
+### 2. Algonquin College Bachelor of Interior Design – interiordesign@algonquincollege.com
+Subject: A free in-browser tool for the 25 MB portfolio PDF
+
+Hello,
+
+We came across the Bachelor of Interior Design Portfolio Quick Guide. The checklist is very practical, and the single PDF under 25 MB is the step where many applicants get stuck once drawings, renders and photos of their work are combined, because an email attachment that is too large simply won't go through.
+
+Tools for World is a free website that compresses PDFs and images and turns images into one PDF, all inside the browser, so the portfolio never leaves the applicant's own computer. No sign-up, no cost:
+
+https://toolsforworld.com/compress-pdf/
+https://toolsforworld.com/jpg-to-pdf/
+
+If you think it would help, you're welcome to mention it to applicants or students. Thank you for your time.
+
+The Tools for World team
+https://toolsforworld.com
+
+If you'd rather not hear from us again, just reply and let us know.
+
+### 3. Hochschule Esslingen Student Affairs Office – studierendenservice@hs-esslingen.de
+Subject: A free tool for the 35 x 45 mm student ID photo
+
+Hello Student Affairs team,
+
+We read your page on applicant pictures for the student ID. It asks for a biometric passport photo of 35 mm x 45 mm as a JPG or PNG, and mentions that an unsuitable photo means a new card and a fee. Many new students only have a phone selfie, and some upload their face photo to unknown websites to crop it.
+
+Tools for World is a free website that crops a photo to 35 x 45 mm and can resize or convert it, all inside the browser, so the photo never leaves the student's own device. No sign-up and no cost:
+
+https://toolsforworld.com/passport-photo-maker/
+
+If it seems useful, you're welcome to mention it to incoming students. Thank you for your time.
+
+The Tools for World team
+https://toolsforworld.com
+
+If you'd rather not hear from us again, just reply and let us know.
