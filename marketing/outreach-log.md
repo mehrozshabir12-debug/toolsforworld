@@ -1885,3 +1885,72 @@ The Tools for World team
 https://toolsforworld.com
 
 If you'd rather not hear from us again, just reply and let us know.
+
+## Ready to send (2026-11-08)
+
+Gmail check 8 Nov (cloud run): connector working. Nothing sent from hello@ since 25 Oct (all sent threads still have one message). No human replies from any outreach target, no bounces, no opt-out requests. New mail in the last 2 days was only newsletters, job alerts, GitHub notifications and shop promotions, nothing answered. Still pending from earlier runs: the 2026-10-25 (8), 2026-10-29 (9), 2026-10-30 (6), 2026-10-31 (6), 2026-11-01 (7), 2026-11-05 (6), 2026-11-06 (5) and 2026-11-07 (3) lists are "Ready to send" (not yet approved); YSU (Joy Christiansen Erb) is approved but not sent. Short list today on purpose (quality over quantity, large unapproved backlog). No backlink targets.
+
+| # | Name | University | Country | Email | Source page | Why |
+|---|---|---|---|---|---|---|
+| 1 | Curt Steckel, Assistant Professor, ART 246 Photography & Culture (Fall 2026) | Fort Hays State University | USA | casteckel@fhsu.edu ("Email Address: casteckel@fhsu.edu" under Instructor Contact Information) | https://www.fhsu.edu/art-and-design/student-resources/art-246-syllabus-photography-culture-f26.pdf | Photography course: "Projects will be turned in through Blackboard. Exporting and formatting images will be covered during class instruction." (FHSU was looked at on 1 Nov for a different page and left out; this syllabus is new.) |
+| 2 | Kimberlin Library (JustAsk), Turnitin file-requirements FAQ | De Montfort University | UK | justask@dmu.ac.uk ("Report a tech support issue" mailto and footer under the Kimberlin Library address block) | https://dmu-ac-uk.libanswers.com/dp/faq/228921 | Turnitin FAQ: "Submitted documents cannot exceed 100MB", recommends PDF or .docx, says images increase file size and suggests reducing their resolution |
+| 3 | University Admissions Centre, BA (Hons) Photography portfolio | University of Portsmouth | UK | portfolio-admissions@port.ac.uk (Cloudflare-protected "Email:" link under "Any questions? Contact the University Admissions Centre", decoded; check in browser before sending) | https://www.port.ac.uk/study/undergraduate/applying-to-uni/portfolio-guides-for-creative-courses/ba-hons-photography | Portfolio of 20 photographs + 10 workbook images, preferably one PDF; page says converting to PDF helps "reduce file size" |
+
+Considered and left out today: Liverpool architecture (site blocks fetching), Newcastle APL, Nottingham ABE, DMU MArch, UEL (MArch and BA Photography), UMD and UVU architecture, UTS (no email on page), Edge Hill graphic design (email is the submission inbox), MMU photography (web link only, no limit), Derby photography (submission inbox, no limit), NTU photography (2020 document), CityU SCM (2015 entry), Missouri State STEPS (undated 2012-era page, contact not confirmed current), HKUST HUMA1154 and GT CEE 1070 / YSU MECH 1560 / UT Tyler ENGR 1204 / South Plains (no digital file submission described, or conflicting addresses), Point Loma ART 2026 (conflicting term dates), UNE (IT service desk only), Macau, SOU, Iowa grad, Wesleyan, CUNY GC, UC3M, UL, UWA (no email or weak fit).
+
+### 1. Curt Steckel (Fort Hays State University) – casteckel@fhsu.edu
+Subject: A free image tool for ART 246 photography students
+
+Hello Professor Steckel,
+
+We came across the syllabus for ART 246 Photography & Culture. Since projects are turned in through Blackboard and exporting and formatting images is part of the course, we thought a simple free tool might be handy for your students.
+
+Students often hit upload limits with full-size camera files, and many end up on unknown converter sites to shrink them. Tools for World resizes and compresses images inside the browser, so the photos never leave the student's own computer. It's free with no sign-up:
+
+https://toolsforworld.com/compress-image/
+https://toolsforworld.com/resize-image/
+
+If it seems useful, feel free to share it with students or add it to the course resources. Thank you for your time.
+
+The Tools for World team
+https://toolsforworld.com
+
+If you'd rather not hear from us again, just reply and let us know.
+
+### 2. De Montfort University Kimberlin Library – justask@dmu.ac.uk
+Subject: A free, no-upload compressor for your Turnitin file requirements FAQ
+
+Hello Library team,
+
+We read your FAQ "What are the file/system requirements for submitting to Turnitin?". The advice to use PDF or .docx, and to reduce image resolution when a file gets too big, is very practical.
+
+For students whose file is still too large, Tools for World is a free PDF and image compressor that works in any browser. The file is processed on the student's own device and is never uploaded to a server. No sign-up, no cost:
+
+https://toolsforworld.com/compress-pdf/
+https://toolsforworld.com/compress-image/
+
+If it seems useful, you're welcome to add it to the FAQ or share it with students. Thanks for the helpful guidance either way.
+
+The Tools for World team
+https://toolsforworld.com
+
+If you'd rather not hear from us again, just reply and let us know.
+
+### 3. University of Portsmouth Admissions Centre (BA Photography portfolio) – portfolio-admissions@port.ac.uk
+Subject: A free tool for photography portfolio PDFs
+
+Hello,
+
+We read the portfolio guide for BA (Hons) Photography. Twenty photographs plus workbook pages in one PDF can easily become a very large file, and the guide rightly mentions converting to PDF to keep the size down.
+
+Tools for World is a free website that turns a set of photos into one PDF and compresses PDFs and images, all inside the browser, so the applicant's photographs never leave their own computer. No sign-up, no cost:
+
+https://toolsforworld.com/jpg-to-pdf/
+https://toolsforworld.com/compress-pdf/
+
+If you think it would help, you're welcome to share it with applicants. Thank you for your time.
+
+The Tools for World team
+https://toolsforworld.com
+
+If you'd rather not hear from us again, just reply and let us know.
