@@ -1954,3 +1954,52 @@ The Tools for World team
 https://toolsforworld.com
 
 If you'd rather not hear from us again, just reply and let us know.
+
+## Ready to send (2026-11-09)
+
+Gmail check 9 Nov (cloud run): connector working. Nothing sent from hello@ since 25 Oct (all sent threads still have one message). No human replies from any outreach target, no bounces, no opt-out requests. Only new mail to hello@ was an automated notice (8 Nov) that someone listed Tools for World on "My Slop" (myslop.shop, an app catalogue; found via the public GitHub repo) - not outreach, nothing answered. Still pending from earlier runs: the 2026-10-25 (8), 2026-10-29 (9), 2026-10-30 (6), 2026-10-31 (6), 2026-11-01 (7), 2026-11-05 (6), 2026-11-06 (5), 2026-11-07 (3) and 2026-11-08 (3) lists are "Ready to send" (not yet approved); YSU (Joy Christiansen Erb) is approved but not sent. Short list today on purpose (quality over quantity, large unapproved backlog). No backlink targets.
+
+| # | Name | University | Country | Email | Source page | Why |
+|---|---|---|---|---|---|---|
+| 1 | Department of Design, MDes in Integrated Design (coursework enquiries), College of Design and Engineering | National University of Singapore (NUS) | Singapore | ddpgcoursework@nus.edu.sg ("For application-related enquiries, please contact us at / Department of Design: ddpgcoursework@nus.edu.sg") | https://cde.nus.edu.sg/dd/wp-content/uploads/sites/27/2026/08/MDes-Application-Instructions_AY2728.pdf (updated August 2026) | "Submit the portfolio as a PDF file, with a maximum file size of 20 MB"; CV + 3-4 case studies, A4/A3 optimised for screen, uploaded to GDA3; supporting documents also as PDF. Window for Aug 2027 intake open 1 Oct 2026 - 28 Feb 2027 |
+| 2 | Abdul Mazid, Unit Coordinator, ENTA13026 Advanced Engineering Design | CQUniversity | Australia | a.mazid@cqu.edu.au ("Abdul Mazid Unit Coordinator" under Teaching Contacts) | https://handbook.cqu.edu.au/facet/unit-profiles/profile/ENTA13026/2026/HT1 | Freehand sketching assessments submitted online: "Submit one PDF file that includes drawings and a title page with your details"; unit offered Online as well as Brisbane/Rockhampton (2026 Term 1 profile) |
+
+Considered and left out today: Louisville BSN document submission (page redirects), SIUE nursing portfolios (no file rule), St Andrews CEED file-size guide (blocked), TAMUSA ARTS 2356 (no digital photo submission), UNT JOUR 3700 (captions must stay in IPTC metadata; resizing in our tool could strip them, so not an honest fit), City St George's scan guide, Vanderbilt Gradescope scan page, UM System Canvas KB, Pitt ETD FAQ, KCL ID photo, HSUHK ID photo (no email), UCI ETD FAQ (login only), Chichester help (general help desk inbox, no size rule), Nelson Mandela MArch (deadline today, no size limit), LASALLE (no email), UCF graphic design (contact's role not stated), KPU GDMA (old page, no portfolio size limit).
+
+### 1. NUS Department of Design – ddpgcoursework@nus.edu.sg
+Subject: A free tool for the 20 MB MDes portfolio PDF
+
+Hello,
+
+We read the application instructions for the Master of Design in Integrated Design (AY2027/28). A CV plus three or four case studies in a single screen-optimised PDF of no more than 20 MB is a tight fit once renders, prototype photos and process images are included, and applicants sometimes end up uploading their portfolio to unknown converter sites to shrink it.
+
+Tools for World is a free website that compresses PDFs and images inside the browser, so the applicant's portfolio never leaves their own computer. No sign-up and no cost:
+
+https://toolsforworld.com/compress-pdf/
+https://toolsforworld.com/compress-image/
+
+If it seems useful, you're welcome to mention it to applicants or students. Thank you for your time.
+
+The Tools for World team
+https://toolsforworld.com
+
+If you'd rather not hear from us again, just reply and let us know.
+
+### 2. Abdul Mazid (CQUniversity) – a.mazid@cqu.edu.au
+Subject: A free tool for submitting freehand sketches as one PDF
+
+Hello Abdul,
+
+We came across the unit profile for ENTA13026 Advanced Engineering Design. Since the freehand sketching tasks are submitted online as one PDF with a title page, and the unit is also taken by online students, we thought a simple free tool might be handy for your students.
+
+Students often photograph their sketches on a phone and then struggle to combine the pictures into a single PDF of a sensible size, and some use unknown converter sites to do it. Tools for World turns photos into one PDF and compresses it, all inside the browser, so the student's work never leaves their own computer. It's free with no sign-up:
+
+https://toolsforworld.com/jpg-to-pdf/
+https://toolsforworld.com/compress-pdf/
+
+If it seems useful, feel free to share it with students or add it to the unit resources for a future offering. Thank you for your time.
+
+The Tools for World team
+https://toolsforworld.com
+
+If you'd rather not hear from us again, just reply and let us know.
