@@ -2003,3 +2003,72 @@ The Tools for World team
 https://toolsforworld.com
 
 If you'd rather not hear from us again, just reply and let us know.
+
+## Ready to send (2026-11-10)
+
+Gmail check 10 Nov (cloud run): connector working. Nothing sent from hello@ since 25 Oct (no sent mail in the last 3 days). No human replies from any outreach target, no bounces, no opt-out requests. Only mail to hello@ in the last 2 days was the automated My Slop notice (already logged 9 Nov). Everything else was newsletters, job alerts, Search Console notices and vendor promotions, nothing answered. Still pending from earlier runs: the 2026-10-25 (8), 2026-10-29 (9), 2026-10-30 (6), 2026-10-31 (6), 2026-11-01 (7), 2026-11-05 (6), 2026-11-06 (5), 2026-11-07 (3), 2026-11-08 (3) and 2026-11-09 (2) lists are "Ready to send" (not yet approved); YSU (Joy Christiansen Erb) is approved but not sent. Short list today on purpose (quality over quantity, large unapproved backlog). No backlink targets.
+
+| # | Name | University | Country | Email | Source page | Why |
+|---|---|---|---|---|---|---|
+| 1 | Academic Registry, postgraduate research thesis submission ("Contact for this page") | Aberystwyth University | UK (Wales) | pgsstaff@aber.ac.uk ("Contact for this page ... Email: pgsstaff@aber.ac.uk") | https://aber.ac.uk/en/academic-registry/students/pg-issues/research/theses-sub-proc/name-184087-en.html (modified 17 Jun 2026) | Thesis uploaded to Blackboard as one file: "The file must not exceed 100 MB. If the file exceeds this size, please create a separate file for images or compress the file." |
+| 2 | Library Research Services (thesis formatting and repository deposit) | Victoria University of Wellington, Te Herenga Waka | New Zealand | library-research@vuw.ac.nz ("Contact the Library Research Services team if you have questions or require further information") | https://www.wgtn.ac.nz/library/research/thesis-guide/thesis-formatting-guide (modified 9 Jan 2026) | Thesis must "Be in PDF format", max 1 GB; "If your thesis is over the limit, it will need to be split into multiple files... we strongly urge you to try and reduce the file size as much as you can." |
+| 3 | University Libraries thesis team (formatting review and ScholarWorks deposit) | American University of Beirut | Lebanon | lib-thesis@aub.edu.lb ("Email your draft as a Word file to lib-thesis@aub.edu.lb.") | https://aub.edu.lb.libguides.com/Thesis/Submission (updated 5 Nov 2026) | Students upload three PDFs to ScholarWorks: thesis, approval page "signed by your advisor and committee members" and signed release form; "Handwritten and electronic signatures are both accepted." |
+
+Considered and left out today: Otago Polytechnic School of Design (2MB portfolio limit, design@op.ac.nz, but a polytechnic, not a university), Reading TEL, Southampton eLearn, Sheffield Hallam TEL, Ulster Blackboard, Edinburgh card photo, UCC ID photo and e-thesis, Massey portfolios, Otago Univ. scanning page, Sheffield architecture, Nsukka (no email on page), SETU CTEL (address missing/obfuscated), Oxford Brookes, NCAD, ECA MArch, Aberdeen, TCD theses (generic addresses or no file rule), IADT repository (says files must not be compressed), Galway ID cards, UNILAG (email off-topic), Marmara and Antalya Bilim syllabi (no file rules / no email).
+
+### 1. Aberystwyth University Academic Registry – pgsstaff@aber.ac.uk
+Subject: A free tool for the 100 MB thesis upload limit
+
+Hello,
+
+We read your page on thesis submission procedures for research students. It's very clear, and it notes that the thesis must be uploaded to Blackboard as a single file of no more than 100 MB, and that students should compress the file if it is larger. With many images or scanned figures, that step can be tricky, and some students end up uploading their whole thesis to unknown converter sites to shrink it.
+
+Tools for World is a free website that compresses PDFs and images inside the browser, so the thesis file never leaves the student's own computer. No sign-up and no cost:
+
+https://toolsforworld.com/compress-pdf/
+https://toolsforworld.com/compress-image/
+
+If it seems useful, you're welcome to mention it to research students or add it to the guidance. Thank you for your time.
+
+The Tools for World team
+https://toolsforworld.com
+
+If you'd rather not hear from us again, just reply and let us know.
+
+### 2. Victoria University of Wellington Library Research Services – library-research@vuw.ac.nz
+Subject: A free in-browser option for splitting or shrinking thesis PDFs
+
+Kia ora Library Research Services team,
+
+We came across your Thesis Formatting Guide. It's practical and detailed, from embedding fonts to keeping file names simple, and it explains that a thesis over 1 GB must be split into several files, while urging students to reduce the file size as much as they can first.
+
+In case it helps students with that step, Tools for World is a free set of browser-based tools that compress and split PDFs. Everything runs on the student's own computer, so their thesis is never uploaded to a third-party server. No sign-up needed:
+
+https://toolsforworld.com/compress-pdf/
+https://toolsforworld.com/split-pdf/
+
+If it looks helpful, feel free to share it with students or mention it in the guide. Thanks for publishing such clear guidance.
+
+The Tools for World team
+https://toolsforworld.com
+
+If you'd rather not hear from us again, just reply and let us know.
+
+### 3. American University of Beirut Libraries thesis team – lib-thesis@aub.edu.lb
+Subject: A free tool for turning signed thesis pages into PDFs
+
+Hello,
+
+We read your thesis submission guide. Students upload three PDFs to ScholarWorks, including the approval page signed by the committee and the signed release form, and handwritten signatures are accepted. Students who sign on paper often photograph the pages on a phone and then struggle to turn the photos into a tidy PDF, and some use unknown converter sites to do it.
+
+Tools for World turns photos into a PDF and compresses PDFs, all inside the browser, so the signed pages and the thesis never leave the student's own computer. It's free with no sign-up:
+
+https://toolsforworld.com/jpg-to-pdf/
+https://toolsforworld.com/compress-pdf/
+
+If it seems useful, you're welcome to share it with graduate students or add it to the guide. Thank you for your time.
+
+The Tools for World team
+https://toolsforworld.com
+
+If you'd rather not hear from us again, just reply and let us know.
