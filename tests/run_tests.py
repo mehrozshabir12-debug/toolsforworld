@@ -91,6 +91,7 @@ async def main():
             t0 = time.time(); r = {"ok": False}
             try:
                 await pg.goto(BASE + slug + "/", wait_until="networkidle", timeout=60000)
+                await pg.wait_for_load_state("load"); await pg.wait_for_timeout(700)   # folded preset pages redirect, then apply the preset on load
                 files = [f"{S}/{x}" for x in (sample if isinstance(sample, list) else [sample])]
                 await pg.set_input_files("#fin", files); await pg.wait_for_timeout(600)
                 if setup:

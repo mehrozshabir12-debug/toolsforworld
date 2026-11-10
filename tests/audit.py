@@ -277,6 +277,9 @@ async def run_case(ctx, case, mobile=False):
     t0 = time.time()
     try:
         await pg.goto(BASE + slug + "/", wait_until="load", timeout=60000)
+        if "#p=" not in pg.url and await pg.locator('meta[http-equiv="refresh"]').count():   # folded preset page (focus.py/retire.py): follow the redirect
+            await pg.wait_for_url("**#p=*", timeout=30000)
+        await pg.wait_for_load_state("load"); await pg.wait_for_timeout(700)   # preset buttons apply on load
         await pg.wait_for_timeout(500)
         mem0 = await pg.evaluate("performance.memory ? performance.memory.usedJSHeapSize : 0")
         await pg.set_input_files("#fin", [f"{S}/{x}" for x in files]); await pg.wait_for_timeout(700)
