@@ -72,6 +72,8 @@ import striking
 striking.enrich(T)
 import seo_fixes
 seo_fixes.enrich(T)
+import focus
+focus.prepare(T)   # only 15 main tools stay visible to Google (see focus.py)
 import retire
 retire.apply(T)   # low-demand preset pages folded into their main tool (see retire.py)
 import dedupe
@@ -82,6 +84,8 @@ import up_serp
 up_serp.enrich(T)   # SERP-driven titles and size facts (see up_serp.py)
 import up_bing
 up_bing.enrich(T)   # Bing-driven titles/descriptions (see up_bing.py)
+focus.apply(T)
+SHOWN = {t["group"] for t in T if not t.get("hidden") and not t.get("parent")}   # menu groups that still have a visible tool
 BY = {t['slug']: t for t in T}
 
 # Hand-picked "related tools" for each main tool (what people usually need next)
@@ -188,7 +192,7 @@ def fit_desc(d):
 
 def page(rel_root, title, desc, canon, body, scripts="", body_attr="", jsonld=None, active="", keywords="", ads=True):
     title, desc = fit_title(title), fit_desc(desc)
-    nav = "".join(f'<a href="{rel_root}#{g}"{" aria-current=true" if active == g else ""}>{NAV[g]}</a>' for g, l in GROUPS)
+    nav = "".join(f'<a href="{rel_root}#{g}"{" aria-current=true" if active == g else ""}>{NAV[g]}</a>'  for g, l in GROUPS if g in SHOWN)
     ld = "".join(f'<script type="application/ld+json">{json.dumps(j, ensure_ascii=False)}</script>' for j in (jsonld or []))
     return f'''<!doctype html>
 <html lang="en">
@@ -265,7 +269,7 @@ def page_url(rel_path):
     return BASE + ("" if rel_path == "index.html" else rel_path[: -len("index.html")])
 
 
-PRESET_LABEL = {"resize-image": "More sizes (one click)", "image-to-text": "More languages (one click)", "qr-code-generator": "More presets (one click)"}
+PRESET_LABEL = {"resize-image": "More sizes (one click)", "image-to-text": "More languages (one click)", "qr-code-generator": "More presets (one click)", **focus.PRESET_LABEL}
 
 
 def write(rel_path, content):
@@ -329,6 +333,7 @@ def build():
         else:
             related = [BY[x] for x in RELATED.get(t["slug"], []) if x in BY] or \
                       [x for x in T if x["group"] == t["group"] and x["slug"] != t["slug"] and not x.get("parent")][:4]
+        related = [x for x in related if not x.get("hidden")]
         preset = f'<script>window.PRESET={json.dumps(t["preset"])}</script>' if t.get("preset") else ""
         if "ftool" in t:
             ui = FILE_UI.replace("EXTRA", t.get("extra", "")).replace('<span class="fmt" id="d-fmt"></span>', f'<span class="fmt" id="d-fmt">{FMT.get(t["ftool"], "")}</span>')
@@ -344,17 +349,19 @@ def build():
 {ui}
 <div class="how">{t["body"]}{"" if t.get("deduped") else guide_links(r, t, par)}{f'<h2>Questions</h2><div class="faq">{faq}</div>' if faq else ""}</div>
 {chips(r, related, "Related tools" if par else "More " + group_name.lower())}</section>'''
-        canon = BASE + t["slug"] + "/"
+        url = BASE + t["slug"] + "/"
+        canon = None if t.get("hidden") else url   # hidden tools: noindex, no canonical (see focus.py)
         # No WebApplication/SoftwareApplication item: Google's software-app rich result requires aggregateRating or review,
         # and the site has no genuine ratings to show (invented ones break Google's policy). Semrush flagged all 77 as errors.
         ld = []
-        trail = [("Home", BASE)] + ([(par["name"], BASE + par["slug"] + "/")] if par else []) + [(t["name"], canon)]
+        trail = [("Home", BASE)] + ([(par["name"], BASE + par["slug"] + "/")] if par else []) + [(t["name"], url)]
         ld.append(breadcrumb(trail))
         if t.get("faq"):
             ld.append({"@context": "https://schema.org", "@type": "FAQPage", "mainEntity": [
                 {"@type": "Question", "name": q, "acceptedAnswer": {"@type": "Answer", "text": a}} for q, a in t["faq"]]})
-        write(f'{t["slug"]}/index.html', page(r, t["title"], t["desc"], canon, body, scripts, attr, ld, t["group"], ads=not is_template(t)))
-        urls.append(canon)
+        write(f'{t["slug"]}/index.html', page(r, t["title"], t["desc"], canon, body, scripts, attr, ld, t["group"], ads=not (is_template(t) or t.get("hidden"))))
+        if canon:
+            urls.append(canon)
 
     # ---- home: tool grid with category filter (each tool has its own colour and icon) ----
     def short_names(kids):
@@ -407,7 +414,7 @@ def build():
     order = ["pdf-to-word", "compress-pdf", "compress-image", "remove-background", "word-to-pdf", "jpg-to-pdf", "image-to-text", "passport-photo-maker",
              "merge-pdf", "split-pdf", "pdf-to-jpg", "png-to-pdf", "heic-to-pdf", "txt-to-pdf", "pdf-to-png", "resize-image", "heic-to-jpg", "png-to-jpg", "jpg-to-png", "webp-to-jpg", "webp-to-png", "jfif-to-jpg", "jpeg-to-jpg",
              "qr-code-generator", "word-counter", "password-generator", "age-calculator", "date-calculator", "percentage-calculator", "mp4-to-mp3", "video-to-mp3"]
-    mains = sorted([t for t in T if not t.get("parent")], key=lambda t: order.index(t["slug"]) if t["slug"] in order else 99)
+    mains = sorted([t for t in T if not t.get("parent") and not t.get("hidden")], key=lambda t: order.index(t["slug"]) if t["slug"] in order else 99)
     TICK = '<svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" aria-hidden="true"><path d="M5 12.5l4.5 4.5L19 7.5"/></svg>'
 
     def tile(t):
@@ -416,7 +423,7 @@ def build():
                 f'<span class="tic" style="--c:{col}">{ic}</span><span class="tn">{t["name"]}</span><span class="td">{t["card"]}</span></a>')
 
     extra = ""
-    for par in [m for m in mains if any(x.get("parent") == m["slug"] for x in T)]:
+    for par in [m for m in mains if any(x.get("parent") == m["slug"] for x in T)]:  # none while focus.py folds all variants
         kids = [x for x in T if x.get("parent") == par["slug"]]
         extra += (f'<div class="xrow"><a class="xp" href="{par["slug"]}/">{par["name"]}</a>'
                   + "".join(f'<a href="{k["slug"]}/" title="{html.escape(k["name"])}">{n}</a>' for k, n in zip(kids, short_names(kids))) + "</div>")
@@ -427,15 +434,15 @@ def build():
             '<div id="results" hidden><div class="tgrid" id="rgrid"></div><p class="note" id="rnone" hidden>No tool matches that yet. <a href="contact/">Ask us for it</a>.</p></div>'
             '<div id="browse"><div id="recent" hidden><h2 class="h2">Recently used</h2><div class="chips" id="rchips"></div></div>'
             '<div class="filters" role="group" aria-label="Filter tools" id="all">'
-            + "".join(f'<button type="button" class="flt" data-f="{k}" aria-pressed="{"true" if k == "all" else "false"}">{lbl}</button>' for k, lbl in FILTERS)
+            + "".join(f'<button type="button" class="flt" data-f="{k}" aria-pressed="{"true" if k == "all" else "false"}">{lbl}</button>' for k, lbl in FILTERS if k == "all" or k in SHOWN)
             + '</div><div class="tgrid" id="tgrid">' + "".join(tile(t) for t in mains) + '</div>'
             + f'<ul class="trust"><li>{TICK}Files stay on your device</li><li>{TICK}No sign-up, no watermark, no limits</li><li>{TICK}Works on any phone or computer</li></ul>'
             + '<section class="popsizes" aria-labelledby="pop-h"><h2 class="h2" id="pop-h">Popular exact sizes</h2>'
-            + chips("", [t for s_ in HOME_SIZES for t in T if t["slug"] == s_], "Forms and portals")
+            + chips("", [retire.GONE[s_] for s_ in HOME_SIZES if s_ in retire.GONE] or [t for s_ in HOME_SIZES for t in T if t["slug"] == s_], "Forms and portals")
             + '<p class="note">Passport photos: <a href="guides/passport-photo-size-by-country/">sizes by country</a>.</p></section>'
             + '<section class="why" aria-labelledby="why-h"><h2 class="h2" id="why-h">Why Tools for World</h2><div class="whygrid">'
               '<div><h3>Your files stay with you</h3><p>PDFs, photos and scans are processed inside your browser. They are never sent to a server, so a passport scan or a payslip never leaves your device. <a href="guides/check-files-never-uploaded/">Check it yourself in one minute</a>.</p></div>'
-              '<div><h3>Made for real forms</h3><p>Job portals, visa forms and universities ask for exact sizes: a photo under 50 KB, a PDF under 2 MB, a 35&nbsp;×&nbsp;45&nbsp;mm passport photo. Each of these has its own ready-set page.</p></div>'
+              '<div><h3>Made for real forms</h3><p>Job portals, visa forms and universities ask for exact sizes: a photo under 50 KB, a PDF under 2 MB, a 35&nbsp;×&nbsp;45&nbsp;mm passport photo. Each of these is a one-click preset in its tool.</p></div>'
               '<div><h3>Free without catches</h3><p>No account, no watermark, no daily limit and no "upgrade to download". The site is paid for by ads, which never see your files.</p></div>'
               '<div><h3>Tested on every update</h3><p>Every tool is run automatically in a real browser each time the site changes, and official sizes link to the government pages they come from.</p></div>'
               '</div>'
@@ -450,10 +457,10 @@ def build():
               '<p>Most visitors arrive with a deadline: an application closes tonight and the portal keeps saying the file is too big or in the wrong format. '
               'Start with the error message. "File exceeds limit" means compress it; "invalid format" means convert it; "photo dimensions incorrect" means resize or crop it. '
               'If a scan is unreadable after shrinking, rescan in daylight rather than compressing harder, and if you have several pages, put them into one PDF before you upload.</p></section>'
-            + f'<details class="xall"><summary>All sizes, countries and languages</summary>{extra}</details></div>'
+            + (f'<details class="xall"><summary>All sizes, countries and languages</summary>{extra}</details>' if extra else '') + '</div>'
             + '<p class="aka">Tools for World (also written ToolsForWorld or Tools 4 World) is at toolsforworld.com.</p>')
     write("index.html", page("", "Tools for World – Free PDF, Image & Everyday Tools Online",
-                             "Free online tools: PDF to Word, Word to PDF, compress PDF and images, background remover, HEIC to JPG, OCR, QR code generator, MP4 to MP3 and more. Private: files never leave your device.",
+                             "Free online tools: PDF to Word, Word to PDF, compress PDF and images to an exact size, merge PDF, passport photos, HEIC to JPG, image to text and QR codes. Private: files never leave your device.",
                              BASE, home, "", ' class="home"',
                              jsonld=[{"@context": "https://schema.org", "@type": "WebSite", "name": "Tools for World", "alternateName": BRAND_NAMES, "url": BASE},
                                      {"@context": "https://schema.org", "@type": "Organization", "name": "Tools for World", "alternateName": BRAND_NAMES, "url": BASE, "logo": BASE + "logo.png",
