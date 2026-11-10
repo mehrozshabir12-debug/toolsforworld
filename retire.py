@@ -85,9 +85,10 @@ def stub(base, slug):
     """Redirect page left in the old folder."""
     t = GONE[slug]
     to = base + t["parent"] + "/"
+    rel = "../" + t["parent"] + "/"   # relative, so the redirect stays on the same host (local test server too)
     name = html.escape(t["name"])
     return (f'<!doctype html><html lang="en"><head><meta charset="utf-8"><title>{name} – moved</title>'
             f'<link rel="canonical" href="{to}"><meta name="robots" content="noindex,follow">'
-            f'<meta http-equiv="refresh" content="0; url={to}#p={slug}">'
-            f'<script>location.replace("{to}#p={slug}")</script></head>'
-            f'<body><p>{name} is now part of <a href="{to}#p={slug}">this tool</a>.</p></body></html>\n')
+            f'<meta http-equiv="refresh" content="0; url={rel}#p={slug}">'
+            f'<script>location.replace("{rel}#p={slug}")</script></head>'
+            f'<body><p>{name} is now part of <a href="{rel}#p={slug}">this tool</a>.</p></body></html>\n')
