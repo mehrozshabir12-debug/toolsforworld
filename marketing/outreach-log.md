@@ -2072,3 +2072,54 @@ The Tools for World team
 https://toolsforworld.com
 
 If you'd rather not hear from us again, just reply and let us know.
+
+## Ready to send (2026-11-12)
+
+Gmail check 12 Nov (cloud run): connector working. Nothing sent from hello@ since 25 Oct (no sent mail since 8 Nov). No human replies from any outreach target, no bounces, no opt-out requests. Only new mail to hello@ since 10 Nov: a vendor pitch (ben@trysubmi.com, directory listing service, 11 Nov), not answered. Still pending from earlier runs: the 2026-10-25 (8), 2026-10-29 (9), 2026-10-30 (6), 2026-10-31 (6), 2026-11-01 (7), 2026-11-05 (6), 2026-11-06 (5), 2026-11-07 (3), 2026-11-08 (3), 2026-11-09 (2) and 2026-11-10 (3) lists are "Ready to send" (not yet approved); YSU (Joy Christiansen Erb) is approved but not sent. Short list today on purpose (quality over quantity, large unapproved backlog). No backlink targets.
+
+Note for sending (site focus of 10 Nov, see GROWTH.md): only the 15 main tools are indexed now. Size-variant pages (e.g. /compress-image-to-10kb/, /compress-pdf-to-1mb/, /india-passport-photo/) redirect to their main tool, and /split-pdf/ is online but noindex. New emails link only the 15 main tools. Older unsent emails that link a variant or /split-pdf/ (e.g. VUW, 2026-11-10 #2) still work, but the owner may prefer the main-tool link when sending.
+
+| # | Name | University | Country | Email | Source page | Why |
+|---|---|---|---|---|---|---|
+| 1 | LeBow Instructional Support team (Instructional Technology), LeBow College of Business | Drexel University | USA | lebowintech@drexel.edu ("Business course students can email the LeBow Instructional Support team at lebowintech@drexel.edu") | https://www.lebow.drexel.edu/about/support-services/knowledge-base/submitting-handwritten-answers-blackboard | KB article "Submitting Handwritten Answers to Blackboard": "a camera-equipped smartphone can be used to scan the written pages into a PDF file which can be submitted to Blackboard"; gives Notes, Google Drive and OneDrive app options |
+| 2 | Center for Digital Education and Professional Development (CDEPD), Faculty of Humanities and Social Sciences | University of Sri Jayewardenepura | Sri Lanka | cdepd@fhss.sjp.ac.lk (page footer "CONNECT US"; same address on https://cdepd.fhss.sjp.ac.lk/contact/) | https://cdepd.fhss.sjp.ac.lk/student-corner/submitting-answers-online/ (published Jul 2021) | Official faculty guide "Submitting answers for online exams": "All answers must be uploaded as a single PDF for each exam"; students photograph handwritten sheets and "convert all images to a single PDF file" |
+
+Considered and left out today: Umeå School of Architecture portfolio (10 MB limit, but the address is the submission inbox and the page is from 2023), UMFK nursing portfolios (portfolio is a Google Drive link, no file rule), LSE scanning guide and Duke PrattWiki / Swarthmore scanning pages (no email), Lehigh handwritten-work page (could not be read), Kent Moodle submission page (no email), UNSW Bengaluru online assessments (needs OCR'd text-based PDFs, weak fit), Southern Utah ART 1800 (darkroom course, no instructor email), UBA Sociales Moodle guide (no email, no size rule), UPR Río Piedras architecture digital-delivery guide (25 MB limit, recommends iLovePDF/Smallpdf, but no email in the PDF and the school's site could not be fetched; retry another day), UKZN architecture portfolio requirements (file could not be read).
+
+### 1. Drexel LeBow Instructional Support – lebowintech@drexel.edu
+Subject: A free tool for turning photos of handwritten answers into one PDF
+
+Hello LeBow Instructional Support team,
+
+We came across your knowledge base article "Submitting Handwritten Answers to Blackboard". It's a clear guide, and the options for iPhone, Android and the OneDrive app cover most students well.
+
+For students who have already taken ordinary photos of their pages, or whose PDF turns out too large to upload, Tools for World is a free website that combines photos into one PDF and compresses PDFs, all inside the browser. The pages stay on the student's own device and are never uploaded to a server. No sign-up and no cost:
+
+https://toolsforworld.com/jpg-to-pdf/
+https://toolsforworld.com/compress-pdf/
+
+If it seems useful, you're welcome to mention it in the article or share it with students. Thank you for your time.
+
+The Tools for World team
+https://toolsforworld.com
+
+If you'd rather not hear from us again, just reply and let us know.
+
+### 2. University of Sri Jayewardenepura CDEPD – cdepd@fhss.sjp.ac.lk
+Subject: A free in-browser tool for turning answer-sheet photos into one PDF
+
+Hello CDEPD team,
+
+We read your Student Corner guide "Submitting answers for online exams". It explains clearly that handwritten answers are photographed and uploaded as a single PDF for each exam, and that students may use any app that converts images to a PDF.
+
+In case another option is useful, Tools for World is a free website that combines photos into one PDF and compresses the PDF if it is large, all inside the browser. It works on a phone, and the answer sheets stay on the student's own device; they are never uploaded to a server. No sign-up and no cost:
+
+https://toolsforworld.com/jpg-to-pdf/
+https://toolsforworld.com/compress-pdf/
+
+If it seems helpful, you're welcome to share it with students or mention it in the guide. Thank you for your time.
+
+The Tools for World team
+https://toolsforworld.com
+
+If you'd rather not hear from us again, just reply and let us know.
