@@ -88,7 +88,7 @@ def stub(base, slug):
     rel = "../" + t["parent"] + "/"   # relative, so the redirect stays on the same host (local test server too)
     name = html.escape(t["name"])
     return (f'<!doctype html><html lang="en"><head><meta charset="utf-8"><title>{name} – moved</title>'
-            f'<link rel="canonical" href="{to}"><meta name="robots" content="noindex,follow">'
+            f'<link rel="canonical" href="{to}">'
             f'<meta http-equiv="refresh" content="0; url={rel}#p={slug}">'
             f'<script>location.replace("{rel}#p={slug}")</script></head>'
             f'<body><p>{name} is now part of <a href="{rel}#p={slug}">this tool</a>.</p></body></html>\n')
